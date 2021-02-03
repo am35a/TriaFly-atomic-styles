@@ -9,16 +9,33 @@
         overflow: hidden
         text-overflow: ellipsis
         white-space: nowrap
-
     &-lowercase
         text-transform: lowercase
     &-uppercase
-        text-transform: uppercase !important
+        text-transform: uppercase
     &-capitalize
-        text-transform: capitalize !important
+        text-transform: capitalize
+    &-decoration
+        &-none
+            text-decoration: none
+        &-underline
+            text-decoration: underline
+        &-line-through
+            text-decoration: line-through
+    &-break
+        word-wrap: break-word
+        word-break: break-word
+    &-start,
+    &-left
+        text-align: left
+    &-end,
+    &-right
+        text-align: right
+    &-center
+        text-align: center
 
-.font
-    &-weight
+.f
+    &w
         &-light
             font-weight: light
         &-lighter
@@ -29,7 +46,6 @@
             font-weight: bold
         &-bolder
             font-weight: bolder
-    &-w
         &-100
             font-weight: 100
         &-200
@@ -48,5 +64,18 @@
             font-weight: 800
         &-900
             font-weight: 900
-    &-italic
-        font-style: italic
+    &st
+        &-italic
+            font-style: italic
+        &-normal
+            font-style: normal
+
+.lh
+    &-1
+        line-height: 1
+    &-sm
+        line-height: 1.25
+    &-base
+        line-height: 1.5
+    &-lg
+        line-height: 2

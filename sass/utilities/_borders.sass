@@ -19,34 +19,29 @@
     &-left-0
         border-left: 0
 
-// @each $color, $value in $theme-colors
-//     .border-#{$color}
-//         border-color: --border-color
-
-
 .rounded
-    border-radius: var(--rounded-1, calc(var(--key-size) * .25))
+    border-radius: var(--rounded-2, calc(var(--key-size) * .25))
     &-0
         border-radius: 0
     &-1, &-sm
         border-radius: var(--rounded-1, calc(var(--key-size) * .125))
     &-2
-        border-radius: var(--rounded-1, calc(var(--key-size) * .25))
+        border-radius: var(--rounded-2, calc(var(--key-size) * .25))
     &-3, &-lg
-        border-radius: var(--rounded-1, calc(var(--key-size) * .3))
+        border-radius: var(--rounded-3, calc(var(--key-size) * .3))
     &-circle
         border-radius: 50%
     &-pill
         border-radius: 50rem
-    &-top
-        border-top-left-radius: 0.25rem
-        border-top-right-radius: 0.25rem
-    &-end, &-right
-        border-top-right-radius: 0.25rem
-        border-bottom-right-radius: 0.25rem
-    &-bottom
-        border-bottom-right-radius: 0.25rem
-        border-bottom-left-radius: 0.25rem
-    &-start, &-left
-        border-bottom-left-radius: 0.25rem
-        border-top-left-radius: 0.25rem
+    &-top-0
+        border-top-left-radius: 0
+        border-top-right-radius: 0
+    &-end-0, &-right-0
+        border-top-right-radius: 0
+        border-bottom-right-radius: 0
+    &-bottom-0
+        border-bottom-right-radius: 0
+        border-bottom-left-radius: 0
+    &-start, &-left-0
+        border-bottom-left-radius: 0
+        border-top-left-radius: 0
