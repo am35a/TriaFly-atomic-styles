@@ -83,8 +83,8 @@
 .align-self-baseline { align-self: baseline; }
 .align-self-stretch { align-self: stretch; }
 
-.float-start { float: left; }
-.float-end { float: right; }
+.float-start, .float-left { float: left; }
+.float-end, .float-right { float: right; }
 .float-none { float: none; }
 
 .overflow-auto { overflow: auto; }
