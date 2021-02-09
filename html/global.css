@@ -1,0 +1,18 @@
+@import "layout.css";
+@import "layout-aside.css";
+
+:root {
+    --key-size: 1rem;
+
+    
+    --primary-color: #0077C8;
+    --secondary-color: #C8C8C8;
+    /* #EFF1F5 */
+
+    --info-color: #00B2E3;
+}
+
+
+html {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
