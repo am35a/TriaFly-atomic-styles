@@ -1,9 +1,0 @@
-.tf_layout-header > *:first-child {
-  width: calc(var(--key-size) * 3);
-  height: calc(var(--key-size) * 3);
-  margin: 0 1rem 0 0;
-  padding: 0;
-  border: none;
-  background-color: var(--positive-color);
-  color: white;
-}
