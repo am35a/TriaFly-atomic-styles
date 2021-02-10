@@ -1,0 +1,12 @@
+:root {
+  --key-size: 1rem;
+  --primary-color: #0077C8;
+  --secondary-color: #C8C8C8;
+  /* #EFF1F5 */
+  --info-color: #00B2E3;
+  --success-color: #28A745;
+  --warning-color: #FFC107;
+  --error-color: #DC3545;
+  --positive-color: #FFFFFF;
+  --negative-color: #000000;
+}
