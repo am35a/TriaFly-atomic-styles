@@ -1,14 +1,23 @@
 :root {
   --key-size: 1rem;
   --primary-color: #0077C8;
-  --secondary-color: #C8C8C8;
-  /* #EFF1F5 */
+  --secondary-color: #EFF1F5;
   --info-color: #00B2E3;
   --success-color: #28A745;
   --warning-color: #FFC107;
   --error-color: #DC3545;
-  --positive-color: #FFFFFF;
+  --positive-color: #ffffff;
+  --positive-color-15: rgba(255, 255, 255, 0.15);
+  --positive-color-25: rgba(255, 255, 255, 0.25);
+  --positive-color-50: rgba(255, 255, 255, 0.5);
+  --positive-color-75: rgba(255, 255, 255, 0.75);
+  --positive-color-85: rgba(255, 255, 255, 0.85);
   --negative-color: #000000;
+  --negative-color-15: rgba(0, 0, 0, 0.15);
+  --negative-color-25: rgba(0, 0, 0, 0.25);
+  --negative-color-50: rgba(0, 0, 0, 0.5);
+  --negative-color-75: rgba(0, 0, 0, 0.75);
+  --negative-color-85: rgba(0, 0, 0, 0.85);
 }
 html {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -26,7 +35,7 @@ html {
   height: calc(var(--key-size) * 3);
   display: flex;
   align-items: center;
-  background-color: #EFF1F5;
+  background-color: var(--secondary-color);
 }
 .tf_layout-aside {
   grid-row: 1/3;
@@ -71,7 +80,7 @@ html {
   right: 1rem;
 }
 .tf_layout-aside.tf_expand .tf_aside-fader {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--negative-color-50);
   width: 100vw;
   color: var(--positive-color);
   transition: background-color 0.25s 0s, width 0s 0s, color 0.25s 0s;
@@ -106,7 +115,7 @@ html {
   text-decoration: none;
 }
 .tf_aside-navbar .tf_navbar-item:not(.tf_navbar-item--active):hover .tf_item-hover {
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: var(--positive-color-25);
 }
 .tf_aside-navbar .tf_navbar-item:not(.tf_navbar-item--active) .tf_item-active {
   display: none;
@@ -116,12 +125,11 @@ html {
   pointer-events: none;
 }
 .tf_aside-navbar .tf_navbar-item .tf_item-hover {
-  background-color: rgba(255, 255, 255, 0);
   transition: 0.25s;
 }
 .tf_aside-navbar .tf_navbar-item .tf_item-active {
   border-left: calc(var(--key-size) * 0.125) solid var(--positive-color);
-  background-color: rgba(255, 255, 255, 0.125);
+  background-color: var(--positive-color-15);
 }
 .tf_aside-navbar .tf_navbar-item .tf_item-identicon {
   width: calc(var(--key-size) * 3);

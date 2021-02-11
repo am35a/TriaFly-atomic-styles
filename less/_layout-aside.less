@@ -15,7 +15,7 @@
         right: 1rem;
     }
     .tf_layout-aside.tf_expand & {
-        background-color: rgba(0, 0, 0, .5);
+        background-color: var(--negative-color-50);
         width: 100vw;
         color: var(--positive-color);
         transition: background-color 0.25s 0s, width 0s 0s, color 0.25s 0s;
@@ -51,7 +51,7 @@
         }
         &:not(.tf_navbar-item--active):hover {
             .tf_item-hover {
-                background-color: rgba(255, 255, 255, .25);
+                background-color: var(--positive-color-25);
             }
         }
         &:not(.tf_navbar-item--active) {
@@ -66,12 +66,11 @@
             }
         }
         .tf_item-hover {
-            background-color: rgba(255, 255, 255, .0);
             transition: .25s;
         }
         .tf_item-active {
             border-left: calc(var(--key-size) * .125) solid var(--positive-color);
-            background-color: rgba(255, 255, 255, .125);
+            background-color: var(--positive-color-15);
         }
         .tf_item-identicon {
             width: calc(var(--key-size) * 3);
