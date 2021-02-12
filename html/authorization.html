@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SPA layout</title>
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/global.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    </head>
+    <body class="tf_authorization desktop">
+        <div class="tf_authorization-body">
+            <div class="tf_authorization-logo">
+                <img class="tf_logo-icon" src="../images/logo-icon.svg" alt="">
+                <img class="tf_logo-name" src="../images/logo-name.svg" alt="">
+            </div>
+            <div class="tf_authorization-title">Демонстрационный стенд</div>
+            <form>
+                <!-- <div>Некорректные данные для входа в систему</div> -->
+                <div>
+                    <label for="username">Имя пользователя</label>
+                    <br>
+                    <input type="text" id="username" name="username" value="" placeholder="Логин">
+                </div>
+                <div>
+                    <label for="password">Пароль</label>
+                    <br>
+                    <input type="password" id="password" name="password" value="" placeholder="Пароль">
+                </div>
+                <div>
+                    <button type="submit">Войти</button>
+                </div>
+            </form>
+        </div>
+        <small class="tf_authorization-info"> &copy; 2021 / v4.11 power by Lotus Enginering</small>
+    </body>
+</html>
