@@ -59,11 +59,8 @@ html {
   align-items: center;
   margin-bottom: var(--key-size);
 }
-.tf_authorization .tf_authorization-body .tf_authorization-logo .tf_logo-icon {
-  height: calc(var(--key-size) * 3);
-}
-.tf_authorization .tf_authorization-body .tf_authorization-logo .tf_logo-name {
-  width: 100%;
+.tf_authorization .tf_authorization-body .tf_authorization-logo .tf_logo-full {
+  max-width: 100%;
 }
 .tf_authorization .tf_authorization-body .tf_authorization-title {
   font-size: 22px;
