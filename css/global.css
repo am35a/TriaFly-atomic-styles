@@ -1,3 +1,4 @@
+@import "_buttons.css";
 :root {
   --key-size: 1rem;
   --primary-color-l2: #aed4ed;
@@ -6,13 +7,13 @@
   --primary-color-d1: #004f85;
   --primary-color-d2: #002a47;
   --secondary-color-l2: #eff1f5;
-  --secondary-color-l1: #babcbf;
-  --secondary-color: #88898b;
-  --secondary-color-d1: #595a5b;
+  --secondary-color-l1: #c8c9c7;
+  --secondary-color: #888b8d;
+  --secondary-color-d1: #53565a;
   --secondary-color-d2: #2e2e2f;
-  --info-color-l2: #b5e9f7;
-  --info-color-l1: #63d0ee;
-  --info-color: #00b2e3;
+  --info-color-l2: #b5eaf7;
+  --info-color-l1: #63d2ed;
+  --info-color: #00b5e2;
   --info-color-d1: #006885;
   --info-color-d2: #002731;
   --success-color-l2: #bbe3c4;
@@ -20,28 +21,28 @@
   --success-color: #28a745;
   --success-color-d1: #1a6d2d;
   --success-color-d2: #0e3817;
-  --warning-color-l2: #fff4d3;
-  --warning-color-l1: #ffdc75;
-  --warning-color: #ffc107;
-  --warning-color-d1: #936f04;
-  --warning-color-d2: #332701;
+  --warning-color-l2: #ffefd1;
+  --warning-color-l1: #ffcc70;
+  --warning-color: #ffa300;
+  --warning-color-d1: #8c5a00;
+  --warning-color-d2: #2e1d00;
   --error-color-l2: #f5c3c8;
   --error-color-l1: #ea848e;
   --error-color: #dc3545;
   --error-color-d1: #93232e;
   --error-color-d2: #4f1319;
   --positive-color: #ffffff;
-  --positive-color-15: rgba(255, 255, 255, 0.15);
-  --positive-color-25: rgba(255, 255, 255, 0.25);
-  --positive-color-50: rgba(255, 255, 255, 0.5);
-  --positive-color-75: rgba(255, 255, 255, 0.75);
   --positive-color-85: rgba(255, 255, 255, 0.85);
+  --positive-color-75: rgba(255, 255, 255, 0.75);
+  --positive-color-50: rgba(255, 255, 255, 0.5);
+  --positive-color-25: rgba(255, 255, 255, 0.25);
+  --positive-color-15: rgba(255, 255, 255, 0.15);
   --negative-color: #000000;
-  --negative-color-15: rgba(0, 0, 0, 0.15);
-  --negative-color-25: rgba(0, 0, 0, 0.25);
-  --negative-color-50: rgba(0, 0, 0, 0.5);
-  --negative-color-75: rgba(0, 0, 0, 0.75);
   --negative-color-85: rgba(0, 0, 0, 0.85);
+  --negative-color-75: rgba(0, 0, 0, 0.75);
+  --negative-color-50: rgba(0, 0, 0, 0.5);
+  --negative-color-25: rgba(0, 0, 0, 0.25);
+  --negative-color-15: rgba(0, 0, 0, 0.15);
 }
 html {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
