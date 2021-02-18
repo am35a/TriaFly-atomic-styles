@@ -30,8 +30,6 @@
   --error-color: #dc3545;
   --error-color-d1: #6d1a22;
   --error-color-d2: #370d11;
-  --background-color: #eff1f5;
-  --button-text-color: #ffffff;
   --positive-color: #ffffff;
   --positive-color-85: rgba(255, 255, 255, 0.85);
   --positive-color-75: rgba(255, 255, 255, 0.75);
@@ -44,8 +42,11 @@
   --negative-color-75: rgba(0, 0, 0, 0.75);
   --negative-color-85: rgba(0, 0, 0, 0.85);
   --negative-color: #000000;
+  --background-color: #eff1f5;
 }
 html {
+  background-color: var(--background-color);
+  color: var(--negative-color-75);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 .tf_btn {
@@ -168,12 +169,10 @@ html {
   display: grid;
   height: 100vh;
   width: 100vw;
-  background-color: var(--secondary-color);
   background-image: url(../images/bkg-login-page.svg);
   background-position: left center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: var(--negative-color-75);
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -231,7 +230,6 @@ html {
   height: calc(var(--key-size) * 3);
   display: flex;
   align-items: center;
-  background-color: var(--secondary-color-l2);
 }
 .tf_layout-aside {
   grid-row: 1/3;
@@ -247,6 +245,7 @@ html {
   grid-row: 2/3;
   grid-column: 2/3;
   position: relative;
+  background-color: var(--positive-color);
   overflow: auto;
 }
 .tf_layout-aside-expander {
