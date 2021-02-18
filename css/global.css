@@ -1,47 +1,49 @@
 :root {
   --key-size: 1rem;
-  --primary-color-l2: #aed4ed;
-  --primary-color-l1: #5aa7dc;
+  --primary-color-l2: #bfddf1;
+  --primary-color-l1: #80bbe3;
   --primary-color: #0077c8;
-  --primary-color-d1: #004f85;
-  --primary-color-d2: #002a47;
-  --secondary-color-l2: #eff1f5;
-  --secondary-color-l1: #c8c9c7;
+  --primary-color-d1: #003b63;
+  --primary-color-d2: #001e32;
+  --secondary-color-l2: #e1e2e2;
+  --secondary-color-l1: #c3c5c6;
   --secondary-color: #888b8d;
-  --secondary-color-d1: #53565a;
-  --secondary-color-d2: #2e2e2f;
-  --info-color-l2: #b5eaf7;
-  --info-color-l1: #63d2ed;
+  --secondary-color-d1: #434546;
+  --secondary-color-d2: #222323;
+  --info-color-l2: #bfecf8;
+  --info-color-l1: #80daf0;
   --info-color: #00b5e2;
-  --info-color-d1: #006885;
-  --info-color-d2: #002731;
-  --success-color-l2: #bbe3c4;
-  --success-color-l1: #75c687;
+  --info-color-d1: #005a70;
+  --info-color-d2: #002d39;
+  --success-color-l2: #c9e9d0;
+  --success-color-l1: #94d3a2;
   --success-color: #28a745;
-  --success-color-d1: #1a6d2d;
-  --success-color-d2: #0e3817;
-  --warning-color-l2: #ffefd1;
-  --warning-color-l1: #ffcc70;
+  --success-color-d1: #145322;
+  --success-color-d2: #0a2a11;
+  --warning-color-l2: #ffe8bf;
+  --warning-color-l1: #ffd180;
   --warning-color: #ffa300;
-  --warning-color-d1: #8c5a00;
-  --warning-color-d2: #2e1d00;
-  --error-color-l2: #f5c3c8;
-  --error-color-l1: #ea848e;
+  --warning-color-d1: #7f5100;
+  --warning-color-d2: #402900;
+  --error-color-l2: #f6ccd0;
+  --error-color-l1: #ed9aa2;
   --error-color: #dc3545;
-  --error-color-d1: #93232e;
-  --error-color-d2: #4f1319;
+  --error-color-d1: #6d1a22;
+  --error-color-d2: #370d11;
+  --background-color: #eff1f5;
+  --button-text-color: #ffffff;
   --positive-color: #ffffff;
   --positive-color-85: rgba(255, 255, 255, 0.85);
   --positive-color-75: rgba(255, 255, 255, 0.75);
   --positive-color-50: rgba(255, 255, 255, 0.5);
   --positive-color-25: rgba(255, 255, 255, 0.25);
   --positive-color-15: rgba(255, 255, 255, 0.15);
-  --negative-color: #000000;
-  --negative-color-85: rgba(0, 0, 0, 0.85);
-  --negative-color-75: rgba(0, 0, 0, 0.75);
-  --negative-color-50: rgba(0, 0, 0, 0.5);
-  --negative-color-25: rgba(0, 0, 0, 0.25);
   --negative-color-15: rgba(0, 0, 0, 0.15);
+  --negative-color-25: rgba(0, 0, 0, 0.25);
+  --negative-color-50: rgba(0, 0, 0, 0.5);
+  --negative-color-75: rgba(0, 0, 0, 0.75);
+  --negative-color-85: rgba(0, 0, 0, 0.85);
+  --negative-color: #000000;
 }
 html {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -74,12 +76,12 @@ html {
   background-color: var(--primary-color-d1);
 }
 .tf_btn-primary:disabled {
-  color: var(--positive-color-75);
+  color: var(--primary-color-l2);
   background-color: var(--primary-color-l1);
 }
 .tf_btn-primary:focus {
   background-color: var(--primary-color-d1);
-  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--primary-color-l1);
+  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--primary-color);
 }
 .tf_btn-secondary {
   background-color: var(--secondary-color);
@@ -89,12 +91,12 @@ html {
   background-color: var(--secondary-color-d1);
 }
 .tf_btn-secondary:disabled {
-  color: var(--positive-color-75);
+  color: var(--secondary-color-l2);
   background-color: var(--secondary-color-l1);
 }
 .tf_btn-secondary:focus {
   background-color: var(--secondary-color-d1);
-  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--secondary-color-l1);
+  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--secondary-color);
 }
 .tf_btn-info {
   background-color: var(--info-color);
@@ -104,12 +106,12 @@ html {
   background-color: var(--info-color-d1);
 }
 .tf_btn-info:disabled {
-  color: var(--positive-color-75);
+  color: var(--info-color-l2);
   background-color: var(--info-color-l1);
 }
 .tf_btn-info:focus {
   background-color: var(--info-color-d1);
-  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--info-color-l1);
+  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--info-color);
 }
 .tf_btn-success {
   background-color: var(--success-color);
@@ -119,12 +121,12 @@ html {
   background-color: var(--success-color-d1);
 }
 .tf_btn-success:disabled {
-  color: var(--positive-color-75);
+  color: var(--success-color-l2);
   background-color: var(--success-color-l1);
 }
 .tf_btn-success:focus {
   background-color: var(--success-color-d1);
-  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--success-color-l1);
+  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--success-color);
 }
 .tf_btn-warning {
   background-color: var(--warning-color);
@@ -134,12 +136,12 @@ html {
   background-color: var(--warning-color-d1);
 }
 .tf_btn-warning:disabled {
-  color: var(--positive-color-75);
+  color: var(--warning-color-l2);
   background-color: var(--warning-color-l1);
 }
 .tf_btn-warning:focus {
   background-color: var(--warning-color-d1);
-  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--warning-color-l1);
+  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--warning-color);
 }
 .tf_btn-error {
   background-color: var(--error-color);
@@ -149,12 +151,12 @@ html {
   background-color: var(--error-color-d1);
 }
 .tf_btn-error:disabled {
-  color: var(--positive-color-75);
+  color: var(--error-color-l2);
   background-color: var(--error-color-l1);
 }
 .tf_btn-error:focus {
   background-color: var(--error-color-d1);
-  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--error-color-l1);
+  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--error-color);
 }
 .tf_btn-sm {
   --key-size: 0.875rem;
@@ -244,6 +246,7 @@ html {
 .tf_layout-main {
   grid-row: 2/3;
   grid-column: 2/3;
+  position: relative;
   overflow: auto;
 }
 .tf_layout-aside-expander {
