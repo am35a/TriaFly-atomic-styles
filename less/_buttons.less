@@ -27,12 +27,12 @@
                 background-color: var(~"--@{value}-color-d1");
             }
             &:disabled {
-                color: var(--positive-color-75);
+                color: var(~"--@{value}-color-l2");
                 background-color: var(~"--@{value}-color-l1");
             }
             &:focus {
                 background-color: var(~"--@{value}-color-d1");
-                box-shadow: 0 0 0 calc(var(--key-size) * .125) var(~"--@{value}-color-l1");
+                box-shadow: 0 0 0 calc(var(--key-size) * .125) var(~"--@{value}-color");
             }
         }
     });
