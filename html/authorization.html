@@ -14,25 +14,19 @@
         <div class="tf_authorization-body">
             <div class="tf_authorization-logo">
                 <img class="tf_logo-full" src="../images/logo-full.svg" alt="">
-                <!-- <img class="tf_logo-icon" src="../images/logo-icon.svg" alt="">
-                <img class="tf_logo-name" src="../images/logo-name.svg" alt=""> -->
             </div>
             <div class="tf_authorization-title">Демонстрационный стенд</div>
-            <form>
-                <!-- <div>Некорректные данные для входа в систему</div> -->
+            <form class="d-grid g-3">
                 <div>
-                    <label for="username">Имя пользователя</label>
-                    <br>
-                    <input type="text" id="username" name="username" value="" placeholder="Логин">
+                    <label for="username" class="tf_form-label">Логин</label>
+                    <input id="username" class="tf_form-control tf_form-control-secondary" name="username" placeholder="логин" type="text">
                 </div>
                 <div>
-                    <label for="password">Пароль</label>
-                    <br>
-                    <input type="password" id="password" name="password" value="" placeholder="Пароль">
+                    <label for="password" class="tf_form-label">Пароль</label>
+                    <input id="password" class="tf_form-control tf_form-control-secondary" name="password" placeholder="пароль" type="password">
                 </div>
-                <div>
-                    <button class="" type="submit">Войти</button>
-                </div>
+                <!-- <div class="text-error"><i class="fas fa-exclamation-circle"></i> Некорректные данные для входа в систему</div> -->
+                <button class="tf_btn tf_btn-primary" type="submit">Войти</button>
             </form>
         </div>
         <small class="tf_authorization-info"> &copy; 2021 / v4.11 power by Lotus Enginering</small>

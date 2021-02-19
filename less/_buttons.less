@@ -1,6 +1,6 @@
 .tf_btn {
     display: inline-block;
-    padding: calc(var(--key-size) * .425) calc(var(--key-size) * .625);
+    padding: calc(var(--key-size) * .25) calc(var(--key-size) * .625);
     background-color: transparent;
     border: calc(var(--key-size) * .0625) solid transparent;
     border-radius: calc(var(--key-size) * .125);
@@ -8,11 +8,12 @@
     text-align: center;
     color: inherit;
     font-size: var(--key-size);
+    line-height: 1.5;
     text-decoration: none;
     cursor: pointer;
     user-select: none;
     &:disabled {
-     pointer-events:none;
+        pointer-events: none;
     }
     &:focus {
         outline: 0;
@@ -27,8 +28,8 @@
                 background-color: var(~"--@{value}-color-d1");
             }
             &:disabled {
-                color: var(~"--@{value}-color-l2");
                 background-color: var(~"--@{value}-color-l1");
+                color: var(~"--@{value}-color-l2");
             }
             &:focus {
                 background-color: var(~"--@{value}-color-d1");

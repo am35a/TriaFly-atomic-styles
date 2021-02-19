@@ -49,9 +49,14 @@ html {
   color: var(--negative-color-75);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
 .tf_btn {
   display: inline-block;
-  padding: calc(var(--key-size) * 0.425) calc(var(--key-size) * 0.625);
+  padding: calc(var(--key-size) * 0.25) calc(var(--key-size) * 0.625);
   background-color: transparent;
   border: calc(var(--key-size) * 0.0625) solid transparent;
   border-radius: calc(var(--key-size) * 0.125);
@@ -59,6 +64,7 @@ html {
   text-align: center;
   color: inherit;
   font-size: var(--key-size);
+  line-height: 1.5;
   text-decoration: none;
   cursor: pointer;
   user-select: none;
@@ -77,8 +83,8 @@ html {
   background-color: var(--primary-color-d1);
 }
 .tf_btn-primary:disabled {
-  color: var(--primary-color-l2);
   background-color: var(--primary-color-l1);
+  color: var(--primary-color-l2);
 }
 .tf_btn-primary:focus {
   background-color: var(--primary-color-d1);
@@ -92,8 +98,8 @@ html {
   background-color: var(--secondary-color-d1);
 }
 .tf_btn-secondary:disabled {
-  color: var(--secondary-color-l2);
   background-color: var(--secondary-color-l1);
+  color: var(--secondary-color-l2);
 }
 .tf_btn-secondary:focus {
   background-color: var(--secondary-color-d1);
@@ -107,8 +113,8 @@ html {
   background-color: var(--info-color-d1);
 }
 .tf_btn-info:disabled {
-  color: var(--info-color-l2);
   background-color: var(--info-color-l1);
+  color: var(--info-color-l2);
 }
 .tf_btn-info:focus {
   background-color: var(--info-color-d1);
@@ -122,8 +128,8 @@ html {
   background-color: var(--success-color-d1);
 }
 .tf_btn-success:disabled {
-  color: var(--success-color-l2);
   background-color: var(--success-color-l1);
+  color: var(--success-color-l2);
 }
 .tf_btn-success:focus {
   background-color: var(--success-color-d1);
@@ -137,8 +143,8 @@ html {
   background-color: var(--warning-color-d1);
 }
 .tf_btn-warning:disabled {
-  color: var(--warning-color-l2);
   background-color: var(--warning-color-l1);
+  color: var(--warning-color-l2);
 }
 .tf_btn-warning:focus {
   background-color: var(--warning-color-d1);
@@ -152,8 +158,8 @@ html {
   background-color: var(--error-color-d1);
 }
 .tf_btn-error:disabled {
-  color: var(--error-color-l2);
   background-color: var(--error-color-l1);
+  color: var(--error-color-l2);
 }
 .tf_btn-error:focus {
   background-color: var(--error-color-d1);
@@ -164,6 +170,153 @@ html {
 }
 .tf_btn-lg {
   --key-size: 1.125rem;
+}
+.tf_form-label {
+  display: inline-block;
+  margin: auto auto calc(var(--key-size) * 0.5) auto;
+}
+.tf_form-control {
+  display: block;
+  width: 100%;
+  padding: calc(var(--key-size) * 0.25) calc(var(--key-size) * 0.625);
+  background-color: transparent;
+  background-clip: padding-box;
+  border: calc(var(--key-size) * 0.0625) solid currentColor;
+  border-radius: calc(var(--key-size) * 0.125);
+  color: inherit;
+  font-size: var(--key-size);
+  line-height: 1.5;
+  appearance: none;
+}
+.tf_form-control:disabled {
+  pointer-events: none;
+}
+.tf_form-control:focus {
+  outline: 0;
+}
+.tf_form-control-primary {
+  border-color: var(--primary-color);
+  color: var(--primary-color-d1);
+}
+.tf_form-control-primary:hover {
+  border-color: var(--primary-color-d1);
+}
+.tf_form-control-primary:disabled {
+  border-color: var(--primary-color-l1);
+  background-color: var(--primary-color-l2);
+  color: var(--primary-color-l1);
+}
+.tf_form-control-primary:focus {
+  border-color: var(--primary-color-d1);
+  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--primary-color);
+}
+.tf_form-control-primary::placeholder {
+  color: var(--primary-color);
+}
+.tf_form-control-secondary {
+  border-color: var(--secondary-color);
+  color: var(--secondary-color-d1);
+}
+.tf_form-control-secondary:hover {
+  border-color: var(--secondary-color-d1);
+}
+.tf_form-control-secondary:disabled {
+  border-color: var(--secondary-color-l1);
+  background-color: var(--secondary-color-l2);
+  color: var(--secondary-color-l1);
+}
+.tf_form-control-secondary:focus {
+  border-color: var(--secondary-color-d1);
+  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--secondary-color);
+}
+.tf_form-control-secondary::placeholder {
+  color: var(--secondary-color);
+}
+.tf_form-control-info {
+  border-color: var(--info-color);
+  color: var(--info-color-d1);
+}
+.tf_form-control-info:hover {
+  border-color: var(--info-color-d1);
+}
+.tf_form-control-info:disabled {
+  border-color: var(--info-color-l1);
+  background-color: var(--info-color-l2);
+  color: var(--info-color-l1);
+}
+.tf_form-control-info:focus {
+  border-color: var(--info-color-d1);
+  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--info-color);
+}
+.tf_form-control-info::placeholder {
+  color: var(--info-color);
+}
+.tf_form-control-success {
+  border-color: var(--success-color);
+  color: var(--success-color-d1);
+}
+.tf_form-control-success:hover {
+  border-color: var(--success-color-d1);
+}
+.tf_form-control-success:disabled {
+  border-color: var(--success-color-l1);
+  background-color: var(--success-color-l2);
+  color: var(--success-color-l1);
+}
+.tf_form-control-success:focus {
+  border-color: var(--success-color-d1);
+  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--success-color);
+}
+.tf_form-control-success::placeholder {
+  color: var(--success-color);
+}
+.tf_form-control-warning {
+  border-color: var(--warning-color);
+  color: var(--warning-color-d1);
+}
+.tf_form-control-warning:hover {
+  border-color: var(--warning-color-d1);
+}
+.tf_form-control-warning:disabled {
+  border-color: var(--warning-color-l1);
+  background-color: var(--warning-color-l2);
+  color: var(--warning-color-l1);
+}
+.tf_form-control-warning:focus {
+  border-color: var(--warning-color-d1);
+  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--warning-color);
+}
+.tf_form-control-warning::placeholder {
+  color: var(--warning-color);
+}
+.tf_form-control-error {
+  border-color: var(--error-color);
+  color: var(--error-color-d1);
+}
+.tf_form-control-error:hover {
+  border-color: var(--error-color-d1);
+}
+.tf_form-control-error:disabled {
+  border-color: var(--error-color-l1);
+  background-color: var(--error-color-l2);
+  color: var(--error-color-l1);
+}
+.tf_form-control-error:focus {
+  border-color: var(--error-color-d1);
+  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--error-color);
+}
+.tf_form-control-error::placeholder {
+  color: var(--error-color);
+}
+.tf_form-control-sm {
+  --key-size: 0.875rem;
+}
+.tf_form-control-lg {
+  --key-size: 1.125rem;
+}
+.tf_form-text {
+  margin-top: calc(var(--key-size) * 0.25);
+  font-size: calc(var(--key-size) * 0.875);
 }
 .tf_authorization {
   display: grid;
@@ -1048,6 +1201,30 @@ html {
 .pl-5 {
   padding-left: var(--m-5, calc(var(--key-size) * 3));
 }
+.g-0,
+.gap-0 {
+  gap: 0;
+}
+.g-1,
+.gap-1 {
+  gap: var(--m-1, calc(var(--key-size) * 0.25));
+}
+.g-2,
+.gap-2 {
+  gap: var(--m-2, calc(var(--key-size) * 0.5));
+}
+.g-3,
+.gap-3 {
+  gap: var(--m-3, var(--key-size));
+}
+.g-4,
+.gap-4 {
+  gap: var(--m-4, calc(var(--key-size) * 1.5));
+}
+.g-5,
+.gap-5 {
+  gap: var(--m-5, calc(var(--key-size) * 3));
+}
 .text-justify {
   text-align: justify;
 }
@@ -1094,6 +1271,24 @@ html {
 }
 .text-center {
   text-align: center;
+}
+.text-primary {
+  color: var(--primary-color);
+}
+.text-secondary {
+  color: var(--secondary-color);
+}
+.text-info {
+  color: var(--info-color);
+}
+.text-success {
+  color: var(--success-color);
+}
+.text-warning {
+  color: var(--warning-color);
+}
+.text-error {
+  color: var(--error-color);
 }
 .fw-lighter {
   font-weight: lighter;
