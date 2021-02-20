@@ -393,7 +393,7 @@ html {
   grid-column: 1/2;
   width: 0;
   max-height: 100vh;
-  z-index: 1;
+  z-index: 1000;
 }
 .desktop .tf_layout-aside {
   width: calc(var(--key-size) * 3);

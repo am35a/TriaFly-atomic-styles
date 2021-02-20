@@ -17,7 +17,7 @@
         grid-column: 1/2;
         width: 0;
         max-height: 100vh;
-        z-index: 1;
+        z-index: 1000; // here is temporary z-index, after the transfer, it must be reduced, preferably to "z-index: 1"
         .desktop & {
             width: calc(var(--key-size) * 3);
         }
