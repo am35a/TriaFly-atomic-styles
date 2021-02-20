@@ -1,7 +1,9 @@
 .tf_authorization {
     display: grid;
-    height: 100vh;
-    width: 100vw;
+    min-width: 100vw;
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
     background-image: url(../images/bkg-login-page.svg);
     background-position: left center;
     background-repeat: no-repeat;
@@ -13,6 +15,7 @@
         grid-column: 1/2;
     }
     .tf_authorization-body {
+        padding: var(--key-size) 0;
         margin: auto;
         > * {
             max-width: calc(var(--key-size) * 16);

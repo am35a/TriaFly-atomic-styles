@@ -179,7 +179,7 @@ html {
   display: block;
   width: 100%;
   padding: calc(var(--key-size) * 0.25) calc(var(--key-size) * 0.625);
-  background-color: transparent;
+  background-color: var(--positive-color);
   background-clip: padding-box;
   border: calc(var(--key-size) * 0.0625) solid currentColor;
   border-radius: calc(var(--key-size) * 0.125);
@@ -320,8 +320,10 @@ html {
 }
 .tf_authorization {
   display: grid;
-  height: 100vh;
-  width: 100vw;
+  min-width: 100vw;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
   background-image: url(../images/bkg-login-page.svg);
   background-position: left center;
   background-repeat: no-repeat;
@@ -334,6 +336,7 @@ html {
   grid-column: 1/2;
 }
 .tf_authorization .tf_authorization-body {
+  padding: var(--key-size) 0;
   margin: auto;
 }
 .tf_authorization .tf_authorization-body > * {
