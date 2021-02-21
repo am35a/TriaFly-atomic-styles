@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 57 47">
+    <polygon fill="#C8C8C8" points="10,0 10,23.9 18,19.5 18,8 49,8 49,39 38.8,39 38.8,47 57,47 57,0 "/>
+    <linearGradient id="gradient_1" gradientUnits="userSpaceOnUse" x1="38.8" y1="23.78" x2="56" y2="23.78" gradientTransform="matrix(1 0 0 -1 0 47.28)">
+    	<stop  offset="0" style="stop-color:#666666"/>
+    	<stop  offset="1" style="stop-color:#666666; stop-opacity:0"/>
+    </linearGradient>
+    <polygon fill="url(#gradient_1)" points="50,7 50,40 38.8,40 38.8,46 56,46 56,1"/>
+    <path fill="#00B2E3" d="M31.3,24.5l7.5-13.2L0,32.5v0.9l7.5,4.4h15.9l0.9-1.3H10.6L31.3,24.5z"/>
+    <path fill="#0077C8" d="M38.8,47V11.3l-7.5,13.2v17.6L38.8,47z M17.4,32.6l-6.8,3.9h13.7L17.4,32.6z M21.4,32.5l7.9-4.6v9.2L21.4,32.5z"/>
+</svg>
