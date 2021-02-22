@@ -1,4 +1,5 @@
 <script>
+    import { state } from '../store/store'
     import AsideNav from '../components/AsideNav.svelte'
 
     export let segment
@@ -15,7 +16,7 @@
     {/if}    
 </svelte:head>
 
-<main class="tf_layout-main p-3">
+<main class="tf_layout-main {$state.fullscreen ? 'tf_layout-main--fullscreen' : ''} p-3">
     <slot></slot>
 </main>
 <header class="tf_layout-header position-relative">

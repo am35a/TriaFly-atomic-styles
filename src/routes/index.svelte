@@ -1,6 +1,6 @@
 <script>
+    import { state } from '../store/store'
     // import successkid from 'images/successkid.jpg';
-    // export let fullscreen = false
 </script>
 
 <style>
@@ -11,14 +11,14 @@
     <title>TriaFly UI Kit - CSS/JS framework for TriaFly BI system</title>
 </svelte:head>
 
-<!-- <div>
+<div>
     <button
-        on:click="{() => fullscreen = !fullscreen}"
+        on:click="{() => $state.fullscreen = !$state.fullscreen}"
         class="tf_btn tf_btn-secondary float-right"
     >
-        <i class="fas {fullscreen ? 'fa-expand' : 'fa-compress'}"></i>
+        <i class="fas {$state.fullscreen ? 'fa-compress' : 'fa-expand'}"></i>
     </button>
-</div> -->
+</div>
 <div class="d-grid g-3">
     <div>
         <!-- <img class="d-inline-flex" src="images/logo-icon.svg" alt="TriaFly"> -->
