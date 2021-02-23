@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>Utilities</title>
+	<title>TriaFly UI Kit - utilities</title>
 </svelte:head>
 
 will be soon

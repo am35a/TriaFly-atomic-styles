@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>Forms</title>
+	<title>TriaFly UI Kit - forms</title>
 </svelte:head>
 
 <h1>forms</h1>

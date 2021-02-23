@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>Layout</title>
+	<title>TriaFly UI Kit - layout</title>
 </svelte:head>
 
 <h1>Layout</h1>

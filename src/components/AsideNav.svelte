@@ -1,10 +1,11 @@
 <script>
+	import { state } from '../store/store'
+
 	import IconHome from '../components/icons/Home.svelte'
 	import IconButtons from './icons/Buttons.svelte'
 	import IconForms from './icons/Forms.svelte'
 	import IconLayout from './icons/Layout.svelte'
 	import IconUtilities from './icons/Utilities.svelte'
-	// import IconBlog from './icons/Blog.svelte'
 
 	export let segment
 	const pages = [
@@ -41,7 +42,10 @@
 	}
 </style>
 
-<div class="tf_aside-fader">
+<div
+	class="tf_aside-fader"
+	on:click={() => $state.isAsideExpand = false}
+>
 	<i class="fas fa-times"></i>
 </div>
 <div class="tf_aside-navbar">
@@ -52,7 +56,10 @@
 		<a class="tf_item-title" href=".">Home</a>
 	</div>
 	{#each pages as page (page.id)}
-		<div class="tf_navbar-item {segment === page.segment  ? 'tf_navbar-item--active' : ''}">
+		<div
+			class="tf_navbar-item {segment === page.segment  ? 'tf_navbar-item--active' : ''}"
+			on:click={() => $state.isAsideExpand = false}
+		>
 			<div class="tf_item-hover"></div>
 			<div class="tf_item-active"></div>
 			<a class="tf_item-identicon" href="{page.segment}">

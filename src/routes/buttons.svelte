@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>Buttons</title>
+	<title>TriaFly UI Kit - buttons</title>
 </svelte:head>
 
 <h1>buttons</h1>

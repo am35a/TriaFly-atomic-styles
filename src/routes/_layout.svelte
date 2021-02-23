@@ -20,20 +20,25 @@
     <slot></slot>
 </main>
 <header class="tf_layout-header position-relative">
-    <button class="tf_layout-aside-expander" tabindex="-1"><i class="fas fa-bars"></i></button>
+    <button
+        class="tf_layout-aside-expander" tabindex="-1"
+        on:click={() => $state.isAsideExpand = true}
+    >
+        <i class="fas fa-bars"></i>
+    </button>
     <div class="text-uppercase">
         {segment === undefined ? 'Home' : segment}
     </div>
     <div class="d-flex align-items-center ml-auto h-100">
         <button
             class="tf_btn px-3 h-100"
-            on:click="{() => inverTheme = !inverTheme}"
+            on:click={() => inverTheme = !inverTheme}
         >
             <i class="fas fa-fill-drip"></i>
         </button>
         <a class="d-flex text-decoration-none px-2 h-100" href="https://github.com/am35a/TriaFly-atomic-styles" target="_blank"><i class="fab fa-github fa-2x m-auto"></i></a>
     </div>
 </header>
-<aside class="tf_layout-aside">
+<aside class="tf_layout-aside {$state.isAsideExpand ? 'tf_expand' : ''}">
     <AsideNav {segment}/>
 </aside>
