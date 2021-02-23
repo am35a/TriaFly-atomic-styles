@@ -403,8 +403,10 @@ html {
   grid-row: 2/3;
   grid-column: 2/3;
   position: relative;
-  background-color: var(--positive-color);
   overflow: auto;
+}
+.tf_layout-main:not(:empty) {
+  background-color: var(--positive-color);
 }
 .tf_layout-main--fullscreen,
 .tf_layout-mainfullscreen-mode {
