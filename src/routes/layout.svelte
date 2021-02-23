@@ -1,4 +1,7 @@
 <script>
+    import { Highlight } from "svelte-highlight"
+    import { xml } from "svelte-highlight/languages"
+
     import { state } from '../store/store'
 </script>
 
@@ -12,6 +15,13 @@
 <p>
     Add <code>.tf_layout-main--fullscreen</code> or <code>.fullscreen-mode</code> classes to <code>.tf_layout-main</code> to expand the area to full screen
 </p>
+
+<Highlight class="d-inline" language="{xml}" code='
+    <aside class="tf_layout-aside tf_layout-main--fullscreen">
+        ...
+    </aside>
+'/>
+
 <button
     on:click="{() => $state.fullscreen = !$state.fullscreen}"
     class="tf_btn tf_btn-secondary"

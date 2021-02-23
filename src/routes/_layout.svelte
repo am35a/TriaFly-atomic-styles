@@ -1,4 +1,6 @@
 <script>
+    import { qtcreator_dark, qtcreator_light } from "svelte-highlight/styles"
+
     import { state } from '../store/store'
     import AsideNav from '../components/AsideNav.svelte'
 
@@ -13,7 +15,11 @@
 <svelte:head>
     {#if inverTheme}
 	    <link rel="stylesheet" href="css/_root-colors-alt.css">
-    {/if}    
+        {@html qtcreator_light}
+    {:else}
+        {@html qtcreator_dark}
+    {/if}
+    
 </svelte:head>
 
 <main class="tf_layout-main {$state.fullscreen ? 'tf_layout-main--fullscreen' : ''} p-3">
