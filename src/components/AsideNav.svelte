@@ -2,6 +2,7 @@
 	import IconHome from '../components/icons/Home.svelte'
 	import IconButtons from './icons/Buttons.svelte'
 	import IconForms from './icons/Forms.svelte'
+	import IconLayout from './icons/Layout.svelte'
 	import IconUtilities from './icons/Utilities.svelte'
 	// import IconBlog from './icons/Blog.svelte'
 
@@ -19,6 +20,11 @@
 			},
 			{
 				id: 3,
+				segment: 'layout',
+				component: IconLayout
+			},
+			{
+				id: 100,
 				segment: 'utilities',
 				component: IconUtilities
 			}
