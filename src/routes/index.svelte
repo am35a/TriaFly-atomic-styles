@@ -13,7 +13,7 @@
 <div class="d-grid g-3">
     <div>
         <!-- <img class="d-inline-flex" src="images/logo-icon.svg" alt="TriaFly"> -->
-        <h1>TriaFly UI Kit</h1>
+        <div class="h1" role="heading" aria-level="1">TriaFly UI Kit</div>
         <strong>This tool make design easier to create responsive and high-loaded applications.</strong>
         <p>Easy to design and multiple settings of responsive Bootstrap interfaces makes it a promising toolkit with lots of diverse components.</p>
     </div>

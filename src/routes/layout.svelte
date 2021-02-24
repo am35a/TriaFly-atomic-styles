@@ -9,9 +9,9 @@
 	<title>TriaFly UI Kit - layout</title>
 </svelte:head>
 
-<h1>Layout</h1>
+<div class="h1" role="heading" aria-level="1">Layout</div>
 
-<h2>Full screen mode</h2>
+<div class="h2" role="heading" aria-level="2">Full screen mode</div>
 <p>
     Add <code>.tf_layout-main--fullscreen</code> or <code>.fullscreen-mode</code> classes to <code>.tf_layout-main</code> to expand the area to full screen
 </p>
