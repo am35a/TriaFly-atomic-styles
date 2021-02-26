@@ -1,0 +1,29 @@
+.tf_block {
+    position: relative;
+    display: grid;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: var(--positive-color);
+    background-clip: border-box;
+    // border: var(--border-width, calc(var(--key-size) * .0625)) solid var(--border-color, currentColor);
+    border-radius: var(--rounded-1, calc(var(--key-size) * .125));
+    &-header {
+        padding: calc(var(--key-size) * .5);
+    }
+    &-body {
+        padding: calc(var(--key-size) * .5);
+    }
+    &-footer {
+        padding: calc(var(--key-size) * .5);
+    }
+}
+
+.tf_block-secondary {
+    
+    .tf_block-header {
+        background-color: var(--secondary-color-l2);
+    }
+    .tf_block-footer {
+        background-color: var(--secondary-color-l2);
+    }
+}

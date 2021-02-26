@@ -3,10 +3,6 @@
     import { xml } from "svelte-highlight/languages"
 </script>
 
-<svelte:head>
-	<title>TriaFly UI Kit - buttons</title>
-</svelte:head>
-
 <div class="h1" role="heading" aria-level="1">Buttons</div>
 <p>
     To create a default button, use the tf_btn class, but default state is not recommended to use without color classes for any buttons.

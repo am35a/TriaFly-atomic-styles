@@ -13,13 +13,13 @@
 </style>
 
 <svelte:head>
+    <title>TriaFly UI Kit - {segment}</title>
     {#if inverTheme}
 	    <link rel="stylesheet" href="css/_root-colors-alt.css">
         {@html qtcreator_light}
     {:else}
         {@html qtcreator_dark}
     {/if}
-    
 </svelte:head>
 
 <main class="tf_layout-main {$state.fullscreen ? 'tf_layout-main--fullscreen' : ''} p-3">

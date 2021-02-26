@@ -1,7 +1,3 @@
-<svelte:head>
-	<title>TriaFly UI Kit - forms</title>
-</svelte:head>
-
 <div class="h1" role="heading" aria-level="1">Forms</div>
 
 <div class="h2" role="heading" aria-level="2">Default</div>
