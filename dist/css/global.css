@@ -377,33 +377,31 @@ h6,
   grid-column: 1/2;
 }
 .tf_authorization .tf_authorization-body {
-  padding: var(--key-size) 0;
+  display: grid;
+  gap: calc(var(--key-size) * 1.5);
   margin: auto;
+  padding: var(--key-size) 0;
+  justify-content: center;
 }
 .tf_authorization .tf_authorization-body > * {
   max-width: calc(var(--key-size) * 16);
 }
 @media (orientation: landscape) {
   .tf_authorization .tf_authorization-body {
-    display: grid;
     width: 50%;
     margin: auto auto auto 0;
-    justify-content: center;
   }
 }
 .tf_authorization .tf_authorization-body .tf_authorization-logo {
   display: flex;
-  gap: calc(var(--key-size) / 2);
   align-items: center;
-  margin-bottom: var(--key-size);
 }
 .tf_authorization .tf_authorization-body .tf_authorization-logo .tf_logo-full {
   max-width: 100%;
 }
 .tf_authorization .tf_authorization-body .tf_authorization-title {
-  font-size: 22px;
+  font-size: calc(var(--key-size) * 1.25);
   font-weight: 600;
-  margin-bottom: 20px;
 }
 .tf_authorization-info {
   display: none;
