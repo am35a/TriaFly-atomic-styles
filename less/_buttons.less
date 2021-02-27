@@ -28,18 +28,37 @@
         outline: 0;
     }
 
-    &-sm {
-        --key-size-sm: calc(var(--key-size) * .875);
-
-        padding: calc(var(--key-size-sm) * .25) calc(var(--key-size-sm) * .625);
-        font-size: var(--key-size-sm);
+    &-inverse {
+        background-color: var(--negative-color);
+        color: var(--positive-color);
+        &:hover {
+            background-color: var(--negative-color-75);
+        }
+        &:disabled {
+            background-color: var(--negative-color-50);
+            color: var(--positive-color-25);
+        }
+        &:focus {
+            background-color: var(--negative-color);
+            box-shadow: 0 0 0 calc(var(--key-size) * .125) var(--negative-color-50);
+        }
     }
 
-    &-lg {
-        --key-size-lg: calc(var(--key-size) * 1.125);
-
-        padding: calc(var(--key-size-lg) * .25) calc(var(--key-size-lg) * .625);
-        font-size: var(--key-size-lg);
+    &-transparent {
+        background-color: transparent;
+        color: var(--negative-color-85);
+        &:hover {
+            background-color: transparent;
+            color: var(--negative-color);
+        }
+        &:disabled {
+            background-color: transparent;
+            color: var(--negative-color-25);
+        }
+        &:focus {
+            background-color: transparent;
+            box-shadow: 0 0 0 calc(var(--key-size) * .125) var(--negative-color-50);
+        }
     }
 
     @btn-names: primary, secondary, info, success, warning, error;
@@ -60,4 +79,33 @@
             }
         }
     });
+
+    &-sm {
+        --key-size-sm: calc(var(--key-size) * .875);
+
+        padding: calc(var(--key-size-sm) * .25) calc(var(--key-size-sm) * .625);
+        font-size: var(--key-size-sm);
+    }
+
+    &-lg {
+        --key-size-lg: calc(var(--key-size) * 1.125);
+
+        padding: calc(var(--key-size-lg) * .25) calc(var(--key-size-lg) * .625);
+        font-size: var(--key-size-lg);
+    }
+
+    &-icon {
+        min-width: calc(calc(calc(var(--key-size) * 1.5) + .125rem) + calc(var(--key-size) * .25 * 2));
+        padding: calc(var(--key-size) * .25);
+    }
+    &-icon&-sm {
+        --key-size-sm: calc(var(--key-size) * .875);
+        min-width: calc(calc(calc(var(--key-size-sm) * 1.5) + .125rem) + calc(var(--key-size-sm) * .25 * 2));
+        padding: calc(var(--key-size-sm) * .25);
+    }
+    &-icon&-lg {
+        --key-size-lg: calc(var(--key-size) * 1.125);
+        min-width: calc(calc(calc(var(--key-size-lg) * 1.5) + .125rem) + calc(var(--key-size-lg) * .25 * 2));
+        padding: calc(var(--key-size-lg) * .25);
+    }
 }

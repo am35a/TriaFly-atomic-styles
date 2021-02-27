@@ -118,15 +118,36 @@ html {
   box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--negative-color-50);
   outline: 0;
 }
-.tf_btn-sm {
-  --key-size-sm: calc(var(--key-size) * 0.875);
-  padding: calc(var(--key-size-sm) * 0.25) calc(var(--key-size-sm) * 0.625);
-  font-size: var(--key-size-sm);
+.tf_btn-inverse {
+  background-color: var(--negative-color);
+  color: var(--positive-color);
 }
-.tf_btn-lg {
-  --key-size-lg: calc(var(--key-size) * 1.125);
-  padding: calc(var(--key-size-lg) * 0.25) calc(var(--key-size-lg) * 0.625);
-  font-size: var(--key-size-lg);
+.tf_btn-inverse:hover {
+  background-color: var(--negative-color-75);
+}
+.tf_btn-inverse:disabled {
+  background-color: var(--negative-color-50);
+  color: var(--positive-color-25);
+}
+.tf_btn-inverse:focus {
+  background-color: var(--negative-color);
+  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--negative-color-50);
+}
+.tf_btn-transparent {
+  background-color: transparent;
+  color: var(--negative-color-85);
+}
+.tf_btn-transparent:hover {
+  background-color: transparent;
+  color: var(--negative-color);
+}
+.tf_btn-transparent:disabled {
+  background-color: transparent;
+  color: var(--negative-color-25);
+}
+.tf_btn-transparent:focus {
+  background-color: transparent;
+  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--negative-color-50);
 }
 .tf_btn-primary {
   background-color: var(--primary-color);
@@ -217,6 +238,30 @@ html {
 .tf_btn-error:focus {
   background-color: var(--error-color-d1);
   box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--error-color);
+}
+.tf_btn-sm {
+  --key-size-sm: calc(var(--key-size) * 0.875);
+  padding: calc(var(--key-size-sm) * 0.25) calc(var(--key-size-sm) * 0.625);
+  font-size: var(--key-size-sm);
+}
+.tf_btn-lg {
+  --key-size-lg: calc(var(--key-size) * 1.125);
+  padding: calc(var(--key-size-lg) * 0.25) calc(var(--key-size-lg) * 0.625);
+  font-size: var(--key-size-lg);
+}
+.tf_btn-icon {
+  min-width: calc(calc(calc(var(--key-size) * 1.5) + 0.125rem) + calc(var(--key-size) * 0.25 * 2));
+  padding: calc(var(--key-size) * 0.25);
+}
+.tf_btn-icon.tf_btn-sm {
+  --key-size-sm: calc(var(--key-size) * 0.875);
+  min-width: calc(calc(calc(var(--key-size-sm) * 1.5) + 0.125rem) + calc(var(--key-size-sm) * 0.25 * 2));
+  padding: calc(var(--key-size-sm) * 0.25);
+}
+.tf_btn-icon.tf_btn-lg {
+  --key-size-lg: calc(var(--key-size) * 1.125);
+  min-width: calc(calc(calc(var(--key-size-lg) * 1.5) + 0.125rem) + calc(var(--key-size-lg) * 0.25 * 2));
+  padding: calc(var(--key-size-lg) * 0.25);
 }
 .tf_form-label {
   display: inline-block;
