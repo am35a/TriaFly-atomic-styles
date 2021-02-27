@@ -10,7 +10,9 @@
 
 <div class="h2" role="heading" aria-level="2">Default</div>
 <p>
-    <button class="tf_btn">default</button>
+    <button class="tf_btn">text button</button>
+    <button class="tf_btn"><i class="fas fa-home"></i> icon button</button>
+    <button class="tf_btn" disabled>disabled button</button>
 </p>
 The following classes defining button colors:
 <ul>

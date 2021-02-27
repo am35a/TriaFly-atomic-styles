@@ -1,22 +1,45 @@
 .tf_btn {
     display: inline-block;
     padding: calc(var(--key-size) * .25) calc(var(--key-size) * .625);
-    background-color: transparent;
+    background-color: var(--negative-color-15);
     border: calc(var(--key-size) * .0625) solid transparent;
     border-radius: calc(var(--key-size) * .125);
     vertical-align: middle;
     text-align: center;
-    color: inherit;
+    color: var(--negative-color);
     font-size: var(--key-size);
     line-height: 1.5;
     text-decoration: none;
     cursor: pointer;
     user-select: none;
+    &:hover {
+        background-color: var(--negative-color-25);
+        // color: var(--positive-color);
+    }
     &:disabled {
+        background-color: var(--negative-color-15);
+        color: var(--negative-color-25);
         pointer-events: none;
     }
     &:focus {
+        background-color: var(--negative-color-25);
+        // color: var(--positive-color);
+        box-shadow: 0 0 0 calc(var(--key-size) * .125) var(--negative-color-50);
         outline: 0;
+    }
+
+    &-sm {
+        --key-size-sm: calc(var(--key-size) * .875);
+
+        padding: calc(var(--key-size-sm) * .25) calc(var(--key-size-sm) * .625);
+        font-size: var(--key-size-sm);
+    }
+
+    &-lg {
+        --key-size-lg: calc(var(--key-size) * 1.125);
+
+        padding: calc(var(--key-size-lg) * .25) calc(var(--key-size-lg) * .625);
+        font-size: var(--key-size-lg);
     }
 
     @btn-names: primary, secondary, info, success, warning, error;
@@ -37,12 +60,4 @@
             }
         }
     });
-
-    &-sm {
-        --key-size: .875rem;
-    }
-
-    &-lg {
-        --key-size: 1.125rem;
-    }
 }
