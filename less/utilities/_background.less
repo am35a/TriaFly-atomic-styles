@@ -1,0 +1,13 @@
+.bg {
+    &-positive { background-color: var(--positive-color); }
+    &-negative { background-color: var(--negative-color); }
+    &-background { background-color: var(--background-color); }
+
+    @bg-names: primary, secondary, info, success, warning, error;
+    each(@bg-names, {
+        &-@{value} {
+            background-color: var(~"--@{value}-color");
+        }
+    });
+    &-transparent { background-color: transparent; }
+}

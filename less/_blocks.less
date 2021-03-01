@@ -34,8 +34,8 @@
     }
 }
 
-@btn-names: primary, secondary, info, success, warning, error;
-each(@btn-names, {
+@block-names: primary, secondary, info, success, warning, error;
+each(@block-names, {
     .tf_block-@{value} {
         > * {
             border-color: var(~"--@{value}-color-l1");

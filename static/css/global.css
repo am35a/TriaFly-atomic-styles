@@ -809,6 +809,36 @@ h6,
 .align-text-top {
   vertical-align: text-top;
 }
+.bg-positive {
+  background-color: var(--positive-color);
+}
+.bg-negative {
+  background-color: var(--negative-color);
+}
+.bg-background {
+  background-color: var(--background-color);
+}
+.bg-primary {
+  background-color: var(--primary-color);
+}
+.bg-secondary {
+  background-color: var(--secondary-color);
+}
+.bg-info {
+  background-color: var(--info-color);
+}
+.bg-success {
+  background-color: var(--success-color);
+}
+.bg-warning {
+  background-color: var(--warning-color);
+}
+.bg-error {
+  background-color: var(--error-color);
+}
+.bg-transparent {
+  background-color: transparent;
+}
 .border {
   border: var(--border-width, calc(var(--key-size) * 0.0625)) solid var(--border-color, currentColor);
 }
