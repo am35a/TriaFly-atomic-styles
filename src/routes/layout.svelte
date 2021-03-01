@@ -5,11 +5,12 @@
     import { state } from '../store/store'
 </script>
 
-<svelte:head>
-	<title>TriaFly UI Kit - layout</title>
-</svelte:head>
-
 <div class="h1" role="heading" aria-level="1">Layout</div>
+
+<div class="h2" role="heading" aria-level="2">Examples:</div>
+<div class="d-grid g-3">
+    <a href="ex-layout-2x2">2x2 grid with blocks</a>
+</div> 
 
 <div class="h2" role="heading" aria-level="2">Full screen mode</div>
 <p>

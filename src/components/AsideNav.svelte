@@ -5,6 +5,7 @@
 	import IconButtons from './icons/Buttons.svelte'
 	import IconForms from './icons/Forms.svelte'
 	import IconBlocks from './icons/Blocks.svelte'
+	import IconGrid from './icons/Grid.svelte'
 	import IconLayout from './icons/Layout.svelte'
 	import IconUtilities from './icons/Utilities.svelte'
 
@@ -24,6 +25,11 @@
 				id: 3,
 				segment: 'blocks',
 				component: IconBlocks
+			},
+			{
+				id: 4,
+				segment: 'grid',
+				component: IconGrid
 			},
 			{
 				id: 99,
