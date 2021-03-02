@@ -23,12 +23,16 @@
     &-end, &-right { text-align: right; }
     &-center { text-align: center; }
 
+    &-positive { color: var(--positive-color); }
+    &-negative { color: var(--negative-color); }
+    &-background { color: var(--background-color); }
     @color-names: primary, secondary, info, success, warning, error;
     each(@color-names, {
         &-@{value} {
             color: var(~"--@{value}-color");
         }
     });
+    &-transparent { color: transparent; }
 }
 
 .f {

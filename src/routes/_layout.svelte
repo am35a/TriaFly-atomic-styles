@@ -22,39 +22,34 @@
     {/if}
 </svelte:head>
 
-<div class="tf_layout">
-    <main class="tf_layout-main {$state.fullscreen ? 'tf_layout-main--fullscreen' : ''} p-3">
-        <slot></slot>
-    </main>
-    <header class="tf_layout-header position-relative">
+<main class="tf_layout-main {$state.fullscreen ? 'tf_layout-main--fullscreen' : ''} p-3">
+    <slot></slot>
+</main>
+<header class="tf_layout-header position-relative">
+    <button
+        class="tf_layout-aside-expander" tabindex="-1"
+        on:click={() => $state.isAsideExpand = true}
+    >
+        <i class="fas fa-bars"></i>
+    </button>
+    <div class="text-uppercase">
+        {segment === undefined ? 'Home' : segment}
+    </div>
+    <div class="d-flex align-items-center g-1 ml-auto h-100">
         <button
-            class="tf_layout-aside-expander" tabindex="-1"
-            on:click={() => $state.isAsideExpand = true}
+            class="tf_btn tf_btn-lg tf_btn-transparent tf_btn-icon"
+            on:click={() => inverTheme = !inverTheme}
         >
-            <i class="fas fa-bars"></i>
+            <i class="fas fa-fill-drip"></i>
         </button>
-        <div class="text-uppercase">
-            {segment === undefined ? 'Home' : segment}
-        </div>
-        <div class="d-flex align-items-center g-1 ml-auto h-100">
-            <button
-                class="tf_btn tf_btn-lg tf_btn-transparent tf_btn-icon"
-                on:click={() => inverTheme = !inverTheme}
-            >
-                <i class="fas fa-fill-drip"></i>
-            </button>
-            <button
-                class="tf_btn tf_btn-lg tf_btn-transparent tf_btn-icon mr-1"
-                on:click={() => window.location = "https://github.com/am35a/TriaFly-atomic-styles"}
-            >
-                <i class="fab fa-github fa-lg"></i>
-            </button>
-        </div>
-    </header>
-    <aside class="tf_layout-aside {$state.isAsideExpand ? 'tf_expand' : ''}">
-        <AsideNav {segment}/>
-    </aside>
-</div>
-<div>
-    sdfsdfsdfs
-</div>
+        <button
+            class="tf_btn tf_btn-lg tf_btn-transparent tf_btn-icon mr-1"
+            on:click={() => window.location = "https://github.com/am35a/TriaFly-atomic-styles"}
+        >
+            <i class="fab fa-github fa-lg"></i>
+        </button>
+    </div>
+</header>
+<aside class="tf_layout-aside {$state.isAsideExpand ? 'tf_expand' : ''}">
+    <AsideNav {segment}/>
+</aside>
