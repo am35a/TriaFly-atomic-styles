@@ -1578,6 +1578,15 @@ h6,
 .text-center {
   text-align: center;
 }
+.text-positive {
+  color: var(--positive-color);
+}
+.text-negative {
+  color: var(--negative-color);
+}
+.text-background {
+  color: var(--background-color);
+}
 .text-primary {
   color: var(--primary-color);
 }
@@ -1595,6 +1604,9 @@ h6,
 }
 .text-error {
   color: var(--error-color);
+}
+.text-transparent {
+  color: transparent;
 }
 .fw-lighter {
   font-weight: lighter;
