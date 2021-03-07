@@ -37,4 +37,16 @@
             z-index: 1010; // here is temporary z-index, after the transfer, it must be reduced, preferably to "z-index: 10"
         }
     }
+    > :not([class*="tf_layout-"]) { // kill all not in layout
+        position: absolute !important;
+        display: none !important;
+        visibility: hidden !important;
+        width: 0 !important;
+        height: 0 !important;
+        background: none !important;
+        font-size: 0 !important;
+        color: transparent !important;
+        overflow: hidden !important;
+        z-index: -100000;
+    }
 }

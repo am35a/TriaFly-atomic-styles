@@ -11,8 +11,9 @@
     transition: background-color 0.25s .25s, width 0s .5s, color 0.25s .25s;
     > * {
         position: absolute;
-        top: 1rem;
-        right: 1rem;
+        top: var(--key-size);
+        right: calc(var(--key-size) * .75);
+        line-height: 1;
     }
     .tf_layout-aside.tf_expand & {
         background-color: var(--negative-color-50);

@@ -58,7 +58,7 @@
 	class="tf_aside-fader"
 	on:click={() => $state.isAsideExpand = false}
 >
-	<i class="fas fa-times"></i>
+<i class="fas fa-times-circle fa-lg"></i>
 </div>
 <div class="tf_aside-navbar">
 	<div class="tf_navbar-item {segment === undefined  ? 'tf_navbar-item--active' : ''}">
