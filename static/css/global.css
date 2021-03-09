@@ -119,7 +119,7 @@
 html {
   background-color: var(--background-color);
   color: var(--negative-color-85);
-  font-family: Roboto, 'Source Sans Pro', -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: Roboto-, 'Source Sans Pro-', -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 body {
   overflow: hidden;
@@ -493,24 +493,22 @@ h6,
 .tf_block {
   position: relative;
   display: grid;
+  grid-template-rows: auto 1fr auto;
   min-width: 0;
+  max-width: 100%;
+  max-height: 100%;
   word-wrap: break-word;
   background-clip: border-box;
-}
-.tf_block > * {
+  border-radius: var(--rounded-1, calc(var(--key-size) * 0.125));
   border: var(--border-width, calc(var(--key-size) * 0.0625)) solid var(--border-color, var(--negative-color-15));
-  background-clip: padding-box;
-}
-.tf_block > *:not(:first-child) {
-  border-top-width: 0;
 }
 .tf_block > *:first-child {
-  border-top-left-radius: var(--rounded-1, calc(var(--key-size) * 0.125));
-  border-top-right-radius: var(--rounded-1, calc(var(--key-size) * 0.125));
+  border-top-left-radius: calc(var(--rounded-1, calc(var(--key-size) * 0.125)) - var(--border-width, calc(var(--key-size) * 0.0625)));
+  border-top-right-radius: calc(var(--rounded-1, calc(var(--key-size) * 0.125)) - var(--border-width, calc(var(--key-size) * 0.0625)));
 }
 .tf_block > *:last-child {
-  border-bottom-left-radius: var(--rounded-1, calc(var(--key-size) * 0.125));
-  border-bottom-right-radius: var(--rounded-1, calc(var(--key-size) * 0.125));
+  border-bottom-left-radius: calc(var(--rounded-1, calc(var(--key-size) * 0.125)) - var(--border-width, calc(var(--key-size) * 0.0625)));
+  border-bottom-right-radius: calc(var(--rounded-1, calc(var(--key-size) * 0.125)) - var(--border-width, calc(var(--key-size) * 0.0625)));
 }
 .tf_block-header,
 .tf_block-footer {
@@ -520,69 +518,105 @@ h6,
   background-color: var(--negative-color-15);
   line-height: 1.5;
 }
+.tf_block-header {
+  align-self: start;
+}
+.tf_block-footer {
+  align-self: end;
+}
 .tf_block-body {
   padding: calc(var(--key-size) * 0.75);
-  background-color: var(--positive-color);
+  overflow: auto;
 }
-.tf_block-primary > * {
-  border-color: var(--primary-color-l1);
-  color: var(--primary-color-d1);
+.grid-flow-row {
+  grid-auto-flow: row;
 }
-.tf_block-primary .tf_block-header {
-  background-color: var(--primary-color-l1);
+.grid-flow-col {
+  grid-auto-flow: column;
 }
-.tf_block-primary .tf_block-footer {
-  background-color: var(--primary-color-l1);
+.cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
-.tf_block-secondary > * {
-  border-color: var(--secondary-color-l1);
-  color: var(--secondary-color-d1);
+.cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
-.tf_block-secondary .tf_block-header {
-  background-color: var(--secondary-color-l1);
+.cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
-.tf_block-secondary .tf_block-footer {
-  background-color: var(--secondary-color-l1);
+.cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
-.tf_block-info > * {
-  border-color: var(--info-color-l1);
-  color: var(--info-color-d1);
+.cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
-.tf_block-info .tf_block-header {
-  background-color: var(--info-color-l1);
+.cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
 }
-.tf_block-info .tf_block-footer {
-  background-color: var(--info-color-l1);
+.cols-7 {
+  grid-template-columns: repeat(7, minmax(0, 1fr));
 }
-.tf_block-success > * {
-  border-color: var(--success-color-l1);
-  color: var(--success-color-d1);
+.cols-8 {
+  grid-template-columns: repeat(8, minmax(0, 1fr));
 }
-.tf_block-success .tf_block-header {
-  background-color: var(--success-color-l1);
+.cols-9 {
+  grid-template-columns: repeat(9, minmax(0, 1fr));
 }
-.tf_block-success .tf_block-footer {
-  background-color: var(--success-color-l1);
+.cols-10 {
+  grid-template-columns: repeat(10, minmax(0, 1fr));
 }
-.tf_block-warning > * {
-  border-color: var(--warning-color-l1);
-  color: var(--warning-color-d1);
+.cols-11 {
+  grid-template-columns: repeat(11, minmax(0, 1fr));
 }
-.tf_block-warning .tf_block-header {
-  background-color: var(--warning-color-l1);
+.cols-12 {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
 }
-.tf_block-warning .tf_block-footer {
-  background-color: var(--warning-color-l1);
+.cols-none {
+  grid-template-columns: none;
 }
-.tf_block-error > * {
-  border-color: var(--error-color-l1);
-  color: var(--error-color-d1);
+.cols-auto {
+  grid-auto-columns: auto;
 }
-.tf_block-error .tf_block-header {
-  background-color: var(--error-color-l1);
+.rows-1 {
+  grid-template-rows: repeat(1, minmax(0, 1fr));
 }
-.tf_block-error .tf_block-footer {
-  background-color: var(--error-color-l1);
+.rows-2 {
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+.rows-3 {
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+}
+.rows-4 {
+  grid-template-rows: repeat(4, minmax(0, 1fr));
+}
+.rows-5 {
+  grid-template-rows: repeat(5, minmax(0, 1fr));
+}
+.rows-6 {
+  grid-template-rows: repeat(6, minmax(0, 1fr));
+}
+.rows-7 {
+  grid-template-rows: repeat(7, minmax(0, 1fr));
+}
+.rows-8 {
+  grid-template-rows: repeat(8, minmax(0, 1fr));
+}
+.rows-9 {
+  grid-template-rows: repeat(9, minmax(0, 1fr));
+}
+.rows-10 {
+  grid-template-rows: repeat(10, minmax(0, 1fr));
+}
+.rows-11 {
+  grid-template-rows: repeat(11, minmax(0, 1fr));
+}
+.rows-12 {
+  grid-template-rows: repeat(12, minmax(0, 1fr));
+}
+.rows-none {
+  grid-template-rows: none;
+}
+.rows-auto {
+  grid-auto-rows: auto;
 }
 .tf_authorization {
   display: grid;
