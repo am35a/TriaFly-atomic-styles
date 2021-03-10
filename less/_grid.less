@@ -1,2 +1,15 @@
-@import "grid/_grid.less";
-// @import "grid/_flex.less";
+each(range(12), {
+    .cols-@{value} {
+        grid-template-columns: repeat(@value, minmax(0, 1fr));
+    }
+});
+.cols-none { grid-template-columns: none; }
+.cols-auto { grid-auto-columns: auto; }
+
+each(range(12), {
+    .rows-@{value} {
+        grid-template-rows: repeat(@value, minmax(0, 1fr));
+    }
+});
+.rows-none { grid-template-rows: none; }
+.rows-auto { grid-auto-rows: auto; }
