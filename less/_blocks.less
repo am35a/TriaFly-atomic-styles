@@ -48,19 +48,17 @@
     }
 }
 
-// @block-names: primary, secondary, info, success, warning, error;
-// each(@block-names, {
-//     .tf_block-@{value} {
-//         > * {
-//             border-color: var(~"--@{value}-color-l1");
-//             color: var(~"--@{value}-color-d1");
-//         }
-//         .tf_block-header {
-//             background-color: var(~"--@{value}-color-l1");
-            
-//         }
-//         .tf_block-footer {
-//             background-color: var(~"--@{value}-color-l1");
-//         }
-//     }
-// });
+@block-names: primary, secondary, info, success, warning, error;
+each(@block-names, {
+    .tf_block-@{value} {
+        border-color: var(~"--@{value}-color-l1");
+        .tf_block-header {
+            background-color: var(~"--@{value}-color-l1");
+            color: var(~"--@{value}-color-d1");
+        }
+        .tf_block-footer {
+            background-color: var(~"--@{value}-color-l1");
+            color: var(~"--@{value}-color-d1");
+        }
+    }
+});
