@@ -997,7 +997,7 @@ h6,
 }
 .rounded-3,
 .rounded-lg {
-  border-radius: var(--rounded-3, calc(var(--key-size) * 0.3));
+  border-radius: var(--rounded-3, calc(var(--key-size) * 0.5));
 }
 .rounded-circle {
   border-radius: 50%;
