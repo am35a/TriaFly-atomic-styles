@@ -37,4 +37,13 @@
             <div class="py-2 bg-secondary text-center">12</div>
         </div>
     </div>
+
+    <div>
+        <div class="d-grid g-3 cols-1 rows-1">
+            <div class="py-2 bg-secondary text-center">1</div>
+            <div class="py-2 bg-secondary text-center">2</div>
+            <div class="py-2 bg-secondary text-center">3</div>
+        </div>
+    </div>
+
 </div>

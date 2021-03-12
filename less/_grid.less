@@ -4,7 +4,6 @@ each(range(12), {
     }
 });
 .cols-none { grid-template-columns: none; }
-.cols-auto { grid-auto-columns: auto; }
 
 each(range(12), {
     .rows-@{value} {
@@ -12,4 +11,33 @@ each(range(12), {
     }
 });
 .rows-none { grid-template-rows: none; }
-.rows-auto { grid-auto-rows: auto; }
+
+each(range(12), {
+    .col-span-@{value} {
+        grid-column: span @value / span @value;
+    }
+});
+.col-span-full { grid-column: 1 / -1; }
+.col-span-auto { grid-column: auto; }
+
+each(range(12), {
+    .row-span-@{value} {
+        grid-row: span @value / span @value;
+    }
+});
+.row-span-full { grid-row: 1 / -1; }
+.row-span-auto { grid-row: auto; }
+
+each(range(13), {
+    .col-start-@{value} { grid-column-start: @value; }
+    .col-end-@{value} { grid-column-end: @value; }
+});
+.col-start-auto { grid-column-start: auto; }
+.col-end-auto { grid-column-end: auto; }
+
+each(range(13), {
+    .row-start-@{value} { grid-row-start: @value; }
+    .row-end-@{value} { grid-row-end: @value; }
+});
+.row-start-auto { grid-row-start: auto; }
+.row-end-auto { grid-row-end: auto; }
