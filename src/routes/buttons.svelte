@@ -36,7 +36,10 @@
                     <button class="tf_btn" disabled>disabled button</button>
                 </div>
             </div>
-            <Highlight class="rounded-2 rounded-top-0 mt-0" language='{xml}' code='
+            <Highlight
+                class="rounded-2 rounded-top-0 mt-0"
+                language='{xml}'
+                code='
     // inverse color button
     <button class="tf_btn">default button</button>
 
@@ -48,7 +51,8 @@
 
     // inverse color disabled button
     <button class="tf_btn" disabled>disabled button</button>
-            '/>
+                '
+            />
         </div>
     </div>
 
@@ -63,19 +67,22 @@
                     <button class="tf_btn tf_btn-inverse" disabled>disabled button</button>
                 </div>
             </div>
-<Highlight class="rounded-2 rounded-top-0 mt-0" language='{xml}' code='
+            <Highlight class="rounded-2 rounded-top-0 mt-0"
+                language='{xml}'
+                code='
     // inverse color button
     <button class="tf_btn tf_btn-inverse">inverse button</button>
-
+            
     // inverse color button with icon
     <button class="tf_btn tf_btn-inverse">
         <i class="fas fa-home"></i>
         icon button
     </button>
-
+    
     // inverse color disabled button
     <button class="tf_btn tf_btn-inverse" disabled>disabled button</button>
-'/>
+                '
+            />
         </div>
     </div>
 
@@ -90,7 +97,10 @@
                     <button class="tf_btn tf_btn-transparent" disabled>disabled button</button>
                 </div>
             </div>
-<Highlight class="rounded-2 rounded-top-0 mt-0" language='{xml}' code='
+            <Highlight
+                class="rounded-2 rounded-top-0 mt-0"
+                language='{xml}'
+                code='
     // transparent button
     <button class="tf_btn tf_btn-transparent">transparent button</button>
 
@@ -102,7 +112,8 @@
 
     // transparent disabled button
     <button class="tf_btn tf_btn-transparent" disabled>disabled button</button>
-'/>
+                '
+            />
         </div>
     </div>
 
@@ -145,7 +156,9 @@
                     <button class="tf_btn tf_btn-primary" disabled>disabled button</button>
                 </div>
             </div>
-<Highlight class="rounded-2 rounded-top-0 mt-0" language='{xml}' code='
+            <Highlight class="rounded-2 rounded-top-0 mt-0"
+                language='{xml}'
+                code='
     // primary color button
     <button class="tf_btn tf_btn-primary">primary button</button>
 
@@ -157,7 +170,8 @@
 
     // primary color disabled button
     <button class="tf_btn tf_btn-primary" disabled>disabled button</button>
-'/>
+                '
+            />
         </div>
     </div>
 
@@ -172,7 +186,10 @@
                     <button class="tf_btn tf_btn-secondary" disabled>disabled button</button>
                 </div>
             </div>
-<Highlight class="rounded-2 rounded-top-0 mt-0" language='{xml}' code='
+            <Highlight
+                class="rounded-2 rounded-top-0 mt-0"
+                language='{xml}'
+                code='
     // secondary color button
     <button class="tf_btn tf_btn-secondary">secondary button</button>
 
@@ -184,7 +201,8 @@
 
     // secondary color disabled button
     <button class="tf_btn tf_btn-secondary" disabled>disabled button</button>
-'/>
+                '
+            />
         </div>
     </div>
 
@@ -203,7 +221,10 @@
                     <button class="tf_btn tf_btn-info" disabled>disabled button</button>
                 </div>
             </div>
-<Highlight class="rounded-2 rounded-top-0 mt-0" language='{xml}' code='
+            <Highlight
+                class="rounded-2 rounded-top-0 mt-0"
+                language='{xml}'
+                code='
     // info color button
     <button class="tf_btn tf_btn-info">info button</button>
 
@@ -215,7 +236,8 @@
 
     // info color disabled button
     <button class="tf_btn tf_btn-info" disabled>disabled button</button>
-'/>
+                '
+            />
         </div>
     </div>
 
@@ -229,7 +251,10 @@
                     <button class="tf_btn tf_btn-success" disabled>disabled button</button>
                 </div>
             </div>
-<Highlight class="rounded-2 rounded-top-0 mt-0" language='{xml}' code='
+            <Highlight
+                class="rounded-2 rounded-top-0 mt-0"
+                language='{xml}'
+                code='
     // success color button
     <button class="tf_btn tf_btn-success">info button</button>
 
@@ -241,7 +266,8 @@
 
     // success color disabled button
     <button class="tf_btn tf_btn-success" disabled>disabled button</button>
-'/>
+                '
+            />
         </div>
     </div>
 
@@ -255,7 +281,9 @@
                     <button class="tf_btn tf_btn-warning" disabled>disabled button</button>
                 </div>
             </div>
-<Highlight class="rounded-2 rounded-top-0 mt-0" language='{xml}' code='
+            <Highlight class="rounded-2 rounded-top-0 mt-0"
+                language='{xml}'
+                code='
     // warning color button
     <button class="tf_btn tf_btn-warning">info button</button>
 
@@ -267,7 +295,8 @@
 
     // warning color disabled button
     <button class="tf_btn tf_btn-warning" disabled>disabled button</button>
-'/>
+                '
+            />
         </div>
     </div>
 
@@ -281,7 +310,10 @@
                     <button class="tf_btn tf_btn-error" disabled>disabled button</button>
                 </div>
             </div>
-<Highlight class="rounded-2 rounded-top-0 mt-0" language='{xml}' code='
+            <Highlight
+                class="rounded-2 rounded-top-0 mt-0"
+                language='{xml}'
+                code='
     // error color button
     <button class="tf_btn tf_btn-error">info button</button>
 
@@ -293,13 +325,14 @@
 
     // error color disabled button
     <button class="tf_btn tf_btn-error" disabled>disabled button</button>
-'/>
+                '
+            />
         </div>
     </div>
 
     <div id="sizes" class="overflow-auto">
         <div class="h2" role="heading" aria-level="2">Sizes</div>
-        <p>For change size of buttons use tf_btn-sm and tf_btn-lg classes:</p>
+        <p>For change size of buttons use <b>.tf_btn-sm</b> and <b>.tf_btn-lg</b> classes:</p>
         <div>
             <div class="bg-background rounded-2 rounded-bottom-0 p-3 text-center">
                 <div class="d-inline-flex g-3 flex-wrap align-items-center">
@@ -309,7 +342,10 @@
                 </div>
             </div>
         </div>
-<Highlight class="rounded-2 rounded-top-0 mt-0" language='{xml}' code='
+        <Highlight
+            class="rounded-2 rounded-top-0 mt-0"
+            language='{xml}'
+            code='
     // small size button
     <button class="tf_btn tf_btn-primary tf_btn-sm">small button</button>
 
@@ -318,7 +354,8 @@
 
     // large size button
     <button class="tf_btn tf_btn-primary tf_btn-lg">large button</button>
-'/>
+            '
+        />
     </div>
 
     <div id="icon" class="overflow-auto">
@@ -333,7 +370,10 @@
                 </div>
             </div>
         </div>
-<Highlight class="rounded-2 rounded-top-0 mt-0" language='{xml}' code='
+        <Highlight
+            class="rounded-2 rounded-top-0 mt-0"
+            language='{xml}'
+            code='
     // icon small size button
     <button class="tf_btn tf_btn-primary tf_btn-icon tf_btn-sm">
         <i class="fas fa-info"></i>
@@ -348,7 +388,8 @@
     <button class="tf_btn tf_btn-primary tf_btn-icon tf_btn-lg">
         <i class="fas fa-brain"></i>
     </button>
-'/>
+            '
+        />
     </div>
 
 </div>
