@@ -25,23 +25,62 @@
 
     <div id="default" class="overflow-auto">
         <div class="h2" role="heading" aria-level="2">Default</div>
-        <!-- <p>To create a default button, use the <b>.tf_btn</b> class, but default state is not recommended to use without color classes for any buttons.</p> -->
         <div>
-            <form class="bg-background rounded-2 rounded-bottom-0 p-3">
-                <label for="inputTextDefault" class="tf_form-label">Label default</label>
-                <input id="inputText1Default" class="tf_form-control" type="text" placeholder="Placeholder">
-                <div class="tf_form-text">
-                    This line can contains additional information to the input field above.
+            <form class="bg-background rounded-2 rounded-bottom-0 p-3 d-grid g-3">
+                <div>
+                    <label for="inputTextDefault" class="tf_form-label">Label default</label>
+                    <input id="inputTextDefault" class="tf_form-control" type="text" placeholder="Placeholder">
+                    <div class="tf_form-text">
+                        This line can contains additional information to the input field above.
+                    </div>
+                </div>
+                <div>
+                    <input list="datalist" class="tf_form-control" type="text" placeholder="Placeholder">
+                    <datalist id="datalist">
+                        <option value="buttons">
+                        <option value="forms">
+                        <option value="layout">
+                        <option value="grid">
+                        <option value="utilities">
+                    </datalist>
+                </div>
+                <div>
+                    <select class="tf_form-control">
+                        <option selected>Open and select one</option>
+                        <option value="1">First</option>
+                        <option value="2">Secons</option>
+                        <option value="3">Third</option>
+                    </select>
+                </div>
+                <div>
+                    <textarea class="tf_form-control resize-vertical" rows="3" placeholder="Placeholder"></textarea>
                 </div>
             </form>
             <Highlight
                 class="rounded-2 rounded-top-0 mt-0"
                 language='{xml}'
                 code='
-    <label for="inputText" class="tf_form-label">Label default</label>
-    <input id="inputText" class="tf_form-control" type="text" placeholder="Placeholder">
-    <div class="tf_form-text">
-        This line can contains additional information to the input field above.
+    <div class="d-grid g-3">
+        <div>
+            <label for="inputTextDefault" class="tf_form-label">Label default</label>
+            <input id="inputTextDefault" class="tf_form-control" type="text" placeholder="Placeholder">
+            <div class="tf_form-text">
+                This line can contains additional information to the input field above.
+            </div>
+        </div>
+        <div>
+            <input list="datalist" class="tf_form-control" type="text" placeholder="Placeholder">
+            <datalist id="datalist">
+                <option value="buttons">
+                <option value="forms">
+                <option value="layout">
+                <option value="grid">
+                <option value="utilities">
+            </datalist>
+        </div>
+        <div>
+            <textarea class="tf_form-control resize-vertical" rows="3" placeholder="Placeholder"></textarea>
+        </div>
     </div>
                 '
             />

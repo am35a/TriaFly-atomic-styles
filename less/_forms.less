@@ -23,6 +23,13 @@
         outline: 0;
         box-shadow: 0 0 0 calc(var(--key-size) * .125) currentColor;
     }
+    select& {
+        padding-right: calc(var(--key-size) * 2.5); /*  1.25 + .625 * 2 */
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right calc(var(--key-size) * .625) center;
+        background-size: calc(var(--key-size) * 1.25);
+    }
     
     @color-names: primary, secondary, info, success, warning, error;
     each(@color-names, {
