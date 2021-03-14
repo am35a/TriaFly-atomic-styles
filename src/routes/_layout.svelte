@@ -53,3 +53,8 @@
 <aside class="tf_layout-aside {$state.isAsideExpand ? 'tf_expand' : ''}">
     <AsideNav {segment}/>
 </aside>
+{#if $state.loader}
+    <div class="tf_layout-loader">
+        Loading data...
+    </div>
+{/if}

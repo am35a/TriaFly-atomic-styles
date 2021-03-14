@@ -42,8 +42,8 @@
         }        
         &--fullscreen,
         &fullscreen-mode {
-            grid-row: 1/3;
-            grid-column: 1/3;
+            grid-row: 1/-1;
+            grid-column: 1/-1;
             z-index: 1010; // here is temporary z-index, after the transfer, it must be reduced, preferably to "z-index: 10"
         }
     }
@@ -59,4 +59,17 @@
         overflow: hidden !important;
         z-index: -100000;
     }
+}
+
+.tf_layout-loader {
+    grid-row: 1/-1;
+    grid-column: 1/-1;
+    margin: var(--m-4, calc(var(--key-size) * 1.5));
+    padding: var(--p-3, var(--key-size)) var(--p-5, calc(var(--key-size) * 3));
+    justify-self: center;
+    align-self: start;
+    background: var(--warning-color);
+    border-radius: var(--rounded-1, calc(var(--key-size) * .125));
+    color: var(--positive-color);
+    z-index: 1020;
 }

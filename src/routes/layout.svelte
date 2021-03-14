@@ -13,6 +13,9 @@
             <div class="text-info"><i class="fas fa-anchor"></i> Fast to goal:</div>
             <div class="d-flex g-3 flex-wrap">
                 <a href="layout#main">Main</a>
+                <a href="layout#header">Header</a>
+                <a href="layout#fullscreen">Full screen mode</a>
+                <a href="layout#loader">Global loader</a>
             </div>
         </div>
     </div>
@@ -75,7 +78,7 @@
         <div class="h2" role="heading" aria-level="2">Layout extras</div>
     </div>
 
-    <div id="extras" class="overflow-auto">
+    <div id="fullscreen" class="overflow-auto">
         <div class="h3" role="heading" aria-level="3">Full screen mode</div>
         <p>
             To put <b>.tf_layout-main</b> into full-screen mode, you need to add a class <b>.tf_layout-main--fullscreen</b>.
@@ -99,29 +102,28 @@
         </div>
     </div>
 
+    <div id="loader" class="overflow-auto">
+        <div class="h3" role="heading" aria-level="3">Global loader</div>
+        <p>
+            <!-- To put <b>.tf_layout-main</b> into full-screen mode, you need to add a class <b>.tf_layout-main--fullscreen</b>. -->
+        </p>
+        <div>
+            <div class="bg-background rounded-2 rounded-bottom-0 p-3 text-center">
+                <button
+                    on:click="{() => $state.loader = !$state.loader}"
+                    class="tf_btn tf_btn-secondary m-1"
+                >
+                    <i class="fas {$state.loader ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i>Toogle loader
+                </button>
+            </div>
+            <Highlight
+                class="rounded-2 rounded-top-0 mt-0"
+                language='{xml}'
+                code='
+    <div class="tf_layout-loader">Loading data...</div>
+                '
+            />
+        </div>
+    </div>
+
 </div>
-
-
-<!--div class="h2" role="heading" aria-level="2">Examples:</div>
-<div class="d-grid g-3">
-    <a href="ex-layout-2x2">2x2 grid with blocks</a>
-</div> 
-
-<div class="h2" role="heading" aria-level="2">Full screen mode</div>
-<p>
-    Add <code>.tf_layout-main--fullscreen</code> or <code>.fullscreen-mode</code> classes to <code>.tf_layout-main</code> to expand the area to full screen
-</p>
-
-<Highlight class="d-inline" language="{xml}" code='
-    <aside class="tf_layout-aside tf_layout-main--fullscreen">
-        ...
-    </aside>
-'/>
-
-<button
-    on:click="{() => $state.fullscreen = !$state.fullscreen}"
-    class="tf_btn tf_btn-secondary"
->
-    <i class="fas {$state.fullscreen ? 'fa-compress' : 'fa-expand'} mr-2"></i>Toogle fullscreen
-</button-->
-
