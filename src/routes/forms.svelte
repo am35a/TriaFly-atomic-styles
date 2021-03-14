@@ -56,8 +56,8 @@
                     <textarea class="tf_form-control resize-vertical" rows="3" placeholder="Placeholder"></textarea>
                 </div>
                 <div>
-                    <label for="formFile" class="tf_form-label">Default file input example</label>
-                    <input class="tf_form-control" type="file" id="formFile">
+                    <label for="inputFile" class="tf_form-label">Default file input</label>
+                    <input id="inputFile" class="tf_form-control" type="file">
                 </div>                
             </form>
             <Highlight

@@ -32,10 +32,10 @@
     >
         <i class="fas fa-bars"></i>
     </button>
-    <div class="text-uppercase">
+    <div class="text-uppercase text-truncate">
         {segment === undefined ? 'Home' : segment}
     </div>
-    <div class="d-flex align-items-center g-1 ml-auto h-100">
+    <div class="d-flex g-1 ml-auto h-100"> <!-- align-items-center -->
         <button
             class="tf_btn tf_btn-lg tf_btn-transparent tf_btn-icon"
             on:click={() => inverTheme = !inverTheme}
