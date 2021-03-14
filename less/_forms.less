@@ -30,7 +30,21 @@
         background-position: right calc(var(--key-size) * .625) center;
         background-size: calc(var(--key-size) * 1.25);
     }
-    
+    [type="file"]& {
+        padding-left: calc(var(--key-size) * 2.5); /*  1.25 + .625 * 2 */
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M5,20h14v-2H5V20z M5,10h4v6h6v-6h4l-7-7L5,10z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: left calc(var(--key-size) * .625) center;
+        background-size: calc(var(--key-size) * 1.25);
+
+        &::file-selector-button {
+            display: none;
+        }
+        &::-webkit-file-upload-button {
+            display: none;
+        }
+    }
+
     @color-names: primary, secondary, info, success, warning, error;
     each(@color-names, {
         &-@{value} {
@@ -62,3 +76,6 @@
     margin-top: calc(var(--key-size) * .25);
     font-size: calc(var(--key-size) * .875);
 }
+
+// .tf_form-control::file-selector-button { display: none; }
+// .tf_form-control::-webkit-file-upload-button { display: none; }
