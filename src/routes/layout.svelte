@@ -16,6 +16,7 @@
                 <a href="layout#header">Header</a>
                 <a href="layout#fullscreen">Full screen mode</a>
                 <a href="layout#popup">Pop-up</a>
+                <a href="layout#modal">Modal</a>
             </div>
         </div>
     </div>
@@ -137,6 +138,30 @@
         <div>Second toast message</div>
         <div>Third toast message</div>
     </div>
+                '
+            />
+        </div>
+    </div>
+
+    <div id="modal" class="overflow-auto">
+        <div class="h3" role="heading" aria-level="3">Modal</div>
+        <p>
+            <!-- To put <b>.tf_layout-main</b> into full-screen mode, you need to add a class <b>.tf_layout-main--fullscreen</b>. -->
+        </p>
+        <div>
+            <div class="bg-background rounded-2 rounded-bottom-0 p-3 text-center">
+                <button
+                    on:click="{() => $state.modalLoader = !$state.modalLoader}"
+                    class="tf_btn tf_btn-secondary m-1"
+                >
+                    <i class="fas {$state.modalLoader ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i>Toogle loader
+                </button>
+            </div>
+            <Highlight
+                class="rounded-2 rounded-top-0 mt-0"
+                language='{xml}'
+                code='
+    ...
                 '
             />
         </div>

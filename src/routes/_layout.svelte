@@ -35,7 +35,7 @@
     <div class="text-uppercase text-truncate">
         {segment === undefined ? 'Home' : segment}
     </div>
-    <div class="d-flex g-1 ml-auto h-100"> <!-- align-items-center -->
+    <div class="d-flex g-1 ml-auto"> <!-- align-items-center -->
         <button
             class="tf_btn tf_btn-lg tf_btn-transparent tf_btn-icon"
             on:click={() => inverTheme = !inverTheme}
@@ -72,19 +72,28 @@
     </div>
 {/if}
 
-<!-- {#if $state.modal.isShow} -->
-    <!-- <div class="tf_layout-popup" on:click="{() => $state.modal.isShow = !$state.modal.isShow}"> -->
-        <!-- {#if $state.modal.loader} -->
-            <!-- <div class="mx-auto mb-auto mt-3 bg-warning px-5 py-3 rounded"> -->
-                <!-- Loading data... -->
-            <!-- </div> -->
-        <!-- {/if} -->
-    <!-- </div> -->
-<!-- {/if} -->
-    <!-- {#if $state.modal.loader}
-        <div class="d-grid">
-            <div class="m-auto bg-warning px-5 py-3 rounded">
+{#if $state.modalLoader}
+    <div class="tf_layout-modal-loader" on:click="{() => $state.modalLoader = !$state.modalLoader}">
+        <div class="m-auto bg-positive px-5 py-3 rounded d-flex">
+            <svg viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
+                <g fill="none" fill-rule="evenodd">
+                    <g transform="translate(1 1)" stroke-width="2">
+                        <circle stroke-opacity=".25" cx="18" cy="18" r="18"/>
+                        <path d="M36 18c0-9.94-8.06-18-18-18">
+                            <animateTransform
+                                attributeName="transform"
+                                type="rotate"
+                                from="0 18 18"
+                                to="360 18 18"
+                                dur="1s"
+                                repeatCount="indefinite"/>
+                        </path>
+                    </g>
+                </g>
+            </svg>
+            <div class="my-auto ml-3">
                 Loading data...
             </div>
         </div>
-    {/if} -->
+    </div>
+{/if}
