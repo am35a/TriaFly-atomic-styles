@@ -127,21 +127,15 @@
                 language='{xml}'
                 code='
     // Loader
-    <div class="tf_layout-popup mx-auto mb-auto mt-3 bg-warning px-5 py-3 rounded d-grid">
+    <div class="tf_layout-popup-loader">
         Loading data...
     </div>
 
     // Toaster
-    <div class="tf_layout-popup ml-auto mt-auto mr-3 p-3 d-grid g-3">
-        <div class="bg-secondary text-positive px-5 py-3 rounded">
-            First toast message
-        </div>
-        <div class="bg-secondary text-positive px-5 py-3 rounded">
-            Second toast message
-        </div>
-        <div class="bg-secondary text-positive px-5 py-3 rounded">
-            Third toast message
-        </div>
+    <div class="tf_layout-popup-toster">
+        <div>First toast message</div>
+        <div>Second toast message</div>
+        <div>Third toast message</div>
     </div>
                 '
             />

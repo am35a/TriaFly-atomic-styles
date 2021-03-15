@@ -1064,10 +1064,30 @@ h6,
   background-color: var(--negative-color-50);
   z-index: 1020;
 }
-.tf_layout-popup {
+.tf_layout-popup-loader {
   grid-row: 1/-1;
   grid-column: 1/-1;
+  display: grid;
+  margin: var(--m-3, var(--key-size)) auto auto auto;
+  padding: var(--p-3, var(--key-size)) var(--p-5, calc(var(--key-size) * 3));
+  border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
+  background-color: var(--warning-color);
   z-index: 1020;
+}
+.tf_layout-popup-toster {
+  grid-row: 1/-1;
+  grid-column: 1/-1;
+  display: grid;
+  grid-gap: var(--g-3, var(--key-size));
+  margin: auto var(--m-3, var(--key-size)) 0 auto;
+  padding: var(--p-3, var(--key-size));
+  z-index: 1020;
+}
+.tf_layout-popup-toster > * {
+  padding: var(--p-3, var(--key-size)) var(--p-5, calc(var(--key-size) * 3));
+  border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
+  background-color: var(--secondary-color);
+  color: var(--positive-color);
 }
 .tf_layout-aside-expander {
   width: calc(var(--key-size) * 3);

@@ -6,5 +6,6 @@ export let state = writable(
         fullscreen: false,
         popupLoader: false,
         popupToaster: false,
+        modalLoader: false,
     }
 )
