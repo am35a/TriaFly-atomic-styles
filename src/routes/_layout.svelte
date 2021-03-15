@@ -53,8 +53,44 @@
 <aside class="tf_layout-aside {$state.isAsideExpand ? 'tf_expand' : ''}">
     <AsideNav {segment}/>
 </aside>
-{#if $state.loader}
-    <div class="tf_layout-loader">
+{#if $state.popupLoader}
+    <div
+        on:click="{() => $state.popupLoader = !$state.popupLoader}"
+        class="tf_layout-popup mx-auto mb-auto mt-3 bg-warning px-5 py-3 rounded  d-grid"
+    >
         Loading data...
     </div>
 {/if}
+{#if $state.popupToaster}
+    <div
+        on:click="{() => $state.popupToaster = !$state.popupToaster}"
+        class="tf_layout-popup ml-auto mt-auto mr-3 p-3 d-grid g-3"
+    >
+        <div class="bg-secondary text-positive px-5 py-3 rounded">
+            First toast message
+        </div>
+        <div class="bg-secondary text-positive px-5 py-3 rounded">
+            Second toast message
+        </div>
+        <div class="bg-secondary text-positive px-5 py-3 rounded">
+            Third toast message
+        </div>
+    </div>
+{/if}
+
+<!-- {#if $state.modal.isShow} -->
+    <!-- <div class="tf_layout-popup" on:click="{() => $state.modal.isShow = !$state.modal.isShow}"> -->
+        <!-- {#if $state.modal.loader} -->
+            <!-- <div class="mx-auto mb-auto mt-3 bg-warning px-5 py-3 rounded"> -->
+                <!-- Loading data... -->
+            <!-- </div> -->
+        <!-- {/if} -->
+    <!-- </div> -->
+<!-- {/if} -->
+    <!-- {#if $state.modal.loader}
+        <div class="d-grid">
+            <div class="m-auto bg-warning px-5 py-3 rounded">
+                Loading data...
+            </div>
+        </div>
+    {/if} -->

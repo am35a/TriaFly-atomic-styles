@@ -4,6 +4,7 @@ export let state = writable(
     {
         isAsideExpand: false,
         fullscreen: false,
-        loader: false
+        popupLoader: false,
+        popupToaster: false,
     }
 )
