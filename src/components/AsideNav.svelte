@@ -61,7 +61,10 @@
 <i class="fas fa-times-circle fa-lg"></i>
 </div>
 <div class="tf_aside-navbar">
-	<div class="tf_navbar-item {segment === undefined  ? 'tf_navbar-item--active' : ''}">
+	<div
+		class="tf_navbar-item {segment === undefined  ? 'tf_navbar-item--active' : ''}"
+		on:click={() => $state.isAsideExpand = false}
+	>
 		<div class="tf_item-hover"></div>
 		<div class="tf_item-active"></div>
 		<a class="tf_item-identicon" href="."><IconHome/></a>
@@ -80,7 +83,10 @@
 			<a class="tf_item-title text-capitalize" href="{page.segment}">{page.segment}</a>
 		</div>
 	{/each}
-	<!-- <div class="tf_navbar-item {segment === 'blog' ? 'tf_navbar-item--active' : ''} position-absolute bottom-0">
+	<!-- <div
+			class="tf_navbar-item {segment === 'blog' ? 'tf_navbar-item--active' : ''} position-absolute bottom-0"
+			on:click={() => $state.isAsideExpand = false}
+		>
 		<div class="tf_item-hover"></div>
 		<div class="tf_item-active"></div>
 		<a class="tf_item-identicon" href="blog"><IconBlog/></a>
