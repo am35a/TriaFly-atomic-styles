@@ -1105,7 +1105,7 @@ h6,
 .desktop .tf_aside-navbar {
   width: calc(var(--key-size) * 3);
 }
-.tf_aside-navbar:hover {
+.desktop .tf_aside-navbar:hover {
   width: calc(var(--key-size) * 16);
   overflow-y: auto;
 }
