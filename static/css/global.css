@@ -1232,6 +1232,120 @@ h6,
 .align-text-top {
   vertical-align: text-top;
 }
+.align-content-around {
+  align-content: space-around;
+}
+.align-content-between {
+  align-content: space-between;
+}
+.align-content-center {
+  align-content: center;
+}
+.align-content-end {
+  align-content: end;
+}
+.align-content-evenly {
+  align-content: space-evenly;
+}
+.align-content-start {
+  align-content: start;
+}
+.align-content-stretch {
+  align-content: stretch;
+}
+.align-items-auto {
+  align-items: auto;
+}
+.align-items-baseline {
+  align-items: baseline;
+}
+.align-items-center {
+  align-items: center;
+}
+.align-items-end {
+  align-items: end;
+}
+.align-items-start {
+  align-items: start;
+}
+.align-items-stretch {
+  align-items: stretch;
+}
+.align-self-auto {
+  align-self: auto;
+}
+.align-self-baseline {
+  align-self: baseline;
+}
+.align-self-center {
+  align-self: center;
+}
+.align-self-end {
+  align-self: end;
+}
+.align-self-start {
+  align-self: start;
+}
+.align-self-stretch {
+  align-self: stretch;
+}
+.justify-content-around {
+  justify-content: space-around;
+}
+.justify-content-between {
+  justify-content: space-between;
+}
+.justify-content-center {
+  justify-content: center;
+}
+.justify-content-end {
+  justify-content: end;
+}
+.justify-content-evenly {
+  justify-content: space-evenly;
+}
+.justify-content-start {
+  justify-content: start;
+}
+.justify-content-stretch {
+  justify-content: stretch;
+}
+.justify-items-auto {
+  justify-items: auto;
+}
+.justify-items-baseline {
+  justify-items: baseline;
+}
+.justify-items-center {
+  justify-items: center;
+}
+.justify-items-end {
+  justify-items: end;
+}
+.justify-items-stretch {
+  justify-items: stretch;
+}
+.justify-items-start {
+  justify-items: start;
+}
+.justify-self-auto {
+  justify-self: auto;
+}
+.justify-self-baseline {
+  justify-self: baseline;
+}
+.justify-self-center {
+  justify-self: center;
+}
+.justify-self-end {
+  justify-self: end;
+}
+.justify-self-start {
+  justify-self: start;
+}
+.justify-self-stretch {
+  justify-self: stretch;
+}
 .bg-positive {
   background-color: var(--positive-color);
 }
