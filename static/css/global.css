@@ -129,6 +129,15 @@ body {
 ::before {
   box-sizing: border-box;
 }
+hr {
+  margin-top: var(--key-size);
+  margin-bottom: var(--key-size);
+  height: calc(var(--key-size) * 0.0625);
+  background-color: currentColor;
+  border-width: 0;
+  color: inherit;
+  opacity: 0.25;
+}
 .tf_btn {
   display: inline-block;
   padding: calc(var(--key-size) * 0.25) calc(var(--key-size) * 0.625);
