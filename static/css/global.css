@@ -1253,9 +1253,6 @@ h6,
 .align-content-stretch {
   align-content: stretch;
 }
-.align-items-auto {
-  align-items: auto;
-}
 .align-items-baseline {
   align-items: baseline;
 }
@@ -1270,9 +1267,6 @@ h6,
 }
 .align-items-stretch {
   align-items: stretch;
-}
-.align-self-auto {
-  align-self: auto;
 }
 .align-self-baseline {
   align-self: baseline;
