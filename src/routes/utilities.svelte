@@ -102,6 +102,9 @@
         <div class="h3" role="heading" aria-level="3">Flex and grid alignment</div>
         <div>
             <div class="h4" role="heading" aria-level="4">Align content</div>
+            <p>
+                Align rows vertically. The alignment value sets to the container. Default value is normal.
+            </p>
             <div>
                 <div class="bg-background rounded-2 rounded-bottom-0 p-3">
                     <div class="d-flex flex-wrap g-3">

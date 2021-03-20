@@ -1,2 +1,9 @@
 .grid-flow-row { grid-auto-flow: row; }
 .grid-flow-col { grid-auto-flow: column; }
+
+each(@device-types, {
+    .@{key} {
+        .@{value}\:grid-flow-row { grid-auto-flow: row; }
+        .@{value}\:grid-flow-col { grid-auto-flow: column; }
+    }
+});
