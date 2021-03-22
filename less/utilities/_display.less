@@ -1,16 +1,20 @@
-.d {
-    &-inline { display: inline; }
-    &-block { display: block; }
-    &-inline-block { display: inline-block; }
-    &-grid { display: grid; }
-    &-inline-grid { display: inline-grid; }
-    &-flex { display: flex; }
-    &-inline-flex { display: inline-flex; }
-    &-table {
-        display: table;
-        &-row { display: table-row; }
-        &-cell { display: table-cell; }
+.display(@device-orientation-value, @device-type-value) {
+
+    .@{device-orientation-value}@{device-type-value}d {
+        &-inline { display: inline; }
+        &-block { display: block; }
+        &-inline-block { display: inline-block; }
+        &-grid { display: grid; }
+        &-inline-grid { display: inline-grid; }
+        &-flex { display: flex; }
+        &-inline-flex { display: inline-flex; }
+        &-table {
+            display: table;
+            &-row { display: table-row; }
+            &-cell { display: table-cell; }
+        }
+        &-none { display: none; }
+        &-unset { display: unset; }
     }
-    &-none { display: none; }
-    &-unset { display: unset; }
+
 }

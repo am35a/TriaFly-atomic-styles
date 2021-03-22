@@ -1,0 +1,53 @@
+.border {
+    border: var(--border-width, calc(var(--key-size) * .0625)) solid var(--border-color, currentColor);
+    &-top { border-top: var(--border-width, calc(var(--key-size) * .0625)) solid var(--border-color, currentColor); }
+    &-right { border-right: var(--border-width, calc(var(--key-size) * .0625)) solid var(--border-color, currentColor); }
+    &-bottom { border-bottom: var(--border-width, calc(var(--key-size) * .0625)) solid var(--border-color, currentColor); }
+    &-left { border-left: var(--border-width, calc(var(--key-size) * .0625)) solid var(--border-color, currentColor); }
+
+    &-0 { border: 0; }
+    &-top-0 { border-top: 0; }
+    &-right-0 { border-right: 0; }
+    &-bottom-0 { border-bottom: 0; }
+    &-left-0 { border-left: 0; }
+}
+
+.border(@device-orientation-value, @device-type-value) {
+
+    .@{device-orientation-value}@{device-type-value}rounded {
+        border-radius: var(--rounded-2, calc(var(--key-size) * .25));
+        &-0 {
+            border-radius: 0;
+        }
+        &-1, &-sm {
+            border-radius: var(--rounded-1, calc(var(--key-size) * .125));
+        }
+        &-2 {
+            border-radius: var(--rounded-2, calc(var(--key-size) * .25));
+        }
+        &-3, &-lg {
+            border-radius: var(--rounded-3, calc(var(--key-size) * .5));
+        }
+    
+        &-circle { border-radius: 50%; }
+        &-pill { border-radius: 50rem; }
+        
+        &-top-0 {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+        &-end-0, &-right-0 {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        &-bottom-0 {
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        &-start, &-left-0 {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+        }
+    }
+
+}

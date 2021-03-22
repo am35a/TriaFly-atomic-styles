@@ -1,6 +1,6 @@
 @import "utilities/_alignment.less";
 @import "utilities/_background.less";
-@import "utilities/_borders.less";
+@import "utilities/_border.less";
 @import "utilities/_clearfix.less";
 @import "utilities/_display.less";
 @import "utilities/_grid.less";
@@ -12,3 +12,38 @@
 @import "utilities/_spacing.less";
 @import "utilities/_text.less";
 @import "utilities/_visibility.less";
+
+
+// non-adaptive style
+.alignment({}, {});
+.background({}, {});
+.border({}, {});
+.display({}, {});
+
+// adaptive styles for device types
+each(@device-types, .(@device-type-value, @device-type-key) {
+    .@{device-type-key} {
+        .alignment({}, ~"@{device-type-value}\:");
+        .background({}, ~"@{device-type-value}\:");
+        .border({}, ~"@{device-type-value}\:");
+        .display({}, ~"@{device-type-value}\:");
+    }
+});
+
+// adaptive styles for device types inside orientations
+each(@device-orientations, .(@device-orientation-value, @device-orientation-key) {
+    @media (orientation: @device-orientation-key) {
+        .alignment(~"@{device-orientation-value}\:", {});
+        .background(~"@{device-orientation-value}\:", {});
+        .border(~"@{device-orientation-value}\:", {});
+        .display(~"@{device-orientation-value}\:", {});
+        each(@device-types, .(@device-type-value, @device-type-key) {
+            .@{device-type-key} {
+                .alignment(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
+                .background(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
+                .border(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
+                .display(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
+            }
+        });
+    }
+});

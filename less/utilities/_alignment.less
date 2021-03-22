@@ -1,66 +1,70 @@
-.align {
-    &-baseline { vertical-align: baseline; }
-    &-top { vertical-align: top; }
-    &-middle { vertical-align: middle; }
-    &-bottom { vertical-align: bottom; }
-    &-text-bottom { vertical-align: text-bottom; }
-    &-text-top { vertical-align: text-top; }
-}
-
-.align {
-    &-content {
-        &-around { align-content: space-around; }
-        &-between { align-content: space-between; }
-        &-center { align-content: center; }
-        &-end { align-content: end; }
-        &-evenly { align-content: space-evenly; }
-        &-start { align-content: start; }
-        &-stretch { align-content: stretch; }
+.alignment(@device-orientation-value, @device-type-value) {
+    
+    .@{device-orientation-value}@{device-type-value}align {
+        &-baseline { vertical-align: baseline; }
+        &-top { vertical-align: top; }
+        &-middle { vertical-align: middle; }
+        &-bottom { vertical-align: bottom; }
+        &-text-bottom { vertical-align: text-bottom; }
+        &-text-top { vertical-align: text-top; }
     }
-
-    &-items {
-        &-baseline { align-items: baseline; }
-        &-center { align-items: center; }
-        &-end { align-items: end; }
-        &-start { align-items: start; }
-        &-stretch { align-items: stretch; }
+    
+    .@{device-orientation-value}@{device-type-value}align {
+        &-content {
+            &-around { align-content: space-around; }
+            &-between { align-content: space-between; }
+            &-center { align-content: center; }
+            &-end { align-content: end; }
+            &-evenly { align-content: space-evenly; }
+            &-start { align-content: start; }
+            &-stretch { align-content: stretch; }
+        }
+    
+        &-items {
+            &-baseline { align-items: baseline; }
+            &-center { align-items: center; }
+            &-end { align-items: end; }
+            &-start { align-items: start; }
+            &-stretch { align-items: stretch; }
+        }
+    
+        &-self {
+            &-baseline { align-self: baseline; }
+            &-center { align-self: center; }
+            &-end { align-self: end; }
+            &-start { align-self: start; }
+            &-stretch { align-self: stretch; }
+        }
     }
-
-    &-self {
-        &-baseline { align-self: baseline; }
-        &-center { align-self: center; }
-        &-end { align-self: end; }
-        &-start { align-self: start; }
-        &-stretch { align-self: stretch; }
+    
+    .@{device-orientation-value}@{device-type-value}justify {
+        &-content {
+            &-around { justify-content: space-around; }
+            &-between { justify-content: space-between; }
+            &-center { justify-content: center; }
+            &-end { justify-content: end; }
+            &-evenly { justify-content: space-evenly; }
+            &-start { justify-content: start; }
+            &-stretch { justify-content: stretch; }
+        }
+    
+        &-items {
+            &-auto { justify-items: auto; }
+            &-baseline { justify-items: baseline; }
+            &-center { justify-items: center; }
+            &-end { justify-items: end; }
+            &-stretch { justify-items: stretch; }
+            &-start { justify-items: start; }
+        }
+    
+        &-self {
+            &-auto { justify-self: auto; }
+            &-baseline { justify-self: baseline; }
+            &-center { justify-self: center; }
+            &-end { justify-self: end; }
+            &-start { justify-self: start; }
+            &-stretch { justify-self: stretch; }
+        }
     }
-}
-
-.justify {
-    &-content {
-        &-around { justify-content: space-around; }
-        &-between { justify-content: space-between; }
-        &-center { justify-content: center; }
-        &-end { justify-content: end; }
-        &-evenly { justify-content: space-evenly; }
-        &-start { justify-content: start; }
-        &-stretch { justify-content: stretch; }
-    }
-
-    &-items {
-        &-auto { justify-items: auto; }
-        &-baseline { justify-items: baseline; }
-        &-center { justify-items: center; }
-        &-end { justify-items: end; }
-        &-stretch { justify-items: stretch; }
-        &-start { justify-items: start; }
-    }
-
-    &-self {
-        &-auto { justify-self: auto; }
-        &-baseline { justify-self: baseline; }
-        &-center { justify-self: center; }
-        &-end { justify-self: end; }
-        &-start { justify-self: start; }
-        &-stretch { justify-self: stretch; }
-    }
+    
 }
