@@ -1,5 +1,9 @@
-.float {
-    &-start, &-left { float: left; }
-    &-end, &-right { float: right; }
-    &-none { float: none; }
+.float(@device-orientation-value, @device-type-value) {
+
+    .@{device-orientation-value}@{device-type-value}float {
+        &-start, &-left { float: left; }
+        &-end, &-right { float: right; }
+        &-none { float: none; }
+    }
+
 }

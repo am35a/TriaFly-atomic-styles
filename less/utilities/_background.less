@@ -1,7 +1,7 @@
 .background(@device-orientation-value, @device-type-value) {
 
     .@{device-orientation-value}@{device-type-value}bg {
-        each(@color-names, {
+        each(@bg-color-names, {
             &-@{value} {
                 background-color: var(~"--@{value}-color");
             }

@@ -1,52 +1,52 @@
-.grid(@device-type) {
-    each(range(12), {
-        .@{device-type}cols-@{value} {
-            grid-template-columns: repeat(@value, minmax(0, 1fr));
-        }
-    });
-    .@{device-type}cols-none { grid-template-columns: none; }
+// .grid(@device-type) {
+//     each(range(12), {
+//         .@{device-type}cols-@{value} {
+//             grid-template-columns: repeat(@value, minmax(0, 1fr));
+//         }
+//     });
+//     .@{device-type}cols-none { grid-template-columns: none; }
     
-    each(range(12), {
-        .@{device-type}rows-@{value} {
-            grid-template-rows: repeat(@value, minmax(0, 1fr));
-        }
-    });
-    .@{device-type}rows-none { grid-template-rows: none; }
+//     each(range(12), {
+//         .@{device-type}rows-@{value} {
+//             grid-template-rows: repeat(@value, minmax(0, 1fr));
+//         }
+//     });
+//     .@{device-type}rows-none { grid-template-rows: none; }
     
-    each(range(12), {
-        .@{device-type}col-span-@{value} {
-            grid-column: span @value / span @value;
-        }
-    });
-    .@{device-type}col-span-full { grid-column: 1 / -1; }
-    .@{device-type}col-span-auto { grid-column: auto; }
+//     each(range(12), {
+//         .@{device-type}col-span-@{value} {
+//             grid-column: span @value / span @value;
+//         }
+//     });
+//     .@{device-type}col-span-full { grid-column: 1 / -1; }
+//     .@{device-type}col-span-auto { grid-column: auto; }
     
-    each(range(12), {
-        .@{device-type}row-span-@{value} {
-            grid-row: span @value / span @value;
-        }
-    });
-    .@{device-type}row-span-full { grid-row: 1 / -1; }
-    .@{device-type}row-span-auto { grid-row: auto; }
+//     each(range(12), {
+//         .@{device-type}row-span-@{value} {
+//             grid-row: span @value / span @value;
+//         }
+//     });
+//     .@{device-type}row-span-full { grid-row: 1 / -1; }
+//     .@{device-type}row-span-auto { grid-row: auto; }
     
-    each(range(13), {
-        .@{device-type}col-start-@{value} { grid-column-start: @value; }
-        .@{device-type}col-end-@{value} { grid-column-end: @value; }
-    });
-    .@{device-type}col-start-auto { grid-column-start: auto; }
-    .@{device-type}col-end-auto { grid-column-end: auto; }
+//     each(range(13), {
+//         .@{device-type}col-start-@{value} { grid-column-start: @value; }
+//         .@{device-type}col-end-@{value} { grid-column-end: @value; }
+//     });
+//     .@{device-type}col-start-auto { grid-column-start: auto; }
+//     .@{device-type}col-end-auto { grid-column-end: auto; }
     
-    each(range(13), {
-        .@{device-type}row-start-@{value} { grid-row-start: @value; }
-        .@{device-type}row-end-@{value} { grid-row-end: @value; }
-    });
-    .@{device-type}row-start-auto { grid-row-start: auto; }
-    .@{device-type}row-end-auto { grid-row-end: auto; }
-}
+//     each(range(13), {
+//         .@{device-type}row-start-@{value} { grid-row-start: @value; }
+//         .@{device-type}row-end-@{value} { grid-row-end: @value; }
+//     });
+//     .@{device-type}row-start-auto { grid-row-start: auto; }
+//     .@{device-type}row-end-auto { grid-row-end: auto; }
+// }
 
-.grid({});
-each(@device-types, {
-    .@{key} {
-        .grid(~"@{value}\:");
-    }
-});
+// .grid({});
+// each(@device-types, {
+//     .@{key} {
+//         .grid(~"@{value}\:");
+//     }
+// });

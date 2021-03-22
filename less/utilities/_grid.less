@@ -1,9 +1,42 @@
-.grid-flow-row { grid-auto-flow: row; }
-.grid-flow-col { grid-auto-flow: column; }
+.grid(@device-orientation-value, @device-type-value) {
 
-each(@device-types, {
-    .@{key} {
-        .@{value}\:grid-flow-row { grid-auto-flow: row; }
-        .@{value}\:grid-flow-col { grid-auto-flow: column; }
-    }
-});
+    each(range(12), {
+        .@{device-orientation-value}@{device-type-value}cols-@{value} { grid-template-columns: repeat(@value, minmax(0, 1fr)); }
+    });
+    .@{device-orientation-value}@{device-type-value}cols-none { grid-template-columns: none; }
+    
+    each(range(12), {
+        .@{device-orientation-value}@{device-type-value}rows-@{value} { grid-template-rows: repeat(@value, minmax(0, 1fr)); }
+    });
+    .@{device-orientation-value}@{device-type-value}rows-none { grid-template-rows: none; }
+    
+    each(range(12), {
+        .@{device-orientation-value}@{device-type-value}col-span-@{value} { grid-column: span @value / span @value; }
+    });
+    .@{device-orientation-value}@{device-type-value}col-span-full { grid-column: 1 / -1; }
+    .@{device-orientation-value}@{device-type-value}col-span-auto { grid-column: auto; }
+    
+    each(range(12), {
+        .@{device-orientation-value}@{device-type-value}row-span-@{value} { grid-row: span @value / span @value; }
+    });
+    .@{device-orientation-value}@{device-type-value}row-span-full { grid-row: 1 / -1; }
+    .@{device-orientation-value}@{device-type-value}row-span-auto { grid-row: auto; }
+    
+    each(range(13), {
+        .@{device-orientation-value}@{device-type-value}col-start-@{value} { grid-column-start: @value; }
+        .@{device-orientation-value}@{device-type-value}col-end-@{value} { grid-column-end: @value; }
+    });
+    .@{device-orientation-value}@{device-type-value}col-start-auto { grid-column-start: auto; }
+    .@{device-orientation-value}@{device-type-value}col-end-auto { grid-column-end: auto; }
+    
+    each(range(13), {
+        .@{device-orientation-value}@{device-type-value}row-start-@{value} { grid-row-start: @value; }
+        .@{device-orientation-value}@{device-type-value}row-end-@{value} { grid-row-end: @value; }
+    });
+    .@{device-orientation-value}@{device-type-value}row-start-auto { grid-row-start: auto; }
+    .@{device-orientation-value}@{device-type-value}row-end-auto { grid-row-end: auto; }
+
+    .@{device-orientation-value}@{device-type-value}grid-flow-row { grid-auto-flow: row; }
+    .@{device-orientation-value}@{device-type-value}grid-flow-col { grid-auto-flow: column; }
+
+}

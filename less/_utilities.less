@@ -3,9 +3,9 @@
 @import "utilities/_border.less";
 @import "utilities/_clearfix.less";
 @import "utilities/_display.less";
-@import "utilities/_grid.less";
 @import "utilities/_flex.less";
 @import "utilities/_float.less";
+@import "utilities/_grid.less";
 @import "utilities/_overflow.less";
 @import "utilities/_position.less";
 @import "utilities/_sizing.less";
@@ -19,6 +19,9 @@
 .background({}, {});
 .border({}, {});
 .display({}, {});
+.flex({}, {});
+.float({}, {});
+.grid({}, {});
 
 // adaptive styles for device types
 each(@device-types, .(@device-type-value, @device-type-key) {
@@ -27,6 +30,9 @@ each(@device-types, .(@device-type-value, @device-type-key) {
         .background({}, ~"@{device-type-value}\:");
         .border({}, ~"@{device-type-value}\:");
         .display({}, ~"@{device-type-value}\:");
+        .flex({}, ~"@{device-type-value}\:");
+        // .float({}, ~"@{device-type-value}\:");
+        .grid({}, ~"@{device-type-value}\:");
     }
 });
 
@@ -37,12 +43,18 @@ each(@device-orientations, .(@device-orientation-value, @device-orientation-key)
         .background(~"@{device-orientation-value}\:", {});
         .border(~"@{device-orientation-value}\:", {});
         .display(~"@{device-orientation-value}\:", {});
+        .flex(~"@{device-orientation-value}\:", {});
+        // .float(~"@{device-orientation-value}\:", {});
+        .grid(~"@{device-orientation-value}\:", {});
         each(@device-types, .(@device-type-value, @device-type-key) {
             .@{device-type-key} {
                 .alignment(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
                 .background(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
                 .border(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
                 .display(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
+                .flex(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
+                // .float(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
+                .grid(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
             }
         });
     }

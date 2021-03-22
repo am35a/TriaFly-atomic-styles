@@ -19,6 +19,12 @@
                 <a href="layout#modal">Modal</a>
             </div>
         </div>
+        <div class="d-flex g-3 mt-3">
+            <div class="text-info"><i class="fas fa-anchor"></i> Examples:</div>
+            <div class="d-flex g-3 flex-wrap">
+                <a href="layout/2x2">2x2</a>
+            </div>
+        </div>
     </div>
 
     <div id="main" class="overflow-auto">
