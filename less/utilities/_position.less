@@ -1,35 +1,39 @@
-.position {
-    &-static { position: static; }
-    &-relative { position: relative; }
-    &-absolute { position: absolute; }
-    &-fixed { position: fixed; }
-    &-sticky { position: sticky; }
-}
+.position(@device-orientation-value, @device-type-value) {
 
-.left-0, .start-0 { left: 0; }
-.left-50, .start-50 { left: 50%; }
-.left-100, .start-100 { left: 100%; }
-
-.top {
-    &-0 { top: 0; }
-    &-50 { top: 50%; }
-    &-100 { top: 100%; }
-}
-
-.right-0, .end-0 { right: 0; }
-.right-50, .end-50 { right: 50%; }
-.right-100, .end-100 { right: 100%; }
-
-.bottom {
-    &-0 { bottom: 0; }
-    &-50 { bottom: 50%; }
-    &-100 { bottom: 100%; }
-}
-
-.translate {
-    &-middle {
-        transform: translate(-50%, -50%);
-        &-x { transform: translateX(-50%); }
-        &-y { transform: translateY(-50%); }
+    .@{device-orientation-value}@{device-type-value}position {
+        &-static { position: static; }
+        &-relative { position: relative; }
+        &-absolute { position: absolute; }
+        &-fixed { position: fixed; }
+        &-sticky { position: sticky; }
     }
+
+    .@{device-orientation-value}@{device-type-value}left-0, .@{device-orientation-value}@{device-type-value}start-0 { left: 0; }
+    .@{device-orientation-value}@{device-type-value}left-50, .@{device-orientation-value}@{device-type-value}start-50 { left: 50%; }
+    .@{device-orientation-value}@{device-type-value}left-100, .@{device-orientation-value}@{device-type-value}start-100 { left: 100%; }
+
+    .@{device-orientation-value}@{device-type-value}top {
+        &-0 { top: 0; }
+        &-50 { top: 50%; }
+        &-100 { top: 100%; }
+    }
+
+    .@{device-orientation-value}@{device-type-value}right-0, .@{device-orientation-value}@{device-type-value}end-0 { right: 0; }
+    .@{device-orientation-value}@{device-type-value}right-50, .@{device-orientation-value}@{device-type-value}end-50 { right: 50%; }
+    .@{device-orientation-value}@{device-type-value}right-100, .@{device-orientation-value}@{device-type-value}end-100 { right: 100%; }
+
+    .@{device-orientation-value}@{device-type-value}bottom {
+        &-0 { bottom: 0; }
+        &-50 { bottom: 50%; }
+        &-100 { bottom: 100%; }
+    }
+
+    .@{device-orientation-value}@{device-type-value}translate {
+        &-middle {
+            transform: translate(-50%, -50%);
+            &-x { transform: translateX(-50%); }
+            &-y { transform: translateY(-50%); }
+        }
+    }
+
 }

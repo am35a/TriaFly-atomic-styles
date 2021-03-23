@@ -22,6 +22,10 @@
 .flex({}, {});
 .float({}, {});
 .grid({}, {});
+.overflow({}, {});
+.position({}, {});
+.sizing({}, {});
+.spacing({}, {});
 
 // adaptive styles for device types
 each(@device-types, .(@device-type-value, @device-type-key) {
@@ -33,6 +37,10 @@ each(@device-types, .(@device-type-value, @device-type-key) {
         .flex({}, ~"@{device-type-value}\:");
         // .float({}, ~"@{device-type-value}\:");
         .grid({}, ~"@{device-type-value}\:");
+        .overflow({}, ~"@{device-type-value}\:");
+        .position({}, ~"@{device-type-value}\:");
+        .sizing({}, ~"@{device-type-value}\:");
+        .spacing({}, ~"@{device-type-value}\:");
     }
 });
 
@@ -46,6 +54,10 @@ each(@device-orientations, .(@device-orientation-value, @device-orientation-key)
         .flex(~"@{device-orientation-value}\:", {});
         // .float(~"@{device-orientation-value}\:", {});
         .grid(~"@{device-orientation-value}\:", {});
+        .overflow(~"@{device-orientation-value}\:", {});
+        .position(~"@{device-orientation-value}\:", {});
+        .sizing(~"@{device-orientation-value}\:", {});
+        .spacing(~"@{device-orientation-value}\:", {});
         each(@device-types, .(@device-type-value, @device-type-key) {
             .@{device-type-key} {
                 .alignment(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
@@ -55,6 +67,10 @@ each(@device-orientations, .(@device-orientation-value, @device-orientation-key)
                 .flex(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
                 // .float(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
                 .grid(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
+                .overflow(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
+                .position(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
+                .sizing(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
+                .spacing(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
             }
         });
     }
