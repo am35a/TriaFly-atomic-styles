@@ -720,7 +720,7 @@ h6,
   margin-bottom: var(--m-3, var(--key-size));
 }
 .tf_layout-main--fullscreen,
-.tf_layout-mainfullscreen-mode {
+.tf_layout-main.fullscreen-mode {
   grid-row: 1/-1;
   grid-column: 1/-1;
   z-index: 1010;
