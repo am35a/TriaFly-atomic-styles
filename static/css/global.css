@@ -339,7 +339,7 @@ hr {
 select.tf_form-control {
   padding-right: calc(var(--key-size) * 2.5);
   /*  1.25 + .625 * 2 */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><path d='M0 0h24v24H0z' fill='white' fill-opacity='0.75'/><path d='M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z'/></svg>");
   background-repeat: no-repeat;
   background-position: right calc(var(--key-size) * 0.625) center;
   background-size: calc(var(--key-size) * 1.25);
@@ -347,7 +347,7 @@ select.tf_form-control {
 [type="file"].tf_form-control {
   padding-left: calc(var(--key-size) * 2.5);
   /*  1.25 + .625 * 2 */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M5,20h14v-2H5V20z M5,10h4v6h6v-6h4l-7-7L5,10z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><path d='M0 0h24v24H0z' fill='white' fill-opacity='0.75'/><path d='M5,20h14v-2H5V20z M5,10h4v6h6v-6h4l-7-7L5,10z'/></svg>");
   background-repeat: no-repeat;
   background-position: left calc(var(--key-size) * 0.625) center;
   background-size: calc(var(--key-size) * 1.25);
