@@ -71,7 +71,6 @@
         <div>Third toast message</div>
     </div>
 {/if}
-
 {#if $state.modalLoader}
     <div class="tf_layout-modal-loader" on:click="{() => $state.modalLoader = !$state.modalLoader}">
         <div class="m-auto bg-positive px-5 py-3 rounded d-flex">
