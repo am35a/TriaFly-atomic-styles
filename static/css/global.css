@@ -339,7 +339,7 @@ hr {
 select.tf_form-control {
   padding-right: calc(var(--key-size) * 2.5);
   /*  1.25 + .625 * 2 */
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><path d='M0 0h24v24H0z' fill='white' fill-opacity='0.75'/><path d='M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><rect x='0' y='0' width='24' height='24' fill='white' fill-opacity='0.75' rx='2'/><path d='M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z'/></svg>");
   background-repeat: no-repeat;
   background-position: right calc(var(--key-size) * 0.625) center;
   background-size: calc(var(--key-size) * 1.25);
@@ -347,7 +347,7 @@ select.tf_form-control {
 [type="file"].tf_form-control {
   padding-left: calc(var(--key-size) * 2.5);
   /*  1.25 + .625 * 2 */
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><path d='M0 0h24v24H0z' fill='white' fill-opacity='0.75'/><path d='M5,20h14v-2H5V20z M5,10h4v6h6v-6h4l-7-7L5,10z'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><rect x='0' y='0' width='24' height='24' fill='white' fill-opacity='0.75' rx='2'/><path d='M5,20h14v-2H5V20z M5,10h4v6h6v-6h4l-7-7L5,10z'/></svg>");
   background-repeat: no-repeat;
   background-position: left calc(var(--key-size) * 0.625) center;
   background-size: calc(var(--key-size) * 1.25);
@@ -473,10 +473,14 @@ select.tf_form-control {
   color: var(--error-color);
 }
 .tf_form-control-sm {
-  --key-size: 0.875rem;
+  --key-size-sm: calc(var(--key-size) * 0.875);
+  padding: calc(var(--key-size-sm) * 0.25) calc(var(--key-size-sm) * 0.625);
+  font-size: var(--key-size-sm);
 }
 .tf_form-control-lg {
-  --key-size: 1.125rem;
+  --key-size-lg: calc(var(--key-size) * 1.125);
+  padding: calc(var(--key-size-lg) * 0.25) calc(var(--key-size-lg) * 0.625);
+  font-size: var(--key-size-lg);
 }
 .tf_form-text {
   margin-top: calc(var(--key-size) * 0.25);
