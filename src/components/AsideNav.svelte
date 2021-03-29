@@ -77,10 +77,10 @@
 		>
 			<div class="tf_item-hover"></div>
 			<div class="tf_item-active"></div>
-			<a class="tf_item-identicon" href="{page.segment}">
+			<a class="tf_item-identicon" href="{page.segment}/#{page.segment}">
 				<svelte:component this={page.component}/>
 			</a>
-			<a class="tf_item-title text-capitalize" href="{page.segment}">{page.segment}</a>
+			<a class="tf_item-title text-capitalize" href="{page.segment}/#{page.segment}">{page.segment}</a>
 		</div>
 	{/each}
 	<!-- <div

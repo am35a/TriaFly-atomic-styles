@@ -25,7 +25,7 @@
         <a href="forms#sizes">Sizes</a>
         <a href="forms#disabled">Disabled</a>
     </slot>
-    <div class="h1" role="heading" aria-level="1">Forms</div>
+    <div id="forms" class="h1" role="heading" aria-level="1">Forms</div>
     <FormDefault/>
     <div>
         The following classes defining forms colors:

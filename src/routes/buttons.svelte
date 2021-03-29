@@ -29,7 +29,7 @@
         <a href="buttons#sizes">Sizes</a>
         <a href="buttons#icon">Icon</a>
     </slot>
-    <div class="h1" role="heading" aria-level="1">Buttons</div>
+    <div id="buttons" class="h1" role="heading" aria-level="1">Buttons</div>
     <ButtonDefault/>
     <ButtonInverse/>
     <ButtonTransparent/>
