@@ -11,6 +11,7 @@
         // display: flex;
         // gap: var(--key-size);
         align-items: center;
+        background-color: var(--header-background-color, var(--negative-color-10));
 
         display: grid;
         grid-gap: var(--key-size);
@@ -34,9 +35,9 @@
         grid-column: 2/3;
         position: relative;
         overflow: auto;
-        &:not(:empty) {
-            background-color: var(--positive-color);
-        }
+        // &:not(:empty) {
+        //     background-color: var(--positive-color);
+        // }
         > :last-child {
             margin-bottom: var(--m-3, var(--key-size));
         }        
