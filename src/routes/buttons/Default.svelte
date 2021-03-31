@@ -7,7 +7,7 @@
     <div class="h2" role="heading" aria-level="2">Default</div>
     <p>To create a default button, use the <b>.tf_btn</b> class, but default state is not recommended to use without color classes for any buttons.</p>
     <div class="rounded-2 overflow-hidden">
-        <div class="bg-background p-3 text-center">
+        <div class="bg-positive p-3 text-center">
             <div class="d-inline-flex g-3 flex-wrap">
                 <button class="tf_btn">default button</button>
                 <button class="tf_btn"><i class="fas fa-home"></i> icon button</button>

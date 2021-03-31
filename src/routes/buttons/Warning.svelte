@@ -6,7 +6,7 @@
 <div id="warning" class="mb-3">
     <div class="h3" role="heading" aria-level="3">Warning</div>
     <div class="rounded-2 overflow-hidden">
-        <div class="bg-background rounded-2 rounded-bottom-0 p-3 text-center">
+        <div class="bg-positive rounded-2 rounded-bottom-0 p-3 text-center">
             <div class="d-inline-flex g-3 flex-wrap">
                 <button class="tf_btn tf_btn-warning">warning button</button>
                 <button class="tf_btn tf_btn-warning"><i class="fas fa-home"></i> icon button</button>

@@ -7,7 +7,7 @@
     <div class="h2" role="heading" aria-level="2">Sizes</div>
     <p>For change size of buttons use <b>.tf_btn-sm</b> and <b>.tf_btn-lg</b> classes:</p>
     <div class="rounded-2 overflow-hidden">
-        <div class="bg-background rounded-2 rounded-bottom-0 p-3 text-center">
+        <div class="bg-positive rounded-2 rounded-bottom-0 p-3 text-center">
             <div class="d-inline-flex g-3 flex-wrap align-items-center">
                 <button class="tf_btn tf_btn-primary tf_btn-sm">small button</button>
                 <button class="tf_btn tf_btn-primary">default button</button>
