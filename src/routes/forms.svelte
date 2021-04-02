@@ -13,7 +13,7 @@
 
 </script>
 
-<PageLayout>
+<PageLayout id="forms">
     <slot slot="aside">
         <a href="forms#default">Default</a>
         <a href="forms#primary">Primary</a>
@@ -25,25 +25,25 @@
         <a href="forms#sizes">Sizes</a>
         <a href="forms#disabled">Disabled</a>
     </slot>
-    <div id="forms" class="h1" role="heading" aria-level="1">Forms</div>
+    <div class="h1" role="heading" aria-level="1">Forms</div>
     <FormDefault/>
-    <div>
-        The following classes defining forms colors:
-        <ul>
-            <li class="text-primary">.tf_form-control-primary</li>
-            <li class="text-secondary">.tf_form-control-secondary</li>
-            <li class="text-info">.tf_form-control-info</li>
-            <li class="text-success">.tf_form-control-success</li>
-            <li class="text-warning">.tf_form-control-warning</li>
-            <li class="text-error">.tf_form-control-error</li>
-        </ul>
-    </div>
-    <div>
+    <div id="main-forms">
         <div class="h2" role="heading" aria-level="2">Main color forms</div>
+        <div>
+            The following classes defining forms colors:
+            <ul>
+                <li class="text-primary">.tf_form-control-primary</li>
+                <li class="text-secondary">.tf_form-control-secondary</li>
+                <li class="text-info">.tf_form-control-info</li>
+                <li class="text-success">.tf_form-control-success</li>
+                <li class="text-warning">.tf_form-control-warning</li>
+                <li class="text-error">.tf_form-control-error</li>
+            </ul>
+        </div>
         <FormPrimary/>
         <FormSecondary/>
     </div>
-    <div>
+    <div id="extra-forms">
         <div class="h2" role="heading" aria-level="2">Addition color forms</div>
         <p>The following classes defining action form colors:</p>
         <FormInfo/>

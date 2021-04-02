@@ -3,7 +3,7 @@
     import MultiAlignment from './alignment/MultiAlignment.svelte'
 </script>
 
-<div id="alignment">
+<div id="alignment" class="mb-3">
     <div class="h2" role="heading" aria-level="2">Alignment</div>
     <VerticalAlignment/>
     <MultiAlignment/>

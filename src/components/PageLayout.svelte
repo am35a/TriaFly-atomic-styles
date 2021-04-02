@@ -1,7 +1,7 @@
 <div class="d-grid g-3
     l:d:cols-4
-    l:t:cols-4">
-
+    l:t:cols-4"
+    {...$$restProps} >
     <div class="
         l:d:col-start-4
         l:t:col-start-4">
@@ -19,10 +19,6 @@
     <div class="overflow-auto
         l:d:col-start-1 l:d:col-span-3 l:d:row-start-1
         l:t:col-start-1 l:t:col-span-3 l:t:row-start-1">
-        <div class="overflow-auto
-            l:d:col-start-1 l:d:col-span-3 l:d:row-start-1
-            l:t:col-start-1 l:t:col-span-3 l:t:row-start-1">
-            <slot></slot>
-        </div>
+        <slot></slot>
     </div>
 </div>

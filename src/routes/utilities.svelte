@@ -6,9 +6,10 @@
     import Radius     from "../routes/utilities/Radius.svelte"
     import Clearfix   from "../routes/utilities/Clearfix.svelte"
     import Display    from "../routes/utilities/Display.svelte"
+    import Flex       from "../routes/utilities/Flex.svelte"
 </script>
 
-<PageLayout>
+<PageLayout id="utilities">
     <slot slot="aside">
         <a href="utilities#alignment">Alignment</a>
             <a href="utilities#vertical-alignment">- Vertical alignment</a>
@@ -25,12 +26,23 @@
         <a href="utilities#radius">Radius</a>
         <a href="utilities#clearfix">Clearfix</a>
         <a href="utilities#display">Display</a>
+        <a href="utilities#flex">Flex</a>
+            <a href="utilities#enable-flex">- Enable flex</a>
+            <a href="utilities#flex-direction">- Direction</a>
+                <a href="utilities#row-direction">-- Horizontal (row)</a>
+                <a href="utilities#column-direction">-- Vertical (column)</a>
+            <a href="utilities#flex-direction">- Wraping</a>
+                <a href="utilities#flex-wrap">-- Wrap</a>
+                <a href="utilities#flex-wrap-reverse">-- Wrap reverse</a>
+                <a href="utilities#flex-nowrap">-- No wrap</a>
+        
     </slot>
-    <div id="utilities" class="h1" role="heading" aria-level="1">Utilities</div>
+    <div class="h1" role="heading" aria-level="1">Utilities</div>
     <Alignment/>
     <BgColor/>
     <Border/>
     <Radius/>
     <Clearfix/>
     <Display/>
+    <Flex/>
 </PageLayout>

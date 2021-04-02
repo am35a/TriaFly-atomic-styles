@@ -15,7 +15,7 @@
 </script>
 
 
-<PageLayout>
+<PageLayout id="buttons">
     <slot slot="aside">
         <a href="buttons#default">Default</a>
         <a href="buttons#inverse">Inverse</a>
@@ -29,28 +29,28 @@
         <a href="buttons#sizes">Sizes</a>
         <a href="buttons#icon">Icon</a>
     </slot>
-    <div id="buttons" class="h1" role="heading" aria-level="1">Buttons</div>
+    <div class="h1" role="heading" aria-level="1">Buttons</div>
     <ButtonDefault/>
     <ButtonInverse/>
     <ButtonTransparent/>
-    <div>
-        The following classes defining button colors:
-        <ul>
-            <li class="text-primary">.tf_btn-primary</li>
-            <li class="text-secondary">.tf_btn-secondary</li>
-            <li class="text-info">.tf_btn-info</li>
-            <li class="text-success">.tf_btn-success</li>
-            <li class="text-warning">.tf_btn-warning</li>
-            <li class="text-error">.tf_btn-error</li>
-        </ul>
-    </div>
-    <div>
+    <div id="main-buttons" class="mb-3">
         <div class="h2" role="heading" aria-level="2">Main color buttons</div>
+        <div>
+            The following classes defining button colors:
+            <ul>
+                <li class="text-primary">.tf_btn-primary</li>
+                <li class="text-secondary">.tf_btn-secondary</li>
+                <li class="text-info">.tf_btn-info</li>
+                <li class="text-success">.tf_btn-success</li>
+                <li class="text-warning">.tf_btn-warning</li>
+                <li class="text-error">.tf_btn-error</li>
+            </ul>
+        </div>
         <ButtonPrimary/>
         <ButtonSecondary/>
     </div>
-    <div>
-        <div class="h2" role="heading" aria-level="2">Addition color buttons</div>
+    <div id="extra-buttons" class="mb-3">
+        <div class="h2" role="heading" aria-level="2">Extra color buttons</div>
         <p>The following classes defining action button colors:</p>
         <ButtonInfo/>
         <ButtonSuccess/>
