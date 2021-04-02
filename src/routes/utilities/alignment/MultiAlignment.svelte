@@ -15,7 +15,7 @@
         <div class="h4" role="heading" aria-level="4">Align content</div>
         <p>Align rows vertically. The alignment value sets to the container. Default value is <b>normal</b>.</p>
         <div class="rounded-2 overflow-hidden">
-            <div class="bg-background p-3">
+            <div class="bg-positive p-3">
                 <div class="d-flex flex-wrap g-3">
                     <button
                         on:click="{() => align.content = 'around'}"
@@ -52,24 +52,24 @@
                     <div class="p-3 bg-background rounded">Item 2</div>
                     <div class="p-3 bg-background rounded">Item 3</div>
                 </div>
-                <Highlight
-                    class="my-0"
-                    language='{xml}'
-                    code='
+            </div>
+            <Highlight
+                class="my-0"
+                language='{xml}'
+                code='
     <div class="align-content-{align.content}">
         <div>Item 1</div>
         <div>Item 2</div>
         <div>Item 3</div>
     </div>
-                    '
-                />
-            </div>
+                '
+            />
         </div>
     </div>
     <div id="align-items" class="mb-3">
         <div class="h4" role="heading" aria-level="4">Align items</div>
         <div class="rounded-2 overflow-hidden">
-            <div class="bg-background p-3">
+            <div class="bg-positive p-3">
                 <div class="d-flex flex-wrap g-3">
                     <button
                         on:click="{() => align.items = 'baseline'}"
@@ -98,24 +98,24 @@
                     <div class="p-3 bg-background rounded">Item 2</div>
                     <div class="p-3 bg-background rounded">Item 3</div>
                 </div>
-                <Highlight
-                    class="rounded-2 rounded-top-0 mt-0"
-                    language='{xml}'
-                    code='
+            </div>
+            <Highlight
+                class="my-0"
+                language='{xml}'
+                code='
     <div class="align-items-{align.items}">
         <div>Item 1</div>
         <div>Item 2</div>
         <div>Item 3</div>
     </div>
-                    '
-                />
-            </div>
+                '
+            />
         </div>
     </div>
     <div id="align-self" class="mb-3">
         <div class="h4" role="heading" aria-level="4">Align self</div>
         <div class="rounded-2 overflow-hidden">
-            <div class="bg-background p-3">
+            <div class="bg-positive p-3">
                 <div class="d-flex flex-wrap g-3">
                     <button
                         on:click="{() => align.self = 'baseline'}"
@@ -144,18 +144,18 @@
                     <div class="p-3 bg-background rounded align-self-{align.self}">Item 2</div>
                     <div class="p-3 bg-background rounded align-self-{align.self}">Item 3</div>
                 </div>
-                <Highlight
-                    class="rounded-2 rounded-top-0 mt-0"
-                    language='{xml}'
-                    code='
+            </div>
+            <Highlight
+                class="my-0"
+                language='{xml}'
+                code='
     <div>
         <div class="align-self-{align.self}">Item 1</div>
         <div class="align-self-{align.self}">Item 2</div>
         <div class="align-self-{align.self}">Item 3</div>
     </div>
                     '
-                />
-            </div>
+            />
         </div>
     </div>
 </div>

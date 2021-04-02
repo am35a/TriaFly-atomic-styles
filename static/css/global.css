@@ -46,8 +46,8 @@
   --negative-color-85: rgba(0, 0, 0, 0.85);
   --negative-color-90: rgba(0, 0, 0, 0.9);
   --negative-color: #000000;
-  --background-color: #eff1f5;
   --transparent-color: transparent;
+  --background-color: var(--positive-color);
 }
 @font-face {
   font-family: Roboto;
@@ -690,7 +690,9 @@ h6,
   color: var(--negative-color-25);
 }
 :root {
+  --background-color: #eff1f5;
   --aside-navbar-background-color: #37414e;
+  --aside-expander-background-color: var(--aside-navbar-background-color);
 }
 .tf_layout {
   height: 100vh;
@@ -755,7 +757,7 @@ h6,
   padding: 0;
   flex-shrink: 0;
   border: none;
-  background-color: var(--positive-color);
+  background-color: var(--aside-expander-background-color, var(--primary-color));
   color: var(--positive-color);
 }
 .tf_aside-fader {
@@ -1232,7 +1234,7 @@ h6,
   background-color: var(--error-color);
 }
 .bg-transparent {
-  background-color: var(--transparent-color);
+  background-color: transparent;
 }
 .rounded {
   border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
@@ -2318,7 +2320,7 @@ h6,
   background-color: var(--error-color);
 }
 .mobile .m\:bg-transparent {
-  background-color: var(--transparent-color);
+  background-color: transparent;
 }
 .mobile .m\:rounded {
   border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
@@ -3393,7 +3395,7 @@ h6,
   background-color: var(--error-color);
 }
 .tablet .t\:bg-transparent {
-  background-color: var(--transparent-color);
+  background-color: transparent;
 }
 .tablet .t\:rounded {
   border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
@@ -4468,7 +4470,7 @@ h6,
   background-color: var(--error-color);
 }
 .desktop .d\:bg-transparent {
-  background-color: var(--transparent-color);
+  background-color: transparent;
 }
 .desktop .d\:rounded {
   border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
@@ -5544,7 +5546,7 @@ h6,
     background-color: var(--error-color);
   }
   .l\:bg-transparent {
-    background-color: var(--transparent-color);
+    background-color: transparent;
   }
   .l\:rounded {
     border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
@@ -6619,7 +6621,7 @@ h6,
     background-color: var(--error-color);
   }
   .mobile .l\:m\:bg-transparent {
-    background-color: var(--transparent-color);
+    background-color: transparent;
   }
   .mobile .l\:m\:rounded {
     border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
@@ -7694,7 +7696,7 @@ h6,
     background-color: var(--error-color);
   }
   .tablet .l\:t\:bg-transparent {
-    background-color: var(--transparent-color);
+    background-color: transparent;
   }
   .tablet .l\:t\:rounded {
     border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
@@ -8769,7 +8771,7 @@ h6,
     background-color: var(--error-color);
   }
   .desktop .l\:d\:bg-transparent {
-    background-color: var(--transparent-color);
+    background-color: transparent;
   }
   .desktop .l\:d\:rounded {
     border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
@@ -9846,7 +9848,7 @@ h6,
     background-color: var(--error-color);
   }
   .p\:bg-transparent {
-    background-color: var(--transparent-color);
+    background-color: transparent;
   }
   .p\:rounded {
     border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
@@ -10921,7 +10923,7 @@ h6,
     background-color: var(--error-color);
   }
   .mobile .p\:m\:bg-transparent {
-    background-color: var(--transparent-color);
+    background-color: transparent;
   }
   .mobile .p\:m\:rounded {
     border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
@@ -11996,7 +11998,7 @@ h6,
     background-color: var(--error-color);
   }
   .tablet .p\:t\:bg-transparent {
-    background-color: var(--transparent-color);
+    background-color: transparent;
   }
   .tablet .p\:t\:rounded {
     border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
@@ -13071,7 +13073,7 @@ h6,
     background-color: var(--error-color);
   }
   .desktop .p\:d\:bg-transparent {
-    background-color: var(--transparent-color);
+    background-color: transparent;
   }
   .desktop .p\:d\:rounded {
     border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));

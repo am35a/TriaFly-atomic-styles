@@ -6,7 +6,7 @@
 <div id="default" class="mb-3">
     <div class="h2" role="heading" aria-level="2">Default</div>
     <div class="rounded-2 overflow-hidden">
-        <form class="bg-background p-3 d-grid g-3">
+        <form class="bg-positive p-3 d-grid g-3">
             <div>
                 <label for="inputTextDefault" class="tf_form-label">Label default</label>
                 <input id="inputTextDefault" class="tf_form-control" type="text" placeholder="Placeholder">

@@ -2,10 +2,13 @@
 
     .@{device-orientation-value}@{device-type-value}bg {
         each(@bg-color-names, {
-            &-@{value} {
+            &-@{value} when (@value = transparent) {
+                background-color: transparent;
+            }
+            &-@{value} when not (@value = transparent) {
                 background-color: var(~"--@{value}-color");
             }
         });
     }
-
+    
 }

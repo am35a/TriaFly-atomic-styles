@@ -14,7 +14,7 @@
     <div id="vertical-alignment-inline" class="mb-3">
         <div class="h4" role="heading" aria-level="4">Inline block wrap</div>
         <div class="rounded-2 overflow-hidden">
-            <div class="bg-background p-3 text-center">
+            <div class="bg-positive p-3 text-center">
                 <div class="lh-lg">
                     <span class="mx-3 align-baseline">baseline</span>
                     <span class="mx-3 align-top">top</span>
@@ -45,7 +45,7 @@
             <i class="fas fa-exclamation-circle"></i> Please note that <b>.align-baseline</b>, <b>.align-text-top</b> and <b>.align-text-bottom</b> do not affect the behavior of the container.
         </div>
         <div class="rounded-2 overflow-hidden">
-            <div class="bg-background rounded-2 rounded-bottom-0 p-3 text-center">
+            <div class="bg-positive rounded-2 rounded-bottom-0 p-3 text-center">
                 <table class="mx-auto" style="height: 120px;">
                     <tr>
                         <td class="bg-error p-3 align-baseline">baseline</td>
