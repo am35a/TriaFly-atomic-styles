@@ -6,6 +6,7 @@
     import Alignment  from "../routes/utilities/Alignment.svelte"
     import BgColor    from "../routes/utilities/BgColor.svelte"
     import Border     from "../routes/utilities/Border.svelte"
+    import Radius     from "../routes/utilities/Radius.svelte"
 </script>
 
 <PageLayout>
@@ -22,14 +23,15 @@
         <a href="utilities#border">Border</a>
             <a href="utilities#add-border">- Add Border</a>
             <a href="utilities#cut-border">- Cut Border</a>
-        <!-- <a href="utilities#radius">Radius</a>
-        <a href="utilities#clearfix">Clearfix</a>
+        <a href="utilities#radius">Radius</a>
+        <!-- <a href="utilities#clearfix">Clearfix</a>
         <a href="utilities#display">Display</a> -->
     </slot>
     <div id="utilities" class="h1" role="heading" aria-level="1">Utilities</div>
     <Alignment/>
     <BgColor/>
     <Border/>
+    <Radius/>
 </PageLayout>
 
 
@@ -40,51 +42,6 @@
 
     </div>
 
-    <div id="radius" class="overflow-auto">
-        <div class="h2" role="heading" aria-level="2">Radius</div>
-        <p></p>
-        <div>
-            <div class="bg-background rounded-2 rounded-bottom-0 p-3 text-center">
-                <div class="d-grid g-3">
-                    <div class="d-flex flex-wrap g-3">
-                        <div class="bg-positive border p-5 rounded-0"></div>
-                        <div class="bg-positive border p-5 rounded-sm"></div>
-                        <div class="bg-positive border p-5 rounded"></div>
-                        <div class="bg-positive border p-5 rounded-lg"></div>
-                    </div>
-                    <div class="d-flex flex-wrap g-3">
-                        <div class="bg-positive border p-5 rounded-circle"></div>
-                        <div class="bg-positive border p-5 rounded-pill" style="width: 16rem;"></div>
-                    </div>
-                    <div class="d-flex flex-wrap g-3">
-                        <div class="bg-positive border p-5 rounded-circle rounded-left-0"></div>
-                        <div class="bg-positive border p-5 rounded-circle rounded-top-0"></div>
-                        <div class="bg-positive border p-5 rounded-circle rounded-right-0"></div>
-                        <div class="bg-positive border p-5 rounded-circle rounded-bottom-0"></div>
-                    </div>
-                </div>
-            </div>
-            <Highlight
-                class="rounded-2 rounded-top-0 mt-0"
-                language='{xml}'
-                code='
-    <div class="rounded-0"></div>
-    <div class="rounded-sm"></div> /* or rounded-1 */
-    <div class="rounded"></div>
-    <div class="rounded-lg"></div> /* or rounded-3 */
-
-    <div class="rounded-circle"></div>
-    <div class="rounded-pill"></div>
-
-    <div class="rounded-circle rounded-left-0"></div>
-    <div class="rounded-circle rounded-top-0"></div>
-    <div class="rounded-circle rounded-right-0"></div>
-    <div class="rounded-circle rounded-bottom-0"></div>
-                '
-            />
-        </div>
-
-    </div>
 
     <div id="clearfix" class="overflow-auto">
         <div class="h2" role="heading" aria-level="2">Clearfix</div>
