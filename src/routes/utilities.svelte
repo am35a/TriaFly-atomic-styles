@@ -1,12 +1,10 @@
 <script>
-    import { Highlight } from "svelte-highlight"
-    import { xml } from "svelte-highlight/languages"
-
     import PageLayout from "../components/PageLayout.svelte"
     import Alignment  from "../routes/utilities/Alignment.svelte"
     import BgColor    from "../routes/utilities/BgColor.svelte"
     import Border     from "../routes/utilities/Border.svelte"
     import Radius     from "../routes/utilities/Radius.svelte"
+    import Clearfix     from "../routes/utilities/Clearfix.svelte"
 </script>
 
 <PageLayout>
@@ -32,50 +30,11 @@
     <BgColor/>
     <Border/>
     <Radius/>
+    <Clearfix/>
 </PageLayout>
 
 
 <div class="d-grid g-3 d-none">
-
-    <div id="border" class="overflow-auto">
-        <div class="h2" role="heading" aria-level="2">Border</div>
-
-    </div>
-
-
-    <div id="clearfix" class="overflow-auto">
-        <div class="h2" role="heading" aria-level="2">Clearfix</div>
-        <p>
-            To expand and cover floated content by a container just add <b>.clearfix</b> class to container.
-        </p>
-        <div>
-            <div class="bg-background rounded-2 rounded-bottom-0 p-3">
-                <div class="d-grid g-3">
-                    <div class="clearfix">
-                        <div class="bg-negative">
-                            <div class="bg-positive p-3 float-left">Floated left block</div>
-                            <div class="bg-positive p-3 float-right">Floated left block</div>
-                        </div>
-                    </div>
-    
-                    <div class="bg-negative clearfix">
-                        <div class="bg-positive p-3 float-left">Floated left block</div>
-                        <div class="bg-positive p-3 float-right">Floated left block</div>
-                    </div>
-                </div>
-            </div>
-            <Highlight
-                class="rounded-2 rounded-top-0 mt-0"
-                language='{xml}'
-                code='
-    <div class="clearfix">
-        <div class="float-left">Floated left block</div>
-        <div class="float-right">Floated left block</div>
-    </div>
-            '
-            />
-        </div>
-    </div>
 
     <div id="display" class="overflow-auto">
         <div class="h2" role="heading" aria-level="2">Display</div>
