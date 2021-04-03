@@ -15,7 +15,7 @@
 <svelte:head>
     <title>TriaFly UI Kit - {segment}</title>
     {#if inverTheme}
-	    <link rel="stylesheet" href="css/_root-colors-alt.css">
+	    <link rel="stylesheet" href="css/theme-dark.css">
         {@html qtcreator_light}
     {:else}
         {@html qtcreator_dark}
