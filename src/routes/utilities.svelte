@@ -31,7 +31,7 @@
             <a href="utilities#flex-direction">- Direction</a>
                 <a href="utilities#row-direction">-- Horizontal (row)</a>
                 <a href="utilities#column-direction">-- Vertical (column)</a>
-            <a href="utilities#flex-direction">- Wraping</a>
+            <a href="utilities#wraping">- Wraping</a>
                 <a href="utilities#flex-wrap">-- Wrap</a>
                 <a href="utilities#flex-wrap-reverse">-- Wrap reverse</a>
                 <a href="utilities#flex-nowrap">-- No wrap</a>

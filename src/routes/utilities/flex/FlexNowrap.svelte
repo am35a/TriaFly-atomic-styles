@@ -21,8 +21,8 @@
             language='{xml}'
             code='
     <div class="d-flex flex-wrap">
-    <div>Item 1</div>
-    <div>Item n</div>
+        <div>Item 1</div>
+        <div>Item n</div>
     </div>
             '
         />

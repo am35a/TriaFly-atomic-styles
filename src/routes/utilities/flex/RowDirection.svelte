@@ -30,12 +30,12 @@
             language='{xml}'
             code='
     <div class="d-flex flex-row">
-    <div>Item 1</div>
-    <div>Item 2</div>
+        <div>Item 1</div>
+        <div>Item 2</div>
     </div>
     <div class="d-flex flex-row-reverse">
-    <div>Item 1</div>
-    <div>Item 2</div>
+        <div>Item 1</div>
+        <div>Item 2</div>
     </div>
             '
         />
