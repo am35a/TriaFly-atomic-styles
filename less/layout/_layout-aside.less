@@ -24,25 +24,25 @@
 }
 
 .tf_aside-navbar {
-    width: 0; /* calc(var(--key-size) * 16); */
+    width: var(--layout-aside-navbar-width);
     height: 100%;
     background-color: var(--aside-navbar-background-color, var(--primary-color));
     overflow: hidden;
     transition-duration: 0.5s;
     .tf_layout-aside.tf_expand & {
-        width: calc(var(--key-size) * 16);
+        width: var(--layout-aside-navbar-width--expand);
     }
     .desktop & {
-        width: calc(var(--key-size) * 3);
+        width: var(--desktop-layout-aside-navbar-width);
         &:hover {
-            width: calc(var(--key-size) * 16);
+            width: var(--desktop-layout-aside-navbar-width--hover);
             overflow-y: auto;
         }
     }
     
     .tf_navbar-item {
         display: grid;
-        min-width: calc(var(--key-size) * 16);
+        min-width: var(--layout-aside-navbar-item-min-width);
         > * {
             display: grid;
             grid-row: 1/2;

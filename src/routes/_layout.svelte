@@ -1,15 +1,44 @@
 <script>
+    import {onMount} from 'svelte'
     import { qtcreator_dark, qtcreator_light } from "svelte-highlight/styles"
+
+    import { fly } from 'svelte/transition'
 
     import { state } from '../store/store'
     import AsideNav from '../components/AsideNav.svelte'
 
     export let segment
     let inverTheme = false
+    let font = ''
+    let body
+
+    onMount(() => {
+        body = document.body
+    })
+
+    $: font, changeFont()
+    function changeFont() {
+        if (!font && body)
+            body.classList.remove('roboto', 'source-sans-pro')
+        if (font === 'source-sans-pro') {
+            if(!body)
+                body = document.body
+            body.classList.remove('roboto')
+            body.classList.add(font)
+        }
+        if (font === 'roboto') {
+            if(!body)
+                body = document.body
+            body.classList.remove('source-sans-pro')
+            body.classList.add(font)
+        }
+    }
 </script>
 
 <style>
     /* Here is empty, all into global.css */
+    :global(.source-sans-pro) { font-family: "Source Sans Pro"; }
+    :global(.roboto) { font-family: "Roboto"; }
 </style>
 
 <svelte:head>
@@ -38,9 +67,9 @@
     <div class="d-flex g-1 ml-auto"> <!-- align-items-center -->
         <button
             class="tf_btn tf_btn-lg tf_btn-transparent tf_btn-icon"
-            on:click={() => inverTheme = !inverTheme}
+            on:click="{() => $state.popupSettings = !$state.popupSettings}"
         >
-            <i class="fas fa-fill-drip"></i>
+            <i class="fas fa-cog"></i>
         </button>
         <button
             class="tf_btn tf_btn-lg tf_btn-transparent tf_btn-icon mr-1"
@@ -93,6 +122,52 @@
             <div class="my-auto ml-3">
                 Loading data...
             </div>
+        </div>
+    </div>
+{/if}
+{#if $state.popupSettings}
+    <div class="tf_layout-popup-settings" transition:fly="{{ x: 100, duration: 250 }}">
+        <div class="p-3 overflow-y-auto">
+            <div class="h4" role="heading">Settings</div>
+            <hr>
+            <div class="mb-3">
+                <div class="h5" role="heading">Themes</div>
+                <button
+                    class="tf_btn tf_btn-transparent w-100 text-start"
+                    on:click={() => inverTheme = !inverTheme}
+                >
+                    {#if inverTheme}
+                        <i class="fas fa-sun mr-1"></i>
+                        Back to default light
+                    {:else}
+                        <i class="fas fa-moon mr-1"></i>
+                        Enable alt dark theme
+                    {/if}
+                </button>
+            </div>
+            <div class="mb-3">
+                <div class="h5" role="heading">Fonts</div>
+                <label class="d-block p-2" for="default">
+                    <input type="radio" id="default" bind:group={font} value="">
+                    Default system
+                </label>
+                <label class="d-block p-2" for="source-sans-pro">
+                    <input type="radio" id="source-sans-pro" bind:group={font} value="source-sans-pro">
+                    Source Sans Pro
+                </label>
+                <label class="d-block p-2" for="roboto">
+                    <input type="radio" id="roboto" bind:group={font} value="roboto">
+                    Roboto
+                </label>
+            </div>
+        </div>
+        <div class="mt-auto p-2">
+            <button
+                on:click="{() => $state.popupSettings = !$state.popupSettings}"
+                class="tf_btn tf_btn-secondary w-100"
+            >
+                Close
+            </button>
         </div>
     </div>
 {/if}

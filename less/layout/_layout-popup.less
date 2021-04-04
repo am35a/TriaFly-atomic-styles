@@ -5,6 +5,10 @@
     z-index: 1020;
 }
 .tf_layout-popup {
+    // grid-row: 1/-1;
+    // grid-column: 1/-1;
+    // display: grid;
+    // z-index: 1020;
     &-loader {
         margin: var(--m-3, var(--key-size)) auto auto auto;
         padding: var(--p-3, var(--key-size)) var(--p-5, calc(var(--key-size) * 3));
@@ -22,6 +26,17 @@
             border-radius: var(--rounded-2, calc(var(--key-size) * .25));
             background-color: var(--primary-color);
             color: var(--positive-color-85);
+        }
+    }
+    &-settings {
+        grid-template-rows: 1fr auto;
+        width: calc(var(--key-size) * 16);
+        height: calc(100vh - var(--layout-header-height));
+        margin-left: auto;
+        margin-top: auto;
+        background-color: var(--background-color);
+        > * {
+            background-color: var(--layout-header-background-color, var(--negative-color-10));
         }
     }
 }
