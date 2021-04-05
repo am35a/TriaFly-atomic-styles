@@ -1,0 +1,87 @@
+<script>
+    import { Highlight } from "svelte-highlight"
+    import { xml } from "svelte-highlight/languages"
+
+    let align = {
+        display: 'grid',
+        content: 'normal',
+        // items: 'normal',
+        // self: 'auto'
+    }
+</script>
+
+<div id="align-content" class="mb-3">
+    <div class="h4" role="heading" aria-level="4">Align content</div>
+    <p>Align rows vertically. The alignment value sets to the container. Default value is <b>normal</b>.</p>
+    <div class="rounded-2 overflow-hidden">
+        <div class="bg-positive p-3">
+            <div class="d-flex flex-wrap g-3">
+                <button
+                    on:click="{() => align.display = 'grid'}"
+                    class="tf_btn tf_btn-sm tf_btn-secondary"
+                    disabled={align.display === 'grid'}
+                ><i class="fas {align.display === 'grid' ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i> Grid</button>
+                <button
+                    on:click="{() => align.display = 'flex'}"
+                    class="tf_btn tf_btn-sm tf_btn-secondary"
+                    disabled={align.display === 'flex'}
+                ><i class="fas {align.display === 'flex' ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i> Flex</button>
+            </div>
+            <hr>
+            <div class="d-flex flex-wrap g-3">
+                <button
+                    on:click="{() => align.content = 'around'}"
+                    class="tf_btn tf_btn-sm tf_btn-secondary"
+                    disabled={align.content === 'around'}
+                ><i class="fas {align.content === 'around' ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i> Around</button>
+                <button
+                    on:click="{() => align.content = 'between'}"
+                    class="tf_btn tf_btn-sm tf_btn-secondary"
+                    disabled={align.content === 'between'}
+                ><i class="fas {align.content === 'between' ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i> Between</button>
+                <button
+                    on:click="{() => align.content = 'center'}"
+                    class="tf_btn tf_btn-sm tf_btn-secondary"
+                    disabled={align.content === 'center'}
+                ><i class="fas {align.content === 'center' ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i> Center</button>
+                <button
+                    on:click="{() => align.content = 'end'}"
+                    class="tf_btn tf_btn-sm tf_btn-secondary"
+                    disabled={align.content === 'end'}
+                ><i class="fas {align.content === 'end' ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i> End</button>
+                <button
+                    on:click="{() => align.content = 'evenly'}"
+                    class="tf_btn tf_btn-sm tf_btn-secondary"
+                    disabled={align.content === 'evenly'}
+                ><i class="fas {align.content === 'evenly' ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i> Evenly</button>
+                <button
+                    on:click="{() => align.content = 'start'}"
+                    class="tf_btn tf_btn-sm tf_btn-secondary"
+                    disabled={align.content === 'start'}
+                ><i class="fas {align.content === 'start' ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i> Start</button>
+                <button
+                    on:click="{() => align.content = 'stretch'}"
+                    class="tf_btn tf_btn-sm tf_btn-secondary"
+                    disabled={align.content === 'stretch'}
+                ><i class="fas {align.content === 'stretch' ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i> Stretch</button>
+            </div>
+            <hr>
+            <div class="{align.display === 'grid' ? 'd-grid' : 'd-flex flex-wrap'} g-3 p-3 rounded bg-positive cols-2 align-content-{align.content}" style="height:16rem;">
+                <div class="p-3 bg-background rounded">Item 1</div>
+                <div class="p-3 bg-background rounded">Item 2</div>
+                <div class="p-3 bg-background rounded">Item 3</div>
+            </div>
+        </div>
+        <Highlight
+            class="my-0"
+            language='{xml}'
+            code='
+    <div class="{align.display === 'grid' ? 'd-grid' : 'd-flex flex-wrap'} align-content-{align.content}">
+        <div>Item 1</div>
+        <div>Item 2</div>
+        <div>Item 3</div>
+    </div>
+            '
+        />
+    </div>
+</div>

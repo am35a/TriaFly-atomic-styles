@@ -17,8 +17,8 @@
     <slot slot="aside">
         <a href="utilities#alignment">Alignment</a>
             <a href="utilities#vertical-alignment">- Vertical alignment</a>
-                <a href="utilities#vertical-alignment-inline">-- Inline block wrap</a>
-                <a href="utilities#vertical-alignment-table">-- Table sell wrap</a>
+                <a href="utilities#align-inline">-- Inline block wrap</a>
+                <a href="utilities#align-table">-- Table sell wrap</a>
             <a href="utilities#multi-alignment">- Multi-layout alignment</a>
                 <a href="utilities#align-content">-- Align content</a>
                 <a href="utilities#align-items">-- Align items</a>
