@@ -31,22 +31,27 @@
                 <button
                     on:click="{() => align.self = 'baseline'}"
                     class="tf_btn tf_btn-sm tf_btn-secondary"
+                    disabled={align.self === 'baseline'}
                 ><i class="fas {align.self === 'baseline' ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i> Baseline</button>
                 <button
                     on:click="{() => align.self = 'center'}"
                     class="tf_btn tf_btn-sm tf_btn-secondary"
+                    disabled={align.self === 'center'}
                 ><i class="fas {align.self === 'center' ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i> Center</button>
                 <button
                     on:click="{() => align.self = 'end'}"
                     class="tf_btn tf_btn-sm tf_btn-secondary"
+                    disabled={align.self === 'end'}
                 ><i class="fas {align.self === 'end' ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i> End</button>
                 <button
                     on:click="{() => align.self = 'start'}"
                     class="tf_btn tf_btn-sm tf_btn-secondary"
+                    disabled={align.self === 'start'}
                 ><i class="fas {align.self === 'start' ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i> Start</button>
                 <button
                     on:click="{() => align.self = 'stretch'}"
                     class="tf_btn tf_btn-sm tf_btn-secondary"
+                    disabled={align.self === 'stretch'}
                 ><i class="fas {align.self === 'stretch' ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i> Stretch</button>
             </div>
             <hr>
