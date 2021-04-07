@@ -1,45 +1,51 @@
 <script>
 	import { state } from '../store/store'
 
-	import IconHome from '../components/icons/Home.svelte'
-	import IconButtons from './icons/Buttons.svelte'
-	import IconForms from './icons/Forms.svelte'
-	import IconBlocks from './icons/Blocks.svelte'
-	import IconGrid from './icons/Grid.svelte'
-	import IconLayout from './icons/Layout.svelte'
+	import IconHome		 from './icons/Home.svelte'
+	import IconCore		 from './icons/Core.svelte'
+	import IconButtons	 from './icons/Buttons.svelte'
+	import IconForms	 from './icons/Forms.svelte'
+	import IconBlocks	 from './icons/Blocks.svelte'
+	import IconGrid		 from './icons/Grid.svelte'
+	import IconLayout	 from './icons/Layout.svelte'
 	import IconUtilities from './icons/Utilities.svelte'
 
 	export let segment
 	const pages = [
 			{
 				id: 1,
+				segment: 'core',
+				component: IconCore
+			},		
+			{
+				id: 2,
 				segment: 'buttons',
 				component: IconButtons
 			},
 			{
-				id: 2,
+				id: 3,
 				segment: 'forms',
 				component: IconForms
 			},
 			{
-				id: 3,
+				id: 4,
 				segment: 'blocks',
 				component: IconBlocks
 			},
 			{
-				id: 4,
+				id: 5,
 				segment: 'grid',
 				component: IconGrid
 			},
 			{
 				id: 99,
-				segment: 'layout',
-				component: IconLayout
+				segment: 'utilities',
+				component: IconUtilities
 			},
 			{
 				id: 100,
-				segment: 'utilities',
-				component: IconUtilities
+				segment: 'layout',
+				component: IconLayout
 			}
 		]
 </script>
