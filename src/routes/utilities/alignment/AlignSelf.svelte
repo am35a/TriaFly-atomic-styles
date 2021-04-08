@@ -21,6 +21,11 @@
                     disabled={align.display === 'grid'}
                 ><i class="fas {align.display === 'grid' ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i> Grid</button>
                 <button
+                    on:click="{() => align.display = 'inline-grid'}"
+                    class="tf_btn tf_btn-sm tf_btn-secondary"
+                    disabled={align.display === 'inline-grid'}
+                ><i class="fas {align.display === 'inline-grid' ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i> Inline grid</button>
+                <button
                     on:click="{() => align.display = 'flex'}"
                     class="tf_btn tf_btn-sm tf_btn-secondary"
                     disabled={align.display === 'flex'}

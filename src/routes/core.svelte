@@ -27,6 +27,7 @@
     </div>
     <div id="breakpoints" class="mb-3">
         <div class="h2" role="heading" aria-level="2">Breakpoints</div>
+        <p>Currently the UI Kit have not dependently from screen width. It will be soon.</p>
         <div id="guard-breakpoints" class="mb-3">
             <div class="h3" role="heading" aria-level="3">Guard breakpoints</div>
             <div class="d-grid cols-3 g-2">
@@ -36,10 +37,10 @@
                 <hr class="col-span-full w-100 my-0">
                 <div>Landscape</div>
                 <div>none</div>
-                <div>.class-name</div>
+                <div>.<span class="text-secondary">class-name</span></div>
                 <div>Desktop</div>
                 <div>none</div>
-                <div>.class-name</div>
+                <div>.<span class="text-secondary">class-name</span></div>
             </div>
         </div>
         <div id="available-breakpoints" class="mb-3">
@@ -51,39 +52,39 @@
                 <hr class="col-span-full w-100 my-0">
                 <div>Landscape</div>
                 <div>l</div>
-                <div>.l:class-name</div>
+                <div>.l:<span class="text-secondary">class-name</span></div>
                 <div>Portrait</div>
                 <div>p</div>
-                <div>.p:class-name</div>
+                <div>.p:<span class="text-secondary">class-name</span></div>
                 <div class="col-span-full"></div>
                 <div>Desktop</div>
                 <div>d</div>
-                <div>.d:class-name</div>
+                <div>.d:<span class="text-secondary">class-name</span></div>
                 <div>Tablet</div>
                 <div>t</div>
-                <div>.t:class-name</div>
+                <div>.t:<span class="text-secondary">class-name</span></div>
                 <div>Mobile</div>
                 <div>m</div>
-                <div>.m:class-name</div>
+                <div>.m:<span class="text-secondary">class-name</span></div>
                 <div class="col-span-full"></div>
                 <div>Landscape/Desktop</div>
                 <div>l/d</div>
-                <div>.l:d:class-name</div>
+                <div>.l:d:<span class="text-secondary">class-name</span></div>
                 <div>Portrait/Desktop</div>
                 <div>p/d</div>
-                <div>.p:d:class-name</div>
+                <div>.p:d:<span class="text-secondary">class-name</span></div>
                 <div>Landscape/Tablet</div>
                 <div>l/t</div>
-                <div>.l:t:class-name</div>
+                <div>.l:t:<span class="text-secondary">class-name</span></div>
                 <div>Portrait/Tablet</div>
                 <div>p/t</div>
-                <div>.p:t:class-name</div>
+                <div>.p:t:<span class="text-secondary">class-name</span></div>
                 <div>Landscape/Mobile</div>
                 <div>l/m</div>
-                <div>.l:m:class-name</div>
+                <div>.l:m:<span class="text-secondary">class-name</span></div>
                 <div>Portrait/Mobile</div>
                 <div>p/m</div>
-                <div>.p:m:class-name</div>
+                <div>.p:m:<span class="text-secondary">class-name</span></div>
             </div>
         </div>
     </div>

@@ -947,15 +947,6 @@ h6,
 .content-box {
   box-sizing: content-box;
 }
-.text-justify {
-  text-align: justify;
-}
-.text-wrap {
-  white-space: normal;
-}
-.text-nowrap {
-  white-space: nowrap;
-}
 .text-truncate {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -978,21 +969,6 @@ h6,
 }
 .text-decoration-line-through {
   text-decoration: line-through;
-}
-.text-break {
-  word-wrap: break-word;
-  word-break: break-word;
-}
-.text-start,
-.text-left {
-  text-align: left;
-}
-.text-end,
-.text-right {
-  text-align: right;
-}
-.text-center {
-  text-align: center;
 }
 .text-positive {
   color: var(--positive-color);
@@ -1020,9 +996,6 @@ h6,
 }
 .text-error {
   color: var(--error-color);
-}
-.text-transparent {
-  color: var(--transparent-color);
 }
 .fw-lighter {
   font-weight: lighter;
@@ -2173,6 +2146,30 @@ h6,
 .gap-5 {
   grid-gap: var(--g-5, calc(var(--key-size) * 3));
 }
+.text-start,
+.text-left {
+  text-align: left;
+}
+.text-end,
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+.text-justify {
+  text-align: justify;
+}
+.text-wrap {
+  white-space: normal;
+}
+.text-nowrap {
+  white-space: nowrap;
+}
+.text-break {
+  word-wrap: break-word;
+  word-break: break-word;
+}
 .mobile .m\:align-baseline {
   vertical-align: baseline;
 }
@@ -3247,6 +3244,30 @@ h6,
 .mobile .m\:g-5,
 .mobile .m\:gap-5 {
   grid-gap: var(--g-5, calc(var(--key-size) * 3));
+}
+.mobile .m\:text-start,
+.mobile .m\:text-left {
+  text-align: left;
+}
+.mobile .m\:text-end,
+.mobile .m\:text-right {
+  text-align: right;
+}
+.mobile .m\:text-center {
+  text-align: center;
+}
+.mobile .m\:text-justify {
+  text-align: justify;
+}
+.mobile .m\:text-wrap {
+  white-space: normal;
+}
+.mobile .m\:text-nowrap {
+  white-space: nowrap;
+}
+.mobile .m\:text-break {
+  word-wrap: break-word;
+  word-break: break-word;
 }
 .tablet .t\:align-baseline {
   vertical-align: baseline;
@@ -4323,6 +4344,30 @@ h6,
 .tablet .t\:gap-5 {
   grid-gap: var(--g-5, calc(var(--key-size) * 3));
 }
+.tablet .t\:text-start,
+.tablet .t\:text-left {
+  text-align: left;
+}
+.tablet .t\:text-end,
+.tablet .t\:text-right {
+  text-align: right;
+}
+.tablet .t\:text-center {
+  text-align: center;
+}
+.tablet .t\:text-justify {
+  text-align: justify;
+}
+.tablet .t\:text-wrap {
+  white-space: normal;
+}
+.tablet .t\:text-nowrap {
+  white-space: nowrap;
+}
+.tablet .t\:text-break {
+  word-wrap: break-word;
+  word-break: break-word;
+}
 .desktop .d\:align-baseline {
   vertical-align: baseline;
 }
@@ -5397,6 +5442,30 @@ h6,
 .desktop .d\:g-5,
 .desktop .d\:gap-5 {
   grid-gap: var(--g-5, calc(var(--key-size) * 3));
+}
+.desktop .d\:text-start,
+.desktop .d\:text-left {
+  text-align: left;
+}
+.desktop .d\:text-end,
+.desktop .d\:text-right {
+  text-align: right;
+}
+.desktop .d\:text-center {
+  text-align: center;
+}
+.desktop .d\:text-justify {
+  text-align: justify;
+}
+.desktop .d\:text-wrap {
+  white-space: normal;
+}
+.desktop .d\:text-nowrap {
+  white-space: nowrap;
+}
+.desktop .d\:text-break {
+  word-wrap: break-word;
+  word-break: break-word;
 }
 @media (orientation: landscape) {
   .l\:align-baseline {
@@ -6474,6 +6543,30 @@ h6,
   .l\:gap-5 {
     grid-gap: var(--g-5, calc(var(--key-size) * 3));
   }
+  .l\:text-start,
+  .l\:text-left {
+    text-align: left;
+  }
+  .l\:text-end,
+  .l\:text-right {
+    text-align: right;
+  }
+  .l\:text-center {
+    text-align: center;
+  }
+  .l\:text-justify {
+    text-align: justify;
+  }
+  .l\:text-wrap {
+    white-space: normal;
+  }
+  .l\:text-nowrap {
+    white-space: nowrap;
+  }
+  .l\:text-break {
+    word-wrap: break-word;
+    word-break: break-word;
+  }
   .mobile .l\:m\:align-baseline {
     vertical-align: baseline;
   }
@@ -7548,6 +7641,30 @@ h6,
   .mobile .l\:m\:g-5,
   .mobile .l\:m\:gap-5 {
     grid-gap: var(--g-5, calc(var(--key-size) * 3));
+  }
+  .mobile .l\:m\:text-start,
+  .mobile .l\:m\:text-left {
+    text-align: left;
+  }
+  .mobile .l\:m\:text-end,
+  .mobile .l\:m\:text-right {
+    text-align: right;
+  }
+  .mobile .l\:m\:text-center {
+    text-align: center;
+  }
+  .mobile .l\:m\:text-justify {
+    text-align: justify;
+  }
+  .mobile .l\:m\:text-wrap {
+    white-space: normal;
+  }
+  .mobile .l\:m\:text-nowrap {
+    white-space: nowrap;
+  }
+  .mobile .l\:m\:text-break {
+    word-wrap: break-word;
+    word-break: break-word;
   }
   .tablet .l\:t\:align-baseline {
     vertical-align: baseline;
@@ -8624,6 +8741,30 @@ h6,
   .tablet .l\:t\:gap-5 {
     grid-gap: var(--g-5, calc(var(--key-size) * 3));
   }
+  .tablet .l\:t\:text-start,
+  .tablet .l\:t\:text-left {
+    text-align: left;
+  }
+  .tablet .l\:t\:text-end,
+  .tablet .l\:t\:text-right {
+    text-align: right;
+  }
+  .tablet .l\:t\:text-center {
+    text-align: center;
+  }
+  .tablet .l\:t\:text-justify {
+    text-align: justify;
+  }
+  .tablet .l\:t\:text-wrap {
+    white-space: normal;
+  }
+  .tablet .l\:t\:text-nowrap {
+    white-space: nowrap;
+  }
+  .tablet .l\:t\:text-break {
+    word-wrap: break-word;
+    word-break: break-word;
+  }
   .desktop .l\:d\:align-baseline {
     vertical-align: baseline;
   }
@@ -9698,6 +9839,30 @@ h6,
   .desktop .l\:d\:g-5,
   .desktop .l\:d\:gap-5 {
     grid-gap: var(--g-5, calc(var(--key-size) * 3));
+  }
+  .desktop .l\:d\:text-start,
+  .desktop .l\:d\:text-left {
+    text-align: left;
+  }
+  .desktop .l\:d\:text-end,
+  .desktop .l\:d\:text-right {
+    text-align: right;
+  }
+  .desktop .l\:d\:text-center {
+    text-align: center;
+  }
+  .desktop .l\:d\:text-justify {
+    text-align: justify;
+  }
+  .desktop .l\:d\:text-wrap {
+    white-space: normal;
+  }
+  .desktop .l\:d\:text-nowrap {
+    white-space: nowrap;
+  }
+  .desktop .l\:d\:text-break {
+    word-wrap: break-word;
+    word-break: break-word;
   }
 }
 @media (orientation: portrait) {
@@ -10776,6 +10941,30 @@ h6,
   .p\:gap-5 {
     grid-gap: var(--g-5, calc(var(--key-size) * 3));
   }
+  .p\:text-start,
+  .p\:text-left {
+    text-align: left;
+  }
+  .p\:text-end,
+  .p\:text-right {
+    text-align: right;
+  }
+  .p\:text-center {
+    text-align: center;
+  }
+  .p\:text-justify {
+    text-align: justify;
+  }
+  .p\:text-wrap {
+    white-space: normal;
+  }
+  .p\:text-nowrap {
+    white-space: nowrap;
+  }
+  .p\:text-break {
+    word-wrap: break-word;
+    word-break: break-word;
+  }
   .mobile .p\:m\:align-baseline {
     vertical-align: baseline;
   }
@@ -11850,6 +12039,30 @@ h6,
   .mobile .p\:m\:g-5,
   .mobile .p\:m\:gap-5 {
     grid-gap: var(--g-5, calc(var(--key-size) * 3));
+  }
+  .mobile .p\:m\:text-start,
+  .mobile .p\:m\:text-left {
+    text-align: left;
+  }
+  .mobile .p\:m\:text-end,
+  .mobile .p\:m\:text-right {
+    text-align: right;
+  }
+  .mobile .p\:m\:text-center {
+    text-align: center;
+  }
+  .mobile .p\:m\:text-justify {
+    text-align: justify;
+  }
+  .mobile .p\:m\:text-wrap {
+    white-space: normal;
+  }
+  .mobile .p\:m\:text-nowrap {
+    white-space: nowrap;
+  }
+  .mobile .p\:m\:text-break {
+    word-wrap: break-word;
+    word-break: break-word;
   }
   .tablet .p\:t\:align-baseline {
     vertical-align: baseline;
@@ -12926,6 +13139,30 @@ h6,
   .tablet .p\:t\:gap-5 {
     grid-gap: var(--g-5, calc(var(--key-size) * 3));
   }
+  .tablet .p\:t\:text-start,
+  .tablet .p\:t\:text-left {
+    text-align: left;
+  }
+  .tablet .p\:t\:text-end,
+  .tablet .p\:t\:text-right {
+    text-align: right;
+  }
+  .tablet .p\:t\:text-center {
+    text-align: center;
+  }
+  .tablet .p\:t\:text-justify {
+    text-align: justify;
+  }
+  .tablet .p\:t\:text-wrap {
+    white-space: normal;
+  }
+  .tablet .p\:t\:text-nowrap {
+    white-space: nowrap;
+  }
+  .tablet .p\:t\:text-break {
+    word-wrap: break-word;
+    word-break: break-word;
+  }
   .desktop .p\:d\:align-baseline {
     vertical-align: baseline;
   }
@@ -14000,5 +14237,29 @@ h6,
   .desktop .p\:d\:g-5,
   .desktop .p\:d\:gap-5 {
     grid-gap: var(--g-5, calc(var(--key-size) * 3));
+  }
+  .desktop .p\:d\:text-start,
+  .desktop .p\:d\:text-left {
+    text-align: left;
+  }
+  .desktop .p\:d\:text-end,
+  .desktop .p\:d\:text-right {
+    text-align: right;
+  }
+  .desktop .p\:d\:text-center {
+    text-align: center;
+  }
+  .desktop .p\:d\:text-justify {
+    text-align: justify;
+  }
+  .desktop .p\:d\:text-wrap {
+    white-space: normal;
+  }
+  .desktop .p\:d\:text-nowrap {
+    white-space: nowrap;
+  }
+  .desktop .p\:d\:text-break {
+    word-wrap: break-word;
+    word-break: break-word;
   }
 }

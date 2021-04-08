@@ -26,6 +26,7 @@
 .position({}, {});
 .sizing({}, {});
 .spacing({}, {});
+.text({}, {});
 
 // adaptive styles for device types
 each(@device-types, .(@device-type-value, @device-type-key) {
@@ -41,6 +42,7 @@ each(@device-types, .(@device-type-value, @device-type-key) {
         .position({}, ~"@{device-type-value}\:");
         .sizing({}, ~"@{device-type-value}\:");
         .spacing({}, ~"@{device-type-value}\:");
+        .text({}, ~"@{device-type-value}\:");
     }
 });
 
@@ -58,6 +60,7 @@ each(@device-orientations, .(@device-orientation-value, @device-orientation-key)
         .position(~"@{device-orientation-value}\:", {});
         .sizing(~"@{device-orientation-value}\:", {});
         .spacing(~"@{device-orientation-value}\:", {});
+        .text(~"@{device-orientation-value}\:", {});
         each(@device-types, .(@device-type-value, @device-type-key) {
             .@{device-type-key} {
                 .alignment(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
@@ -71,6 +74,7 @@ each(@device-orientations, .(@device-orientation-value, @device-orientation-key)
                 .position(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
                 .sizing(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
                 .spacing(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
+                .text(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
             }
         });
     }

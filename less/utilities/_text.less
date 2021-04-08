@@ -1,7 +1,23 @@
+.text(@device-orientation-value, @device-type-value) {
+    
+    .@{device-orientation-value}@{device-type-value}text {
+        &-start, &-left { text-align: left; }
+        &-end, &-right { text-align: right; }
+        &-center { text-align: center; }
+        &-justify { text-align: justify; }
+
+        &-wrap { white-space: normal; }
+        &-nowrap { white-space: nowrap; }
+
+        &-break {
+            word-wrap: break-word;
+            word-break: break-word;
+        }
+    }
+
+}
+
 .text {
-    &-justify { text-align: justify; }
-    &-wrap { white-space: normal; }
-    &-nowrap { white-space: nowrap; }
     &-truncate {
         overflow: hidden;
         text-overflow: ellipsis;
@@ -15,13 +31,6 @@
         &-underline { text-decoration: underline; }
         &-line-through { text-decoration: line-through; }
     }
-    &-break {
-        word-wrap: break-word;
-        word-break: break-word;
-    }
-    &-start, &-left { text-align: left; }
-    &-end, &-right { text-align: right; }
-    &-center { text-align: center; }
 
     each(@text-color-names, {
         &-@{value} {

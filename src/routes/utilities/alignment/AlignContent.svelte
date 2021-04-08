@@ -22,6 +22,11 @@
                     disabled={align.display === 'grid'}
                 ><i class="fas {align.display === 'grid' ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i> Grid</button>
                 <button
+                    on:click="{() => align.display = 'inline-grid'}"
+                    class="tf_btn tf_btn-sm tf_btn-secondary"
+                    disabled={align.display === 'inline-grid'}
+                ><i class="fas {align.display === 'inline-grid' ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i> Inline grid</button>
+                <button
                     on:click="{() => align.display = 'flex'}"
                     class="tf_btn tf_btn-sm tf_btn-secondary"
                     disabled={align.display === 'flex'}
@@ -66,7 +71,7 @@
                 ><i class="fas {align.content === 'stretch' ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i> Stretch</button>
             </div>
             <hr>
-            <div class="{align.display === 'grid' ? 'd-grid' : 'd-flex flex-wrap'} g-3 p-3 rounded bg-positive cols-2 align-content-{align.content}" style="height:16rem;">
+            <div class="d-{align.display === 'flex' ? 'flex flex-wrap' : align.display} g-3 p-3 rounded bg-positive cols-2 align-content-{align.content}" style="height:16rem;">
                 <div class="p-3 bg-background rounded">Item 1</div>
                 <div class="p-3 bg-background rounded">Item 2</div>
                 <div class="p-3 bg-background rounded">Item 3</div>
@@ -76,7 +81,7 @@
             class="my-0"
             language='{xml}'
             code='
-    <div class="{align.display === 'grid' ? 'd-grid' : 'd-flex flex-wrap'} align-content-{align.content}">
+    <div class="d-{align.display === 'flex' ? 'flex flex-wrap' : align.display} align-content-{align.content}">
         <div>Item 1</div>
         <div>Item 2</div>
         <div>Item 3</div>
