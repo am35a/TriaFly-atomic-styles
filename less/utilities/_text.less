@@ -33,7 +33,10 @@
     }
 
     each(@text-color-names, {
-        &-@{value} {
+        &-@{value} when (@value = currentcolor) {
+            color: currentColor;
+        }
+        &-@{value} when not (@value = currentcolor) {
             color: var(~"--@{value}-color");
         }
     });

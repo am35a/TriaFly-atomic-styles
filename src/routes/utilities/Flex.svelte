@@ -12,6 +12,9 @@
 
 <div id="flex" class="mb-3">
     <div class="h2" role="heading" aria-level="2">Flex</div>
+    <div class="d-inline-block rounded-2 bg-success text-positive mb-3 p-3">
+        <i class="fas fa-check-circle"></i> Flex fully support <a href="core#breakpoints" class="text-currentcolor">breakpoints</a>.
+    </div>
     <DisplayFlex/>
     <div id="flex-direction" class="mb-3">
         <div class="h3" role="heading" aria-level="3">Direction</div>

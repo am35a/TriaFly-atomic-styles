@@ -7,6 +7,7 @@
     import Clearfix   from "../routes/utilities/Clearfix.svelte"
     import Display    from "../routes/utilities/Display.svelte"
     import Flex       from "../routes/utilities/Flex.svelte"
+    import Float       from "../routes/utilities/Float.svelte"
 </script>
 
 <PageLayout id="utilities">
@@ -27,7 +28,7 @@
         <a href="utilities#border">Border</a>
             <a href="utilities#add-border">- Add Border</a>
             <a href="utilities#cut-border">- Cut Border</a>
-        <a href="utilities#radius">Radius</a>
+            <a href="utilities#radius">- Radius</a>
         <a href="utilities#clearfix">Clearfix</a>
         <a href="utilities#display">Display</a>
         <a href="utilities#flex">Flex</a>
@@ -44,6 +45,7 @@
                 <a href="utilities#flex-equal">-- Equal</a>
                 <a href="utilities#flex-grow">-- Grow</a>
                 <a href="utilities#flex-shrink">-- Shrink</a>
+        <a href="utilities#float">Float</a>
     </slot>
     <div class="h1" role="heading" aria-level="1">Utilities</div>
     <Alignment/>
@@ -53,4 +55,5 @@
     <Clearfix/>
     <Display/>
     <Flex/>
+    <Float/>
 </PageLayout>

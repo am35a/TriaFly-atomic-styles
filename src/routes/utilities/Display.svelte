@@ -1,5 +1,8 @@
 <div id="display" class="mb-3">
     <div class="h2" role="heading" aria-level="2">Display</div>
+    <div class="d-inline-block rounded-2 bg-success text-positive mb-3 p-3">
+        <i class="fas fa-check-circle"></i> Display fully support <a href="core#breakpoints" class="text-currentcolor">breakpoints</a>.
+    </div>
     <p>
         For change the display value of tags use follow display classes:
     </p>

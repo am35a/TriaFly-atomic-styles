@@ -997,6 +997,9 @@ h6,
 .text-error {
   color: var(--error-color);
 }
+.text-currentcolor {
+  color: currentColor;
+}
 .fw-lighter {
   font-weight: lighter;
 }
