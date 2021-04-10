@@ -694,7 +694,7 @@ h6,
   --layout-aside-width: 0;
   --desktop-layout-aside-width: calc(var(--key-size) * 3);
   --layout-aside-navbar-width: 0;
-  --layout-aside-navbar-width--expand: calc(var(--key-size) * 3);
+  --layout-aside-navbar-width--expand: calc(var(--key-size) * 16);
   --desktop-layout-aside-navbar-width: calc(var(--key-size) * 3);
   --desktop-layout-aside-navbar-width--hover: calc(var(--key-size) * 16);
   --layout-aside-navbar-item-min-width: calc(var(--key-size) * 16);
