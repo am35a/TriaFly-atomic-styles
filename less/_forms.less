@@ -16,7 +16,8 @@
     font-size: var(--key-size);
     line-height: 1.5;
     appearance: none;
-    &:disabled {
+    &:disabled,
+    &[readonly] {
         pointer-events: none;
         // opacity: .25;
     }
@@ -66,6 +67,10 @@
             &::placeholder {
                 color: var(~"--@{value}-color");
             }
+            // &[readonly] {
+            //     background-color: cyan !important;
+            // }
+        
         }
     });
 

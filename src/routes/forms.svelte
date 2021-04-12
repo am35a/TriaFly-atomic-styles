@@ -10,7 +10,6 @@
     import FormError     from "../routes/forms/Error.svelte"
     import FormSizes     from "../routes/forms/Sizes.svelte"
     import FormDisabled  from "../routes/forms/Disabled.svelte"
-
 </script>
 
 <PageLayout id="forms">

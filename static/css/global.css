@@ -335,7 +335,8 @@ hr {
   line-height: 1.5;
   appearance: none;
 }
-.tf_form-control:disabled {
+.tf_form-control:disabled,
+.tf_form-control[readonly] {
   pointer-events: none;
 }
 .tf_form-control:focus {
