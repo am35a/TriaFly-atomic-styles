@@ -5,11 +5,21 @@
     import PageLayout from "../components/PageLayout.svelte"
     import NumbImputer from "../components/ui/NumbImputer.svelte"
 
-    export let grid = {
+    let grid = {
         display: 'grid',
-        columns: 12,
+        columns: 4,
+        rows: 4,
+        items: 1,
+        // isItemsAuto: true
         // items: 'normal',
         // self: 'auto'
+    }
+
+    $: grid.columns || grid.rows, itemsToogler()
+    function itemsToogler() {
+        // if(grid.isItemsAuto) {
+            grid.items = grid.columns * grid.rows
+        // }
     }
 </script>
 
@@ -58,43 +68,25 @@
                 </div>
                 <hr>
                 <div class="d-flex flex-wrap g-3">
-                    <div>
-                        <NumbImputer title={'Columns'} bind:value={grid.columns} minValue=1 maxValue=12/>
-                    </div>
+                    <NumbImputer title={'Columns'} bind:value={grid.columns} minValue=1 maxValue=12/>
+                    <NumbImputer title={'Rows'} bind:value={grid.rows} minValue=1 maxValue=12/>
+                    <NumbImputer title={'Items'} bind:value={grid.items} minValue=1/>
                 </div>
                 <hr>
-                <div class="d-{grid.display} g-3 cols-{grid.columns}">
-                    <div class="p-2 rounded-2 bg-background text-center">1</div>
-                    <div class="p-2 rounded-2 bg-background text-center">2</div>
-                    <div class="p-2 rounded-2 bg-background text-center">3</div>
-                    <div class="p-2 rounded-2 bg-background text-center">4</div>
-                    <div class="p-2 rounded-2 bg-background text-center">5</div>
-                    <div class="p-2 rounded-2 bg-background text-center">6</div>
-                    <div class="p-2 rounded-2 bg-background text-center">7</div>
-                    <div class="p-2 rounded-2 bg-background text-center">8</div>
-                    <div class="p-2 rounded-2 bg-background text-center">9</div>
-                    <div class="p-2 rounded-2 bg-background text-center">10</div>
-                    <div class="p-2 rounded-2 bg-background text-center">11</div>
-                    <div class="p-2 rounded-2 bg-background text-center">12</div>
+                <div class="d-{grid.display} g-3 cols-{grid.columns} rows-{grid.rows}">
+                    {#each Array(grid.items) as item, i}
+                        <div class="p-2 rounded-2 bg-background text-center">{i + 1}</div>
+                    {/each}
                 </div>
             </div>
             <Highlight
                 class="my-0"
                 language='{xml}'
                 code='
-    <div class="d-{grid.display} cols-{grid.columns}">
+    <div class="d-{grid.display} cols-{grid.columns} rows-{grid.rows}">
         <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
-        <div>6</div>
-        <div>7</div>
-        <div>8</div>
-        <div>9</div>
-        <div>10</div>
-        <div>11</div>
-        <div>12</div>
+        <!-- ... -->
+        <div>{grid.items}</div>
     </div>
                 '
             />
