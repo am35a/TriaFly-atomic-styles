@@ -9,9 +9,9 @@
 
     <div class="d-grid" style="width: 24rem;">
         <div class="text-end mb-1">
-            <button class="tf_btn tf_btn-secondary tf_btn-sm tf_btn-icon"><i class="fas fa-cog"></i></button>
+            <button class="tf_btn tf_btn-secondary tf_btn-xs tf_btn-icon"><i class="fas fa-cog"></i></button>
         </div>
-        <div class="border rounded-1 p-2 d-inline-grid g-3 bg-positive overflow-y-auto" style="height: 20rem; box-shadow: 0 2px 3px rgba(0,0,0,.125);">
+        <div class="border border-secondary rounded-1 p-2 d-inline-grid g-2 bg-positive overflow-y-auto" style="height: 20rem; box-shadow: 0 2px 3px rgba(0,0,0,.125); font-size: 87.5% !important;">
             <div class="d-grid g-2 cols-2 justify-items-center">
                 <div>
                     <input id="rows" name="dataDirectionview3163" value="rows" type="radio" checked>
@@ -25,7 +25,7 @@
             <div class="d-grid cols-3 g-2">
                 <label for="legendLength" class="tf_form-label text-secondary flex-shrink-0 pt-1 text-end" lang="ru">Длина подписей в легенде</label>
                 <div class="col-span-2">
-                    <input id="legendLength" maxlength="4" class="tf_form-control tf_form-control-sm tf_form-control-secondary" type="number" min="0" placeholder="∞">
+                    <input id="legendLength" maxlength="4" class="tf_form-control tf_form-control-xs tf_form-control-secondary" type="number" min="0" placeholder="∞">
                     <div class="tf_form-text text-secondary" lang="ru">По умолчанию длина не ограничена.</div>                
                 </div>
             </div>
@@ -36,8 +36,8 @@
                 </div>
                 <label for="legendPlase" class="tf_form-label text-secondary flex-shrink-0 pt-1 text-end">Расположение легенды</label>
                 <div class="col-span-2">
-                    <select id="legendPlase" class="tf_form-control tf_form-control-sm tf_form-control-secondary">
-                        <option selected="" value="top">Cверху</option>
+                    <select id="legendPlase" class="tf_form-control tf_form-control-xs tf_form-control-secondary">
+                        <option selected value="top">Cверху</option>
                         <option value="bottom">Cнизу</option>
                         <option value="left">Cлева</option>
                         <option value="right">Cправа</option>
@@ -51,10 +51,10 @@
                     <label for="showXAxis" class="text-secondary">Показывать подписи оси признаков</label>
                 </div>
                 <div class="text-end">
-                    <button class="tf_btn tf_btn-transparent text-secondary tf_btn-icon tf_btn-sm"><i class="fas fa-question-circle fa-lg"></i></button>
+                    <button class="tf_btn tf_btn-transparent text-secondary tf_btn-icon tf_btn-xs"><i class="fas fa-question-circle fa-lg"></i></button>
                 </div>
                 <div class="col-span-2">
-                    <input id="legendLength" class="tf_form-control tf_form-control-sm tf_form-control-secondary" type="text" placeholder="форма значения">
+                    <input id="legendLength" class="tf_form-control tf_form-control-xs tf_form-control-secondary" type="text" placeholder="форма значения">
                 </div>
             </div>
             <div class="d-grid cols-3 g-2">
@@ -63,16 +63,16 @@
                     <label for="showYAxis" class="text-secondary">Показывать подписи оси значений</label>
                 </div>
                 <div class="text-end">
-                    <button class="tf_btn tf_btn-transparent text-secondary tf_btn-icon tf_btn-sm"><i class="fas fa-question-circle fa-lg"></i></button>
+                    <button class="tf_btn tf_btn-transparent text-secondary tf_btn-icon tf_btn-xs"><i class="fas fa-question-circle fa-lg"></i></button>
                 </div>
                 <div class="col-span-2">
-                    <input id="legendLength" class="tf_form-control tf_form-control-sm tf_form-control-secondary" type="text" placeholder="форма значения">
+                    <input id="legendLength" class="tf_form-control tf_form-control-xs tf_form-control-secondary" type="text" placeholder="форма значения">
                 </div>
             </div>
             <div class="d-grid cols-3 g-2">
                 <label for="rotateLabels" class="tf_form-label text-secondary flex-shrink-0 pt-1 text-end" lang="ru">Угол поворота подписей</label>
                 <div class="col-span-2">
-                    <input id="rotateLabels" maxlength="4" class="tf_form-control tf_form-control-sm tf_form-control-secondary" type="number" min="0" max="360" placeholder="0">
+                    <input id="rotateLabels" maxlength="4" class="tf_form-control tf_form-control-xs tf_form-control-secondary" type="number" min="0" max="360" placeholder="0">
                     <div class="tf_form-text text-secondary" lang="ru">Угол поворота подписей оси признаков.</div>
                 </div>
             </div>

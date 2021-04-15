@@ -10,6 +10,16 @@
     &-right-0 { border-right: 0; }
     &-bottom-0 { border-bottom: 0; }
     &-left-0 { border-left: 0; }
+
+    each(@border-color-names, {
+        &-@{value} when (@value = transparent) {
+            border-color: transparent;
+        }
+        &-@{value} when not (@value = transparent) {
+            border-color: var(~"--@{value}-color");
+        }
+    });
+
 }
 
 .border(@device-orientation-value, @device-type-value) {

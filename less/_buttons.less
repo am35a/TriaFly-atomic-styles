@@ -81,6 +81,13 @@
         }
     });
 
+    &-xs {
+        --key-size-xs: calc(var(--key-size) * .75);
+
+        padding: calc(var(--key-size-xs) * .25) calc(var(--key-size-xs) * .625);
+        font-size: var(--key-size-xs);
+    }
+
     &-sm {
         --key-size-sm: calc(var(--key-size) * .875);
 
@@ -98,6 +105,11 @@
     &-icon {
         min-width: calc(calc(calc(var(--key-size) * 1.5) + .125rem) + calc(var(--key-size) * .25 * 2));
         padding: calc(var(--key-size) * .25);
+    }
+    &-icon&-xs {
+        --key-size-xs: calc(var(--key-size) * .75);
+        min-width: calc(calc(calc(var(--key-size-xs) * 1.5) + .125rem) + calc(var(--key-size-xs) * .25 * 2));
+        padding: calc(var(--key-size-xs) * .25);
     }
     &-icon&-sm {
         --key-size-sm: calc(var(--key-size) * .875);

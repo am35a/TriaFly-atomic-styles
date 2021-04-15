@@ -293,6 +293,11 @@ hr {
   background-color: var(--error-color-d1);
   box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--error-color);
 }
+.tf_btn-xs {
+  --key-size-xs: calc(var(--key-size) * 0.75);
+  padding: calc(var(--key-size-xs) * 0.25) calc(var(--key-size-xs) * 0.625);
+  font-size: var(--key-size-xs);
+}
 .tf_btn-sm {
   --key-size-sm: calc(var(--key-size) * 0.875);
   padding: calc(var(--key-size-sm) * 0.25) calc(var(--key-size-sm) * 0.625);
@@ -306,6 +311,11 @@ hr {
 .tf_btn-icon {
   min-width: calc(calc(calc(var(--key-size) * 1.5) + 0.125rem) + calc(var(--key-size) * 0.25 * 2));
   padding: calc(var(--key-size) * 0.25);
+}
+.tf_btn-icon.tf_btn-xs {
+  --key-size-xs: calc(var(--key-size) * 0.75);
+  min-width: calc(calc(calc(var(--key-size-xs) * 1.5) + 0.125rem) + calc(var(--key-size-xs) * 0.25 * 2));
+  padding: calc(var(--key-size-xs) * 0.25);
 }
 .tf_btn-icon.tf_btn-sm {
   --key-size-sm: calc(var(--key-size) * 0.875);
@@ -481,6 +491,11 @@ select.tf_form-control {
 }
 .tf_form-control-error::placeholder {
   color: var(--error-color);
+}
+.tf_form-control-xs {
+  --key-size-xs: calc(var(--key-size) * 0.75);
+  padding: calc(var(--key-size-xs) * 0.25) calc(var(--key-size-xs) * 0.625);
+  font-size: var(--key-size-xs);
 }
 .tf_form-control-sm {
   --key-size-sm: calc(var(--key-size) * 0.875);
@@ -939,6 +954,36 @@ h6,
 }
 .border-left-0 {
   border-left: 0;
+}
+.border-positive {
+  border-color: var(--positive-color);
+}
+.border-negative {
+  border-color: var(--negative-color);
+}
+.border-background {
+  border-color: var(--background-color);
+}
+.border-primary {
+  border-color: var(--primary-color);
+}
+.border-secondary {
+  border-color: var(--secondary-color);
+}
+.border-info {
+  border-color: var(--info-color);
+}
+.border-success {
+  border-color: var(--success-color);
+}
+.border-warning {
+  border-color: var(--warning-color);
+}
+.border-error {
+  border-color: var(--error-color);
+}
+.border-transparent {
+  border-color: transparent;
 }
 .clearfix::after {
   display: block;

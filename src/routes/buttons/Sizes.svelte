@@ -9,6 +9,7 @@
     <div class="rounded-2 overflow-hidden">
         <div class="bg-positive rounded-2 rounded-bottom-0 p-3 text-center">
             <div class="d-inline-flex g-3 flex-wrap align-items-center">
+                <button class="tf_btn tf_btn-primary tf_btn-xs">extra small button</button>
                 <button class="tf_btn tf_btn-primary tf_btn-sm">small button</button>
                 <button class="tf_btn tf_btn-primary">default button</button>
                 <button class="tf_btn tf_btn-primary tf_btn-lg">large button</button>
@@ -18,6 +19,9 @@
             class="my-0"
             language='{xml}'
             code='
+    // extra small size button
+    <button class="tf_btn tf_btn-primary tf_btn-xs">extra small button</button>
+    
     // small size button
     <button class="tf_btn tf_btn-primary tf_btn-sm">small button</button>
     
