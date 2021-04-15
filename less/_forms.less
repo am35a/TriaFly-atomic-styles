@@ -1,6 +1,6 @@
 .tf_form-label {
     display: inline-block;
-    margin: auto auto calc(var(--key-size) * .5) auto;
+    margin-bottom: calc(var(--key-size) * .5);
 }
 .tf_form-control {
     display: block;
@@ -46,6 +46,14 @@
             display: none;
         }
     }
+    // input::-webkit-outer-spin-button,
+    // input::-webkit-inner-spin-button {
+    //   -webkit-appearance: none;
+    //   margin: 0;
+    // }
+    [type=number]& {
+      -moz-appearance: textfield;
+    }    
 
     @color-names: primary, secondary, info, success, warning, error;
     each(@color-names, {
