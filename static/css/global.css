@@ -1037,6 +1037,12 @@ h6,
   clear: both;
   content: '';
 }
+.cols-auto {
+  grid-auto-columns: auto;
+}
+.rows-auto {
+  grid-auto-rows: auto;
+}
 .border-box {
   box-sizing: border-box;
 }

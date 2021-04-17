@@ -10,6 +10,9 @@
         columns: 4,
         rows: 4,
         items: 1,
+        autoColumns: false,
+        autoRows: false,
+        flow: 'row',
         // isItemsAuto: true
         // items: 'normal',
         // self: 'auto'
@@ -21,6 +24,31 @@
             grid.items = grid.columns * grid.rows
         // }
     }
+
+
+    function classColumns() {
+        if(grid.autoColumns)
+            return ''
+        else
+            return `cols-${grid.columns}`
+    }
+    function classRows() {
+        if(grid.autoRows)
+            return ''
+        else
+            return `rows-${grid.rows}`
+    }
+
+    function classAutoColumns() {
+        return grid.autoColumns ? 'cols-auto' : ''
+    }
+
+    function classAutoRows() {
+        return grid.autoRows ? 'rows-auto' : ''
+    }
+
+
+
 </script>
 
 <PageLayout id="grid">
@@ -68,12 +96,36 @@
                 </div>
                 <hr>
                 <div class="d-flex flex-wrap g-3">
-                    <NumbImputer title={'Columns'} bind:value={grid.columns} minValue=1 maxValue=12/>
-                    <NumbImputer title={'Rows'} bind:value={grid.rows} minValue=1 maxValue=12/>
-                    <NumbImputer title={'Items'} bind:value={grid.items} minValue=1/>
+                    <button
+                        on:click="{() => grid.flow = 'row'}"
+                        class="tf_btn tf_btn-sm tf_btn-secondary"
+                        disabled={grid.flow === 'row'}
+                    ><i class="fas {grid.flow === 'row' ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i>  Row direction</button>
+                    <button
+                        on:click="{() => grid.flow = 'col'}"
+                        class="tf_btn tf_btn-sm tf_btn-secondary"
+                        disabled={grid.flow === 'col'}
+                    ><i class="fas {grid.flow === 'col' ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i> Column direction</button>
                 </div>
                 <hr>
-                <div class="d-{grid.display} g-3 cols-{grid.columns} rows-{grid.rows}">
+                <div class="d-flex flex-wrap g-3">
+                    <button
+                        on:click="{() => grid.autoColumns = !grid.autoColumns}"
+                        class="tf_btn tf_btn-sm tf_btn-secondary"
+                    ><i class="fas {grid.autoColumns ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i> Auto columns</button>
+                    <button
+                        on:click="{() => grid.autoRows = !grid.autoRows}"
+                        class="tf_btn tf_btn-sm tf_btn-secondary"
+                    ><i class="fas {grid.autoRows ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i> Auto rows</button>
+                </div>
+                <hr>
+                <div class="d-flex flex-wrap g-3">
+                    <NumbImputer title={'Columns'} bind:value={grid.columns} minValue=1 maxValue=12/>
+                    <NumbImputer title={'Rows'} bind:value={grid.rows} minValue=1 maxValue=12/>
+                    <NumbImputer title={'Items'} bind:value={grid.items} minValue=1 disabled/>
+                </div>
+                <hr>
+                <div class="d-{grid.display} g-3 {classColumns()} {classRows()} grid-flow-{grid.flow} {classAutoColumns()} {classAutoRows()}">
                     {#each Array(grid.items) as item, i}
                         <div class="p-2 rounded-2 bg-background text-center">{i + 1}</div>
                     {/each}
@@ -83,7 +135,7 @@
                 class="my-0"
                 language='{xml}'
                 code='
-    <div class="d-{grid.display} cols-{grid.columns} rows-{grid.rows}">
+    <div class="d-{grid.display} {classColumns()} {classRows()} grid-flow-{grid.flow} {classAutoColumns()} {classAutoRows()}">
         <div>1</div>
         <!-- ... -->
         <div>{grid.items}</div>

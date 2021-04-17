@@ -1,4 +1,6 @@
 <script>
+    export let disabled = false;
+
     export let value;
     export let title;
 
@@ -29,12 +31,12 @@
 </script>
 
 <div {...$$restProps}>
-    <label for="numb-inputer-{title}" class="tf_form-label text-secondary">{title}</label>
-    <div class="d-flex g-1 border p-1 rounded-2">
+    <label for="numb-inputer-{title}" class="tf_form-label text-secondary" style="{disabled ? 'opacity: 50%' : ''}">{title}</label>
+    <div class="d-flex g-1 border border-secondary p-1 rounded-2" style="{disabled ? 'opacity: 50%' : ''}">
         <button
             on:click="{() => value--}"
             class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-icon"
-            disabled={!isMinus}
+            disabled={!isMinus || disabled}
         >
             <i class="fas fa-minus"></i>
         </button>
@@ -50,7 +52,7 @@
         <button
             on:click="{() => value++}"
             class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-icon"
-            disabled={!isPlus}
+            disabled={!isPlus || disabled}
         >
             <i class="fas fa-plus"></i>
         </button>
