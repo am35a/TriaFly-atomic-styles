@@ -89,37 +89,12 @@
             <a class="tf_item-title text-capitalize" href="{page.segment}/#{page.segment}">{page.segment}</a>
         </div>
     {/each}
-    <!-- <div
-            class="tf_navbar-item {segment === 'blog' ? 'tf_navbar-item--active' : ''} position-absolute bottom-0"
-            on:click={() => $state.isAsideExpand = false}
-        >
-        <div class="tf_item-hover"></div>
-        <div class="tf_item-active"></div>
-        <a class="tf_item-identicon" href="blog"><IconBlog/></a>
-        <a class="tf_item-title" href="blog">Blog</a>
-    </div> -->
-
-    <!-- {#each Array(15) as item, i}
-        <div class="tf_navbar-item">
-            <div class="tf_item-hover"></div>
-            <div class="tf_item-active"></div>
-            <a class="tf_item-identicon" href="."><IconHome/></a>
-            <a class="tf_item-title" href=".">Home</a>
-        </div>
-    {/each} -->
-
-    <!-- <div class="tf_navbar-logo">
-        <img class="tf_logo-image" src="images/logo-icon.svg" alt="">
-        <div class="tf_logo-title">
-            <b>TriaFly UI Kit.</b> Easier way to create high-loaded apps.
-        </div>
-    </div> -->
 </div>
 <div class="tf_aside-logo">
     <div class="tf_logo-container">
-        <div class="tf_logo-small">
-            <img src="images/logo-icon.svg" alt="TriaFly">
-        </div>
+        <!-- <div class="tf_logo-small"> -->
+            <img class="tf_logo-small" src="images/logo-icon.svg" alt="TriaFly">
+        <!-- </div> -->
         <div class="tf_logo-normal">
             <img src="images/logo-icon.svg" alt="TriaFly">
             <div class="tf_logo-title">

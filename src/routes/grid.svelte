@@ -21,7 +21,7 @@
     $: grid.columns || grid.rows, itemsToogler()
     function itemsToogler() {
         // if(grid.isItemsAuto) {
-            grid.items = grid.columns * grid.rows
+            // grid.items = grid.columns * grid.rows
         // }
     }
 
@@ -53,7 +53,7 @@
 
 <PageLayout id="grid">
     <slot slot="aside">
-        <a href="forms#item">Item</a>
+        <a href="forms#item">Item</a>{grid.items}
     </slot>
     <div class="h1" role="heading" aria-level="1">Grid by grid</div>
     <div class="d-inline-block rounded-2 bg-success text-positive mb-3 p-3">
@@ -122,7 +122,7 @@
                 <div class="d-flex flex-wrap g-3">
                     <NumbImputer title={'Columns'} bind:value={grid.columns} minValue=1 maxValue=12/>
                     <NumbImputer title={'Rows'} bind:value={grid.rows} minValue=1 maxValue=12/>
-                    <NumbImputer title={'Items'} bind:value={grid.items} minValue=1 disabled/>
+                    <NumbImputer title={'Items'} bind:value={grid.items} minValue=1/>
                 </div>
                 <hr>
                 <div class="d-{grid.display} g-3 {classColumns()} {classRows()} grid-flow-{grid.flow} {classAutoColumns()} {classAutoRows()}">
