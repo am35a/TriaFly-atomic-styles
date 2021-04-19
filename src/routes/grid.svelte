@@ -21,7 +21,7 @@
     $: grid.columns || grid.rows, itemsToogler()
     function itemsToogler() {
         // if(grid.isItemsAuto) {
-            // grid.items = grid.columns * grid.rows
+            grid.items = grid.columns * grid.rows
         // }
     }
 
@@ -46,9 +46,6 @@
     function classAutoRows() {
         return grid.autoRows ? 'rows-auto' : ''
     }
-
-
-
 </script>
 
 <PageLayout id="grid">

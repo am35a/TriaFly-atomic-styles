@@ -87,5 +87,22 @@
                 <div>.p:m:<span class="text-secondary">class-name</span></div>
             </div>
         </div>
+        <div id="components" class="mb-3">
+            <div class="h3" role="heading" aria-level="3">Components</div>
+            <div class="d-grid cols-3 g-2">
+                <div class="fw-600">Monolit</div>
+                <div class="fw-600">Utilities</div>
+                <div class="fw-600">UI</div>
+                <hr class="col-span-full w-100 my-0">
+                <div>Monolithic styles for creating the grid of the application. This component is independently and can be used separately from others.</div>
+                <div>Custom styles for standard HTML elements. Use to make prettie UI.</div>
+                <div>Utilities allow you to make the layout really flexible. Pay attention to the Breakpoints and it will understanding to you how powerful tools you get.</div>
+                <hr class="col-span-full w-100 my-0">
+                <div><a href="layout.css">layout.css</a></div>
+                <div><a href="utilities.css">utilities.css</a></div>
+                <div><a href="ui.css">ui.css</a></div>
+            </div>
+        </div>
+
     </div>
 </PageLayout>
