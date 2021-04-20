@@ -38,7 +38,8 @@
             <div>
                 <label for="inputFile" class="tf_form-label">Default file input</label>
                 <input id="inputFile" class="tf_form-control" type="file">
-            </div>                
+            </div>
+            <input class="tf_form-control" type="date" id="party" name="party" min="2017-04-01" max="2017-04-30">
         </form>
         <Highlight
             class="my-0"

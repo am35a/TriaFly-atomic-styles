@@ -3,12 +3,12 @@
     each(range(12), {
         .@{device-orientation-value}@{device-type-value}cols-@{value} { grid-template-columns: repeat(@value, minmax(0, 1fr)); }
     });
-    .@{device-orientation-value}@{device-type-value}cols-none { grid-template-columns: none; }
+    // .@{device-orientation-value}@{device-type-value}cols-none { grid-template-columns: none; }
     
     each(range(12), {
         .@{device-orientation-value}@{device-type-value}rows-@{value} { grid-template-rows: repeat(@value, minmax(0, 1fr)); }
     });
-    .@{device-orientation-value}@{device-type-value}rows-none { grid-template-rows: none; }
+    // .@{device-orientation-value}@{device-type-value}rows-none { grid-template-rows: none; }
     
     each(range(12), {
         .@{device-orientation-value}@{device-type-value}col-span-@{value} { grid-column: span @value / span @value; }
