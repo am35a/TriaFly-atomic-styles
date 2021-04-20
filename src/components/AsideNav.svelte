@@ -55,9 +55,9 @@
         width: calc(var(--key-size) * 1.5);
         height: calc(var(--key-size) * 1.5);
     }
-    .tf_item-title {
+    /* .tf_item-title {
         padding-right: var(--key-size) !important;
-    }
+    } */
 </style>
 
 <div
@@ -74,6 +74,7 @@
         <div class="tf_item-hover"></div>
         <div class="tf_item-active"></div>
         <a class="tf_item-identicon" href="."><IconHome/></a>
+        <!-- <a class="tf_item-actioncon" href="" title=""><i class="fa fa-plus"></i></a> -->
         <a class="tf_item-title" href=".">Home</a>
     </div>
     {#each pages as page (page.id)}

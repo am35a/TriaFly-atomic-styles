@@ -81,18 +81,6 @@
             justify-items: center;
             align-items: center;
         }
-        .tf_item-title {
-            display: block;
-            width: auto;
-            height: auto;
-            padding: 0 calc(var(--key-size) * 3); 
-            /* margin: auto 0; */
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            box-sizing: border-box;
-            line-height: calc(var(--key-size) * 3);
-        }
         .tf_item-actioncon {
             width: calc(var(--key-size) * 3);
             height: calc(var(--key-size) * 3);
@@ -104,6 +92,20 @@
             &:hover {
                 transform: scale(1);
             }
+            + .tf_item-title {
+                padding-left: calc(var(--key-size) * 3);
+                padding-right: calc(var(--key-size) * 3);
+            }
+        }
+        .tf_item-title {
+            display: grid;
+            align-content: center;
+            width: auto;
+            height: auto;
+            padding-left: calc(var(--key-size) * 3);
+            padding-right: var(--key-size);
+            box-sizing: border-box;
+            min-height: calc(var(--key-size) * 3);
         }
     }    
 }
