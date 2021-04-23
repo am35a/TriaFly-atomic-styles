@@ -652,6 +652,10 @@ hr {
   display: inline-block;
   margin-bottom: calc(var(--key-size) * 0.5);
 }
+.tf_form-text {
+  margin-top: calc(var(--key-size) * 0.25);
+  font-size: calc(var(--key-size) * 0.875);
+}
 .tf_form-control {
   display: block;
   margin: unset;
@@ -828,9 +832,34 @@ select.tf_form-control {
   padding: calc(var(--key-size-lg) * 0.25) calc(var(--key-size-lg) * 0.625);
   font-size: var(--key-size-lg);
 }
-.tf_form-text {
+.tf_form-check {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: start;
+  justify-items: start;
+  grid-template-columns: min-content;
+  grid-gap: calc(var(--key-size) * 0.25);
+}
+.tf_form-check-input {
   margin-top: calc(var(--key-size) * 0.25);
-  font-size: calc(var(--key-size) * 0.875);
+  width: var(--key-size);
+  height: var(--key-size);
+  border-radius: calc(var(--key-size) * 0.125);
+  background-color: var(--positive-color);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: calc(var(--key-size) * 0.0625) solid currentColor;
+  cursor: pointer;
+}
+.tf_form-check-input:checked {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><path d='M0.4,7.7l2.1-2.1l3.9,3.9l7.1-7.1l2.1,2.1l-9.2,9.2L0.4,7.7z'/></svg>");
+  background-color: currentColor;
+}
+.tf_form-check-label {
+  line-height: 1.5;
+  user-select: none;
+  cursor: pointer;
 }
 h1,
 .h1,

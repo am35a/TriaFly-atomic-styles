@@ -8,6 +8,17 @@
     <div class="rounded-2 overflow-hidden">
         <form class="bg-positive p-3 d-grid g-3">
             <div>
+                <div class="tf_form-check">
+                    <input class="tf_form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                    <label class="tf_form-check-label" for="flexCheckChecked">Checked checkbox Add the disabled attribute and the associated labels are automatically styled to match with a lighter color to help indicate the input’s state.</label>
+                </div>
+                <div class="tf_form-check">
+                    <input class="tf_form-check-input" type="checkbox" value="" id="flexCheckChecked2" checked>
+                    <label class="tf_form-check-label" for="flexCheckChecked2">Checked checkbox</label>
+                </div>
+
+            </div>
+            <div>
                 <label for="inputTextDefault" class="tf_form-label">Label default</label>
                 <input id="inputTextDefault" class="tf_form-control" type="text" placeholder="Placeholder">
                 <div class="tf_form-text">
@@ -23,6 +34,9 @@
                     <option value="grid">
                     <option value="utilities">
                 </datalist>
+                <div class="tf_form-text">
+                    For datalist activate start typing or click twice to the input field above.
+                </div>
             </div>
             <div>
                 <select class="tf_form-control">
