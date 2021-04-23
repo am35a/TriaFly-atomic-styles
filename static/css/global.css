@@ -411,7 +411,9 @@ hr {
 }
 .tf_aside-logo .tf_logo-container .tf_logo-normal .tf_logo-title {
   color: var(--positive-color);
-  padding: calc(var(--key-size) * 0.25);
+  padding: 0 calc(var(--key-size) * 0.25);
+  max-height: calc(var(--key-size) * 3.5);
+  overflow: hidden;
 }
 /* .tf_aside-navbar:hover .tf_item-title {
     opacity: 1;
