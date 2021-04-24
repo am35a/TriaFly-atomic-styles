@@ -838,25 +838,72 @@ select.tf_form-control {
   align-items: start;
   justify-items: start;
   grid-template-columns: min-content;
-  grid-gap: calc(var(--key-size) * 0.25);
 }
-.tf_form-check-input {
+.tf_form-check input[type="checkbox"] {
   margin-top: calc(var(--key-size) * 0.25);
   width: var(--key-size);
   height: var(--key-size);
   border-radius: calc(var(--key-size) * 0.125);
-  background-color: var(--positive-color);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   border: calc(var(--key-size) * 0.0625) solid currentColor;
   cursor: pointer;
+  appearance: none;
 }
-.tf_form-check-input:checked {
+.tf_form-check input[type="checkbox"]:disabled,
+.tf_form-check input[type="checkbox"][readonly] {
+  pointer-events: none;
+}
+.tf_form-check input[type="checkbox"]:checked {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><path d='M0.4,7.7l2.1-2.1l3.9,3.9l7.1-7.1l2.1,2.1l-9.2,9.2L0.4,7.7z'/></svg>");
   background-color: currentColor;
+  border-color: transparent;
 }
-.tf_form-check-label {
+.tf_form-check input[type="checkbox"]:focus {
+  outline: 0;
+  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) currentColor;
+}
+.tf_form-check label {
+  padding-left: calc(var(--key-size) * 0.25);
+  line-height: 1.5;
+  user-select: none;
+  cursor: pointer;
+}
+.tf_form-radio {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: start;
+  justify-items: start;
+  grid-template-columns: min-content;
+}
+.tf_form-radio input[type="radio"] {
+  margin-top: calc(var(--key-size) * 0.25);
+  width: var(--key-size);
+  height: var(--key-size);
+  border-radius: calc(var(--key-size) * 0.5);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: calc(var(--key-size) * 0.0625) solid currentColor;
+  cursor: pointer;
+  appearance: none;
+}
+.tf_form-radio input[type="radio"]:disabled,
+.tf_form-radio input[type="radio"][readonly] {
+  pointer-events: none;
+}
+.tf_form-radio input[type="radio"]:checked {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><circle cx='8' cy='8' r='5'/></svg>");
+  background-color: currentColor;
+  border-color: transparent;
+}
+.tf_form-radio input[type="radio"]:focus {
+  outline: 0;
+  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) currentColor;
+}
+.tf_form-radio label {
+  padding-left: calc(var(--key-size) * 0.25);
   line-height: 1.5;
   user-select: none;
   cursor: pointer;

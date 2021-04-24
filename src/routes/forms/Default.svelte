@@ -9,14 +9,23 @@
         <form class="bg-positive p-3 d-grid g-3">
             <div>
                 <div class="tf_form-check">
-                    <input class="tf_form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                    <label class="tf_form-check-label" for="flexCheckChecked">Checked checkbox Add the disabled attribute and the associated labels are automatically styled to match with a lighter color to help indicate the input’s state.</label>
+                    <input type="checkbox" value="" id="flexCheckChecked">
+                    <label for="flexCheckChecked">Checked checkbox</label>
                 </div>
                 <div class="tf_form-check">
-                    <input class="tf_form-check-input" type="checkbox" value="" id="flexCheckChecked2" checked>
-                    <label class="tf_form-check-label" for="flexCheckChecked2">Checked checkbox</label>
+                    <input type="checkbox" value="" id="flexCheckChecked2" checked>
+                    <label for="flexCheckChecked2">Checked checkbox</label>
                 </div>
-
+            </div>
+            <div>
+                <div class="tf_form-radio">
+                    <input id="radioDefault1" name="radioDefault" type="radio">
+                    <label for="radioDefault1">Checked checkbox</label>
+                </div>
+                <div class="tf_form-radio">
+                    <input id="radioDefault2" name="radioDefault" type="radio" checked>
+                    <label for="radioDefault2">Checked checkbox</label>
+                </div>
             </div>
             <div>
                 <label for="inputTextDefault" class="tf_form-label">Label default</label>

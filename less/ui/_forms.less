@@ -110,42 +110,138 @@
 
 // .tf_form-control::file-selector-button { display: none; }
 // .tf_form-control::-webkit-file-upload-button { display: none; }
-.tf_form-check {
-    display: grid;
-    grid-auto-flow: column;
-    align-items: start;
-    justify-items: start;
-    grid-template-columns: min-content;
-    grid-gap: calc(var(--key-size) * .25);
-    // padding: calc(var(--key-size) * .125);
-    &-input {
-        margin-top: calc(var(--key-size) * .25);
-        width: var(--key-size);
-        height: var(--key-size);
-        // vertical-align: top;
-        border-radius: calc(var(--key-size) * .125);
-        background-color: var(--positive-color);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        border: calc(var(--key-size) * .0625) solid currentColor;
-        cursor: pointer;
-        &:checked {
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><path d='M0.4,7.7l2.1-2.1l3.9,3.9l7.1-7.1l2.1,2.1l-9.2,9.2L0.4,7.7z'/></svg>");
-            background-color: currentColor;
+
+.tf_form {
+    &-check {
+        display: grid;
+        grid-auto-flow: column;
+        align-items: start;
+        justify-items: start;
+        grid-template-columns: min-content;
+        input[type="checkbox"] {
+            margin-top: calc(var(--key-size) * .25);
+            width: var(--key-size);
+            height: var(--key-size);
+            border-radius: calc(var(--key-size) * .125);
+            // background-color: var(--positive-color);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            border: calc(var(--key-size) * .0625) solid currentColor;
+            cursor: pointer;
+            appearance: none;
+            &:disabled,
+            &[readonly] {
+                pointer-events: none;
+                // opacity: .25;
+            }
+            &:checked {
+                background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><path d='M0.4,7.7l2.1-2.1l3.9,3.9l7.1-7.1l2.1,2.1l-9.2,9.2L0.4,7.7z'/></svg>");
+                background-color: currentColor;
+                border-color: transparent;
+            }
+            &:focus {
+                outline: 0;
+                box-shadow: 0 0 0 calc(var(--key-size) * .125) currentColor;
+            }
+        }
+        label {
+            padding-left: calc(var(--key-size) * .25);
+            line-height: 1.5;
+            user-select: none;
+            cursor: pointer;
         }
     }
-    &-label {
-        line-height: 1.5;
-        user-select: none;
-        cursor: pointer;
-    }
+    &-radio {
+        display: grid;
+        grid-auto-flow: column;
+        align-items: start;
+        justify-items: start;
+        grid-template-columns: min-content;
+        input[type="radio"] {
+            margin-top: calc(var(--key-size) * .25);
+            width: var(--key-size);
+            height: var(--key-size);
+            border-radius: calc(var(--key-size) * .5);
+            // background-color: var(--positive-color);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            border: calc(var(--key-size) * .0625) solid currentColor;
+            cursor: pointer;
+            appearance: none;
+            &:disabled,
+            &[readonly] {
+                pointer-events: none;
+                // opacity: .25;
+            }
+            &:checked {
+                background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><circle cx='8' cy='8' r='5'/></svg>");
+                background-color: currentColor;
+                border-color: transparent;
+            }
+            &:focus {
+                outline: 0;
+                box-shadow: 0 0 0 calc(var(--key-size) * .125) currentColor;
+            }
+        }
+        label {
+            padding-left: calc(var(--key-size) * .25);
+            line-height: 1.5;
+            user-select: none;
+            cursor: pointer;
+        }
+    }    
 }
+// .tf_form-radio {
+//     display: grid;
+//     grid-auto-flow: column;
+//     align-items: start;
+//     justify-items: start;
+//     grid-template-columns: min-content;
+//     input[type="checkbox"],
+//     input[type="radio"] {
+//         margin-top: calc(var(--key-size) * .25);
+//         width: var(--key-size);
+//         height: var(--key-size);
+//         border-radius: calc(var(--key-size) * .125);
+//         // background-color: var(--positive-color);
+//         background-repeat: no-repeat;
+//         background-position: center;
+//         background-size: contain;
+//         border: calc(var(--key-size) * .0625) solid currentColor;
+//         cursor: pointer;
+//         appearance: none;
+//         &:disabled,
+//         &[readonly] {
+//             pointer-events: none;
+//             // opacity: .25;
+//         }
+//         &:checked {
+//             background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><path d='M0.4,7.7l2.1-2.1l3.9,3.9l7.1-7.1l2.1,2.1l-9.2,9.2L0.4,7.7z'/></svg>");
+//             background-color: currentColor;
+//             border-color: transparent;
+//         }
+//         &:focus {
+//             outline: 0;
+//             box-shadow: 0 0 0 calc(var(--key-size) * .125) currentColor;
+//         }
+//     }
+//     label {
+//         padding-left: calc(var(--key-size) * .25);
+//         line-height: 1.5;
+//         user-select: none;
+//         cursor: pointer;
+//     }
 
+//     // @color-names: primary, secondary, info, success, warning, error;
+//     // each(@color-names, {
+//     //     &-@{value} {
+//     //         border-color: var(~"--@{value}-color");
+//     //         &:checked {
+//     //             background-color: var(~"--@{value}-color");
+//     //         }
+//     //     }
+//     // });
 
-// .form-check-input:checked[type=checkbox] {
-//     background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
-// }
-// .form-check-input:checked[type=radio] {
-//     background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e")
 // }
