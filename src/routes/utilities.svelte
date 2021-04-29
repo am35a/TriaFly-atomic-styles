@@ -9,6 +9,7 @@
     import Flex       from "../routes/utilities/Flex.svelte"
     import Float      from "../routes/utilities/Float.svelte"
     import Position   from "./utilities/Position.svelte"
+    import Sizing     from "./utilities/Sizing.svelte"
 </script>
 
 <PageLayout id="utilities">
@@ -48,6 +49,7 @@
                 <a href="utilities#flex-shrink">-- Shrink</a>
         <a href="utilities#float">Float</a>
         <a href="utilities#position">Position</a>
+        <a href="utilities#sizing">Sizing</a>
     </slot>
     <div class="h1" role="heading" aria-level="1">Utilities</div>
     <Alignment/>
@@ -59,4 +61,5 @@
     <Flex/>
     <Float/>
     <Position/>
+    <Sizing/>
 </PageLayout>
