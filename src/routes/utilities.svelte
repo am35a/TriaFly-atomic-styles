@@ -10,6 +10,8 @@
     import Float      from "../routes/utilities/Float.svelte"
     import Position   from "./utilities/Position.svelte"
     import Sizing     from "./utilities/Sizing.svelte"
+    import Spacing    from "./utilities/Spacing.svelte"
+    import Text       from "./utilities/Text.svelte"
 </script>
 
 <PageLayout id="utilities">
@@ -50,6 +52,16 @@
         <a href="utilities#float">Float</a>
         <a href="utilities#position">Position</a>
         <a href="utilities#sizing">Sizing</a>
+        <a href="utilities#spacing">Spacing</a>
+        <a href="utilities#text">Text</a>
+            <a href="utilities#text-alignment">- Alignment</a>
+            <a href="utilities#word-break">- Word break</a>
+            <a href="utilities#text-wrapping">- Text wrapping</a>
+            <a href="utilities#text-transform">- Transform</a>
+            <a href="utilities#text-decoration">- Decoration</a>
+            <a href="utilities#text-colors">- Colors</a>
+            <a href="utilities#weight-style">- Weight & style</a>
+            <a href="utilities#line-height">- Line height</a>
     </slot>
     <div class="h1" role="heading" aria-level="1">Utilities</div>
     <Alignment/>
@@ -62,4 +74,6 @@
     <Float/>
     <Position/>
     <Sizing/>
+    <Spacing/>
+    <Text/>
 </PageLayout>
