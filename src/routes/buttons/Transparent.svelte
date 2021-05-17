@@ -11,6 +11,7 @@
             <div class="d-inline-flex g-3 flex-wrap">
                 <button class="tf_btn tf_btn-transparent">transparent button</button>
                 <button class="tf_btn tf_btn-transparent"><i class="fas fa-home"></i> icon button</button>
+                <button class="tf_btn tf_btn-transparent active">active button</button>
                 <button class="tf_btn tf_btn-transparent" disabled>disabled button</button>
             </div>
         </div>
@@ -26,6 +27,9 @@
         <i class="fas fa-home"></i>
         icon button
     </button>
+
+    // active button
+    <button class="tf_btn tf_btn-transparent active">active button</button>
     
     // transparent disabled button
     <button class="tf_btn tf_btn-transparent" disabled>disabled button</button>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SPA layout</title>
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/global.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://unpkg.com/current-device/umd/current-device.min.js"></script>
+    </head>
+    <body class="tf_layout">
+        <div class="tf_layout-main p-3">
+            <h1>Заголовок</h1>
+            <div class="d-grid" style="width: 24rem;">
+                <div class="text-end mb-1">
+                    <button class="tf_btn tf_btn-secondary tf_btn-xs tf_btn-icon"><i class="fas fa-cog"></i></button>
+                </div>
+                <div class="border border-secondary rounded-1 p-2 d-inline-grid g-2 bg-positive overflow-y-auto" style="height: 20rem; box-shadow: 0 2px 3px rgba(0,0,0,.125); font-size: 87.5% !important;">
+                    <div class="d-grid g-2 cols-2 justify-items-center">
+                        <div>
+                            <input id="rows" name="dataDirectionview3163" value="rows" type="radio" checked>
+                            <label for="rows" class="text-secondary">По строкам</label>
+                        </div>
+                        <div>
+                            <input id="cols" name="dataDirectionview3163" value="cols" type="radio">
+                            <label for="cols" class="text-secondary">По столбцам</label>
+                        </div>
+                    </div>
+                    <div class="d-grid cols-3 g-2">
+                        <label for="legendLength" class="tf_form-label text-secondary flex-shrink-0 pt-1 text-end" lang="ru">Длина подписей в легенде</label>
+                        <div class="col-span-2">
+                            <input id="legendLength" maxlength="4" class="tf_form-control tf_form-control-xs tf_form-control-secondary" type="number" min="0" placeholder="∞">
+                            <div class="tf_form-text text-secondary" lang="ru">По умолчанию длина не ограничена.</div>                
+                        </div>
+                    </div>
+                    <div class="d-grid cols-3 g-2">
+                        <div class="col-span-3">
+                            <input id="showLegend" value="rows" type="checkbox" checked>
+                            <label for="showLegend" class="text-secondary">Показывать легенду</label>
+                        </div>
+                        <label for="legendPlase" class="tf_form-label text-secondary flex-shrink-0 pt-1 text-end">Расположение легенды</label>
+                        <div class="col-span-2">
+                            <select id="legendPlase" class="tf_form-control tf_form-control-xs tf_form-control-secondary">
+                                <option selected value="top">Cверху</option>
+                                <option value="bottom">Cнизу</option>
+                                <option value="left">Cлева</option>
+                                <option value="right">Cправа</option>
+                            </select>
+                            <div class="tf_form-text text-secondary" lang="ru">По умолчанию легенда сверху.</div>                
+                        </div>
+                    </div>
+                    <div class="d-grid cols-3 g-2">
+                        <div class="col-span-3">
+                            <input id="showXAxis" value="rows" type="checkbox">
+                            <label for="showXAxis" class="text-secondary">Показывать подписи оси признаков</label>
+                        </div>
+                        <div class="text-end">
+                            <button class="tf_btn tf_btn-transparent text-secondary tf_btn-icon tf_btn-xs"><i class="fas fa-question-circle fa-lg"></i></button>
+                        </div>
+                        <div class="col-span-2">
+                            <input id="legendLength" class="tf_form-control tf_form-control-xs tf_form-control-secondary" type="text" placeholder="форма значения">
+                        </div>
+                    </div>
+                    <div class="d-grid cols-3 g-2">
+                        <div class="col-span-3">
+                            <input id="showYAxis" value="rows" type="checkbox">
+                            <label for="showYAxis" class="text-secondary">Показывать подписи оси значений</label>
+                        </div>
+                        <div class="text-end">
+                            <button class="tf_btn tf_btn-transparent text-secondary tf_btn-icon tf_btn-xs"><i class="fas fa-question-circle fa-lg"></i></button>
+                        </div>
+                        <div class="col-span-2">
+                            <input id="legendLength" class="tf_form-control tf_form-control-xs tf_form-control-secondary" type="text" placeholder="форма значения">
+                        </div>
+                    </div>
+                    <div class="d-grid cols-3 g-2">
+                        <label for="rotateLabels" class="tf_form-label text-secondary flex-shrink-0 pt-1 text-end" lang="ru">Угол поворота подписей</label>
+                        <div class="col-span-2">
+                            <input id="rotateLabels" maxlength="4" class="tf_form-control tf_form-control-xs tf_form-control-secondary" type="number" min="0" max="360" placeholder="0">
+                            <div class="tf_form-text text-secondary" lang="ru">Угол поворота подписей оси признаков.</div>
+                        </div>
+                    </div>
+                    <div>
+                        <input id="multilineLabels" value="rows" type="checkbox" checked>
+                        <label for="multilineLabels" class="text-secondary">Перенос строк в подписях оси признаков</label>
+                    </div>
+                    <div class="pb-2">
+                        <input id="showControls" value="rows" type="checkbox" checked>
+                        <label for="showControls" class="text-secondary mb-3">Показывать настройки</label>
+                    </div>
+                </div>
+            </div>
+                    
+        </div>
+        <div class="tf_layout-header">
+            <button class="tf_layout-aside-expander" tabindex="-1"><i class="fas fa-bars"></i></button>
+            Дашборды
+        </div>
+        <div class="tf_layout-aside">
+            <div class="tf_aside-fader">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="tf_aside-navbar">
+                <div class="tf_navbar-item">
+                    <div class="tf_item-hover"></div>
+                    <div class="tf_item-active"></div>
+                    <a class="tf_item-identicon" href="#"><i class="fas fa-home"></i></a>
+                    <a class="tf_item-title" href="#">Начало</a>
+                    <!-- <a class="tf_item-actioncon" href="#"><i class="fas fa-plus"></i></a> -->
+                </div>
+                <div class="tf_navbar-item">
+                    <div class="tf_item-hover"></div>
+                    <div class="tf_item-active"></div>
+                    <a class="tf_item-identicon" href="#"><i class="fas fa-tasks"></i></a>
+                    <a class="tf_item-title" href="#">Задания сбора</a>
+                    <!-- <a class="tf_item-actioncon" href="#"><i class="fas fa-plus"></i></a> -->
+                </div>
+                <div class="tf_navbar-item tf_navbar-item--active">
+                    <div class="tf_item-hover"></div>
+                    <div class="tf_item-active"></div>
+                    <a class="tf_item-identicon" href="#"><i class="fas fa-chart-pie"></i></a>
+                    <a class="tf_item-title" href="#">Дашборды для всей семьи недорого и со скидкой</a>
+                    <a class="tf_item-actioncon" href="#"><i class="fas fa-plus"></i></a>
+                </div>
+                <div class="tf_navbar-item">
+                    <div class="tf_item-hover"></div>
+                    <div class="tf_item-active"></div>
+                    <a class="tf_item-identicon" href="#"><i class="fas fa-clipboard-list"></i></a>
+                    <a class="tf_item-title" href="#">Формы</a>
+                    <a class="tf_item-actioncon" href="#"><i class="fas fa-plus"></i></a>
+                </div>
+                <div class="tf_navbar-item">
+                    <div class="tf_item-hover"></div>
+                    <div class="tf_item-active"></div>
+                    <a class="tf_item-identicon" href="#"><i class="fas fa-calendar-check"></i></a>
+                    <a class="tf_item-title" href="#">Отчеты</a>
+                    <a class="tf_item-actioncon" href="#"><i class="fas fa-plus"></i></a>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="../js/layout.js"></script>
+</html>

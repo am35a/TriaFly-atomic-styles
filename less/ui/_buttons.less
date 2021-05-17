@@ -21,12 +21,19 @@
         background-color: var(--negative-color-15);
         color: var(--negative-color-25);
         pointer-events: none;
+        &.active {
+            color: var(--negative-color-50);
+        }
     }
     &:focus {
         background-color: var(--negative-color-25);
         // color: var(--positive-color);
         box-shadow: 0 0 0 calc(var(--key-size) * .125) var(--negative-color-50);
         outline: 0;
+    }
+    &.active {
+        background-color: var(--negative-color-25);
+        // color: var(--positive-color);
     }
 
     &-inverse {
@@ -38,10 +45,16 @@
         &:disabled {
             background-color: var(--negative-color-50);
             color: var(--positive-color-25);
+            &.active {
+                color: var(--positive-color-50);
+            }
         }
         &:focus {
             background-color: var(--negative-color);
             box-shadow: 0 0 0 calc(var(--key-size) * .125) var(--negative-color-50);
+        }
+        &.active {
+            background-color: var(--negative-color-75);
         }
     }
 
@@ -49,16 +62,21 @@
         background-color: transparent;
         color: var(--negative-color-85);
         &:hover {
-            background-color: transparent;
-            color: var(--negative-color);
+            background-color: var(--negative-color-15);
         }
         &:disabled {
             background-color: transparent;
             color: var(--negative-color-25);
+            &.active {
+                color: var(--negative-color);
+            }
         }
         &:focus {
-            background-color: transparent;
+            background-color: var(--negative-color-15);
             box-shadow: 0 0 0 calc(var(--key-size) * .125) var(--negative-color-50);
+        }
+        &.active {
+            background-color: var(--negative-color-15);
         }
     }
 
@@ -77,6 +95,9 @@
             &:focus {
                 background-color: var(~"--@{value}-color-d1");
                 box-shadow: 0 0 0 calc(var(--key-size) * .125) var(~"--@{value}-color");
+            }
+            &.active {
+                background-color: var(~"--@{value}-color-d1");
             }
         }
     });
