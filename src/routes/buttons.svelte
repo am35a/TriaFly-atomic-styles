@@ -10,6 +10,7 @@
     import ButtonSuccess     from "../routes/buttons/Success.svelte"
     import ButtonWarning     from "../routes/buttons/Warning.svelte"
     import ButtonError       from "../routes/buttons/Error.svelte"
+    import ButtonGroup       from "../routes/buttons/Group.svelte"
     import ButtonIcon        from "../routes/buttons/Icon.svelte"
     import ButtonSize        from "../routes/buttons/Size.svelte"
 </script>
@@ -26,6 +27,7 @@
         <a href="buttons#success">Success</a>
         <a href="buttons#warning">Warning</a>
         <a href="buttons#error">Error</a>
+        <a href="buttons#group">Group</a>
         <a href="buttons#size">Size</a>
         <a href="buttons#icon">Icon</a>
     </slot>
@@ -57,6 +59,7 @@
         <ButtonWarning/>
         <ButtonError/>
     </div>
+    <ButtonGroup/>
     <ButtonSize/>
     <ButtonIcon/>
 </PageLayout>

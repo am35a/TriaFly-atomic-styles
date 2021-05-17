@@ -649,6 +649,17 @@ hr {
 .tf_btn-error.active {
   background-color: var(--error-color-d1);
 }
+.tf_btn-group {
+  display: inline-flex;
+}
+.tf_btn-group > .tf_btn:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.tf_btn-group > .tf_btn:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
 .tf_btn-xs {
   --key-size-xs: calc(var(--key-size) * 0.75);
   padding: calc(var(--key-size-xs) * 0.25) calc(var(--key-size-xs) * 0.625);
