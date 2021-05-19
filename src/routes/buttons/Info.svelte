@@ -10,6 +10,7 @@
             <div class="d-inline-flex g-3 flex-wrap">
                 <button class="tf_btn tf_btn-info">info button</button>
                 <button class="tf_btn tf_btn-info"><i class="fas fa-home"></i> icon button</button>
+                <button class="tf_btn tf_btn-info active">active button</button>
                 <button class="tf_btn tf_btn-info" disabled>disabled button</button>
             </div>
         </div>
@@ -25,6 +26,9 @@
     <i class="fas fa-home"></i>
     icon button
     </button>
+
+    // active button
+    <button class="tf_btn tf_btn-info active">active button</button>
 
     // info color disabled button
     <button class="tf_btn tf_btn-info" disabled>disabled button</button>

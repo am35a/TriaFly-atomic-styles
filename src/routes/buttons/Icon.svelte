@@ -8,6 +8,7 @@
     <div class="rounded-2 overflow-hidden">
         <div class="bg-positive rounded-2 rounded-bottom-0 p-3 text-center">
             <div class="d-inline-flex g-3 flex-wrap align-items-center">
+                <button class="tf_btn tf_btn-primary tf_btn-icon tf_btn-xs"><i class="fas fa-cog"></i></button>
                 <button class="tf_btn tf_btn-primary tf_btn-icon tf_btn-sm"><i class="fas fa-info"></i></button>
                 <button class="tf_btn tf_btn-primary tf_btn-icon"><i class="fas fa-infinity"></i></button>
                 <button class="tf_btn tf_btn-primary tf_btn-icon tf_btn-lg"><i class="fas fa-brain"></i></button>
@@ -17,19 +18,24 @@
             class="my-0"
             language='{xml}'
             code='
+    // icon extra small size button
+    <button class="tf_btn tf_btn-primary tf_btn-icon tf_btn-xs">
+        <i class="fas fa-cog"></i>
+    </button>
+
     // icon small size button
     <button class="tf_btn tf_btn-primary tf_btn-icon tf_btn-sm">
-    <i class="fas fa-info"></i>
+        <i class="fas fa-info"></i>
     </button>
 
     // icon normal size button
     <button class="tf_btn tf_btn-primary tf_btn-icon">
-    <i class="fas fa-infinity"></i>
+        <i class="fas fa-infinity"></i>
     </button>
 
     // icon large size button
     <button class="tf_btn tf_btn-primary tf_btn-icon tf_btn-lg">
-    <i class="fas fa-brain"></i>
+        <i class="fas fa-brain"></i>
     </button>
             '
         />

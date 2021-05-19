@@ -10,6 +10,7 @@
             <div class="d-inline-flex g-3 flex-wrap">
                 <button class="tf_btn tf_btn-success">success button</button>
                 <button class="tf_btn tf_btn-success"><i class="fas fa-home"></i> icon button</button>
+                <button class="tf_btn tf_btn-success active">active button</button>
                 <button class="tf_btn tf_btn-success" disabled>disabled button</button>
             </div>
         </div>
@@ -26,6 +27,9 @@
     icon button
     </button>
     
+    // active button
+    <button class="tf_btn tf_btn-success active">active button</button>
+
     // success color disabled button
     <button class="tf_btn tf_btn-success" disabled>disabled button</button>
             '

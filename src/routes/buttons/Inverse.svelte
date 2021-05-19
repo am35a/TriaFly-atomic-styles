@@ -11,6 +11,7 @@
             <div class="d-inline-flex g-3 flex-wrap">
                 <button class="tf_btn tf_btn-inverse">inverse button</button>
                 <button class="tf_btn tf_btn-inverse"><i class="fas fa-home"></i> icon button</button>
+                <button class="tf_btn tf_btn-inverse active">active button</button>
                 <button class="tf_btn tf_btn-inverse" disabled>disabled button</button>
             </div>
         </div>
