@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SPA layout</title>
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/global.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://unpkg.com/current-device/umd/current-device.min.js"></script>
+    </head>
+    <body class="tf_layout">
+        <div class="tf_layout-main p-3">
+            <div class="d-grid g-3">
+                <div class="d-grid g-3">
+                    <div class="d-flex">
+                        <div class="flex-grow-1">
+                            <button class="tf_btn tf_btn-sm- tf_btn-secondary">Все показатели</button>
+                            <button class="tf_btn tf_btn-sm- tf_btn-secondary">Новые</button>
+                            <button class="tf_btn tf_btn-sm- tf_btn-secondary">Популярные</button>
+                        </div>
+                        <div>
+                            <button class="tf_btn tf_btn-sm- tf_btn-transparent tf_btn-icon" disabled><i class="fa fa-filter"></i></button>
+                            <button class="tf_btn tf_btn-sm- tf_btn-transparent tf_btn-icon"><i class="fa fa-folder-open"></i></button>
+                            <button class="tf_btn tf_btn-sm- tf_btn-transparent tf_btn-icon"><i class="fa fa-list"></i></button>
+                        </div>
+                    </div>
+                    <div class="bg-positive p-3 rounded-2">
+                        <div class="d-grid cols-4 g-3">
+                            <div>
+                                <label for="inputText1" class="tf_form-label text-secondary">Тип значений</label>
+                                <input id="inputText1" class="tf_form-control tf_form-control-sm tf_form-control-secondary" type="text">
+                            </div>
+                            <div>
+                                <label for="inputText1" class="tf_form-label text-secondary">Аналитические признаки</label>
+                                <input id="inputText1" class="tf_form-control tf_form-control-sm tf_form-control-secondary" type="text">
+                            </div>
+                            <div>
+                                <label for="inputText1" class="tf_form-label text-secondary">Элемент скрыт?</label>
+                                <input id="inputText1" class="tf_form-control tf_form-control-sm tf_form-control-secondary" type="text">
+                            </div>
+                            <div>
+                                <label for="inputText1" class="tf_form-label text-secondary">Избранное</label>
+                                <input id="inputText1" class="tf_form-control tf_form-control-sm tf_form-control-secondary" type="text">
+                            </div>
+                        </div>
+                        <div>
+                            <hr>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button class="tf_btn tf_btn-sm tf_btn-secondary"><i class="fa fa-sync"></i> Сбросить фильры</button>
+                            <button class="tf_btn tf_btn-sm tf_btn-transparent"><i class="fa fa-times"></i> Закрыть</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-positive p-3 rounded-2">
+                    <div class="d-flex justify-content-between">
+                        <div class="flex-grow-1 d-flex g-1 w-75">
+                            <div class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-icon">
+                                <i class="fa fa-search"></i>
+                            </div>
+                            <input id="inputText1" class="tf_form-control tf_form-control-sm tf_form-control-secondary" type="text">
+                            <button class="tf_btn tf_btn-sm tf_btn-secondary tf_btn-icon"><i class="fa fa-times"></i></button>
+                        </div>
+                        <div>
+                            <button class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-icon"><i class="fa fa-filter"></i></button>
+                            <button class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-icon"><i class="fa fa-folder-open"></i></button>
+                            <button class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-icon"><i class="fa fa-list"></i></button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque ipsam, eum laboriosam libero distinctio officia fugiat qui eligendi voluptas quidem dolore, sed ut voluptatum nihil ullam eos voluptatibus optio rem.</p>
+                        <p>Incidunt fugiat id aut rerum dolore laboriosam eius deleniti atque fuga expedita, repudiandae odit, optio vero repellendus suscipit sunt non facere. Quisquam exercitationem odio dolores quibusdam fugiat laudantium, quae iste.</p>
+                        <p>Repellendus aliquam dicta facilis itaque quod hic delectus sed soluta aperiam, nulla nihil ullam accusantium ipsa amet eos dignissimos, officiis deserunt quidem maiores minus possimus quis ipsum excepturi dolorem? Placeat?</p>
+                        <p>Quos, laborum vel. Modi nesciunt esse tempora in cumque alias recusandae voluptate vero ullam. Expedita consequatur enim quidem sunt facilis debitis quia dicta, voluptatem suscipit eaque vero exercitationem, laboriosam nam!</p>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque ipsam, eum laboriosam libero distinctio officia fugiat qui eligendi voluptas quidem dolore, sed ut voluptatum nihil ullam eos voluptatibus optio rem.</p>
+                        <p>Incidunt fugiat id aut rerum dolore laboriosam eius deleniti atque fuga expedita, repudiandae odit, optio vero repellendus suscipit sunt non facere. Quisquam exercitationem odio dolores quibusdam fugiat laudantium, quae iste.</p>
+                        <p>Repellendus aliquam dicta facilis itaque quod hic delectus sed soluta aperiam, nulla nihil ullam accusantium ipsa amet eos dignissimos, officiis deserunt quidem maiores minus possimus quis ipsum excepturi dolorem? Placeat?</p>
+                        <p>Cum, saepe magnam ratione similique quasi asperiores tempore numquam dicta sunt! Iure pariatur quo nemo, porro quae velit provident odit ullam, possimus suscipit quos, consequatur sint fugit minus. Totam, incidunt!</p>
+                        <p>Reiciendis velit cumque amet quidem. Neque placeat exercitationem quod saepe voluptatum fugiat explicabo, recusandae vero similique voluptatibus amet iste nostrum enim iure vel error odit fuga rem! Animi, dignissimos doloremque?</p>
+                        <p>Neque dolores sunt soluta harum totam. Quidem libero nulla ipsa excepturi veritatis quas laboriosam dolore blanditiis perferendis cupiditate asperiores rerum corrupti accusantium, quaerat voluptates aspernatur ipsum eligendi. Totam, veritatis praesentium.</p>
+                        <p>Mollitia assumenda explicabo ullam labore nemo corrupti, fugiat beatae magnam facere esse adipisci molestias odio animi tempore itaque saepe, quisquam voluptatibus accusantium quae impedit, culpa blanditiis temporibus! Molestias, impedit iste.</p>
+                        <p>Consectetur, illo, doloribus adipisci nobis commodi deserunt eius veniam accusamus labore recusandae exercitationem obcaecati iusto, culpa minus nulla veritatis ab blanditiis fugiat? Maxime neque nostrum, corporis dicta perspiciatis magni dolorem?</p>
+                        <p>Inventore assumenda ipsa totam quaerat a! Ut reiciendis fuga, sequi quibusdam quaerat autem aperiam impedit quas ratione rerum provident totam, harum ducimus fugiat quis dicta! Ducimus quasi quod exercitationem voluptatum.</p>
+                        <p>Obcaecati, excepturi aut error neque tempora vitae porro nam ut quidem accusamus, hic quo ab! Perferendis harum, doloribus, eius dicta excepturi commodi aliquid laborum cupiditate totam consequuntur est, sint ea.</p>
+                        <p>Earum vero repellendus optio, reiciendis, in illo distinctio consequuntur ullam sit odit autem porro facere qui. Velit iusto est quisquam aliquam consequatur dolorem, quasi saepe, omnis necessitatibus quis quidem earum!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tf_layout-header">
+            <button class="tf_layout-aside-expander" tabindex="-1"><i class="fas fa-bars"></i></button>
+            Дашборды
+        </div>
+        <div class="tf_layout-aside">
+            <div class="tf_aside-fader">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="tf_aside-navbar">
+                <div class="tf_navbar-item">
+                    <div class="tf_item-hover"></div>
+                    <div class="tf_item-active"></div>
+                    <a class="tf_item-identicon" href="#"><i class="fas fa-home"></i></a>
+                    <a class="tf_item-title" href="#">Начало</a>
+                    <!-- <a class="tf_item-actioncon" href="#"><i class="fas fa-plus"></i></a> -->
+                </div>
+                <div class="tf_navbar-item">
+                    <div class="tf_item-hover"></div>
+                    <div class="tf_item-active"></div>
+                    <a class="tf_item-identicon" href="#"><i class="fas fa-tasks"></i></a>
+                    <a class="tf_item-title" href="#">Задания сбора</a>
+                    <!-- <a class="tf_item-actioncon" href="#"><i class="fas fa-plus"></i></a> -->
+                </div>
+                <div class="tf_navbar-item tf_navbar-item--active">
+                    <div class="tf_item-hover"></div>
+                    <div class="tf_item-active"></div>
+                    <a class="tf_item-identicon" href="#"><i class="fas fa-chart-pie"></i></a>
+                    <a class="tf_item-title" href="#">Дашборды</a>
+                    <a class="tf_item-actioncon" href="#"><i class="fas fa-plus"></i></a>
+                </div>
+                <div class="tf_navbar-item">
+                    <div class="tf_item-hover"></div>
+                    <div class="tf_item-active"></div>
+                    <a class="tf_item-identicon" href="#"><i class="fas fa-clipboard-list"></i></a>
+                    <a class="tf_item-title" href="#">Формы</a>
+                    <a class="tf_item-actioncon" href="#"><i class="fas fa-plus"></i></a>
+                </div>
+                <div class="tf_navbar-item">
+                    <div class="tf_item-hover"></div>
+                    <div class="tf_item-active"></div>
+                    <a class="tf_item-identicon" href="#"><i class="fas fa-calendar-check"></i></a>
+                    <a class="tf_item-title" href="#">Отчеты</a>
+                    <a class="tf_item-actioncon" href="#"><i class="fas fa-plus"></i></a>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="../js/layout.js"></script>
+</html>
