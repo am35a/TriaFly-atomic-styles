@@ -4,90 +4,103 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>SPA layout</title>
+        <title>SPA layout | finder</title>
         <link rel="stylesheet" href="../css/normalize.css">
         <link rel="stylesheet" href="../css/global.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://unpkg.com/current-device/umd/current-device.min.js"></script>
     </head>
     <body class="tf_layout">
         <div class="tf_layout-main p-3">
-            <div class="d-grid g-3">
-                <div class="d-grid g-3">
-                    <div class="d-flex">
-                        <div class="flex-grow-1">
-                            <button class="tf_btn tf_btn-sm- tf_btn-secondary">Все показатели</button>
-                            <button class="tf_btn tf_btn-sm- tf_btn-secondary">Новые</button>
-                            <button class="tf_btn tf_btn-sm- tf_btn-secondary">Популярные</button>
-                        </div>
-                        <div>
-                            <button class="tf_btn tf_btn-sm- tf_btn-transparent tf_btn-icon" disabled><i class="fa fa-filter"></i></button>
-                            <button class="tf_btn tf_btn-sm- tf_btn-transparent tf_btn-icon"><i class="fa fa-folder-open"></i></button>
-                            <button class="tf_btn tf_btn-sm- tf_btn-transparent tf_btn-icon"><i class="fa fa-list"></i></button>
+            <div class="tf_finder">
+                <div class="tf_finder-explorer d-grid">
+                    <div class="d-grid g-3">
+                        <div class="d-grid g-3">
+                            <div class="d-flex">
+                                <div class="flex-grow-1">
+                                    <button id="finder-all" class="tf_btn tf_btn-transparent active" disabled>Все показатели</button>
+                                    <button id="finder-new" class="tf_btn tf_btn-transparent">Новые</button>
+                                    <button id="finder-pop" class="tf_btn tf_btn-transparent">Популярные</button>
+                                </div>
+                                <div>
+                                    <button id="finder-filters-toogle" class="tf_btn tf_btn-transparent tf_btn-icon"><i class="fa fa-filter"></i></button>
+                                    <button id="finder-as-folder" class="tf_btn tf_btn-transparent tf_btn-icon" disabled><i class="fa fa-folder-open"></i></button>
+                                    <button id="finder-as-list" class="tf_btn tf_btn-transparent tf_btn-icon"><i class="fa fa-list-ul"></i></button>
+                                </div>
+                            </div>
+                            <div class="tf_finder-filters-container bg-positive p-3 d-none rounded-1">
+                                <div>Фильтры</div>
+                                <hr>
+                                <div class="d-grid cols-4 g-3">
+                                    <div>
+                                        <label for="inputText1" class="tf_form-label text-secondary">Тип значений</label>
+                                        <input id="inputText1" class="tf_form-control tf_form-control-sm tf_form-control-secondary" type="text">
+                                    </div>
+                                    <div>
+                                        <label for="inputText1" class="tf_form-label text-secondary">Аналитические признаки</label>
+                                        <input id="inputText1" class="tf_form-control tf_form-control-sm tf_form-control-secondary" type="text">
+                                    </div>
+                                    <div>
+                                        <label for="inputText1" class="tf_form-label text-secondary">Элемент скрыт?</label>
+                                        <input id="inputText1" class="tf_form-control tf_form-control-sm tf_form-control-secondary" type="text">
+                                    </div>
+                                    <div>
+                                        <label for="inputText1" class="tf_form-label text-secondary">Избранное</label>
+                                        <input id="inputText1" class="tf_form-control tf_form-control-sm tf_form-control-secondary" type="text">
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="d-flex justify-content-between">
+                                    <button class="tf_btn tf_btn-sm tf_btn-warning"><i class="fa fa-sync"></i> Сбросить фильры</button>
+                                    <button id="finder-filters-close" class="tf_btn tf_btn-sm tf_btn-transparent"><i class="fa fa-times"></i> Закрыть</button>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-betwee align-items-center bg-positive p-3 rounded-1 rounded-bottom-0">
+                                <div class="flex-grow-1 position-relative">
+                                    <i class="fa fa-search position-absolute text-secondary left-0 top-50 translate-middle-y pl-2"></i>
+                                    <input id="finder-search" class="tf_form-control tf_form-control-sm tf_form-control-secondary pl-4" type="text" placeholder="Поиск по названию...">
+                                    <button class="tf_btn tf_btn-sm tf_btn-secondary tf_btn-icon position-absolute right-0 top-50 translate-middle-y"><i class="fa fa-ban"></i></button>
+                                </div>
+                                <div class="tf_finder-folders-toogle ml-3">
+                                    <button class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-icon position-relative">
+                                        <i class="fa fa-folder-open-o"></i>
+                                        <i class="fa fa-plus position-absolute top-0 right-0"></i>
+                                    </button>
+                                    <button class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-icon"><i class="fa fa-plus"></i></button>
+                                    <button class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-icon"><i class="fa fa-minus"></i></button>
+                                    <button class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-icon position-relative">
+                                        <i class="fa fa-folder-o"></i>
+                                        <i class="fa fa-minus position-absolute top-0 right-0"></i>
+                                    </button>
+                                </div>
+                                <hr>
+                            </div>
                         </div>
                     </div>
-                    <div class="bg-positive p-3 rounded-2">
-                        <div class="d-grid cols-4 g-3">
-                            <div>
-                                <label for="inputText1" class="tf_form-label text-secondary">Тип значений</label>
-                                <input id="inputText1" class="tf_form-control tf_form-control-sm tf_form-control-secondary" type="text">
-                            </div>
-                            <div>
-                                <label for="inputText1" class="tf_form-label text-secondary">Аналитические признаки</label>
-                                <input id="inputText1" class="tf_form-control tf_form-control-sm tf_form-control-secondary" type="text">
-                            </div>
-                            <div>
-                                <label for="inputText1" class="tf_form-label text-secondary">Элемент скрыт?</label>
-                                <input id="inputText1" class="tf_form-control tf_form-control-sm tf_form-control-secondary" type="text">
-                            </div>
-                            <div>
-                                <label for="inputText1" class="tf_form-label text-secondary">Избранное</label>
-                                <input id="inputText1" class="tf_form-control tf_form-control-sm tf_form-control-secondary" type="text">
-                            </div>
-                        </div>
+                    <div class="bg-positive p-3 overflow-y-auto border-top border-secondary rounded-1 rounded-top-0">
                         <div>
-                            <hr>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <button class="tf_btn tf_btn-sm tf_btn-secondary"><i class="fa fa-sync"></i> Сбросить фильры</button>
-                            <button class="tf_btn tf_btn-sm tf_btn-transparent"><i class="fa fa-times"></i> Закрыть</button>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque ipsam, eum laboriosam libero distinctio officia fugiat qui eligendi voluptas quidem dolore, sed ut voluptatum nihil ullam eos voluptatibus optio rem.</p>
+                            <p>Incidunt fugiat id aut rerum dolore laboriosam eius deleniti atque fuga expedita, repudiandae odit, optio vero repellendus suscipit sunt non facere. Quisquam exercitationem odio dolores quibusdam fugiat laudantium, quae iste.</p>
+                            <p>Repellendus aliquam dicta facilis itaque quod hic delectus sed soluta aperiam, nulla nihil ullam accusantium ipsa amet eos dignissimos, officiis deserunt quidem maiores minus possimus quis ipsum excepturi dolorem? Placeat?</p>
+                            <p>Quos, laborum vel. Modi nesciunt esse tempora in cumque alias recusandae voluptate vero ullam. Expedita consequatur enim quidem sunt facilis debitis quia dicta, voluptatem suscipit eaque vero exercitationem, laboriosam nam!</p>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque ipsam, eum laboriosam libero distinctio officia fugiat qui eligendi voluptas quidem dolore, sed ut voluptatum nihil ullam eos voluptatibus optio rem.</p>
+                            <p>Incidunt fugiat id aut rerum dolore laboriosam eius deleniti atque fuga expedita, repudiandae odit, optio vero repellendus suscipit sunt non facere. Quisquam exercitationem odio dolores quibusdam fugiat laudantium, quae iste.</p>
+                            <p>Repellendus aliquam dicta facilis itaque quod hic delectus sed soluta aperiam, nulla nihil ullam accusantium ipsa amet eos dignissimos, officiis deserunt quidem maiores minus possimus quis ipsum excepturi dolorem? Placeat?</p>
+                            <p>Cum, saepe magnam ratione similique quasi asperiores tempore numquam dicta sunt! Iure pariatur quo nemo, porro quae velit provident odit ullam, possimus suscipit quos, consequatur sint fugit minus. Totam, incidunt!</p>
+                            <p>Reiciendis velit cumque amet quidem. Neque placeat exercitationem quod saepe voluptatum fugiat explicabo, recusandae vero similique voluptatibus amet iste nostrum enim iure vel error odit fuga rem! Animi, dignissimos doloremque?</p>
+                            <p>Neque dolores sunt soluta harum totam. Quidem libero nulla ipsa excepturi veritatis quas laboriosam dolore blanditiis perferendis cupiditate asperiores rerum corrupti accusantium, quaerat voluptates aspernatur ipsum eligendi. Totam, veritatis praesentium.</p>
+                            <p>Mollitia assumenda explicabo ullam labore nemo corrupti, fugiat beatae magnam facere esse adipisci molestias odio animi tempore itaque saepe, quisquam voluptatibus accusantium quae impedit, culpa blanditiis temporibus! Molestias, impedit iste.</p>
+                            <p>Consectetur, illo, doloribus adipisci nobis commodi deserunt eius veniam accusamus labore recusandae exercitationem obcaecati iusto, culpa minus nulla veritatis ab blanditiis fugiat? Maxime neque nostrum, corporis dicta perspiciatis magni dolorem?</p>
+                            <p>Inventore assumenda ipsa totam quaerat a! Ut reiciendis fuga, sequi quibusdam quaerat autem aperiam impedit quas ratione rerum provident totam, harum ducimus fugiat quis dicta! Ducimus quasi quod exercitationem voluptatum.</p>
+                            <p>Obcaecati, excepturi aut error neque tempora vitae porro nam ut quidem accusamus, hic quo ab! Perferendis harum, doloribus, eius dicta excepturi commodi aliquid laborum cupiditate totam consequuntur est, sint ea.</p>
+                            <p>Earum vero repellendus optio, reiciendis, in illo distinctio consequuntur ullam sit odit autem porro facere qui. Velit iusto est quisquam aliquam consequatur dolorem, quasi saepe, omnis necessitatibus quis quidem earum!</p>
                         </div>
                     </div>
                 </div>
-                <div class="bg-positive p-3 rounded-2">
-                    <div class="d-flex justify-content-between">
-                        <div class="flex-grow-1 d-flex g-1 w-75">
-                            <div class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-icon">
-                                <i class="fa fa-search"></i>
-                            </div>
-                            <input id="inputText1" class="tf_form-control tf_form-control-sm tf_form-control-secondary" type="text">
-                            <button class="tf_btn tf_btn-sm tf_btn-secondary tf_btn-icon"><i class="fa fa-times"></i></button>
-                        </div>
-                        <div>
-                            <button class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-icon"><i class="fa fa-filter"></i></button>
-                            <button class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-icon"><i class="fa fa-folder-open"></i></button>
-                            <button class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-icon"><i class="fa fa-list"></i></button>
-                        </div>
-                    </div>
-                    <hr>
-                    <div>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque ipsam, eum laboriosam libero distinctio officia fugiat qui eligendi voluptas quidem dolore, sed ut voluptatum nihil ullam eos voluptatibus optio rem.</p>
-                        <p>Incidunt fugiat id aut rerum dolore laboriosam eius deleniti atque fuga expedita, repudiandae odit, optio vero repellendus suscipit sunt non facere. Quisquam exercitationem odio dolores quibusdam fugiat laudantium, quae iste.</p>
-                        <p>Repellendus aliquam dicta facilis itaque quod hic delectus sed soluta aperiam, nulla nihil ullam accusantium ipsa amet eos dignissimos, officiis deserunt quidem maiores minus possimus quis ipsum excepturi dolorem? Placeat?</p>
-                        <p>Quos, laborum vel. Modi nesciunt esse tempora in cumque alias recusandae voluptate vero ullam. Expedita consequatur enim quidem sunt facilis debitis quia dicta, voluptatem suscipit eaque vero exercitationem, laboriosam nam!</p>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque ipsam, eum laboriosam libero distinctio officia fugiat qui eligendi voluptas quidem dolore, sed ut voluptatum nihil ullam eos voluptatibus optio rem.</p>
-                        <p>Incidunt fugiat id aut rerum dolore laboriosam eius deleniti atque fuga expedita, repudiandae odit, optio vero repellendus suscipit sunt non facere. Quisquam exercitationem odio dolores quibusdam fugiat laudantium, quae iste.</p>
-                        <p>Repellendus aliquam dicta facilis itaque quod hic delectus sed soluta aperiam, nulla nihil ullam accusantium ipsa amet eos dignissimos, officiis deserunt quidem maiores minus possimus quis ipsum excepturi dolorem? Placeat?</p>
-                        <p>Cum, saepe magnam ratione similique quasi asperiores tempore numquam dicta sunt! Iure pariatur quo nemo, porro quae velit provident odit ullam, possimus suscipit quos, consequatur sint fugit minus. Totam, incidunt!</p>
-                        <p>Reiciendis velit cumque amet quidem. Neque placeat exercitationem quod saepe voluptatum fugiat explicabo, recusandae vero similique voluptatibus amet iste nostrum enim iure vel error odit fuga rem! Animi, dignissimos doloremque?</p>
-                        <p>Neque dolores sunt soluta harum totam. Quidem libero nulla ipsa excepturi veritatis quas laboriosam dolore blanditiis perferendis cupiditate asperiores rerum corrupti accusantium, quaerat voluptates aspernatur ipsum eligendi. Totam, veritatis praesentium.</p>
-                        <p>Mollitia assumenda explicabo ullam labore nemo corrupti, fugiat beatae magnam facere esse adipisci molestias odio animi tempore itaque saepe, quisquam voluptatibus accusantium quae impedit, culpa blanditiis temporibus! Molestias, impedit iste.</p>
-                        <p>Consectetur, illo, doloribus adipisci nobis commodi deserunt eius veniam accusamus labore recusandae exercitationem obcaecati iusto, culpa minus nulla veritatis ab blanditiis fugiat? Maxime neque nostrum, corporis dicta perspiciatis magni dolorem?</p>
-                        <p>Inventore assumenda ipsa totam quaerat a! Ut reiciendis fuga, sequi quibusdam quaerat autem aperiam impedit quas ratione rerum provident totam, harum ducimus fugiat quis dicta! Ducimus quasi quod exercitationem voluptatum.</p>
-                        <p>Obcaecati, excepturi aut error neque tempora vitae porro nam ut quidem accusamus, hic quo ab! Perferendis harum, doloribus, eius dicta excepturi commodi aliquid laborum cupiditate totam consequuntur est, sint ea.</p>
-                        <p>Earum vero repellendus optio, reiciendis, in illo distinctio consequuntur ullam sit odit autem porro facere qui. Velit iusto est quisquam aliquam consequatur dolorem, quasi saepe, omnis necessitatibus quis quidem earum!</p>
-                    </div>
+                <div class="tf_finder-preview rounded-1">
+                    
                 </div>
             </div>
         </div>
@@ -139,4 +152,5 @@
         </div>
     </body>
     <script src="../js/layout.js"></script>
+    <script src="../js/layout-finder.js"></script>
 </html>

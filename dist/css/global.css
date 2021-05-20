@@ -464,6 +464,18 @@ hr {
 .tf_layout-popup-settings > * {
   background-color: var(--layout-header-background-color, var(--negative-color-10));
 }
+.tf_finder {
+  display: grid;
+  grid-gap: var(--key-size);
+  grid-template-rows: repeat(1, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 0 !important;
+  height: 100%;
+  max-height: 100%;
+}
+.tf_finder-preview {
+  background-color: var(--positive-color);
+}
 .tf_btn {
   display: inline-block;
   margin: unset;
@@ -488,10 +500,16 @@ hr {
   color: var(--negative-color-25);
   pointer-events: none;
 }
+.tf_btn:disabled.active {
+  color: var(--negative-color-50);
+}
 .tf_btn:focus {
   background-color: var(--negative-color-25);
   box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--negative-color-50);
   outline: 0;
+}
+.tf_btn.active {
+  background-color: var(--negative-color-25);
 }
 .tf_btn-inverse {
   background-color: var(--negative-color);
@@ -504,25 +522,36 @@ hr {
   background-color: var(--negative-color-50);
   color: var(--positive-color-25);
 }
+.tf_btn-inverse:disabled.active {
+  color: var(--positive-color-50);
+}
 .tf_btn-inverse:focus {
   background-color: var(--negative-color);
   box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--negative-color-50);
+}
+.tf_btn-inverse.active {
+  background-color: var(--negative-color-75);
 }
 .tf_btn-transparent {
   background-color: transparent;
   color: var(--negative-color-85);
 }
 .tf_btn-transparent:hover {
-  background-color: transparent;
-  color: var(--negative-color);
+  background-color: var(--negative-color-15);
 }
 .tf_btn-transparent:disabled {
   background-color: transparent;
   color: var(--negative-color-25);
 }
+.tf_btn-transparent:disabled.active {
+  color: var(--negative-color);
+}
 .tf_btn-transparent:focus {
-  background-color: transparent;
+  background-color: var(--negative-color-15);
   box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--negative-color-50);
+}
+.tf_btn-transparent.active {
+  background-color: var(--negative-color-15);
 }
 .tf_btn-primary {
   background-color: var(--primary-color);
@@ -539,6 +568,9 @@ hr {
   background-color: var(--primary-color-d1);
   box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--primary-color);
 }
+.tf_btn-primary.active {
+  background-color: var(--primary-color-d1);
+}
 .tf_btn-secondary {
   background-color: var(--secondary-color);
   color: var(--positive-color);
@@ -553,6 +585,9 @@ hr {
 .tf_btn-secondary:focus {
   background-color: var(--secondary-color-d1);
   box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--secondary-color);
+}
+.tf_btn-secondary.active {
+  background-color: var(--secondary-color-d1);
 }
 .tf_btn-info {
   background-color: var(--info-color);
@@ -569,6 +604,9 @@ hr {
   background-color: var(--info-color-d1);
   box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--info-color);
 }
+.tf_btn-info.active {
+  background-color: var(--info-color-d1);
+}
 .tf_btn-success {
   background-color: var(--success-color);
   color: var(--positive-color);
@@ -583,6 +621,9 @@ hr {
 .tf_btn-success:focus {
   background-color: var(--success-color-d1);
   box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--success-color);
+}
+.tf_btn-success.active {
+  background-color: var(--success-color-d1);
 }
 .tf_btn-warning {
   background-color: var(--warning-color);
@@ -599,6 +640,9 @@ hr {
   background-color: var(--warning-color-d1);
   box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--warning-color);
 }
+.tf_btn-warning.active {
+  background-color: var(--warning-color-d1);
+}
 .tf_btn-error {
   background-color: var(--error-color);
   color: var(--positive-color);
@@ -613,6 +657,20 @@ hr {
 .tf_btn-error:focus {
   background-color: var(--error-color-d1);
   box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--error-color);
+}
+.tf_btn-error.active {
+  background-color: var(--error-color-d1);
+}
+.tf_btn-group {
+  display: inline-flex;
+}
+.tf_btn-group > .tf_btn:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.tf_btn-group > .tf_btn:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 .tf_btn-xs {
   --key-size-xs: calc(var(--key-size) * 0.75);
