@@ -8,9 +8,9 @@
 
 $( "#finder-filters-toogle, #finder-filters-close" ).on( "click", function() {
     if( $( "#finder-filters-toogle" ).hasClass( "active" ) )
-        $( ".tf_finder-filters-container" ).addClass( "d-none" )
+        $( ".tf_explorer-filters" ).addClass( "d-none" )
     else
-        $( ".tf_finder-filters-container" ).removeClass( "d-none" )
+        $( ".tf_explorer-filters" ).removeClass( "d-none" )
     $( "#finder-filters-toogle" ).toggleClass( "active" )
 });
 

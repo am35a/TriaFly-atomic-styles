@@ -467,14 +467,40 @@ hr {
 .tf_finder {
   display: grid;
   grid-gap: var(--key-size);
-  grid-template-rows: repeat(1, minmax(0, 1fr));
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin-bottom: 0 !important;
   height: 100%;
-  max-height: 100%;
+  margin-bottom: 0 !important;
+  grid-template-rows: max-content auto;
+  grid-template-columns: 1fr 1fr;
+}
+.tf_finder-header {
+  grid-column: 1/-1;
+}
+.tf_finder-explorer {
+  grid-column: 1/2;
+  display: grid;
+  grid-template-rows: max-content auto;
+  overflow: auto;
+}
+.tf_finder-explorer .tf_explorer {
+  display: grid;
+  grid-template-rows: max-content auto;
+  overflow-y: auto;
+}
+.tf_finder-explorer .tf_explorer-body {
+  overflow-y: auto;
 }
 .tf_finder-preview {
-  background-color: var(--positive-color);
+  grid-column: 2/3;
+  overflow: auto;
+}
+@media (orientation: portrait) {
+  .tf_finder {
+    grid-template-rows: max-content 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+  .tf_finder-preview {
+    grid-column: 1/2;
+  }
 }
 .tf_btn {
   display: inline-block;
@@ -1398,9 +1424,6 @@ h6,
 }
 .justify-content-stretch {
   justify-content: stretch;
-}
-.justify-items-auto {
-  justify-items: auto;
 }
 .justify-items-baseline {
   justify-items: baseline;
@@ -2503,9 +2526,6 @@ h6,
 .mobile .m\:justify-content-stretch {
   justify-content: stretch;
 }
-.mobile .m\:justify-items-auto {
-  justify-items: auto;
-}
 .mobile .m\:justify-items-baseline {
   justify-items: baseline;
 }
@@ -3596,9 +3616,6 @@ h6,
 .tablet .t\:justify-content-stretch {
   justify-content: stretch;
 }
-.tablet .t\:justify-items-auto {
-  justify-items: auto;
-}
 .tablet .t\:justify-items-baseline {
   justify-items: baseline;
 }
@@ -4688,9 +4705,6 @@ h6,
 }
 .desktop .d\:justify-content-stretch {
   justify-content: stretch;
-}
-.desktop .d\:justify-items-auto {
-  justify-items: auto;
 }
 .desktop .d\:justify-items-baseline {
   justify-items: baseline;
@@ -5783,9 +5797,6 @@ h6,
   .l\:justify-content-stretch {
     justify-content: stretch;
   }
-  .l\:justify-items-auto {
-    justify-items: auto;
-  }
   .l\:justify-items-baseline {
     justify-items: baseline;
   }
@@ -6875,9 +6886,6 @@ h6,
   }
   .mobile .l\:m\:justify-content-stretch {
     justify-content: stretch;
-  }
-  .mobile .l\:m\:justify-items-auto {
-    justify-items: auto;
   }
   .mobile .l\:m\:justify-items-baseline {
     justify-items: baseline;
@@ -7969,9 +7977,6 @@ h6,
   .tablet .l\:t\:justify-content-stretch {
     justify-content: stretch;
   }
-  .tablet .l\:t\:justify-items-auto {
-    justify-items: auto;
-  }
   .tablet .l\:t\:justify-items-baseline {
     justify-items: baseline;
   }
@@ -9061,9 +9066,6 @@ h6,
   }
   .desktop .l\:d\:justify-content-stretch {
     justify-content: stretch;
-  }
-  .desktop .l\:d\:justify-items-auto {
-    justify-items: auto;
   }
   .desktop .l\:d\:justify-items-baseline {
     justify-items: baseline;
@@ -10157,9 +10159,6 @@ h6,
   .p\:justify-content-stretch {
     justify-content: stretch;
   }
-  .p\:justify-items-auto {
-    justify-items: auto;
-  }
   .p\:justify-items-baseline {
     justify-items: baseline;
   }
@@ -11249,9 +11248,6 @@ h6,
   }
   .mobile .p\:m\:justify-content-stretch {
     justify-content: stretch;
-  }
-  .mobile .p\:m\:justify-items-auto {
-    justify-items: auto;
   }
   .mobile .p\:m\:justify-items-baseline {
     justify-items: baseline;
@@ -12343,9 +12339,6 @@ h6,
   .tablet .p\:t\:justify-content-stretch {
     justify-content: stretch;
   }
-  .tablet .p\:t\:justify-items-auto {
-    justify-items: auto;
-  }
   .tablet .p\:t\:justify-items-baseline {
     justify-items: baseline;
   }
@@ -13435,9 +13428,6 @@ h6,
   }
   .desktop .p\:d\:justify-content-stretch {
     justify-content: stretch;
-  }
-  .desktop .p\:d\:justify-items-auto {
-    justify-items: auto;
   }
   .desktop .p\:d\:justify-items-baseline {
     justify-items: baseline;
