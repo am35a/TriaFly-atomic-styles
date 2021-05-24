@@ -91,6 +91,9 @@
             &:disabled {
                 background-color: var(~"--@{value}-color-l1");
                 color: var(~"--@{value}-color-l2");
+                &.active {
+                    color: var(~"--@{value}-color-l2");
+                }
             }
             &:focus {
                 background-color: var(~"--@{value}-color-d1");
