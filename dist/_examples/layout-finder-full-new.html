@@ -16,7 +16,7 @@
         <div class="tf_layout-main p-3">
             <div class="tf_finder">
                 <div class="tf_finder-header">
-                    <button id="finder-all" class="tf_btn fw-600 tf_btn-transparent active" disabled>Все показатели</button>
+                    <button id="finder-all" class="tf_btn fw-600 tf_btn-secondary active" disabled>Все показатели</button>
                     <button id="finder-new" class="tf_btn fw-600 tf_btn-transparent">Новые</button>
                     <button id="finder-pop" class="tf_btn fw-600 tf_btn-transparent">Популярные</button>
                     <div class="float-right">
@@ -131,6 +131,7 @@
         <div class="tf_layout-header">
             <button class="tf_layout-aside-expander" tabindex="-1"><i class="fas fa-bars"></i></button>
             Дашборды
+            <button id="toggle-preview" class="tf_btn float-right mr-2">Toggle preview</button>
         </div>
         <div class="tf_layout-aside">
             <div class="tf_aside-fader">
@@ -177,4 +178,9 @@
     </body>
     <script src="../js/layout.js"></script>
     <script src="../js/layout-finder.js"></script>
+    <script>
+        $( "#toggle-preview" ).on( "click", function() {
+            $( ".tf_finder" ).toggleClass( "explorer" )
+        });
+    </script>
 </html>

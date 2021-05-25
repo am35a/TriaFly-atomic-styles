@@ -502,6 +502,34 @@ hr {
     grid-column: 1/2;
   }
 }
+.tf_finder.explorer {
+  grid-template-columns: 1fr;
+}
+.tf_finder.explorer .tf_finder-explorer {
+  grid-column: 1/2;
+}
+.tf_finder.explorer .tf_finder-preview {
+  display: none;
+}
+@media (orientation: portrait) {
+  .tf_finder.explorer {
+    grid-template-rows: max-content 1fr;
+  }
+}
+.tf_finder.preview {
+  grid-template-columns: 1fr;
+}
+.tf_finder.preview .tf_finder-explorer {
+  display: none;
+}
+.tf_finder.preview .tf_finder-preview {
+  grid-column: 1/2;
+}
+@media (orientation: portrait) {
+  .tf_finder.preview {
+    grid-template-rows: max-content 1fr;
+  }
+}
 .tf_btn {
   display: inline-block;
   margin: unset;
@@ -590,6 +618,9 @@ hr {
   background-color: var(--primary-color-l1);
   color: var(--primary-color-l2);
 }
+.tf_btn-primary:disabled.active {
+  color: var(--primary-color-l2);
+}
 .tf_btn-primary:focus {
   background-color: var(--primary-color-d1);
   box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--primary-color);
@@ -606,6 +637,9 @@ hr {
 }
 .tf_btn-secondary:disabled {
   background-color: var(--secondary-color-l1);
+  color: var(--secondary-color-l2);
+}
+.tf_btn-secondary:disabled.active {
   color: var(--secondary-color-l2);
 }
 .tf_btn-secondary:focus {
@@ -626,6 +660,9 @@ hr {
   background-color: var(--info-color-l1);
   color: var(--info-color-l2);
 }
+.tf_btn-info:disabled.active {
+  color: var(--info-color-l2);
+}
 .tf_btn-info:focus {
   background-color: var(--info-color-d1);
   box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--info-color);
@@ -642,6 +679,9 @@ hr {
 }
 .tf_btn-success:disabled {
   background-color: var(--success-color-l1);
+  color: var(--success-color-l2);
+}
+.tf_btn-success:disabled.active {
   color: var(--success-color-l2);
 }
 .tf_btn-success:focus {
@@ -662,6 +702,9 @@ hr {
   background-color: var(--warning-color-l1);
   color: var(--warning-color-l2);
 }
+.tf_btn-warning:disabled.active {
+  color: var(--warning-color-l2);
+}
 .tf_btn-warning:focus {
   background-color: var(--warning-color-d1);
   box-shadow: 0 0 0 calc(var(--key-size) * 0.125) var(--warning-color);
@@ -678,6 +721,9 @@ hr {
 }
 .tf_btn-error:disabled {
   background-color: var(--error-color-l1);
+  color: var(--error-color-l2);
+}
+.tf_btn-error:disabled.active {
   color: var(--error-color-l2);
 }
 .tf_btn-error:focus {

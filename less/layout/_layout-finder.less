@@ -49,4 +49,28 @@
             grid-column: 1/2;
         }
     }
+    &.explorer {
+        grid-template-columns: 1fr; 
+        .tf_finder-explorer {
+            grid-column: 1/2;
+        }
+        .tf_finder-preview {
+            display: none;
+        }
+        @media (orientation: portrait) {
+            grid-template-rows: max-content 1fr;
+        }
+    }
+    &.preview {
+        grid-template-columns: 1fr; 
+        .tf_finder-explorer {
+            display: none;
+        }
+        .tf_finder-preview {
+            grid-column: 1/2;
+        }
+        @media (orientation: portrait) {
+            grid-template-rows: max-content 1fr;
+        }
+    }
 }
