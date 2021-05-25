@@ -126,9 +126,6 @@ html {
   color: var(--negative-color-85);
   font-family: Roboto-, "Source Sans Pro-", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
-body {
-  overflow: hidden;
-}
 *,
 ::after,
 ::before {
@@ -474,6 +471,7 @@ hr {
 }
 .tf_finder-header {
   grid-column: 1/-1;
+  overflow-x: auto;
 }
 .tf_finder-explorer {
   grid-column: 1/2;
@@ -528,6 +526,18 @@ hr {
 @media (orientation: portrait) {
   .tf_finder.preview {
     grid-template-rows: max-content 1fr;
+  }
+}
+@media print {
+  .tf_layout {
+    height: unset;
+    overflow: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  .tf_layout-header,
+  .tf_layout-aside {
+    display: none;
   }
 }
 .tf_btn {

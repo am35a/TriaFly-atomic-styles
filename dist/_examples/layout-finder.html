@@ -16,9 +16,15 @@
         <div class="tf_layout-main p-3">
             <div class="tf_finder">
                 <div class="tf_finder-header">
-                    <button id="finder-all" class="tf_btn fw-600 tf_btn-secondary active" disabled>Все показатели</button>
-                    <button id="finder-new" class="tf_btn fw-600 tf_btn-transparent">Новые</button>
-                    <button id="finder-pop" class="tf_btn fw-600 tf_btn-transparent">Популярные</button>
+                    <div class="d-inline">
+                        <button id="finder-all" class="tf_btn fw-600 tf_btn-secondary active" disabled>Все показатели</button>
+                        <button id="finder-new" class="tf_btn fw-600 tf_btn-transparent">Новые</button>
+                        <button id="finder-pop" class="tf_btn fw-600 tf_btn-transparent">Популярные</button>
+                        <button id="finder-pop" class="tf_btn fw-600 tf_btn-transparent">Популярные</button>
+                        <button id="finder-pop" class="tf_btn fw-600 tf_btn-transparent">Популярные</button>
+                        <button id="finder-pop" class="tf_btn fw-600 tf_btn-transparent">Популярные</button>
+                        <button id="finder-pop" class="tf_btn fw-600 tf_btn-transparent">Популярные</button>
+                    </div>
                     <div class="float-right">
                         <button id="finder-filters-toogle" class="tf_btn tf_btn-transparent tf_btn-icon"><i class="fa fa-filter"></i></button>
                         <button id="finder-as-folder" class="tf_btn tf_btn-transparent tf_btn-icon" disabled><i class="fa fa-folder-open"></i></button>
@@ -131,7 +137,10 @@
         <div class="tf_layout-header">
             <button class="tf_layout-aside-expander" tabindex="-1"><i class="fas fa-bars"></i></button>
             Дашборды
-            <button id="toggle-preview" class="tf_btn float-right mr-2">Toggle preview</button>
+            <div class="float-right mr-2">
+                <button onclick="window.print()" class="tf_btn"><i class="fas fa-print"></i></button>
+                <button id="toggle-preview" class="tf_btn">Toggle preview</button>
+            </div>
         </div>
         <div class="tf_layout-aside">
             <div class="tf_aside-fader">
