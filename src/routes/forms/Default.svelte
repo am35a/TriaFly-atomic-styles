@@ -3,10 +3,10 @@
     import { xml } from "svelte-highlight/languages"
 </script>
 
-<div id="default" class="mb-3">
+<div id="default" class="mb-4">
     <div class="h2" role="heading" aria-level="2">Default</div>
     <div class="rounded-2 overflow-hidden">
-        <form class="bg-positive p-3 d-grid g-3">
+        <form class="bg-positive p-4 d-grid g-4">
             <div>
                 <div class="tf_form-check">
                     <input type="checkbox" value="" id="flexCheckChecked">
@@ -68,7 +68,7 @@
             class="my-0"
             language='{xml}'
             code='
-    <div class="d-grid g-3">
+    <div class="d-grid g-4">
         <div>
             <label for="inputTextDefault" class="tf_form-label">Label default</label>
             <input id="inputTextDefault" class="tf_form-control" type="text" placeholder="Placeholder">

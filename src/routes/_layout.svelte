@@ -51,7 +51,7 @@
     {/if}
 </svelte:head>
 
-<main class="tf_layout-main {$state.fullscreen ? 'tf_layout-main--fullscreen' : ''} p-3">
+<main class="tf_layout-main {$state.fullscreen ? 'tf_layout-main--fullscreen' : ''} p-4">
     <slot></slot>
 </main>
 <header class="tf_layout-header position-relative">
@@ -102,7 +102,7 @@
 {/if}
 {#if $state.modalLoader}
     <div class="tf_layout-modal-loader" on:click="{() => $state.modalLoader = !$state.modalLoader}">
-        <div class="m-auto bg-positive px-5 py-3 rounded d-flex">
+        <div class="m-auto bg-positive px-5 py-4 rounded d-flex">
             <svg viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
                 <g fill="none" fill-rule="evenodd">
                     <g transform="translate(1 1)" stroke-width="2">
@@ -119,7 +119,7 @@
                     </g>
                 </g>
             </svg>
-            <div class="my-auto ml-3">
+            <div class="my-auto ml-4">
                 Loading data...
             </div>
         </div>
@@ -127,10 +127,10 @@
 {/if}
 {#if $state.popupSettings}
     <div class="tf_layout-popup-settings" transition:fly="{{ x: 100, duration: 250 }}">
-        <div class="p-3 overflow-y-auto">
+        <div class="p-4 overflow-y-auto">
             <div class="h4" role="heading">Settings</div>
             <hr>
-            <div class="mb-3">
+            <div class="mb-4">
                 <div class="h5" role="heading">Themes</div>
                 <button
                     class="tf_btn tf_btn-transparent w-100 text-start"
@@ -145,7 +145,7 @@
                     {/if}
                 </button>
             </div>
-            <div class="mb-3">
+            <div class="mb-4">
                 <div class="h5" role="heading">Fonts</div>
                 <label class="d-block p-2" for="default">
                     <input type="radio" id="default" bind:group={font} value="">

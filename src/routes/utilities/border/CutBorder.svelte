@@ -3,12 +3,12 @@
     import { xml } from "svelte-highlight/languages"
 </script>
 
-<div id="cut-border" class="mb-3">
+<div id="cut-border" class="mb-4">
     <div class="h3" role="heading" aria-level="3">Cut border</div>
     <p>If an element have a border, it can be destroy by cutting classes: <b>.border</b>, <b>.border-top</b>, <b>.border-right</b>, <b>.border-bottom</b> и <b>.border-left</b>.</p>
     <div class="rounded-2 overflow-hidden">
-        <div class="bg-positive p-3">
-            <div class="d-flex flex-wrap g-3">
+        <div class="bg-positive p-4">
+            <div class="d-flex flex-wrap g-4">
                 <div class="bg-background p-5 border border-0"></div>
                 <div class="bg-background p-5 border border-top-0"></div>
                 <div class="bg-background p-5 border border-right-0"></div>

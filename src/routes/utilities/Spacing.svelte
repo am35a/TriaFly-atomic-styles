@@ -3,12 +3,12 @@
     import { xml } from "svelte-highlight/languages"
 </script>
 
-<div id="spacing" class="mb-3">
+<div id="spacing" class="mb-4">
     <div class="h2" role="heading" aria-level="2">Spacing</div>
-    <div class="d-inline-block rounded-2 bg-success text-positive mb-3 p-3">
+    <div class="d-inline-block rounded-2 bg-success text-positive mb-4 p-4">
         <i class="fas fa-check-circle"></i> Spacing fully support <a href="core#breakpoints" class="text-currentcolor">breakpoints</a>.
     </div>
-    <div id="spacing-property" class="mb-3">
+    <div id="spacing-property" class="mb-4">
         <div class="h3" role="heading" aria-level="3">Margin and padding</div>
         <p>The utilities classes of margin and padding from 0 to 3rem are available to using, just follow the pattern:</p>
         <p>(device-orientation):(device-type):(property)(sides)-(sizes)</p>
@@ -49,7 +49,7 @@
             <li>auto - for classes that set only the margin to auto</li>
         </ul>
         <div class="rounded-2 overflow-hidden">
-            <div class="bg-positive p-3">
+            <div class="bg-positive p-4">
                 ...
             </div>
             <Highlight
@@ -61,7 +61,7 @@
             />
         </div>
     </div>
-    <div id="gaping" class="mb-3">
+    <div id="gaping" class="mb-4">
         <div class="h3" role="heading" aria-level="3">Gaping</div>
         <p>When using display as grid or flex, you can make use of gap utilities on the parent grid container. Pay attention: Safari do not support multi layout gaping.</p>
         <ul>
@@ -73,16 +73,16 @@
             <li>5 - set the gap to --key-size * 3</li>
         </ul>
         <div class="rounded-2 overflow-hidden">
-            <div class="bg-positive p-3 d-flex g-3">
-                <div class="bg-background p-3">One</div>
-                <div class="bg-background p-3">Two</div>
-                <div class="bg-background p-3">Three</div>
+            <div class="bg-positive p-4 d-flex g-4">
+                <div class="bg-background p-4">One</div>
+                <div class="bg-background p-4">Two</div>
+                <div class="bg-background p-4">Three</div>
             </div>
             <Highlight
                 class="my-0"
                 language='{xml}'
                 code='
-    <div class="d-flex g-3">
+    <div class="d-flex g-4">
         <div>One</div>
         <div>Two</div>
         <div>Three</div>

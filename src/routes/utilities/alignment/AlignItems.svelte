@@ -10,11 +10,11 @@
     }
 </script>
 
-<div id="align-items" class="mb-3">
+<div id="align-items" class="mb-4">
     <div class="h4" role="heading" aria-level="4">Align items</div>
     <div class="rounded-2 overflow-hidden">
-        <div class="bg-positive p-3">
-            <div class="d-flex flex-wrap g-3">
+        <div class="bg-positive p-4">
+            <div class="d-flex flex-wrap g-4">
                 <button
                     on:click="{() => align.display = 'grid'}"
                     class="tf_btn tf_btn-sm tf_btn-secondary"
@@ -32,7 +32,7 @@
                 ><i class="fas {align.display === 'flex' ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i> Flex</button>
             </div>
             <hr>
-            <div class="d-flex flex-wrap g-3">
+            <div class="d-flex flex-wrap g-4">
                 <button
                     on:click="{() => align.items = 'baseline'}"
                     class="tf_btn tf_btn-sm tf_btn-secondary"
@@ -60,10 +60,10 @@
                 ><i class="fas {align.items === 'stretch' ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i> Stretch</button>
             </div>
             <hr>
-            <div class="d-{align.display} g-3 p-3 rounded bg-positive cols-2 align-items-{align.items}" style="height:16rem;">
-                <div class="p-3 bg-background rounded">Item 1</div>
-                <div class="p-3 bg-background rounded">Item 2</div>
-                <div class="p-3 bg-background rounded">Item 3</div>
+            <div class="d-{align.display} g-4 p-4 rounded bg-positive cols-2 align-items-{align.items}" style="height:16rem;">
+                <div class="p-4 bg-background rounded">Item 1</div>
+                <div class="p-4 bg-background rounded">Item 2</div>
+                <div class="p-4 bg-background rounded">Item 3</div>
             </div>
         </div>
         <Highlight

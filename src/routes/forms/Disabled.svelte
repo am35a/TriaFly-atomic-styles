@@ -3,11 +3,11 @@
     import { xml } from "svelte-highlight/languages"
 </script>
 
-<div id="disabled" class="mb-3">
+<div id="disabled" class="mb-4">
     <div class="h2" role="heading" aria-level="2">Disabled</div>
     <p>For change state of forms use <b>disabled</b> attribute.</p>
     <div class="rounded-2 overflow-hidden">
-        <form class="d-grid g-3 bg-positive rounded-2 rounded-bottom-0 p-3">
+        <form class="d-grid g-4 bg-positive rounded-2 rounded-bottom-0 p-4">
             <input class="tf_form-control tf_form-control-primary" type="text" placeholder="placeholder" disabled>
             <input class="tf_form-control tf_form-control-secondary" type="text" placeholder="placeholder" disabled>
             <input class="tf_form-control tf_form-control-info" type="text" placeholder="placeholder" disabled>

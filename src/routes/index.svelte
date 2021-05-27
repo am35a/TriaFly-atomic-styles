@@ -10,7 +10,7 @@
     <title>TriaFly UI Kit - CSS/JS framework for TriaFly BI system</title>
 </svelte:head>
 
-<div class="d-grid g-3">
+<div class="d-grid g-4">
     <div>
         <!-- <img class="d-inline-flex" src="images/logo-icon.svg" alt="TriaFly"> -->
         <div class="h1" role="heading" aria-level="1">TriaFly UI Kit</div>

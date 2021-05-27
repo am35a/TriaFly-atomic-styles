@@ -3,22 +3,22 @@
     import { xml } from "svelte-highlight/languages"
 </script>
 
-<div id="radius" class="mb-3">
+<div id="radius" class="mb-4">
     <div class="h2" role="heading" aria-level="2">Radius</div>
     <div class="rounded-2 overflow-hidden">
-        <div class="bg-positive p-3">
-            <div class="d-grid g-3">
-                <div class="d-flex flex-wrap g-3">
+        <div class="bg-positive p-4">
+            <div class="d-grid g-4">
+                <div class="d-flex flex-wrap g-4">
                     <div class="bg-background border p-5 rounded-0"></div>
                     <div class="bg-background border p-5 rounded-sm"></div>
                     <div class="bg-background border p-5 rounded"></div>
                     <div class="bg-background border p-5 rounded-lg"></div>
                 </div>
-                <div class="d-flex flex-wrap g-3">
+                <div class="d-flex flex-wrap g-4">
                     <div class="bg-background border p-5 rounded-circle"></div>
                     <div class="bg-background border p-5 rounded-pill" style="width: 16rem;"></div>
                 </div>
-                <div class="d-flex flex-wrap g-3">
+                <div class="d-flex flex-wrap g-4">
                     <div class="bg-background border p-5 rounded-circle rounded-left-0"></div>
                     <div class="bg-background border p-5 rounded-circle rounded-top-0"></div>
                     <div class="bg-background border p-5 rounded-circle rounded-right-0"></div>
