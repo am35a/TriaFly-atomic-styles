@@ -2,11 +2,11 @@
 
     .@{device-orientation-value}@{device-type-value}m {
         &-0 { margin: 0; }
-        &-1 { margin: var(--m-1, calc(var(--key-size) * .25)); }
-        &-2 { margin: var(--m-2, calc(var(--key-size) * .5)); }
-        &-3 { margin: var(--m-3, var(--key-size)); }
-        &-4 { margin: var(--m-4, calc(var(--key-size) * 1.5)); }
-        &-5 { margin: var(--m-5, calc(var(--key-size) * 3)); }
+        each(range(8), {
+            @multiply: @value * 0.25;
+            &-@{value} when (@multiply = 1) { margin: var(~"--m-@{value}", var(--key-size)); }
+            &-@{value} when not (@multiply = 1) { margin: var(~"--m-@{value}", calc(var(--key-size) * ~"@{multiply}")); }
+        });
         &-auto { margin: auto; }
         &y-0 {
             margin-top: 0;
@@ -16,46 +16,25 @@
             margin-left: 0;
             margin-right: 0;
         }
-        &y-1 {
-            margin-top: var(--m-1, calc(var(--key-size) * .25));
-            margin-bottom: var(--m-1, calc(var(--key-size) * .25));
-        }
-        &x-1 {
-            margin-left: var(--m-1, calc(var(--key-size) * .25));
-            margin-right: var(--m-1, calc(var(--key-size) * .25));
-        }
-        &y-2 {
-            margin-top: var(--m-2, calc(var(--key-size) * .5));
-            margin-bottom: var(--m-2, calc(var(--key-size) * .5));
-        }
-        &x-2 {
-            margin-left: var(--m-2, calc(var(--key-size) * .5));
-            margin-right: var(--m-2, calc(var(--key-size) * .5));
-        }
-        &y-3 {
-            margin-top: var(--m-3, var(--key-size));
-            margin-bottom: var(--m-3, var(--key-size));
-        }
-        &x-3 {
-            margin-left: var(--m-3, var(--key-size));
-            margin-right: var(--m-3, var(--key-size));
-        }
-        &y-4 {
-            margin-top: var(--m-4, calc(var(--key-size) * 1.5));
-            margin-bottom: var(--m-4, calc(var(--key-size) * 1.5));
-        }
-        &x-4 {
-            margin-left: var(--m-4, calc(var(--key-size) * 1.5));
-            margin-right: var(--m-4, calc(var(--key-size) * 1.5));
-        }
-        &y-5 {
-            margin-top: var(--m-5, calc(var(--key-size) * 3));
-            margin-bottom: var(--m-5, calc(var(--key-size) * 3));
-        }
-        &x-5 {
-            margin-left: var(--m-5, calc(var(--key-size) * 3));
-            margin-right: var(--m-5, calc(var(--key-size) * 3));
-        }
+        each(range(8), {
+            @multiply: @value * 0.25;
+            &y-@{value} when (@multiply = 1) {
+                margin-top: var(~"--m-@{value}", var(--key-size));
+                margin-bottom: var(~"--m-@{value}", var(--key-size));
+            }
+            &x-@{value} when (@multiply = 1) {
+                margin-left: var(~"--m-@{value}", var(--key-size));
+                margin-right: var(~"--m-@{value}", var(--key-size));
+            }
+            &y-@{value} when not (@multiply = 1) {
+                margin-top: var(~"--m-@{value}", calc(var(--key-size) * ~"@{multiply}"));
+                margin-bottom: var(~"--m-@{value}", calc(var(--key-size) * ~"@{multiply}"));
+            }
+            &x-@{value} when not (@multiply = 1) {
+                margin-left: var(~"--m-@{value}", calc(var(--key-size) * ~"@{multiply}"));
+                margin-right: var(~"--m-@{value}", calc(var(--key-size) * ~"@{multiply}"));
+            }
+        });
         &y-auto {
             margin-top: auto;
             margin-bottom: auto;
@@ -68,26 +47,17 @@
         &r-0 { margin-right: 0; }
         &b-0 { margin-bottom: 0; }
         &l-0 { margin-left: 0; }
-        &t-1 { margin-top: var(--m-1, calc(var(--key-size) * .25)); }
-        &r-1 { margin-right: var(--m-1, calc(var(--key-size) * .25)); }
-        &b-1 { margin-bottom: var(--m-1, calc(var(--key-size) * .25)); }
-        &l-1 { margin-left: var(--m-1, calc(var(--key-size) * .25)); }
-        &t-2 { margin-top: var(--m-2, calc(var(--key-size) * .5)); }
-        &r-2 { margin-right: var(--m-2, calc(var(--key-size) * .5)); }
-        &b-2 { margin-bottom: var(--m-2, calc(var(--key-size) * .5)); }
-        &l-2 { margin-left: var(--m-2, calc(var(--key-size) * .5)); }
-        &t-3 { margin-top: var(--m-3, var(--key-size)); }
-        &r-3 { margin-right: var(--m-3, var(--key-size)); }
-        &b-3 { margin-bottom: var(--m-3, var(--key-size)); }
-        &l-3 { margin-left: var(--m-3, var(--key-size)); }
-        &t-4 { margin-top: var(--m-4, calc(var(--key-size) * 1.5)); }
-        &r-4 { margin-right: var(--m-4, calc(var(--key-size) * 1.5)); }
-        &b-4 { margin-bottom: var(--m-4, calc(var(--key-size) * 1.5)); }
-        &l-4 { margin-left: var(--m-4, calc(var(--key-size) * 1.5)); }
-        &t-5 { margin-top: var(--m-5, calc(var(--key-size) * 3)); }
-        &r-5 { margin-right: var(--m-5, calc(var(--key-size) * 3)); }
-        &b-5 { margin-bottom: var(--m-5, calc(var(--key-size) * 3)); }
-        &l-5 { margin-left: var(--m-5, calc(var(--key-size) * 3)); }
+        each(range(8), {
+            @multiply: @value * 0.25;
+            &t-@{value} when (@multiply = 1) { margin-top: var(~"--m-@{value}", var(--key-size)); }
+            &r-@{value} when (@multiply = 1) { margin-right: var(~"--m-@{value}", var(--key-size)); }
+            &b-@{value} when (@multiply = 1) { margin-bottom: var(~"--m-@{value}", var(--key-size)); }
+            &l-@{value} when (@multiply = 1) { margin-left: var(~"--m-@{value}", var(--key-size)); }
+            &t-@{value} when not (@multiply = 1) { margin-top: var(~"--m-@{value}", calc(var(--key-size) * ~"@{multiply}")); }
+            &r-@{value} when not (@multiply = 1) { margin-right: var(~"--m-@{value}", calc(var(--key-size) * ~"@{multiply}")); }
+            &b-@{value} when not (@multiply = 1) { margin-bottom: var(~"--m-@{value}", calc(var(--key-size) * ~"@{multiply}")); }
+            &l-@{value} when not (@multiply = 1) { margin-left: var(~"--m-@{value}", calc(var(--key-size) * ~"@{multiply}")); }
+        });
         &t-auto { margin-top: auto; }
         &r-auto { margin-right: auto; }
         &b-auto { margin-bottom: auto; }
@@ -96,11 +66,11 @@
 
     .@{device-orientation-value}@{device-type-value}p {
         &-0 { padding: 0; }
-        &-1 { padding: var(--p-1, calc(var(--key-size) * .25)); }
-        &-2 { padding: var(--p-2, calc(var(--key-size) * .5)); }
-        &-3 { padding: var(--p-3, var(--key-size)); }
-        &-4 { padding: var(--p-4, calc(var(--key-size) * 1.5)); }
-        &-5 { padding: var(--p-5, calc(var(--key-size) * 3)); }
+        each(range(8), {
+            @multiply: @value * 0.25;
+            &-@{value} when (@multiply = 1) { padding: var(~"--p-@{value}", var(--key-size)); }
+            &-@{value} when not (@multiply = 1) { padding: var(~"--p-@{value}", calc(var(--key-size) * ~"@{multiply}")); }
+        });
         &y-0 {
             padding-top: 0;
             padding-bottom: 0;
@@ -109,70 +79,41 @@
             padding-right: 0;
             padding-left: 0;
         }
-        &y-1 {
-            padding-top: var(--p-1, calc(var(--key-size) * .25));
-            padding-bottom: var(--p-1, calc(var(--key-size) * .25));
-        }
-        &x-1 {
-            padding-right: var(--p-1, calc(var(--key-size) * .25));
-            padding-left: var(--p-1, calc(var(--key-size) * .25));
-        }
-        &y-2 {
-            padding-top: var(--p-2, calc(var(--key-size) * .5));
-            padding-bottom: var(--p-2, calc(var(--key-size) * .5));
-        }
-        &x-2 {
-            padding-right: var(--p-2, calc(var(--key-size) * .5));
-            padding-left: var(--p-2, calc(var(--key-size) * .5));
-        }
-        &y-3 {
-            padding-top: var(--p-3, var(--key-size));
-            padding-bottom: var(--p-3, var(--key-size));
-        }
-        &x-3 {
-            padding-right: var(--p-3, var(--key-size));
-            padding-left: var(--p-3, var(--key-size));
-        }
-        &y-4 {
-            padding-top: var(--p-4, calc(var(--key-size) * 1.5));
-            padding-bottom: var(--p-4, calc(var(--key-size) * 1.5));
-        }
-        &x-4 {
-            padding-right: var(--p-4, calc(var(--key-size) * 1.5));
-            padding-left: var(--p-4, calc(var(--key-size) * 1.5));
-        }
-        &y-5 {
-            padding-top: var(--p-5, calc(var(--key-size) * 3));
-            padding-bottom: var(--p-5, calc(var(--key-size) * 3));
-        }
-        &x-5 {
-            padding-right: var(--p-5, calc(var(--key-size) * 3));
-            padding-left: var(--p-5, calc(var(--key-size) * 3));
-        }
+        each(range(8), {
+            @multiply: @value * 0.25;
+            &y-@{value} when (@multiply = 1) {
+                padding-top: var(~"--p-@{value}", var(--key-size));
+                padding-bottom: var(~"--p-@{value}", var(--key-size));
+            }
+            &x-@{value} when (@multiply = 1) {
+                padding-left: var(~"--p-@{value}", var(--key-size));
+                padding-right: var(~"--p-@{value}", var(--key-size));
+            }
+            &y-@{value} when not (@multiply = 1) {
+                padding-top: var(~"--p-@{value}", calc(var(--key-size) * ~"@{multiply}"));
+                padding-bottom: var(~"--p-@{value}", calc(var(--key-size) * ~"@{multiply}"));
+            }
+            &x-@{value} when not (@multiply = 1) {
+                padding-left: var(~"--p-@{value}", calc(var(--key-size) * ~"@{multiply}"));
+                padding-right: var(~"--p-@{value}", calc(var(--key-size) * ~"@{multiply}"));
+            }
+        });
         &t-0 { padding-top: 0; }
         &r-0 { padding-right: 0; }
         &b-0 { padding-bottom: 0; }
         &l-0 { padding-left: 0; }
-        &t-1 { padding-top: var(--p-1, calc(var(--key-size) * .25)); }
-        &r-1 { padding-right: var(--p-1, calc(var(--key-size) * .25)); }
-        &b-1 { padding-bottom: var(--p-1, calc(var(--key-size) * .25)); }
-        &l-1 { padding-left: var(--p-1, calc(var(--key-size) * .25)); }
-        &t-2 { padding-top: var(--p-2, calc(var(--key-size) * .5)); }
-        &r-2 { padding-right: var(--p-2, calc(var(--key-size) * .5)); }
-        &b-2 { padding-bottom: var(--p-2, calc(var(--key-size) * .5)); }
-        &l-2 { padding-left: var(--p-2, calc(var(--key-size) * .5)); }
-        &t-3 { padding-top: var(--p-3, var(--key-size)); }
-        &r-3 { padding-right: var(--p-3, var(--key-size)); }
-        &b-3 { padding-bottom: var(--p-3, var(--key-size)); }
-        &l-3 { padding-left: var(--p-3, var(--key-size)); }
-        &t-4 { padding-top: var(--p-4, calc(var(--key-size) * 1.5)); }
-        &r-4 { padding-right: var(--p-4, calc(var(--key-size) * 1.5)); }
-        &b-4 { padding-bottom: var(--p-4, calc(var(--key-size) * 1.5)); }
-        &l-4 { padding-left: var(--p-4, calc(var(--key-size) * 1.5)); }
-        &t-5 { padding-top: var(--p-5, calc(var(--key-size) * 3)); }
-        &r-5 { padding-right: var(--p-5, calc(var(--key-size) * 3)); }
-        &b-5 { padding-bottom: var(--p-5, calc(var(--key-size) * 3)); }
-        &l-5 { padding-left: var(--p-5, calc(var(--key-size) * 3)); }
+        each(range(8), {
+            @multiply: @value * 0.25;
+            &t-@{value} when (@multiply = 1) { padding-top: var(~"--p-@{value}", var(--key-size)); }
+            &r-@{value} when (@multiply = 1) { padding-right: var(~"--p-@{value}", var(--key-size)); }
+            &b-@{value} when (@multiply = 1) { padding-bottom: var(~"--p-@{value}", var(--key-size)); }
+            &l-@{value} when (@multiply = 1) { padding-left: var(~"--p-@{value}", var(--key-size)); }
+            &t-@{value} when not (@multiply = 1) { padding-top: var(~"--p-@{value}", calc(var(--key-size) * ~"@{multiply}")); }
+            &r-@{value} when not (@multiply = 1) { padding-right: var(~"--p-@{value}", calc(var(--key-size) * ~"@{multiply}")); }
+            &b-@{value} when not (@multiply = 1) { padding-bottom: var(~"--p-@{value}", calc(var(--key-size) * ~"@{multiply}")); }
+            &l-@{value} when not (@multiply = 1) { padding-left: var(~"--p-@{value}", calc(var(--key-size) * ~"@{multiply}")); }
+        });
+
     }
 
     .@{device-orientation-value}@{device-type-value}g,
@@ -180,9 +121,12 @@
         &-0 { grid-gap: 0; }
         &-1 { grid-gap: var(--g-1, calc(var(--key-size) * .25)); }
         &-2 { grid-gap: var(--g-2, calc(var(--key-size) * .5)); }
-        &-3 { grid-gap: var(--g-3, var(--key-size)); }
-        &-4 { grid-gap: var(--g-4, calc(var(--key-size) * 1.5)); }
-        &-5 { grid-gap: var(--g-5, calc(var(--key-size) * 3)); }
+        &-3 { grid-gap: var(--g-3, calc(var(--key-size) * .75)); }
+        &-4 { grid-gap: var(--g-4, var(--key-size)); }
+        &-5 { grid-gap: var(--g-5, calc(var(--key-size) * 1.25)); }
+        &-6 { grid-gap: var(--g-6, calc(var(--key-size) * 1.5)); }
+        &-7 { grid-gap: var(--g-7, calc(var(--key-size) * 1.75)); }
+        &-8 { grid-gap: var(--g-8, calc(var(--key-size) * 2)); }
     }
 
 }

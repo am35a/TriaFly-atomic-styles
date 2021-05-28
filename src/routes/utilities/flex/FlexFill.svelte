@@ -3,14 +3,14 @@
     import { xml } from "svelte-highlight/languages"
 </script>
 
-<div id="flex-fill" class="mb-3">
+<div id="flex-fill" class="mb-4">
     <div class="h4" role="heading" aria-level="4">Fill</div>
     <div class="rounded-2 overflow-hidden">
-        <div class="bg-positive p-3">
-            <div class="d-flex bg-background p-3 rounded-2 g-3">
-                <div class="flex-fill bg-positive p-3 rounded-2">Item</div>
-                <div class="flex-fill bg-positive p-3 rounded-2">Item</div>
-                <div class="flex-fill bg-positive p-3 rounded-2">A lot of content in item</div>
+        <div class="bg-positive p-4">
+            <div class="d-flex bg-background p-4 rounded-2 g-4">
+                <div class="flex-fill bg-positive p-4 rounded-2">Item</div>
+                <div class="flex-fill bg-positive p-4 rounded-2">Item</div>
+                <div class="flex-fill bg-positive p-4 rounded-2">A lot of content in item</div>
             </div>
         </div>
         <Highlight

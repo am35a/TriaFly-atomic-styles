@@ -3,12 +3,12 @@
     import { xml } from "svelte-highlight/languages"
 </script>
 
-<div id="sizing" class="mb-3">
+<div id="sizing" class="mb-4">
     <div class="h2" role="heading" aria-level="2">Sizing</div>
-    <div class="d-inline-block rounded-2 bg-success text-positive mb-3 p-3">
+    <div class="d-inline-block rounded-2 bg-success text-positive mb-4 p-4">
         <i class="fas fa-check-circle"></i> Sizing fully support <a href="core#breakpoints" class="text-currentcolor">breakpoints</a>.
     </div>
-    <div id="sizing-values" class="mb-3">
+    <div id="sizing-values" class="mb-4">
         <div class="h3" role="heading" aria-level="3">Values</div>
         <p>The following classes are used to control the width size:</p>
         <ul>
@@ -27,8 +27,8 @@
             <li>.h-auto</li>
         </ul>
         <div class="rounded-2 overflow-hidden">
-            <div class="bg-positive p-3">
-                <div class="bg-background mb-3">
+            <div class="bg-positive p-4">
+                <div class="bg-background mb-4">
                     <div class="bg-secondary text-center p-2 w-25">.w-25</div>
                     <div class="bg-secondary text-center p-2 w-50">.w-50</div>
                     <div class="bg-secondary text-center p-2 w-75">.w-75</div>
@@ -58,7 +58,7 @@
             />
         </div>
     </div>
-    <div id="sizing-resize" class="mb-3">
+    <div id="sizing-resize" class="mb-4">
         <div class="h3" role="heading" aria-level="3">Resize</div>
         <p></p>
         <ul>

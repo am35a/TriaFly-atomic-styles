@@ -126,9 +126,6 @@ html {
   color: var(--negative-color-85);
   font-family: Roboto-, "Source Sans Pro-", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
-body {
-  overflow: hidden;
-}
 *,
 ::after,
 ::before {
@@ -502,6 +499,46 @@ hr {
     grid-column: 1/2;
   }
 }
+.tf_finder.explorer {
+  grid-template-columns: 1fr;
+}
+.tf_finder.explorer .tf_finder-explorer {
+  grid-column: 1/2;
+}
+.tf_finder.explorer .tf_finder-preview {
+  display: none;
+}
+@media (orientation: portrait) {
+  .tf_finder.explorer {
+    grid-template-rows: max-content 1fr;
+  }
+}
+.tf_finder.preview {
+  grid-template-columns: 1fr;
+}
+.tf_finder.preview .tf_finder-explorer {
+  display: none;
+}
+.tf_finder.preview .tf_finder-preview {
+  grid-column: 1/2;
+}
+@media (orientation: portrait) {
+  .tf_finder.preview {
+    grid-template-rows: max-content 1fr;
+  }
+}
+@media print {
+  .tf_layout {
+    height: unset;
+    overflow: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  .tf_layout-header,
+  .tf_layout-aside {
+    display: none;
+  }
+}
 .tf_btn {
   display: inline-block;
   margin: unset;
@@ -591,7 +628,7 @@ hr {
   color: var(--primary-color-l2);
 }
 .tf_btn-primary:disabled.active {
-  color: var(--primary-color-l1);
+  color: var(--primary-color-l2);
 }
 .tf_btn-primary:focus {
   background-color: var(--primary-color-d1);
@@ -612,7 +649,7 @@ hr {
   color: var(--secondary-color-l2);
 }
 .tf_btn-secondary:disabled.active {
-  color: var(--secondary-color-l1);
+  color: var(--secondary-color-l2);
 }
 .tf_btn-secondary:focus {
   background-color: var(--secondary-color-d1);
@@ -633,7 +670,7 @@ hr {
   color: var(--info-color-l2);
 }
 .tf_btn-info:disabled.active {
-  color: var(--info-color-l1);
+  color: var(--info-color-l2);
 }
 .tf_btn-info:focus {
   background-color: var(--info-color-d1);
@@ -654,7 +691,7 @@ hr {
   color: var(--success-color-l2);
 }
 .tf_btn-success:disabled.active {
-  color: var(--success-color-l1);
+  color: var(--success-color-l2);
 }
 .tf_btn-success:focus {
   background-color: var(--success-color-d1);
@@ -675,7 +712,7 @@ hr {
   color: var(--warning-color-l2);
 }
 .tf_btn-warning:disabled.active {
-  color: var(--warning-color-l1);
+  color: var(--warning-color-l2);
 }
 .tf_btn-warning:focus {
   background-color: var(--warning-color-d1);
@@ -696,7 +733,7 @@ hr {
   color: var(--error-color-l2);
 }
 .tf_btn-error:disabled.active {
-  color: var(--error-color-l1);
+  color: var(--error-color-l2);
 }
 .tf_btn-error:focus {
   background-color: var(--error-color-d1);
@@ -2117,13 +2154,22 @@ h6,
   margin: var(--m-2, calc(var(--key-size) * 0.5));
 }
 .m-3 {
-  margin: var(--m-3, var(--key-size));
+  margin: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .m-4 {
-  margin: var(--m-4, calc(var(--key-size) * 1.5));
+  margin: var(--m-4, var(--key-size));
 }
 .m-5 {
-  margin: var(--m-5, calc(var(--key-size) * 3));
+  margin: var(--m-5, calc(var(--key-size) * 1.25));
+}
+.m-6 {
+  margin: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.m-7 {
+  margin: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.m-8 {
+  margin: var(--m-8, calc(var(--key-size) * 2));
 }
 .m-auto {
   margin: auto;
@@ -2153,28 +2199,52 @@ h6,
   margin-right: var(--m-2, calc(var(--key-size) * 0.5));
 }
 .my-3 {
-  margin-top: var(--m-3, var(--key-size));
-  margin-bottom: var(--m-3, var(--key-size));
+  margin-top: var(--m-3, calc(var(--key-size) * 0.75));
+  margin-bottom: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .mx-3 {
-  margin-left: var(--m-3, var(--key-size));
-  margin-right: var(--m-3, var(--key-size));
+  margin-left: var(--m-3, calc(var(--key-size) * 0.75));
+  margin-right: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .my-4 {
-  margin-top: var(--m-4, calc(var(--key-size) * 1.5));
-  margin-bottom: var(--m-4, calc(var(--key-size) * 1.5));
+  margin-top: var(--m-4, var(--key-size));
+  margin-bottom: var(--m-4, var(--key-size));
 }
 .mx-4 {
-  margin-left: var(--m-4, calc(var(--key-size) * 1.5));
-  margin-right: var(--m-4, calc(var(--key-size) * 1.5));
+  margin-left: var(--m-4, var(--key-size));
+  margin-right: var(--m-4, var(--key-size));
 }
 .my-5 {
-  margin-top: var(--m-5, calc(var(--key-size) * 3));
-  margin-bottom: var(--m-5, calc(var(--key-size) * 3));
+  margin-top: var(--m-5, calc(var(--key-size) * 1.25));
+  margin-bottom: var(--m-5, calc(var(--key-size) * 1.25));
 }
 .mx-5 {
-  margin-left: var(--m-5, calc(var(--key-size) * 3));
-  margin-right: var(--m-5, calc(var(--key-size) * 3));
+  margin-left: var(--m-5, calc(var(--key-size) * 1.25));
+  margin-right: var(--m-5, calc(var(--key-size) * 1.25));
+}
+.my-6 {
+  margin-top: var(--m-6, calc(var(--key-size) * 1.5));
+  margin-bottom: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.mx-6 {
+  margin-left: var(--m-6, calc(var(--key-size) * 1.5));
+  margin-right: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.my-7 {
+  margin-top: var(--m-7, calc(var(--key-size) * 1.75));
+  margin-bottom: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.mx-7 {
+  margin-left: var(--m-7, calc(var(--key-size) * 1.75));
+  margin-right: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.my-8 {
+  margin-top: var(--m-8, calc(var(--key-size) * 2));
+  margin-bottom: var(--m-8, calc(var(--key-size) * 2));
+}
+.mx-8 {
+  margin-left: var(--m-8, calc(var(--key-size) * 2));
+  margin-right: var(--m-8, calc(var(--key-size) * 2));
 }
 .my-auto {
   margin-top: auto;
@@ -2221,40 +2291,76 @@ h6,
   margin-left: var(--m-2, calc(var(--key-size) * 0.5));
 }
 .mt-3 {
-  margin-top: var(--m-3, var(--key-size));
+  margin-top: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .mr-3 {
-  margin-right: var(--m-3, var(--key-size));
+  margin-right: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .mb-3 {
-  margin-bottom: var(--m-3, var(--key-size));
+  margin-bottom: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .ml-3 {
-  margin-left: var(--m-3, var(--key-size));
+  margin-left: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .mt-4 {
-  margin-top: var(--m-4, calc(var(--key-size) * 1.5));
+  margin-top: var(--m-4, var(--key-size));
 }
 .mr-4 {
-  margin-right: var(--m-4, calc(var(--key-size) * 1.5));
+  margin-right: var(--m-4, var(--key-size));
 }
 .mb-4 {
-  margin-bottom: var(--m-4, calc(var(--key-size) * 1.5));
+  margin-bottom: var(--m-4, var(--key-size));
 }
 .ml-4 {
-  margin-left: var(--m-4, calc(var(--key-size) * 1.5));
+  margin-left: var(--m-4, var(--key-size));
 }
 .mt-5 {
-  margin-top: var(--m-5, calc(var(--key-size) * 3));
+  margin-top: var(--m-5, calc(var(--key-size) * 1.25));
 }
 .mr-5 {
-  margin-right: var(--m-5, calc(var(--key-size) * 3));
+  margin-right: var(--m-5, calc(var(--key-size) * 1.25));
 }
 .mb-5 {
-  margin-bottom: var(--m-5, calc(var(--key-size) * 3));
+  margin-bottom: var(--m-5, calc(var(--key-size) * 1.25));
 }
 .ml-5 {
-  margin-left: var(--m-5, calc(var(--key-size) * 3));
+  margin-left: var(--m-5, calc(var(--key-size) * 1.25));
+}
+.mt-6 {
+  margin-top: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.mr-6 {
+  margin-right: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.mb-6 {
+  margin-bottom: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.ml-6 {
+  margin-left: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.mt-7 {
+  margin-top: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.mr-7 {
+  margin-right: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.mb-7 {
+  margin-bottom: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.ml-7 {
+  margin-left: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.mt-8 {
+  margin-top: var(--m-8, calc(var(--key-size) * 2));
+}
+.mr-8 {
+  margin-right: var(--m-8, calc(var(--key-size) * 2));
+}
+.mb-8 {
+  margin-bottom: var(--m-8, calc(var(--key-size) * 2));
+}
+.ml-8 {
+  margin-left: var(--m-8, calc(var(--key-size) * 2));
 }
 .mt-auto {
   margin-top: auto;
@@ -2278,13 +2384,22 @@ h6,
   padding: var(--p-2, calc(var(--key-size) * 0.5));
 }
 .p-3 {
-  padding: var(--p-3, var(--key-size));
+  padding: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .p-4 {
-  padding: var(--p-4, calc(var(--key-size) * 1.5));
+  padding: var(--p-4, var(--key-size));
 }
 .p-5 {
-  padding: var(--p-5, calc(var(--key-size) * 3));
+  padding: var(--p-5, calc(var(--key-size) * 1.25));
+}
+.p-6 {
+  padding: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.p-7 {
+  padding: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.p-8 {
+  padding: var(--p-8, calc(var(--key-size) * 2));
 }
 .py-0 {
   padding-top: 0;
@@ -2299,40 +2414,64 @@ h6,
   padding-bottom: var(--p-1, calc(var(--key-size) * 0.25));
 }
 .px-1 {
-  padding-right: var(--p-1, calc(var(--key-size) * 0.25));
   padding-left: var(--p-1, calc(var(--key-size) * 0.25));
+  padding-right: var(--p-1, calc(var(--key-size) * 0.25));
 }
 .py-2 {
   padding-top: var(--p-2, calc(var(--key-size) * 0.5));
   padding-bottom: var(--p-2, calc(var(--key-size) * 0.5));
 }
 .px-2 {
-  padding-right: var(--p-2, calc(var(--key-size) * 0.5));
   padding-left: var(--p-2, calc(var(--key-size) * 0.5));
+  padding-right: var(--p-2, calc(var(--key-size) * 0.5));
 }
 .py-3 {
-  padding-top: var(--p-3, var(--key-size));
-  padding-bottom: var(--p-3, var(--key-size));
+  padding-top: var(--p-3, calc(var(--key-size) * 0.75));
+  padding-bottom: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .px-3 {
-  padding-right: var(--p-3, var(--key-size));
-  padding-left: var(--p-3, var(--key-size));
+  padding-left: var(--p-3, calc(var(--key-size) * 0.75));
+  padding-right: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .py-4 {
-  padding-top: var(--p-4, calc(var(--key-size) * 1.5));
-  padding-bottom: var(--p-4, calc(var(--key-size) * 1.5));
+  padding-top: var(--p-4, var(--key-size));
+  padding-bottom: var(--p-4, var(--key-size));
 }
 .px-4 {
-  padding-right: var(--p-4, calc(var(--key-size) * 1.5));
-  padding-left: var(--p-4, calc(var(--key-size) * 1.5));
+  padding-left: var(--p-4, var(--key-size));
+  padding-right: var(--p-4, var(--key-size));
 }
 .py-5 {
-  padding-top: var(--p-5, calc(var(--key-size) * 3));
-  padding-bottom: var(--p-5, calc(var(--key-size) * 3));
+  padding-top: var(--p-5, calc(var(--key-size) * 1.25));
+  padding-bottom: var(--p-5, calc(var(--key-size) * 1.25));
 }
 .px-5 {
-  padding-right: var(--p-5, calc(var(--key-size) * 3));
-  padding-left: var(--p-5, calc(var(--key-size) * 3));
+  padding-left: var(--p-5, calc(var(--key-size) * 1.25));
+  padding-right: var(--p-5, calc(var(--key-size) * 1.25));
+}
+.py-6 {
+  padding-top: var(--p-6, calc(var(--key-size) * 1.5));
+  padding-bottom: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.px-6 {
+  padding-left: var(--p-6, calc(var(--key-size) * 1.5));
+  padding-right: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.py-7 {
+  padding-top: var(--p-7, calc(var(--key-size) * 1.75));
+  padding-bottom: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.px-7 {
+  padding-left: var(--p-7, calc(var(--key-size) * 1.75));
+  padding-right: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.py-8 {
+  padding-top: var(--p-8, calc(var(--key-size) * 2));
+  padding-bottom: var(--p-8, calc(var(--key-size) * 2));
+}
+.px-8 {
+  padding-left: var(--p-8, calc(var(--key-size) * 2));
+  padding-right: var(--p-8, calc(var(--key-size) * 2));
 }
 .pt-0 {
   padding-top: 0;
@@ -2371,40 +2510,76 @@ h6,
   padding-left: var(--p-2, calc(var(--key-size) * 0.5));
 }
 .pt-3 {
-  padding-top: var(--p-3, var(--key-size));
+  padding-top: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .pr-3 {
-  padding-right: var(--p-3, var(--key-size));
+  padding-right: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .pb-3 {
-  padding-bottom: var(--p-3, var(--key-size));
+  padding-bottom: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .pl-3 {
-  padding-left: var(--p-3, var(--key-size));
+  padding-left: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .pt-4 {
-  padding-top: var(--p-4, calc(var(--key-size) * 1.5));
+  padding-top: var(--p-4, var(--key-size));
 }
 .pr-4 {
-  padding-right: var(--p-4, calc(var(--key-size) * 1.5));
+  padding-right: var(--p-4, var(--key-size));
 }
 .pb-4 {
-  padding-bottom: var(--p-4, calc(var(--key-size) * 1.5));
+  padding-bottom: var(--p-4, var(--key-size));
 }
 .pl-4 {
-  padding-left: var(--p-4, calc(var(--key-size) * 1.5));
+  padding-left: var(--p-4, var(--key-size));
 }
 .pt-5 {
-  padding-top: var(--p-5, calc(var(--key-size) * 3));
+  padding-top: var(--p-5, calc(var(--key-size) * 1.25));
 }
 .pr-5 {
-  padding-right: var(--p-5, calc(var(--key-size) * 3));
+  padding-right: var(--p-5, calc(var(--key-size) * 1.25));
 }
 .pb-5 {
-  padding-bottom: var(--p-5, calc(var(--key-size) * 3));
+  padding-bottom: var(--p-5, calc(var(--key-size) * 1.25));
 }
 .pl-5 {
-  padding-left: var(--p-5, calc(var(--key-size) * 3));
+  padding-left: var(--p-5, calc(var(--key-size) * 1.25));
+}
+.pt-6 {
+  padding-top: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.pr-6 {
+  padding-right: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.pb-6 {
+  padding-bottom: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.pl-6 {
+  padding-left: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.pt-7 {
+  padding-top: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.pr-7 {
+  padding-right: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.pb-7 {
+  padding-bottom: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.pl-7 {
+  padding-left: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.pt-8 {
+  padding-top: var(--p-8, calc(var(--key-size) * 2));
+}
+.pr-8 {
+  padding-right: var(--p-8, calc(var(--key-size) * 2));
+}
+.pb-8 {
+  padding-bottom: var(--p-8, calc(var(--key-size) * 2));
+}
+.pl-8 {
+  padding-left: var(--p-8, calc(var(--key-size) * 2));
 }
 .g-0,
 .gap-0 {
@@ -2420,15 +2595,27 @@ h6,
 }
 .g-3,
 .gap-3 {
-  grid-gap: var(--g-3, var(--key-size));
+  grid-gap: var(--g-3, calc(var(--key-size) * 0.75));
 }
 .g-4,
 .gap-4 {
-  grid-gap: var(--g-4, calc(var(--key-size) * 1.5));
+  grid-gap: var(--g-4, var(--key-size));
 }
 .g-5,
 .gap-5 {
-  grid-gap: var(--g-5, calc(var(--key-size) * 3));
+  grid-gap: var(--g-5, calc(var(--key-size) * 1.25));
+}
+.g-6,
+.gap-6 {
+  grid-gap: var(--g-6, calc(var(--key-size) * 1.5));
+}
+.g-7,
+.gap-7 {
+  grid-gap: var(--g-7, calc(var(--key-size) * 1.75));
+}
+.g-8,
+.gap-8 {
+  grid-gap: var(--g-8, calc(var(--key-size) * 2));
 }
 .text-start,
 .text-left {
@@ -3207,13 +3394,22 @@ h6,
   margin: var(--m-2, calc(var(--key-size) * 0.5));
 }
 .mobile .m\:m-3 {
-  margin: var(--m-3, var(--key-size));
+  margin: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .mobile .m\:m-4 {
-  margin: var(--m-4, calc(var(--key-size) * 1.5));
+  margin: var(--m-4, var(--key-size));
 }
 .mobile .m\:m-5 {
-  margin: var(--m-5, calc(var(--key-size) * 3));
+  margin: var(--m-5, calc(var(--key-size) * 1.25));
+}
+.mobile .m\:m-6 {
+  margin: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.mobile .m\:m-7 {
+  margin: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.mobile .m\:m-8 {
+  margin: var(--m-8, calc(var(--key-size) * 2));
 }
 .mobile .m\:m-auto {
   margin: auto;
@@ -3243,28 +3439,52 @@ h6,
   margin-right: var(--m-2, calc(var(--key-size) * 0.5));
 }
 .mobile .m\:my-3 {
-  margin-top: var(--m-3, var(--key-size));
-  margin-bottom: var(--m-3, var(--key-size));
+  margin-top: var(--m-3, calc(var(--key-size) * 0.75));
+  margin-bottom: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .mobile .m\:mx-3 {
-  margin-left: var(--m-3, var(--key-size));
-  margin-right: var(--m-3, var(--key-size));
+  margin-left: var(--m-3, calc(var(--key-size) * 0.75));
+  margin-right: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .mobile .m\:my-4 {
-  margin-top: var(--m-4, calc(var(--key-size) * 1.5));
-  margin-bottom: var(--m-4, calc(var(--key-size) * 1.5));
+  margin-top: var(--m-4, var(--key-size));
+  margin-bottom: var(--m-4, var(--key-size));
 }
 .mobile .m\:mx-4 {
-  margin-left: var(--m-4, calc(var(--key-size) * 1.5));
-  margin-right: var(--m-4, calc(var(--key-size) * 1.5));
+  margin-left: var(--m-4, var(--key-size));
+  margin-right: var(--m-4, var(--key-size));
 }
 .mobile .m\:my-5 {
-  margin-top: var(--m-5, calc(var(--key-size) * 3));
-  margin-bottom: var(--m-5, calc(var(--key-size) * 3));
+  margin-top: var(--m-5, calc(var(--key-size) * 1.25));
+  margin-bottom: var(--m-5, calc(var(--key-size) * 1.25));
 }
 .mobile .m\:mx-5 {
-  margin-left: var(--m-5, calc(var(--key-size) * 3));
-  margin-right: var(--m-5, calc(var(--key-size) * 3));
+  margin-left: var(--m-5, calc(var(--key-size) * 1.25));
+  margin-right: var(--m-5, calc(var(--key-size) * 1.25));
+}
+.mobile .m\:my-6 {
+  margin-top: var(--m-6, calc(var(--key-size) * 1.5));
+  margin-bottom: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.mobile .m\:mx-6 {
+  margin-left: var(--m-6, calc(var(--key-size) * 1.5));
+  margin-right: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.mobile .m\:my-7 {
+  margin-top: var(--m-7, calc(var(--key-size) * 1.75));
+  margin-bottom: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.mobile .m\:mx-7 {
+  margin-left: var(--m-7, calc(var(--key-size) * 1.75));
+  margin-right: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.mobile .m\:my-8 {
+  margin-top: var(--m-8, calc(var(--key-size) * 2));
+  margin-bottom: var(--m-8, calc(var(--key-size) * 2));
+}
+.mobile .m\:mx-8 {
+  margin-left: var(--m-8, calc(var(--key-size) * 2));
+  margin-right: var(--m-8, calc(var(--key-size) * 2));
 }
 .mobile .m\:my-auto {
   margin-top: auto;
@@ -3311,40 +3531,76 @@ h6,
   margin-left: var(--m-2, calc(var(--key-size) * 0.5));
 }
 .mobile .m\:mt-3 {
-  margin-top: var(--m-3, var(--key-size));
+  margin-top: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .mobile .m\:mr-3 {
-  margin-right: var(--m-3, var(--key-size));
+  margin-right: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .mobile .m\:mb-3 {
-  margin-bottom: var(--m-3, var(--key-size));
+  margin-bottom: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .mobile .m\:ml-3 {
-  margin-left: var(--m-3, var(--key-size));
+  margin-left: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .mobile .m\:mt-4 {
-  margin-top: var(--m-4, calc(var(--key-size) * 1.5));
+  margin-top: var(--m-4, var(--key-size));
 }
 .mobile .m\:mr-4 {
-  margin-right: var(--m-4, calc(var(--key-size) * 1.5));
+  margin-right: var(--m-4, var(--key-size));
 }
 .mobile .m\:mb-4 {
-  margin-bottom: var(--m-4, calc(var(--key-size) * 1.5));
+  margin-bottom: var(--m-4, var(--key-size));
 }
 .mobile .m\:ml-4 {
-  margin-left: var(--m-4, calc(var(--key-size) * 1.5));
+  margin-left: var(--m-4, var(--key-size));
 }
 .mobile .m\:mt-5 {
-  margin-top: var(--m-5, calc(var(--key-size) * 3));
+  margin-top: var(--m-5, calc(var(--key-size) * 1.25));
 }
 .mobile .m\:mr-5 {
-  margin-right: var(--m-5, calc(var(--key-size) * 3));
+  margin-right: var(--m-5, calc(var(--key-size) * 1.25));
 }
 .mobile .m\:mb-5 {
-  margin-bottom: var(--m-5, calc(var(--key-size) * 3));
+  margin-bottom: var(--m-5, calc(var(--key-size) * 1.25));
 }
 .mobile .m\:ml-5 {
-  margin-left: var(--m-5, calc(var(--key-size) * 3));
+  margin-left: var(--m-5, calc(var(--key-size) * 1.25));
+}
+.mobile .m\:mt-6 {
+  margin-top: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.mobile .m\:mr-6 {
+  margin-right: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.mobile .m\:mb-6 {
+  margin-bottom: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.mobile .m\:ml-6 {
+  margin-left: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.mobile .m\:mt-7 {
+  margin-top: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.mobile .m\:mr-7 {
+  margin-right: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.mobile .m\:mb-7 {
+  margin-bottom: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.mobile .m\:ml-7 {
+  margin-left: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.mobile .m\:mt-8 {
+  margin-top: var(--m-8, calc(var(--key-size) * 2));
+}
+.mobile .m\:mr-8 {
+  margin-right: var(--m-8, calc(var(--key-size) * 2));
+}
+.mobile .m\:mb-8 {
+  margin-bottom: var(--m-8, calc(var(--key-size) * 2));
+}
+.mobile .m\:ml-8 {
+  margin-left: var(--m-8, calc(var(--key-size) * 2));
 }
 .mobile .m\:mt-auto {
   margin-top: auto;
@@ -3368,13 +3624,22 @@ h6,
   padding: var(--p-2, calc(var(--key-size) * 0.5));
 }
 .mobile .m\:p-3 {
-  padding: var(--p-3, var(--key-size));
+  padding: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .mobile .m\:p-4 {
-  padding: var(--p-4, calc(var(--key-size) * 1.5));
+  padding: var(--p-4, var(--key-size));
 }
 .mobile .m\:p-5 {
-  padding: var(--p-5, calc(var(--key-size) * 3));
+  padding: var(--p-5, calc(var(--key-size) * 1.25));
+}
+.mobile .m\:p-6 {
+  padding: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.mobile .m\:p-7 {
+  padding: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.mobile .m\:p-8 {
+  padding: var(--p-8, calc(var(--key-size) * 2));
 }
 .mobile .m\:py-0 {
   padding-top: 0;
@@ -3389,40 +3654,64 @@ h6,
   padding-bottom: var(--p-1, calc(var(--key-size) * 0.25));
 }
 .mobile .m\:px-1 {
-  padding-right: var(--p-1, calc(var(--key-size) * 0.25));
   padding-left: var(--p-1, calc(var(--key-size) * 0.25));
+  padding-right: var(--p-1, calc(var(--key-size) * 0.25));
 }
 .mobile .m\:py-2 {
   padding-top: var(--p-2, calc(var(--key-size) * 0.5));
   padding-bottom: var(--p-2, calc(var(--key-size) * 0.5));
 }
 .mobile .m\:px-2 {
-  padding-right: var(--p-2, calc(var(--key-size) * 0.5));
   padding-left: var(--p-2, calc(var(--key-size) * 0.5));
+  padding-right: var(--p-2, calc(var(--key-size) * 0.5));
 }
 .mobile .m\:py-3 {
-  padding-top: var(--p-3, var(--key-size));
-  padding-bottom: var(--p-3, var(--key-size));
+  padding-top: var(--p-3, calc(var(--key-size) * 0.75));
+  padding-bottom: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .mobile .m\:px-3 {
-  padding-right: var(--p-3, var(--key-size));
-  padding-left: var(--p-3, var(--key-size));
+  padding-left: var(--p-3, calc(var(--key-size) * 0.75));
+  padding-right: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .mobile .m\:py-4 {
-  padding-top: var(--p-4, calc(var(--key-size) * 1.5));
-  padding-bottom: var(--p-4, calc(var(--key-size) * 1.5));
+  padding-top: var(--p-4, var(--key-size));
+  padding-bottom: var(--p-4, var(--key-size));
 }
 .mobile .m\:px-4 {
-  padding-right: var(--p-4, calc(var(--key-size) * 1.5));
-  padding-left: var(--p-4, calc(var(--key-size) * 1.5));
+  padding-left: var(--p-4, var(--key-size));
+  padding-right: var(--p-4, var(--key-size));
 }
 .mobile .m\:py-5 {
-  padding-top: var(--p-5, calc(var(--key-size) * 3));
-  padding-bottom: var(--p-5, calc(var(--key-size) * 3));
+  padding-top: var(--p-5, calc(var(--key-size) * 1.25));
+  padding-bottom: var(--p-5, calc(var(--key-size) * 1.25));
 }
 .mobile .m\:px-5 {
-  padding-right: var(--p-5, calc(var(--key-size) * 3));
-  padding-left: var(--p-5, calc(var(--key-size) * 3));
+  padding-left: var(--p-5, calc(var(--key-size) * 1.25));
+  padding-right: var(--p-5, calc(var(--key-size) * 1.25));
+}
+.mobile .m\:py-6 {
+  padding-top: var(--p-6, calc(var(--key-size) * 1.5));
+  padding-bottom: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.mobile .m\:px-6 {
+  padding-left: var(--p-6, calc(var(--key-size) * 1.5));
+  padding-right: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.mobile .m\:py-7 {
+  padding-top: var(--p-7, calc(var(--key-size) * 1.75));
+  padding-bottom: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.mobile .m\:px-7 {
+  padding-left: var(--p-7, calc(var(--key-size) * 1.75));
+  padding-right: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.mobile .m\:py-8 {
+  padding-top: var(--p-8, calc(var(--key-size) * 2));
+  padding-bottom: var(--p-8, calc(var(--key-size) * 2));
+}
+.mobile .m\:px-8 {
+  padding-left: var(--p-8, calc(var(--key-size) * 2));
+  padding-right: var(--p-8, calc(var(--key-size) * 2));
 }
 .mobile .m\:pt-0 {
   padding-top: 0;
@@ -3461,40 +3750,76 @@ h6,
   padding-left: var(--p-2, calc(var(--key-size) * 0.5));
 }
 .mobile .m\:pt-3 {
-  padding-top: var(--p-3, var(--key-size));
+  padding-top: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .mobile .m\:pr-3 {
-  padding-right: var(--p-3, var(--key-size));
+  padding-right: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .mobile .m\:pb-3 {
-  padding-bottom: var(--p-3, var(--key-size));
+  padding-bottom: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .mobile .m\:pl-3 {
-  padding-left: var(--p-3, var(--key-size));
+  padding-left: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .mobile .m\:pt-4 {
-  padding-top: var(--p-4, calc(var(--key-size) * 1.5));
+  padding-top: var(--p-4, var(--key-size));
 }
 .mobile .m\:pr-4 {
-  padding-right: var(--p-4, calc(var(--key-size) * 1.5));
+  padding-right: var(--p-4, var(--key-size));
 }
 .mobile .m\:pb-4 {
-  padding-bottom: var(--p-4, calc(var(--key-size) * 1.5));
+  padding-bottom: var(--p-4, var(--key-size));
 }
 .mobile .m\:pl-4 {
-  padding-left: var(--p-4, calc(var(--key-size) * 1.5));
+  padding-left: var(--p-4, var(--key-size));
 }
 .mobile .m\:pt-5 {
-  padding-top: var(--p-5, calc(var(--key-size) * 3));
+  padding-top: var(--p-5, calc(var(--key-size) * 1.25));
 }
 .mobile .m\:pr-5 {
-  padding-right: var(--p-5, calc(var(--key-size) * 3));
+  padding-right: var(--p-5, calc(var(--key-size) * 1.25));
 }
 .mobile .m\:pb-5 {
-  padding-bottom: var(--p-5, calc(var(--key-size) * 3));
+  padding-bottom: var(--p-5, calc(var(--key-size) * 1.25));
 }
 .mobile .m\:pl-5 {
-  padding-left: var(--p-5, calc(var(--key-size) * 3));
+  padding-left: var(--p-5, calc(var(--key-size) * 1.25));
+}
+.mobile .m\:pt-6 {
+  padding-top: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.mobile .m\:pr-6 {
+  padding-right: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.mobile .m\:pb-6 {
+  padding-bottom: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.mobile .m\:pl-6 {
+  padding-left: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.mobile .m\:pt-7 {
+  padding-top: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.mobile .m\:pr-7 {
+  padding-right: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.mobile .m\:pb-7 {
+  padding-bottom: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.mobile .m\:pl-7 {
+  padding-left: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.mobile .m\:pt-8 {
+  padding-top: var(--p-8, calc(var(--key-size) * 2));
+}
+.mobile .m\:pr-8 {
+  padding-right: var(--p-8, calc(var(--key-size) * 2));
+}
+.mobile .m\:pb-8 {
+  padding-bottom: var(--p-8, calc(var(--key-size) * 2));
+}
+.mobile .m\:pl-8 {
+  padding-left: var(--p-8, calc(var(--key-size) * 2));
 }
 .mobile .m\:g-0,
 .mobile .m\:gap-0 {
@@ -3510,15 +3835,27 @@ h6,
 }
 .mobile .m\:g-3,
 .mobile .m\:gap-3 {
-  grid-gap: var(--g-3, var(--key-size));
+  grid-gap: var(--g-3, calc(var(--key-size) * 0.75));
 }
 .mobile .m\:g-4,
 .mobile .m\:gap-4 {
-  grid-gap: var(--g-4, calc(var(--key-size) * 1.5));
+  grid-gap: var(--g-4, var(--key-size));
 }
 .mobile .m\:g-5,
 .mobile .m\:gap-5 {
-  grid-gap: var(--g-5, calc(var(--key-size) * 3));
+  grid-gap: var(--g-5, calc(var(--key-size) * 1.25));
+}
+.mobile .m\:g-6,
+.mobile .m\:gap-6 {
+  grid-gap: var(--g-6, calc(var(--key-size) * 1.5));
+}
+.mobile .m\:g-7,
+.mobile .m\:gap-7 {
+  grid-gap: var(--g-7, calc(var(--key-size) * 1.75));
+}
+.mobile .m\:g-8,
+.mobile .m\:gap-8 {
+  grid-gap: var(--g-8, calc(var(--key-size) * 2));
 }
 .mobile .m\:text-start,
 .mobile .m\:text-left {
@@ -4297,13 +4634,22 @@ h6,
   margin: var(--m-2, calc(var(--key-size) * 0.5));
 }
 .tablet .t\:m-3 {
-  margin: var(--m-3, var(--key-size));
+  margin: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .tablet .t\:m-4 {
-  margin: var(--m-4, calc(var(--key-size) * 1.5));
+  margin: var(--m-4, var(--key-size));
 }
 .tablet .t\:m-5 {
-  margin: var(--m-5, calc(var(--key-size) * 3));
+  margin: var(--m-5, calc(var(--key-size) * 1.25));
+}
+.tablet .t\:m-6 {
+  margin: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.tablet .t\:m-7 {
+  margin: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.tablet .t\:m-8 {
+  margin: var(--m-8, calc(var(--key-size) * 2));
 }
 .tablet .t\:m-auto {
   margin: auto;
@@ -4333,28 +4679,52 @@ h6,
   margin-right: var(--m-2, calc(var(--key-size) * 0.5));
 }
 .tablet .t\:my-3 {
-  margin-top: var(--m-3, var(--key-size));
-  margin-bottom: var(--m-3, var(--key-size));
+  margin-top: var(--m-3, calc(var(--key-size) * 0.75));
+  margin-bottom: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .tablet .t\:mx-3 {
-  margin-left: var(--m-3, var(--key-size));
-  margin-right: var(--m-3, var(--key-size));
+  margin-left: var(--m-3, calc(var(--key-size) * 0.75));
+  margin-right: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .tablet .t\:my-4 {
-  margin-top: var(--m-4, calc(var(--key-size) * 1.5));
-  margin-bottom: var(--m-4, calc(var(--key-size) * 1.5));
+  margin-top: var(--m-4, var(--key-size));
+  margin-bottom: var(--m-4, var(--key-size));
 }
 .tablet .t\:mx-4 {
-  margin-left: var(--m-4, calc(var(--key-size) * 1.5));
-  margin-right: var(--m-4, calc(var(--key-size) * 1.5));
+  margin-left: var(--m-4, var(--key-size));
+  margin-right: var(--m-4, var(--key-size));
 }
 .tablet .t\:my-5 {
-  margin-top: var(--m-5, calc(var(--key-size) * 3));
-  margin-bottom: var(--m-5, calc(var(--key-size) * 3));
+  margin-top: var(--m-5, calc(var(--key-size) * 1.25));
+  margin-bottom: var(--m-5, calc(var(--key-size) * 1.25));
 }
 .tablet .t\:mx-5 {
-  margin-left: var(--m-5, calc(var(--key-size) * 3));
-  margin-right: var(--m-5, calc(var(--key-size) * 3));
+  margin-left: var(--m-5, calc(var(--key-size) * 1.25));
+  margin-right: var(--m-5, calc(var(--key-size) * 1.25));
+}
+.tablet .t\:my-6 {
+  margin-top: var(--m-6, calc(var(--key-size) * 1.5));
+  margin-bottom: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.tablet .t\:mx-6 {
+  margin-left: var(--m-6, calc(var(--key-size) * 1.5));
+  margin-right: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.tablet .t\:my-7 {
+  margin-top: var(--m-7, calc(var(--key-size) * 1.75));
+  margin-bottom: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.tablet .t\:mx-7 {
+  margin-left: var(--m-7, calc(var(--key-size) * 1.75));
+  margin-right: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.tablet .t\:my-8 {
+  margin-top: var(--m-8, calc(var(--key-size) * 2));
+  margin-bottom: var(--m-8, calc(var(--key-size) * 2));
+}
+.tablet .t\:mx-8 {
+  margin-left: var(--m-8, calc(var(--key-size) * 2));
+  margin-right: var(--m-8, calc(var(--key-size) * 2));
 }
 .tablet .t\:my-auto {
   margin-top: auto;
@@ -4401,40 +4771,76 @@ h6,
   margin-left: var(--m-2, calc(var(--key-size) * 0.5));
 }
 .tablet .t\:mt-3 {
-  margin-top: var(--m-3, var(--key-size));
+  margin-top: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .tablet .t\:mr-3 {
-  margin-right: var(--m-3, var(--key-size));
+  margin-right: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .tablet .t\:mb-3 {
-  margin-bottom: var(--m-3, var(--key-size));
+  margin-bottom: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .tablet .t\:ml-3 {
-  margin-left: var(--m-3, var(--key-size));
+  margin-left: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .tablet .t\:mt-4 {
-  margin-top: var(--m-4, calc(var(--key-size) * 1.5));
+  margin-top: var(--m-4, var(--key-size));
 }
 .tablet .t\:mr-4 {
-  margin-right: var(--m-4, calc(var(--key-size) * 1.5));
+  margin-right: var(--m-4, var(--key-size));
 }
 .tablet .t\:mb-4 {
-  margin-bottom: var(--m-4, calc(var(--key-size) * 1.5));
+  margin-bottom: var(--m-4, var(--key-size));
 }
 .tablet .t\:ml-4 {
-  margin-left: var(--m-4, calc(var(--key-size) * 1.5));
+  margin-left: var(--m-4, var(--key-size));
 }
 .tablet .t\:mt-5 {
-  margin-top: var(--m-5, calc(var(--key-size) * 3));
+  margin-top: var(--m-5, calc(var(--key-size) * 1.25));
 }
 .tablet .t\:mr-5 {
-  margin-right: var(--m-5, calc(var(--key-size) * 3));
+  margin-right: var(--m-5, calc(var(--key-size) * 1.25));
 }
 .tablet .t\:mb-5 {
-  margin-bottom: var(--m-5, calc(var(--key-size) * 3));
+  margin-bottom: var(--m-5, calc(var(--key-size) * 1.25));
 }
 .tablet .t\:ml-5 {
-  margin-left: var(--m-5, calc(var(--key-size) * 3));
+  margin-left: var(--m-5, calc(var(--key-size) * 1.25));
+}
+.tablet .t\:mt-6 {
+  margin-top: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.tablet .t\:mr-6 {
+  margin-right: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.tablet .t\:mb-6 {
+  margin-bottom: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.tablet .t\:ml-6 {
+  margin-left: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.tablet .t\:mt-7 {
+  margin-top: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.tablet .t\:mr-7 {
+  margin-right: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.tablet .t\:mb-7 {
+  margin-bottom: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.tablet .t\:ml-7 {
+  margin-left: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.tablet .t\:mt-8 {
+  margin-top: var(--m-8, calc(var(--key-size) * 2));
+}
+.tablet .t\:mr-8 {
+  margin-right: var(--m-8, calc(var(--key-size) * 2));
+}
+.tablet .t\:mb-8 {
+  margin-bottom: var(--m-8, calc(var(--key-size) * 2));
+}
+.tablet .t\:ml-8 {
+  margin-left: var(--m-8, calc(var(--key-size) * 2));
 }
 .tablet .t\:mt-auto {
   margin-top: auto;
@@ -4458,13 +4864,22 @@ h6,
   padding: var(--p-2, calc(var(--key-size) * 0.5));
 }
 .tablet .t\:p-3 {
-  padding: var(--p-3, var(--key-size));
+  padding: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .tablet .t\:p-4 {
-  padding: var(--p-4, calc(var(--key-size) * 1.5));
+  padding: var(--p-4, var(--key-size));
 }
 .tablet .t\:p-5 {
-  padding: var(--p-5, calc(var(--key-size) * 3));
+  padding: var(--p-5, calc(var(--key-size) * 1.25));
+}
+.tablet .t\:p-6 {
+  padding: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.tablet .t\:p-7 {
+  padding: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.tablet .t\:p-8 {
+  padding: var(--p-8, calc(var(--key-size) * 2));
 }
 .tablet .t\:py-0 {
   padding-top: 0;
@@ -4479,40 +4894,64 @@ h6,
   padding-bottom: var(--p-1, calc(var(--key-size) * 0.25));
 }
 .tablet .t\:px-1 {
-  padding-right: var(--p-1, calc(var(--key-size) * 0.25));
   padding-left: var(--p-1, calc(var(--key-size) * 0.25));
+  padding-right: var(--p-1, calc(var(--key-size) * 0.25));
 }
 .tablet .t\:py-2 {
   padding-top: var(--p-2, calc(var(--key-size) * 0.5));
   padding-bottom: var(--p-2, calc(var(--key-size) * 0.5));
 }
 .tablet .t\:px-2 {
-  padding-right: var(--p-2, calc(var(--key-size) * 0.5));
   padding-left: var(--p-2, calc(var(--key-size) * 0.5));
+  padding-right: var(--p-2, calc(var(--key-size) * 0.5));
 }
 .tablet .t\:py-3 {
-  padding-top: var(--p-3, var(--key-size));
-  padding-bottom: var(--p-3, var(--key-size));
+  padding-top: var(--p-3, calc(var(--key-size) * 0.75));
+  padding-bottom: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .tablet .t\:px-3 {
-  padding-right: var(--p-3, var(--key-size));
-  padding-left: var(--p-3, var(--key-size));
+  padding-left: var(--p-3, calc(var(--key-size) * 0.75));
+  padding-right: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .tablet .t\:py-4 {
-  padding-top: var(--p-4, calc(var(--key-size) * 1.5));
-  padding-bottom: var(--p-4, calc(var(--key-size) * 1.5));
+  padding-top: var(--p-4, var(--key-size));
+  padding-bottom: var(--p-4, var(--key-size));
 }
 .tablet .t\:px-4 {
-  padding-right: var(--p-4, calc(var(--key-size) * 1.5));
-  padding-left: var(--p-4, calc(var(--key-size) * 1.5));
+  padding-left: var(--p-4, var(--key-size));
+  padding-right: var(--p-4, var(--key-size));
 }
 .tablet .t\:py-5 {
-  padding-top: var(--p-5, calc(var(--key-size) * 3));
-  padding-bottom: var(--p-5, calc(var(--key-size) * 3));
+  padding-top: var(--p-5, calc(var(--key-size) * 1.25));
+  padding-bottom: var(--p-5, calc(var(--key-size) * 1.25));
 }
 .tablet .t\:px-5 {
-  padding-right: var(--p-5, calc(var(--key-size) * 3));
-  padding-left: var(--p-5, calc(var(--key-size) * 3));
+  padding-left: var(--p-5, calc(var(--key-size) * 1.25));
+  padding-right: var(--p-5, calc(var(--key-size) * 1.25));
+}
+.tablet .t\:py-6 {
+  padding-top: var(--p-6, calc(var(--key-size) * 1.5));
+  padding-bottom: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.tablet .t\:px-6 {
+  padding-left: var(--p-6, calc(var(--key-size) * 1.5));
+  padding-right: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.tablet .t\:py-7 {
+  padding-top: var(--p-7, calc(var(--key-size) * 1.75));
+  padding-bottom: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.tablet .t\:px-7 {
+  padding-left: var(--p-7, calc(var(--key-size) * 1.75));
+  padding-right: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.tablet .t\:py-8 {
+  padding-top: var(--p-8, calc(var(--key-size) * 2));
+  padding-bottom: var(--p-8, calc(var(--key-size) * 2));
+}
+.tablet .t\:px-8 {
+  padding-left: var(--p-8, calc(var(--key-size) * 2));
+  padding-right: var(--p-8, calc(var(--key-size) * 2));
 }
 .tablet .t\:pt-0 {
   padding-top: 0;
@@ -4551,40 +4990,76 @@ h6,
   padding-left: var(--p-2, calc(var(--key-size) * 0.5));
 }
 .tablet .t\:pt-3 {
-  padding-top: var(--p-3, var(--key-size));
+  padding-top: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .tablet .t\:pr-3 {
-  padding-right: var(--p-3, var(--key-size));
+  padding-right: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .tablet .t\:pb-3 {
-  padding-bottom: var(--p-3, var(--key-size));
+  padding-bottom: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .tablet .t\:pl-3 {
-  padding-left: var(--p-3, var(--key-size));
+  padding-left: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .tablet .t\:pt-4 {
-  padding-top: var(--p-4, calc(var(--key-size) * 1.5));
+  padding-top: var(--p-4, var(--key-size));
 }
 .tablet .t\:pr-4 {
-  padding-right: var(--p-4, calc(var(--key-size) * 1.5));
+  padding-right: var(--p-4, var(--key-size));
 }
 .tablet .t\:pb-4 {
-  padding-bottom: var(--p-4, calc(var(--key-size) * 1.5));
+  padding-bottom: var(--p-4, var(--key-size));
 }
 .tablet .t\:pl-4 {
-  padding-left: var(--p-4, calc(var(--key-size) * 1.5));
+  padding-left: var(--p-4, var(--key-size));
 }
 .tablet .t\:pt-5 {
-  padding-top: var(--p-5, calc(var(--key-size) * 3));
+  padding-top: var(--p-5, calc(var(--key-size) * 1.25));
 }
 .tablet .t\:pr-5 {
-  padding-right: var(--p-5, calc(var(--key-size) * 3));
+  padding-right: var(--p-5, calc(var(--key-size) * 1.25));
 }
 .tablet .t\:pb-5 {
-  padding-bottom: var(--p-5, calc(var(--key-size) * 3));
+  padding-bottom: var(--p-5, calc(var(--key-size) * 1.25));
 }
 .tablet .t\:pl-5 {
-  padding-left: var(--p-5, calc(var(--key-size) * 3));
+  padding-left: var(--p-5, calc(var(--key-size) * 1.25));
+}
+.tablet .t\:pt-6 {
+  padding-top: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.tablet .t\:pr-6 {
+  padding-right: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.tablet .t\:pb-6 {
+  padding-bottom: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.tablet .t\:pl-6 {
+  padding-left: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.tablet .t\:pt-7 {
+  padding-top: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.tablet .t\:pr-7 {
+  padding-right: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.tablet .t\:pb-7 {
+  padding-bottom: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.tablet .t\:pl-7 {
+  padding-left: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.tablet .t\:pt-8 {
+  padding-top: var(--p-8, calc(var(--key-size) * 2));
+}
+.tablet .t\:pr-8 {
+  padding-right: var(--p-8, calc(var(--key-size) * 2));
+}
+.tablet .t\:pb-8 {
+  padding-bottom: var(--p-8, calc(var(--key-size) * 2));
+}
+.tablet .t\:pl-8 {
+  padding-left: var(--p-8, calc(var(--key-size) * 2));
 }
 .tablet .t\:g-0,
 .tablet .t\:gap-0 {
@@ -4600,15 +5075,27 @@ h6,
 }
 .tablet .t\:g-3,
 .tablet .t\:gap-3 {
-  grid-gap: var(--g-3, var(--key-size));
+  grid-gap: var(--g-3, calc(var(--key-size) * 0.75));
 }
 .tablet .t\:g-4,
 .tablet .t\:gap-4 {
-  grid-gap: var(--g-4, calc(var(--key-size) * 1.5));
+  grid-gap: var(--g-4, var(--key-size));
 }
 .tablet .t\:g-5,
 .tablet .t\:gap-5 {
-  grid-gap: var(--g-5, calc(var(--key-size) * 3));
+  grid-gap: var(--g-5, calc(var(--key-size) * 1.25));
+}
+.tablet .t\:g-6,
+.tablet .t\:gap-6 {
+  grid-gap: var(--g-6, calc(var(--key-size) * 1.5));
+}
+.tablet .t\:g-7,
+.tablet .t\:gap-7 {
+  grid-gap: var(--g-7, calc(var(--key-size) * 1.75));
+}
+.tablet .t\:g-8,
+.tablet .t\:gap-8 {
+  grid-gap: var(--g-8, calc(var(--key-size) * 2));
 }
 .tablet .t\:text-start,
 .tablet .t\:text-left {
@@ -5387,13 +5874,22 @@ h6,
   margin: var(--m-2, calc(var(--key-size) * 0.5));
 }
 .desktop .d\:m-3 {
-  margin: var(--m-3, var(--key-size));
+  margin: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .desktop .d\:m-4 {
-  margin: var(--m-4, calc(var(--key-size) * 1.5));
+  margin: var(--m-4, var(--key-size));
 }
 .desktop .d\:m-5 {
-  margin: var(--m-5, calc(var(--key-size) * 3));
+  margin: var(--m-5, calc(var(--key-size) * 1.25));
+}
+.desktop .d\:m-6 {
+  margin: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.desktop .d\:m-7 {
+  margin: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.desktop .d\:m-8 {
+  margin: var(--m-8, calc(var(--key-size) * 2));
 }
 .desktop .d\:m-auto {
   margin: auto;
@@ -5423,28 +5919,52 @@ h6,
   margin-right: var(--m-2, calc(var(--key-size) * 0.5));
 }
 .desktop .d\:my-3 {
-  margin-top: var(--m-3, var(--key-size));
-  margin-bottom: var(--m-3, var(--key-size));
+  margin-top: var(--m-3, calc(var(--key-size) * 0.75));
+  margin-bottom: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .desktop .d\:mx-3 {
-  margin-left: var(--m-3, var(--key-size));
-  margin-right: var(--m-3, var(--key-size));
+  margin-left: var(--m-3, calc(var(--key-size) * 0.75));
+  margin-right: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .desktop .d\:my-4 {
-  margin-top: var(--m-4, calc(var(--key-size) * 1.5));
-  margin-bottom: var(--m-4, calc(var(--key-size) * 1.5));
+  margin-top: var(--m-4, var(--key-size));
+  margin-bottom: var(--m-4, var(--key-size));
 }
 .desktop .d\:mx-4 {
-  margin-left: var(--m-4, calc(var(--key-size) * 1.5));
-  margin-right: var(--m-4, calc(var(--key-size) * 1.5));
+  margin-left: var(--m-4, var(--key-size));
+  margin-right: var(--m-4, var(--key-size));
 }
 .desktop .d\:my-5 {
-  margin-top: var(--m-5, calc(var(--key-size) * 3));
-  margin-bottom: var(--m-5, calc(var(--key-size) * 3));
+  margin-top: var(--m-5, calc(var(--key-size) * 1.25));
+  margin-bottom: var(--m-5, calc(var(--key-size) * 1.25));
 }
 .desktop .d\:mx-5 {
-  margin-left: var(--m-5, calc(var(--key-size) * 3));
-  margin-right: var(--m-5, calc(var(--key-size) * 3));
+  margin-left: var(--m-5, calc(var(--key-size) * 1.25));
+  margin-right: var(--m-5, calc(var(--key-size) * 1.25));
+}
+.desktop .d\:my-6 {
+  margin-top: var(--m-6, calc(var(--key-size) * 1.5));
+  margin-bottom: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.desktop .d\:mx-6 {
+  margin-left: var(--m-6, calc(var(--key-size) * 1.5));
+  margin-right: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.desktop .d\:my-7 {
+  margin-top: var(--m-7, calc(var(--key-size) * 1.75));
+  margin-bottom: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.desktop .d\:mx-7 {
+  margin-left: var(--m-7, calc(var(--key-size) * 1.75));
+  margin-right: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.desktop .d\:my-8 {
+  margin-top: var(--m-8, calc(var(--key-size) * 2));
+  margin-bottom: var(--m-8, calc(var(--key-size) * 2));
+}
+.desktop .d\:mx-8 {
+  margin-left: var(--m-8, calc(var(--key-size) * 2));
+  margin-right: var(--m-8, calc(var(--key-size) * 2));
 }
 .desktop .d\:my-auto {
   margin-top: auto;
@@ -5491,40 +6011,76 @@ h6,
   margin-left: var(--m-2, calc(var(--key-size) * 0.5));
 }
 .desktop .d\:mt-3 {
-  margin-top: var(--m-3, var(--key-size));
+  margin-top: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .desktop .d\:mr-3 {
-  margin-right: var(--m-3, var(--key-size));
+  margin-right: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .desktop .d\:mb-3 {
-  margin-bottom: var(--m-3, var(--key-size));
+  margin-bottom: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .desktop .d\:ml-3 {
-  margin-left: var(--m-3, var(--key-size));
+  margin-left: var(--m-3, calc(var(--key-size) * 0.75));
 }
 .desktop .d\:mt-4 {
-  margin-top: var(--m-4, calc(var(--key-size) * 1.5));
+  margin-top: var(--m-4, var(--key-size));
 }
 .desktop .d\:mr-4 {
-  margin-right: var(--m-4, calc(var(--key-size) * 1.5));
+  margin-right: var(--m-4, var(--key-size));
 }
 .desktop .d\:mb-4 {
-  margin-bottom: var(--m-4, calc(var(--key-size) * 1.5));
+  margin-bottom: var(--m-4, var(--key-size));
 }
 .desktop .d\:ml-4 {
-  margin-left: var(--m-4, calc(var(--key-size) * 1.5));
+  margin-left: var(--m-4, var(--key-size));
 }
 .desktop .d\:mt-5 {
-  margin-top: var(--m-5, calc(var(--key-size) * 3));
+  margin-top: var(--m-5, calc(var(--key-size) * 1.25));
 }
 .desktop .d\:mr-5 {
-  margin-right: var(--m-5, calc(var(--key-size) * 3));
+  margin-right: var(--m-5, calc(var(--key-size) * 1.25));
 }
 .desktop .d\:mb-5 {
-  margin-bottom: var(--m-5, calc(var(--key-size) * 3));
+  margin-bottom: var(--m-5, calc(var(--key-size) * 1.25));
 }
 .desktop .d\:ml-5 {
-  margin-left: var(--m-5, calc(var(--key-size) * 3));
+  margin-left: var(--m-5, calc(var(--key-size) * 1.25));
+}
+.desktop .d\:mt-6 {
+  margin-top: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.desktop .d\:mr-6 {
+  margin-right: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.desktop .d\:mb-6 {
+  margin-bottom: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.desktop .d\:ml-6 {
+  margin-left: var(--m-6, calc(var(--key-size) * 1.5));
+}
+.desktop .d\:mt-7 {
+  margin-top: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.desktop .d\:mr-7 {
+  margin-right: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.desktop .d\:mb-7 {
+  margin-bottom: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.desktop .d\:ml-7 {
+  margin-left: var(--m-7, calc(var(--key-size) * 1.75));
+}
+.desktop .d\:mt-8 {
+  margin-top: var(--m-8, calc(var(--key-size) * 2));
+}
+.desktop .d\:mr-8 {
+  margin-right: var(--m-8, calc(var(--key-size) * 2));
+}
+.desktop .d\:mb-8 {
+  margin-bottom: var(--m-8, calc(var(--key-size) * 2));
+}
+.desktop .d\:ml-8 {
+  margin-left: var(--m-8, calc(var(--key-size) * 2));
 }
 .desktop .d\:mt-auto {
   margin-top: auto;
@@ -5548,13 +6104,22 @@ h6,
   padding: var(--p-2, calc(var(--key-size) * 0.5));
 }
 .desktop .d\:p-3 {
-  padding: var(--p-3, var(--key-size));
+  padding: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .desktop .d\:p-4 {
-  padding: var(--p-4, calc(var(--key-size) * 1.5));
+  padding: var(--p-4, var(--key-size));
 }
 .desktop .d\:p-5 {
-  padding: var(--p-5, calc(var(--key-size) * 3));
+  padding: var(--p-5, calc(var(--key-size) * 1.25));
+}
+.desktop .d\:p-6 {
+  padding: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.desktop .d\:p-7 {
+  padding: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.desktop .d\:p-8 {
+  padding: var(--p-8, calc(var(--key-size) * 2));
 }
 .desktop .d\:py-0 {
   padding-top: 0;
@@ -5569,40 +6134,64 @@ h6,
   padding-bottom: var(--p-1, calc(var(--key-size) * 0.25));
 }
 .desktop .d\:px-1 {
-  padding-right: var(--p-1, calc(var(--key-size) * 0.25));
   padding-left: var(--p-1, calc(var(--key-size) * 0.25));
+  padding-right: var(--p-1, calc(var(--key-size) * 0.25));
 }
 .desktop .d\:py-2 {
   padding-top: var(--p-2, calc(var(--key-size) * 0.5));
   padding-bottom: var(--p-2, calc(var(--key-size) * 0.5));
 }
 .desktop .d\:px-2 {
-  padding-right: var(--p-2, calc(var(--key-size) * 0.5));
   padding-left: var(--p-2, calc(var(--key-size) * 0.5));
+  padding-right: var(--p-2, calc(var(--key-size) * 0.5));
 }
 .desktop .d\:py-3 {
-  padding-top: var(--p-3, var(--key-size));
-  padding-bottom: var(--p-3, var(--key-size));
+  padding-top: var(--p-3, calc(var(--key-size) * 0.75));
+  padding-bottom: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .desktop .d\:px-3 {
-  padding-right: var(--p-3, var(--key-size));
-  padding-left: var(--p-3, var(--key-size));
+  padding-left: var(--p-3, calc(var(--key-size) * 0.75));
+  padding-right: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .desktop .d\:py-4 {
-  padding-top: var(--p-4, calc(var(--key-size) * 1.5));
-  padding-bottom: var(--p-4, calc(var(--key-size) * 1.5));
+  padding-top: var(--p-4, var(--key-size));
+  padding-bottom: var(--p-4, var(--key-size));
 }
 .desktop .d\:px-4 {
-  padding-right: var(--p-4, calc(var(--key-size) * 1.5));
-  padding-left: var(--p-4, calc(var(--key-size) * 1.5));
+  padding-left: var(--p-4, var(--key-size));
+  padding-right: var(--p-4, var(--key-size));
 }
 .desktop .d\:py-5 {
-  padding-top: var(--p-5, calc(var(--key-size) * 3));
-  padding-bottom: var(--p-5, calc(var(--key-size) * 3));
+  padding-top: var(--p-5, calc(var(--key-size) * 1.25));
+  padding-bottom: var(--p-5, calc(var(--key-size) * 1.25));
 }
 .desktop .d\:px-5 {
-  padding-right: var(--p-5, calc(var(--key-size) * 3));
-  padding-left: var(--p-5, calc(var(--key-size) * 3));
+  padding-left: var(--p-5, calc(var(--key-size) * 1.25));
+  padding-right: var(--p-5, calc(var(--key-size) * 1.25));
+}
+.desktop .d\:py-6 {
+  padding-top: var(--p-6, calc(var(--key-size) * 1.5));
+  padding-bottom: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.desktop .d\:px-6 {
+  padding-left: var(--p-6, calc(var(--key-size) * 1.5));
+  padding-right: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.desktop .d\:py-7 {
+  padding-top: var(--p-7, calc(var(--key-size) * 1.75));
+  padding-bottom: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.desktop .d\:px-7 {
+  padding-left: var(--p-7, calc(var(--key-size) * 1.75));
+  padding-right: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.desktop .d\:py-8 {
+  padding-top: var(--p-8, calc(var(--key-size) * 2));
+  padding-bottom: var(--p-8, calc(var(--key-size) * 2));
+}
+.desktop .d\:px-8 {
+  padding-left: var(--p-8, calc(var(--key-size) * 2));
+  padding-right: var(--p-8, calc(var(--key-size) * 2));
 }
 .desktop .d\:pt-0 {
   padding-top: 0;
@@ -5641,40 +6230,76 @@ h6,
   padding-left: var(--p-2, calc(var(--key-size) * 0.5));
 }
 .desktop .d\:pt-3 {
-  padding-top: var(--p-3, var(--key-size));
+  padding-top: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .desktop .d\:pr-3 {
-  padding-right: var(--p-3, var(--key-size));
+  padding-right: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .desktop .d\:pb-3 {
-  padding-bottom: var(--p-3, var(--key-size));
+  padding-bottom: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .desktop .d\:pl-3 {
-  padding-left: var(--p-3, var(--key-size));
+  padding-left: var(--p-3, calc(var(--key-size) * 0.75));
 }
 .desktop .d\:pt-4 {
-  padding-top: var(--p-4, calc(var(--key-size) * 1.5));
+  padding-top: var(--p-4, var(--key-size));
 }
 .desktop .d\:pr-4 {
-  padding-right: var(--p-4, calc(var(--key-size) * 1.5));
+  padding-right: var(--p-4, var(--key-size));
 }
 .desktop .d\:pb-4 {
-  padding-bottom: var(--p-4, calc(var(--key-size) * 1.5));
+  padding-bottom: var(--p-4, var(--key-size));
 }
 .desktop .d\:pl-4 {
-  padding-left: var(--p-4, calc(var(--key-size) * 1.5));
+  padding-left: var(--p-4, var(--key-size));
 }
 .desktop .d\:pt-5 {
-  padding-top: var(--p-5, calc(var(--key-size) * 3));
+  padding-top: var(--p-5, calc(var(--key-size) * 1.25));
 }
 .desktop .d\:pr-5 {
-  padding-right: var(--p-5, calc(var(--key-size) * 3));
+  padding-right: var(--p-5, calc(var(--key-size) * 1.25));
 }
 .desktop .d\:pb-5 {
-  padding-bottom: var(--p-5, calc(var(--key-size) * 3));
+  padding-bottom: var(--p-5, calc(var(--key-size) * 1.25));
 }
 .desktop .d\:pl-5 {
-  padding-left: var(--p-5, calc(var(--key-size) * 3));
+  padding-left: var(--p-5, calc(var(--key-size) * 1.25));
+}
+.desktop .d\:pt-6 {
+  padding-top: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.desktop .d\:pr-6 {
+  padding-right: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.desktop .d\:pb-6 {
+  padding-bottom: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.desktop .d\:pl-6 {
+  padding-left: var(--p-6, calc(var(--key-size) * 1.5));
+}
+.desktop .d\:pt-7 {
+  padding-top: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.desktop .d\:pr-7 {
+  padding-right: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.desktop .d\:pb-7 {
+  padding-bottom: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.desktop .d\:pl-7 {
+  padding-left: var(--p-7, calc(var(--key-size) * 1.75));
+}
+.desktop .d\:pt-8 {
+  padding-top: var(--p-8, calc(var(--key-size) * 2));
+}
+.desktop .d\:pr-8 {
+  padding-right: var(--p-8, calc(var(--key-size) * 2));
+}
+.desktop .d\:pb-8 {
+  padding-bottom: var(--p-8, calc(var(--key-size) * 2));
+}
+.desktop .d\:pl-8 {
+  padding-left: var(--p-8, calc(var(--key-size) * 2));
 }
 .desktop .d\:g-0,
 .desktop .d\:gap-0 {
@@ -5690,15 +6315,27 @@ h6,
 }
 .desktop .d\:g-3,
 .desktop .d\:gap-3 {
-  grid-gap: var(--g-3, var(--key-size));
+  grid-gap: var(--g-3, calc(var(--key-size) * 0.75));
 }
 .desktop .d\:g-4,
 .desktop .d\:gap-4 {
-  grid-gap: var(--g-4, calc(var(--key-size) * 1.5));
+  grid-gap: var(--g-4, var(--key-size));
 }
 .desktop .d\:g-5,
 .desktop .d\:gap-5 {
-  grid-gap: var(--g-5, calc(var(--key-size) * 3));
+  grid-gap: var(--g-5, calc(var(--key-size) * 1.25));
+}
+.desktop .d\:g-6,
+.desktop .d\:gap-6 {
+  grid-gap: var(--g-6, calc(var(--key-size) * 1.5));
+}
+.desktop .d\:g-7,
+.desktop .d\:gap-7 {
+  grid-gap: var(--g-7, calc(var(--key-size) * 1.75));
+}
+.desktop .d\:g-8,
+.desktop .d\:gap-8 {
+  grid-gap: var(--g-8, calc(var(--key-size) * 2));
 }
 .desktop .d\:text-start,
 .desktop .d\:text-left {
@@ -6478,13 +7115,22 @@ h6,
     margin: var(--m-2, calc(var(--key-size) * 0.5));
   }
   .l\:m-3 {
-    margin: var(--m-3, var(--key-size));
+    margin: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .l\:m-4 {
-    margin: var(--m-4, calc(var(--key-size) * 1.5));
+    margin: var(--m-4, var(--key-size));
   }
   .l\:m-5 {
-    margin: var(--m-5, calc(var(--key-size) * 3));
+    margin: var(--m-5, calc(var(--key-size) * 1.25));
+  }
+  .l\:m-6 {
+    margin: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .l\:m-7 {
+    margin: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .l\:m-8 {
+    margin: var(--m-8, calc(var(--key-size) * 2));
   }
   .l\:m-auto {
     margin: auto;
@@ -6514,28 +7160,52 @@ h6,
     margin-right: var(--m-2, calc(var(--key-size) * 0.5));
   }
   .l\:my-3 {
-    margin-top: var(--m-3, var(--key-size));
-    margin-bottom: var(--m-3, var(--key-size));
+    margin-top: var(--m-3, calc(var(--key-size) * 0.75));
+    margin-bottom: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .l\:mx-3 {
-    margin-left: var(--m-3, var(--key-size));
-    margin-right: var(--m-3, var(--key-size));
+    margin-left: var(--m-3, calc(var(--key-size) * 0.75));
+    margin-right: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .l\:my-4 {
-    margin-top: var(--m-4, calc(var(--key-size) * 1.5));
-    margin-bottom: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-top: var(--m-4, var(--key-size));
+    margin-bottom: var(--m-4, var(--key-size));
   }
   .l\:mx-4 {
-    margin-left: var(--m-4, calc(var(--key-size) * 1.5));
-    margin-right: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-left: var(--m-4, var(--key-size));
+    margin-right: var(--m-4, var(--key-size));
   }
   .l\:my-5 {
-    margin-top: var(--m-5, calc(var(--key-size) * 3));
-    margin-bottom: var(--m-5, calc(var(--key-size) * 3));
+    margin-top: var(--m-5, calc(var(--key-size) * 1.25));
+    margin-bottom: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .l\:mx-5 {
-    margin-left: var(--m-5, calc(var(--key-size) * 3));
-    margin-right: var(--m-5, calc(var(--key-size) * 3));
+    margin-left: var(--m-5, calc(var(--key-size) * 1.25));
+    margin-right: var(--m-5, calc(var(--key-size) * 1.25));
+  }
+  .l\:my-6 {
+    margin-top: var(--m-6, calc(var(--key-size) * 1.5));
+    margin-bottom: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .l\:mx-6 {
+    margin-left: var(--m-6, calc(var(--key-size) * 1.5));
+    margin-right: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .l\:my-7 {
+    margin-top: var(--m-7, calc(var(--key-size) * 1.75));
+    margin-bottom: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .l\:mx-7 {
+    margin-left: var(--m-7, calc(var(--key-size) * 1.75));
+    margin-right: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .l\:my-8 {
+    margin-top: var(--m-8, calc(var(--key-size) * 2));
+    margin-bottom: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .l\:mx-8 {
+    margin-left: var(--m-8, calc(var(--key-size) * 2));
+    margin-right: var(--m-8, calc(var(--key-size) * 2));
   }
   .l\:my-auto {
     margin-top: auto;
@@ -6582,40 +7252,76 @@ h6,
     margin-left: var(--m-2, calc(var(--key-size) * 0.5));
   }
   .l\:mt-3 {
-    margin-top: var(--m-3, var(--key-size));
+    margin-top: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .l\:mr-3 {
-    margin-right: var(--m-3, var(--key-size));
+    margin-right: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .l\:mb-3 {
-    margin-bottom: var(--m-3, var(--key-size));
+    margin-bottom: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .l\:ml-3 {
-    margin-left: var(--m-3, var(--key-size));
+    margin-left: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .l\:mt-4 {
-    margin-top: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-top: var(--m-4, var(--key-size));
   }
   .l\:mr-4 {
-    margin-right: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-right: var(--m-4, var(--key-size));
   }
   .l\:mb-4 {
-    margin-bottom: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-bottom: var(--m-4, var(--key-size));
   }
   .l\:ml-4 {
-    margin-left: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-left: var(--m-4, var(--key-size));
   }
   .l\:mt-5 {
-    margin-top: var(--m-5, calc(var(--key-size) * 3));
+    margin-top: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .l\:mr-5 {
-    margin-right: var(--m-5, calc(var(--key-size) * 3));
+    margin-right: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .l\:mb-5 {
-    margin-bottom: var(--m-5, calc(var(--key-size) * 3));
+    margin-bottom: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .l\:ml-5 {
-    margin-left: var(--m-5, calc(var(--key-size) * 3));
+    margin-left: var(--m-5, calc(var(--key-size) * 1.25));
+  }
+  .l\:mt-6 {
+    margin-top: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .l\:mr-6 {
+    margin-right: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .l\:mb-6 {
+    margin-bottom: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .l\:ml-6 {
+    margin-left: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .l\:mt-7 {
+    margin-top: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .l\:mr-7 {
+    margin-right: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .l\:mb-7 {
+    margin-bottom: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .l\:ml-7 {
+    margin-left: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .l\:mt-8 {
+    margin-top: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .l\:mr-8 {
+    margin-right: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .l\:mb-8 {
+    margin-bottom: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .l\:ml-8 {
+    margin-left: var(--m-8, calc(var(--key-size) * 2));
   }
   .l\:mt-auto {
     margin-top: auto;
@@ -6639,13 +7345,22 @@ h6,
     padding: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .l\:p-3 {
-    padding: var(--p-3, var(--key-size));
+    padding: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .l\:p-4 {
-    padding: var(--p-4, calc(var(--key-size) * 1.5));
+    padding: var(--p-4, var(--key-size));
   }
   .l\:p-5 {
-    padding: var(--p-5, calc(var(--key-size) * 3));
+    padding: var(--p-5, calc(var(--key-size) * 1.25));
+  }
+  .l\:p-6 {
+    padding: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .l\:p-7 {
+    padding: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .l\:p-8 {
+    padding: var(--p-8, calc(var(--key-size) * 2));
   }
   .l\:py-0 {
     padding-top: 0;
@@ -6660,40 +7375,64 @@ h6,
     padding-bottom: var(--p-1, calc(var(--key-size) * 0.25));
   }
   .l\:px-1 {
-    padding-right: var(--p-1, calc(var(--key-size) * 0.25));
     padding-left: var(--p-1, calc(var(--key-size) * 0.25));
+    padding-right: var(--p-1, calc(var(--key-size) * 0.25));
   }
   .l\:py-2 {
     padding-top: var(--p-2, calc(var(--key-size) * 0.5));
     padding-bottom: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .l\:px-2 {
-    padding-right: var(--p-2, calc(var(--key-size) * 0.5));
     padding-left: var(--p-2, calc(var(--key-size) * 0.5));
+    padding-right: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .l\:py-3 {
-    padding-top: var(--p-3, var(--key-size));
-    padding-bottom: var(--p-3, var(--key-size));
+    padding-top: var(--p-3, calc(var(--key-size) * 0.75));
+    padding-bottom: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .l\:px-3 {
-    padding-right: var(--p-3, var(--key-size));
-    padding-left: var(--p-3, var(--key-size));
+    padding-left: var(--p-3, calc(var(--key-size) * 0.75));
+    padding-right: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .l\:py-4 {
-    padding-top: var(--p-4, calc(var(--key-size) * 1.5));
-    padding-bottom: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-top: var(--p-4, var(--key-size));
+    padding-bottom: var(--p-4, var(--key-size));
   }
   .l\:px-4 {
-    padding-right: var(--p-4, calc(var(--key-size) * 1.5));
-    padding-left: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-left: var(--p-4, var(--key-size));
+    padding-right: var(--p-4, var(--key-size));
   }
   .l\:py-5 {
-    padding-top: var(--p-5, calc(var(--key-size) * 3));
-    padding-bottom: var(--p-5, calc(var(--key-size) * 3));
+    padding-top: var(--p-5, calc(var(--key-size) * 1.25));
+    padding-bottom: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .l\:px-5 {
-    padding-right: var(--p-5, calc(var(--key-size) * 3));
-    padding-left: var(--p-5, calc(var(--key-size) * 3));
+    padding-left: var(--p-5, calc(var(--key-size) * 1.25));
+    padding-right: var(--p-5, calc(var(--key-size) * 1.25));
+  }
+  .l\:py-6 {
+    padding-top: var(--p-6, calc(var(--key-size) * 1.5));
+    padding-bottom: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .l\:px-6 {
+    padding-left: var(--p-6, calc(var(--key-size) * 1.5));
+    padding-right: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .l\:py-7 {
+    padding-top: var(--p-7, calc(var(--key-size) * 1.75));
+    padding-bottom: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .l\:px-7 {
+    padding-left: var(--p-7, calc(var(--key-size) * 1.75));
+    padding-right: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .l\:py-8 {
+    padding-top: var(--p-8, calc(var(--key-size) * 2));
+    padding-bottom: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .l\:px-8 {
+    padding-left: var(--p-8, calc(var(--key-size) * 2));
+    padding-right: var(--p-8, calc(var(--key-size) * 2));
   }
   .l\:pt-0 {
     padding-top: 0;
@@ -6732,40 +7471,76 @@ h6,
     padding-left: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .l\:pt-3 {
-    padding-top: var(--p-3, var(--key-size));
+    padding-top: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .l\:pr-3 {
-    padding-right: var(--p-3, var(--key-size));
+    padding-right: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .l\:pb-3 {
-    padding-bottom: var(--p-3, var(--key-size));
+    padding-bottom: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .l\:pl-3 {
-    padding-left: var(--p-3, var(--key-size));
+    padding-left: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .l\:pt-4 {
-    padding-top: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-top: var(--p-4, var(--key-size));
   }
   .l\:pr-4 {
-    padding-right: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-right: var(--p-4, var(--key-size));
   }
   .l\:pb-4 {
-    padding-bottom: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-bottom: var(--p-4, var(--key-size));
   }
   .l\:pl-4 {
-    padding-left: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-left: var(--p-4, var(--key-size));
   }
   .l\:pt-5 {
-    padding-top: var(--p-5, calc(var(--key-size) * 3));
+    padding-top: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .l\:pr-5 {
-    padding-right: var(--p-5, calc(var(--key-size) * 3));
+    padding-right: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .l\:pb-5 {
-    padding-bottom: var(--p-5, calc(var(--key-size) * 3));
+    padding-bottom: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .l\:pl-5 {
-    padding-left: var(--p-5, calc(var(--key-size) * 3));
+    padding-left: var(--p-5, calc(var(--key-size) * 1.25));
+  }
+  .l\:pt-6 {
+    padding-top: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .l\:pr-6 {
+    padding-right: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .l\:pb-6 {
+    padding-bottom: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .l\:pl-6 {
+    padding-left: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .l\:pt-7 {
+    padding-top: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .l\:pr-7 {
+    padding-right: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .l\:pb-7 {
+    padding-bottom: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .l\:pl-7 {
+    padding-left: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .l\:pt-8 {
+    padding-top: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .l\:pr-8 {
+    padding-right: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .l\:pb-8 {
+    padding-bottom: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .l\:pl-8 {
+    padding-left: var(--p-8, calc(var(--key-size) * 2));
   }
   .l\:g-0,
   .l\:gap-0 {
@@ -6781,15 +7556,27 @@ h6,
   }
   .l\:g-3,
   .l\:gap-3 {
-    grid-gap: var(--g-3, var(--key-size));
+    grid-gap: var(--g-3, calc(var(--key-size) * 0.75));
   }
   .l\:g-4,
   .l\:gap-4 {
-    grid-gap: var(--g-4, calc(var(--key-size) * 1.5));
+    grid-gap: var(--g-4, var(--key-size));
   }
   .l\:g-5,
   .l\:gap-5 {
-    grid-gap: var(--g-5, calc(var(--key-size) * 3));
+    grid-gap: var(--g-5, calc(var(--key-size) * 1.25));
+  }
+  .l\:g-6,
+  .l\:gap-6 {
+    grid-gap: var(--g-6, calc(var(--key-size) * 1.5));
+  }
+  .l\:g-7,
+  .l\:gap-7 {
+    grid-gap: var(--g-7, calc(var(--key-size) * 1.75));
+  }
+  .l\:g-8,
+  .l\:gap-8 {
+    grid-gap: var(--g-8, calc(var(--key-size) * 2));
   }
   .l\:text-start,
   .l\:text-left {
@@ -7568,13 +8355,22 @@ h6,
     margin: var(--m-2, calc(var(--key-size) * 0.5));
   }
   .mobile .l\:m\:m-3 {
-    margin: var(--m-3, var(--key-size));
+    margin: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .mobile .l\:m\:m-4 {
-    margin: var(--m-4, calc(var(--key-size) * 1.5));
+    margin: var(--m-4, var(--key-size));
   }
   .mobile .l\:m\:m-5 {
-    margin: var(--m-5, calc(var(--key-size) * 3));
+    margin: var(--m-5, calc(var(--key-size) * 1.25));
+  }
+  .mobile .l\:m\:m-6 {
+    margin: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .l\:m\:m-7 {
+    margin: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .l\:m\:m-8 {
+    margin: var(--m-8, calc(var(--key-size) * 2));
   }
   .mobile .l\:m\:m-auto {
     margin: auto;
@@ -7604,28 +8400,52 @@ h6,
     margin-right: var(--m-2, calc(var(--key-size) * 0.5));
   }
   .mobile .l\:m\:my-3 {
-    margin-top: var(--m-3, var(--key-size));
-    margin-bottom: var(--m-3, var(--key-size));
+    margin-top: var(--m-3, calc(var(--key-size) * 0.75));
+    margin-bottom: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .mobile .l\:m\:mx-3 {
-    margin-left: var(--m-3, var(--key-size));
-    margin-right: var(--m-3, var(--key-size));
+    margin-left: var(--m-3, calc(var(--key-size) * 0.75));
+    margin-right: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .mobile .l\:m\:my-4 {
-    margin-top: var(--m-4, calc(var(--key-size) * 1.5));
-    margin-bottom: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-top: var(--m-4, var(--key-size));
+    margin-bottom: var(--m-4, var(--key-size));
   }
   .mobile .l\:m\:mx-4 {
-    margin-left: var(--m-4, calc(var(--key-size) * 1.5));
-    margin-right: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-left: var(--m-4, var(--key-size));
+    margin-right: var(--m-4, var(--key-size));
   }
   .mobile .l\:m\:my-5 {
-    margin-top: var(--m-5, calc(var(--key-size) * 3));
-    margin-bottom: var(--m-5, calc(var(--key-size) * 3));
+    margin-top: var(--m-5, calc(var(--key-size) * 1.25));
+    margin-bottom: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .mobile .l\:m\:mx-5 {
-    margin-left: var(--m-5, calc(var(--key-size) * 3));
-    margin-right: var(--m-5, calc(var(--key-size) * 3));
+    margin-left: var(--m-5, calc(var(--key-size) * 1.25));
+    margin-right: var(--m-5, calc(var(--key-size) * 1.25));
+  }
+  .mobile .l\:m\:my-6 {
+    margin-top: var(--m-6, calc(var(--key-size) * 1.5));
+    margin-bottom: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .l\:m\:mx-6 {
+    margin-left: var(--m-6, calc(var(--key-size) * 1.5));
+    margin-right: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .l\:m\:my-7 {
+    margin-top: var(--m-7, calc(var(--key-size) * 1.75));
+    margin-bottom: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .l\:m\:mx-7 {
+    margin-left: var(--m-7, calc(var(--key-size) * 1.75));
+    margin-right: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .l\:m\:my-8 {
+    margin-top: var(--m-8, calc(var(--key-size) * 2));
+    margin-bottom: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .mobile .l\:m\:mx-8 {
+    margin-left: var(--m-8, calc(var(--key-size) * 2));
+    margin-right: var(--m-8, calc(var(--key-size) * 2));
   }
   .mobile .l\:m\:my-auto {
     margin-top: auto;
@@ -7672,40 +8492,76 @@ h6,
     margin-left: var(--m-2, calc(var(--key-size) * 0.5));
   }
   .mobile .l\:m\:mt-3 {
-    margin-top: var(--m-3, var(--key-size));
+    margin-top: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .mobile .l\:m\:mr-3 {
-    margin-right: var(--m-3, var(--key-size));
+    margin-right: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .mobile .l\:m\:mb-3 {
-    margin-bottom: var(--m-3, var(--key-size));
+    margin-bottom: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .mobile .l\:m\:ml-3 {
-    margin-left: var(--m-3, var(--key-size));
+    margin-left: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .mobile .l\:m\:mt-4 {
-    margin-top: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-top: var(--m-4, var(--key-size));
   }
   .mobile .l\:m\:mr-4 {
-    margin-right: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-right: var(--m-4, var(--key-size));
   }
   .mobile .l\:m\:mb-4 {
-    margin-bottom: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-bottom: var(--m-4, var(--key-size));
   }
   .mobile .l\:m\:ml-4 {
-    margin-left: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-left: var(--m-4, var(--key-size));
   }
   .mobile .l\:m\:mt-5 {
-    margin-top: var(--m-5, calc(var(--key-size) * 3));
+    margin-top: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .mobile .l\:m\:mr-5 {
-    margin-right: var(--m-5, calc(var(--key-size) * 3));
+    margin-right: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .mobile .l\:m\:mb-5 {
-    margin-bottom: var(--m-5, calc(var(--key-size) * 3));
+    margin-bottom: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .mobile .l\:m\:ml-5 {
-    margin-left: var(--m-5, calc(var(--key-size) * 3));
+    margin-left: var(--m-5, calc(var(--key-size) * 1.25));
+  }
+  .mobile .l\:m\:mt-6 {
+    margin-top: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .l\:m\:mr-6 {
+    margin-right: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .l\:m\:mb-6 {
+    margin-bottom: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .l\:m\:ml-6 {
+    margin-left: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .l\:m\:mt-7 {
+    margin-top: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .l\:m\:mr-7 {
+    margin-right: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .l\:m\:mb-7 {
+    margin-bottom: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .l\:m\:ml-7 {
+    margin-left: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .l\:m\:mt-8 {
+    margin-top: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .mobile .l\:m\:mr-8 {
+    margin-right: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .mobile .l\:m\:mb-8 {
+    margin-bottom: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .mobile .l\:m\:ml-8 {
+    margin-left: var(--m-8, calc(var(--key-size) * 2));
   }
   .mobile .l\:m\:mt-auto {
     margin-top: auto;
@@ -7729,13 +8585,22 @@ h6,
     padding: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .mobile .l\:m\:p-3 {
-    padding: var(--p-3, var(--key-size));
+    padding: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .mobile .l\:m\:p-4 {
-    padding: var(--p-4, calc(var(--key-size) * 1.5));
+    padding: var(--p-4, var(--key-size));
   }
   .mobile .l\:m\:p-5 {
-    padding: var(--p-5, calc(var(--key-size) * 3));
+    padding: var(--p-5, calc(var(--key-size) * 1.25));
+  }
+  .mobile .l\:m\:p-6 {
+    padding: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .l\:m\:p-7 {
+    padding: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .l\:m\:p-8 {
+    padding: var(--p-8, calc(var(--key-size) * 2));
   }
   .mobile .l\:m\:py-0 {
     padding-top: 0;
@@ -7750,40 +8615,64 @@ h6,
     padding-bottom: var(--p-1, calc(var(--key-size) * 0.25));
   }
   .mobile .l\:m\:px-1 {
-    padding-right: var(--p-1, calc(var(--key-size) * 0.25));
     padding-left: var(--p-1, calc(var(--key-size) * 0.25));
+    padding-right: var(--p-1, calc(var(--key-size) * 0.25));
   }
   .mobile .l\:m\:py-2 {
     padding-top: var(--p-2, calc(var(--key-size) * 0.5));
     padding-bottom: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .mobile .l\:m\:px-2 {
-    padding-right: var(--p-2, calc(var(--key-size) * 0.5));
     padding-left: var(--p-2, calc(var(--key-size) * 0.5));
+    padding-right: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .mobile .l\:m\:py-3 {
-    padding-top: var(--p-3, var(--key-size));
-    padding-bottom: var(--p-3, var(--key-size));
+    padding-top: var(--p-3, calc(var(--key-size) * 0.75));
+    padding-bottom: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .mobile .l\:m\:px-3 {
-    padding-right: var(--p-3, var(--key-size));
-    padding-left: var(--p-3, var(--key-size));
+    padding-left: var(--p-3, calc(var(--key-size) * 0.75));
+    padding-right: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .mobile .l\:m\:py-4 {
-    padding-top: var(--p-4, calc(var(--key-size) * 1.5));
-    padding-bottom: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-top: var(--p-4, var(--key-size));
+    padding-bottom: var(--p-4, var(--key-size));
   }
   .mobile .l\:m\:px-4 {
-    padding-right: var(--p-4, calc(var(--key-size) * 1.5));
-    padding-left: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-left: var(--p-4, var(--key-size));
+    padding-right: var(--p-4, var(--key-size));
   }
   .mobile .l\:m\:py-5 {
-    padding-top: var(--p-5, calc(var(--key-size) * 3));
-    padding-bottom: var(--p-5, calc(var(--key-size) * 3));
+    padding-top: var(--p-5, calc(var(--key-size) * 1.25));
+    padding-bottom: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .mobile .l\:m\:px-5 {
-    padding-right: var(--p-5, calc(var(--key-size) * 3));
-    padding-left: var(--p-5, calc(var(--key-size) * 3));
+    padding-left: var(--p-5, calc(var(--key-size) * 1.25));
+    padding-right: var(--p-5, calc(var(--key-size) * 1.25));
+  }
+  .mobile .l\:m\:py-6 {
+    padding-top: var(--p-6, calc(var(--key-size) * 1.5));
+    padding-bottom: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .l\:m\:px-6 {
+    padding-left: var(--p-6, calc(var(--key-size) * 1.5));
+    padding-right: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .l\:m\:py-7 {
+    padding-top: var(--p-7, calc(var(--key-size) * 1.75));
+    padding-bottom: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .l\:m\:px-7 {
+    padding-left: var(--p-7, calc(var(--key-size) * 1.75));
+    padding-right: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .l\:m\:py-8 {
+    padding-top: var(--p-8, calc(var(--key-size) * 2));
+    padding-bottom: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .mobile .l\:m\:px-8 {
+    padding-left: var(--p-8, calc(var(--key-size) * 2));
+    padding-right: var(--p-8, calc(var(--key-size) * 2));
   }
   .mobile .l\:m\:pt-0 {
     padding-top: 0;
@@ -7822,40 +8711,76 @@ h6,
     padding-left: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .mobile .l\:m\:pt-3 {
-    padding-top: var(--p-3, var(--key-size));
+    padding-top: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .mobile .l\:m\:pr-3 {
-    padding-right: var(--p-3, var(--key-size));
+    padding-right: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .mobile .l\:m\:pb-3 {
-    padding-bottom: var(--p-3, var(--key-size));
+    padding-bottom: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .mobile .l\:m\:pl-3 {
-    padding-left: var(--p-3, var(--key-size));
+    padding-left: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .mobile .l\:m\:pt-4 {
-    padding-top: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-top: var(--p-4, var(--key-size));
   }
   .mobile .l\:m\:pr-4 {
-    padding-right: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-right: var(--p-4, var(--key-size));
   }
   .mobile .l\:m\:pb-4 {
-    padding-bottom: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-bottom: var(--p-4, var(--key-size));
   }
   .mobile .l\:m\:pl-4 {
-    padding-left: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-left: var(--p-4, var(--key-size));
   }
   .mobile .l\:m\:pt-5 {
-    padding-top: var(--p-5, calc(var(--key-size) * 3));
+    padding-top: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .mobile .l\:m\:pr-5 {
-    padding-right: var(--p-5, calc(var(--key-size) * 3));
+    padding-right: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .mobile .l\:m\:pb-5 {
-    padding-bottom: var(--p-5, calc(var(--key-size) * 3));
+    padding-bottom: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .mobile .l\:m\:pl-5 {
-    padding-left: var(--p-5, calc(var(--key-size) * 3));
+    padding-left: var(--p-5, calc(var(--key-size) * 1.25));
+  }
+  .mobile .l\:m\:pt-6 {
+    padding-top: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .l\:m\:pr-6 {
+    padding-right: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .l\:m\:pb-6 {
+    padding-bottom: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .l\:m\:pl-6 {
+    padding-left: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .l\:m\:pt-7 {
+    padding-top: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .l\:m\:pr-7 {
+    padding-right: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .l\:m\:pb-7 {
+    padding-bottom: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .l\:m\:pl-7 {
+    padding-left: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .l\:m\:pt-8 {
+    padding-top: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .mobile .l\:m\:pr-8 {
+    padding-right: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .mobile .l\:m\:pb-8 {
+    padding-bottom: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .mobile .l\:m\:pl-8 {
+    padding-left: var(--p-8, calc(var(--key-size) * 2));
   }
   .mobile .l\:m\:g-0,
   .mobile .l\:m\:gap-0 {
@@ -7871,15 +8796,27 @@ h6,
   }
   .mobile .l\:m\:g-3,
   .mobile .l\:m\:gap-3 {
-    grid-gap: var(--g-3, var(--key-size));
+    grid-gap: var(--g-3, calc(var(--key-size) * 0.75));
   }
   .mobile .l\:m\:g-4,
   .mobile .l\:m\:gap-4 {
-    grid-gap: var(--g-4, calc(var(--key-size) * 1.5));
+    grid-gap: var(--g-4, var(--key-size));
   }
   .mobile .l\:m\:g-5,
   .mobile .l\:m\:gap-5 {
-    grid-gap: var(--g-5, calc(var(--key-size) * 3));
+    grid-gap: var(--g-5, calc(var(--key-size) * 1.25));
+  }
+  .mobile .l\:m\:g-6,
+  .mobile .l\:m\:gap-6 {
+    grid-gap: var(--g-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .l\:m\:g-7,
+  .mobile .l\:m\:gap-7 {
+    grid-gap: var(--g-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .l\:m\:g-8,
+  .mobile .l\:m\:gap-8 {
+    grid-gap: var(--g-8, calc(var(--key-size) * 2));
   }
   .mobile .l\:m\:text-start,
   .mobile .l\:m\:text-left {
@@ -8658,13 +9595,22 @@ h6,
     margin: var(--m-2, calc(var(--key-size) * 0.5));
   }
   .tablet .l\:t\:m-3 {
-    margin: var(--m-3, var(--key-size));
+    margin: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .tablet .l\:t\:m-4 {
-    margin: var(--m-4, calc(var(--key-size) * 1.5));
+    margin: var(--m-4, var(--key-size));
   }
   .tablet .l\:t\:m-5 {
-    margin: var(--m-5, calc(var(--key-size) * 3));
+    margin: var(--m-5, calc(var(--key-size) * 1.25));
+  }
+  .tablet .l\:t\:m-6 {
+    margin: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .l\:t\:m-7 {
+    margin: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .l\:t\:m-8 {
+    margin: var(--m-8, calc(var(--key-size) * 2));
   }
   .tablet .l\:t\:m-auto {
     margin: auto;
@@ -8694,28 +9640,52 @@ h6,
     margin-right: var(--m-2, calc(var(--key-size) * 0.5));
   }
   .tablet .l\:t\:my-3 {
-    margin-top: var(--m-3, var(--key-size));
-    margin-bottom: var(--m-3, var(--key-size));
+    margin-top: var(--m-3, calc(var(--key-size) * 0.75));
+    margin-bottom: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .tablet .l\:t\:mx-3 {
-    margin-left: var(--m-3, var(--key-size));
-    margin-right: var(--m-3, var(--key-size));
+    margin-left: var(--m-3, calc(var(--key-size) * 0.75));
+    margin-right: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .tablet .l\:t\:my-4 {
-    margin-top: var(--m-4, calc(var(--key-size) * 1.5));
-    margin-bottom: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-top: var(--m-4, var(--key-size));
+    margin-bottom: var(--m-4, var(--key-size));
   }
   .tablet .l\:t\:mx-4 {
-    margin-left: var(--m-4, calc(var(--key-size) * 1.5));
-    margin-right: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-left: var(--m-4, var(--key-size));
+    margin-right: var(--m-4, var(--key-size));
   }
   .tablet .l\:t\:my-5 {
-    margin-top: var(--m-5, calc(var(--key-size) * 3));
-    margin-bottom: var(--m-5, calc(var(--key-size) * 3));
+    margin-top: var(--m-5, calc(var(--key-size) * 1.25));
+    margin-bottom: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .tablet .l\:t\:mx-5 {
-    margin-left: var(--m-5, calc(var(--key-size) * 3));
-    margin-right: var(--m-5, calc(var(--key-size) * 3));
+    margin-left: var(--m-5, calc(var(--key-size) * 1.25));
+    margin-right: var(--m-5, calc(var(--key-size) * 1.25));
+  }
+  .tablet .l\:t\:my-6 {
+    margin-top: var(--m-6, calc(var(--key-size) * 1.5));
+    margin-bottom: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .l\:t\:mx-6 {
+    margin-left: var(--m-6, calc(var(--key-size) * 1.5));
+    margin-right: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .l\:t\:my-7 {
+    margin-top: var(--m-7, calc(var(--key-size) * 1.75));
+    margin-bottom: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .l\:t\:mx-7 {
+    margin-left: var(--m-7, calc(var(--key-size) * 1.75));
+    margin-right: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .l\:t\:my-8 {
+    margin-top: var(--m-8, calc(var(--key-size) * 2));
+    margin-bottom: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .tablet .l\:t\:mx-8 {
+    margin-left: var(--m-8, calc(var(--key-size) * 2));
+    margin-right: var(--m-8, calc(var(--key-size) * 2));
   }
   .tablet .l\:t\:my-auto {
     margin-top: auto;
@@ -8762,40 +9732,76 @@ h6,
     margin-left: var(--m-2, calc(var(--key-size) * 0.5));
   }
   .tablet .l\:t\:mt-3 {
-    margin-top: var(--m-3, var(--key-size));
+    margin-top: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .tablet .l\:t\:mr-3 {
-    margin-right: var(--m-3, var(--key-size));
+    margin-right: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .tablet .l\:t\:mb-3 {
-    margin-bottom: var(--m-3, var(--key-size));
+    margin-bottom: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .tablet .l\:t\:ml-3 {
-    margin-left: var(--m-3, var(--key-size));
+    margin-left: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .tablet .l\:t\:mt-4 {
-    margin-top: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-top: var(--m-4, var(--key-size));
   }
   .tablet .l\:t\:mr-4 {
-    margin-right: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-right: var(--m-4, var(--key-size));
   }
   .tablet .l\:t\:mb-4 {
-    margin-bottom: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-bottom: var(--m-4, var(--key-size));
   }
   .tablet .l\:t\:ml-4 {
-    margin-left: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-left: var(--m-4, var(--key-size));
   }
   .tablet .l\:t\:mt-5 {
-    margin-top: var(--m-5, calc(var(--key-size) * 3));
+    margin-top: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .tablet .l\:t\:mr-5 {
-    margin-right: var(--m-5, calc(var(--key-size) * 3));
+    margin-right: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .tablet .l\:t\:mb-5 {
-    margin-bottom: var(--m-5, calc(var(--key-size) * 3));
+    margin-bottom: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .tablet .l\:t\:ml-5 {
-    margin-left: var(--m-5, calc(var(--key-size) * 3));
+    margin-left: var(--m-5, calc(var(--key-size) * 1.25));
+  }
+  .tablet .l\:t\:mt-6 {
+    margin-top: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .l\:t\:mr-6 {
+    margin-right: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .l\:t\:mb-6 {
+    margin-bottom: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .l\:t\:ml-6 {
+    margin-left: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .l\:t\:mt-7 {
+    margin-top: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .l\:t\:mr-7 {
+    margin-right: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .l\:t\:mb-7 {
+    margin-bottom: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .l\:t\:ml-7 {
+    margin-left: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .l\:t\:mt-8 {
+    margin-top: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .tablet .l\:t\:mr-8 {
+    margin-right: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .tablet .l\:t\:mb-8 {
+    margin-bottom: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .tablet .l\:t\:ml-8 {
+    margin-left: var(--m-8, calc(var(--key-size) * 2));
   }
   .tablet .l\:t\:mt-auto {
     margin-top: auto;
@@ -8819,13 +9825,22 @@ h6,
     padding: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .tablet .l\:t\:p-3 {
-    padding: var(--p-3, var(--key-size));
+    padding: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .tablet .l\:t\:p-4 {
-    padding: var(--p-4, calc(var(--key-size) * 1.5));
+    padding: var(--p-4, var(--key-size));
   }
   .tablet .l\:t\:p-5 {
-    padding: var(--p-5, calc(var(--key-size) * 3));
+    padding: var(--p-5, calc(var(--key-size) * 1.25));
+  }
+  .tablet .l\:t\:p-6 {
+    padding: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .l\:t\:p-7 {
+    padding: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .l\:t\:p-8 {
+    padding: var(--p-8, calc(var(--key-size) * 2));
   }
   .tablet .l\:t\:py-0 {
     padding-top: 0;
@@ -8840,40 +9855,64 @@ h6,
     padding-bottom: var(--p-1, calc(var(--key-size) * 0.25));
   }
   .tablet .l\:t\:px-1 {
-    padding-right: var(--p-1, calc(var(--key-size) * 0.25));
     padding-left: var(--p-1, calc(var(--key-size) * 0.25));
+    padding-right: var(--p-1, calc(var(--key-size) * 0.25));
   }
   .tablet .l\:t\:py-2 {
     padding-top: var(--p-2, calc(var(--key-size) * 0.5));
     padding-bottom: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .tablet .l\:t\:px-2 {
-    padding-right: var(--p-2, calc(var(--key-size) * 0.5));
     padding-left: var(--p-2, calc(var(--key-size) * 0.5));
+    padding-right: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .tablet .l\:t\:py-3 {
-    padding-top: var(--p-3, var(--key-size));
-    padding-bottom: var(--p-3, var(--key-size));
+    padding-top: var(--p-3, calc(var(--key-size) * 0.75));
+    padding-bottom: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .tablet .l\:t\:px-3 {
-    padding-right: var(--p-3, var(--key-size));
-    padding-left: var(--p-3, var(--key-size));
+    padding-left: var(--p-3, calc(var(--key-size) * 0.75));
+    padding-right: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .tablet .l\:t\:py-4 {
-    padding-top: var(--p-4, calc(var(--key-size) * 1.5));
-    padding-bottom: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-top: var(--p-4, var(--key-size));
+    padding-bottom: var(--p-4, var(--key-size));
   }
   .tablet .l\:t\:px-4 {
-    padding-right: var(--p-4, calc(var(--key-size) * 1.5));
-    padding-left: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-left: var(--p-4, var(--key-size));
+    padding-right: var(--p-4, var(--key-size));
   }
   .tablet .l\:t\:py-5 {
-    padding-top: var(--p-5, calc(var(--key-size) * 3));
-    padding-bottom: var(--p-5, calc(var(--key-size) * 3));
+    padding-top: var(--p-5, calc(var(--key-size) * 1.25));
+    padding-bottom: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .tablet .l\:t\:px-5 {
-    padding-right: var(--p-5, calc(var(--key-size) * 3));
-    padding-left: var(--p-5, calc(var(--key-size) * 3));
+    padding-left: var(--p-5, calc(var(--key-size) * 1.25));
+    padding-right: var(--p-5, calc(var(--key-size) * 1.25));
+  }
+  .tablet .l\:t\:py-6 {
+    padding-top: var(--p-6, calc(var(--key-size) * 1.5));
+    padding-bottom: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .l\:t\:px-6 {
+    padding-left: var(--p-6, calc(var(--key-size) * 1.5));
+    padding-right: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .l\:t\:py-7 {
+    padding-top: var(--p-7, calc(var(--key-size) * 1.75));
+    padding-bottom: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .l\:t\:px-7 {
+    padding-left: var(--p-7, calc(var(--key-size) * 1.75));
+    padding-right: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .l\:t\:py-8 {
+    padding-top: var(--p-8, calc(var(--key-size) * 2));
+    padding-bottom: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .tablet .l\:t\:px-8 {
+    padding-left: var(--p-8, calc(var(--key-size) * 2));
+    padding-right: var(--p-8, calc(var(--key-size) * 2));
   }
   .tablet .l\:t\:pt-0 {
     padding-top: 0;
@@ -8912,40 +9951,76 @@ h6,
     padding-left: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .tablet .l\:t\:pt-3 {
-    padding-top: var(--p-3, var(--key-size));
+    padding-top: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .tablet .l\:t\:pr-3 {
-    padding-right: var(--p-3, var(--key-size));
+    padding-right: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .tablet .l\:t\:pb-3 {
-    padding-bottom: var(--p-3, var(--key-size));
+    padding-bottom: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .tablet .l\:t\:pl-3 {
-    padding-left: var(--p-3, var(--key-size));
+    padding-left: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .tablet .l\:t\:pt-4 {
-    padding-top: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-top: var(--p-4, var(--key-size));
   }
   .tablet .l\:t\:pr-4 {
-    padding-right: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-right: var(--p-4, var(--key-size));
   }
   .tablet .l\:t\:pb-4 {
-    padding-bottom: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-bottom: var(--p-4, var(--key-size));
   }
   .tablet .l\:t\:pl-4 {
-    padding-left: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-left: var(--p-4, var(--key-size));
   }
   .tablet .l\:t\:pt-5 {
-    padding-top: var(--p-5, calc(var(--key-size) * 3));
+    padding-top: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .tablet .l\:t\:pr-5 {
-    padding-right: var(--p-5, calc(var(--key-size) * 3));
+    padding-right: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .tablet .l\:t\:pb-5 {
-    padding-bottom: var(--p-5, calc(var(--key-size) * 3));
+    padding-bottom: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .tablet .l\:t\:pl-5 {
-    padding-left: var(--p-5, calc(var(--key-size) * 3));
+    padding-left: var(--p-5, calc(var(--key-size) * 1.25));
+  }
+  .tablet .l\:t\:pt-6 {
+    padding-top: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .l\:t\:pr-6 {
+    padding-right: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .l\:t\:pb-6 {
+    padding-bottom: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .l\:t\:pl-6 {
+    padding-left: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .l\:t\:pt-7 {
+    padding-top: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .l\:t\:pr-7 {
+    padding-right: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .l\:t\:pb-7 {
+    padding-bottom: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .l\:t\:pl-7 {
+    padding-left: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .l\:t\:pt-8 {
+    padding-top: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .tablet .l\:t\:pr-8 {
+    padding-right: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .tablet .l\:t\:pb-8 {
+    padding-bottom: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .tablet .l\:t\:pl-8 {
+    padding-left: var(--p-8, calc(var(--key-size) * 2));
   }
   .tablet .l\:t\:g-0,
   .tablet .l\:t\:gap-0 {
@@ -8961,15 +10036,27 @@ h6,
   }
   .tablet .l\:t\:g-3,
   .tablet .l\:t\:gap-3 {
-    grid-gap: var(--g-3, var(--key-size));
+    grid-gap: var(--g-3, calc(var(--key-size) * 0.75));
   }
   .tablet .l\:t\:g-4,
   .tablet .l\:t\:gap-4 {
-    grid-gap: var(--g-4, calc(var(--key-size) * 1.5));
+    grid-gap: var(--g-4, var(--key-size));
   }
   .tablet .l\:t\:g-5,
   .tablet .l\:t\:gap-5 {
-    grid-gap: var(--g-5, calc(var(--key-size) * 3));
+    grid-gap: var(--g-5, calc(var(--key-size) * 1.25));
+  }
+  .tablet .l\:t\:g-6,
+  .tablet .l\:t\:gap-6 {
+    grid-gap: var(--g-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .l\:t\:g-7,
+  .tablet .l\:t\:gap-7 {
+    grid-gap: var(--g-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .l\:t\:g-8,
+  .tablet .l\:t\:gap-8 {
+    grid-gap: var(--g-8, calc(var(--key-size) * 2));
   }
   .tablet .l\:t\:text-start,
   .tablet .l\:t\:text-left {
@@ -9748,13 +10835,22 @@ h6,
     margin: var(--m-2, calc(var(--key-size) * 0.5));
   }
   .desktop .l\:d\:m-3 {
-    margin: var(--m-3, var(--key-size));
+    margin: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .desktop .l\:d\:m-4 {
-    margin: var(--m-4, calc(var(--key-size) * 1.5));
+    margin: var(--m-4, var(--key-size));
   }
   .desktop .l\:d\:m-5 {
-    margin: var(--m-5, calc(var(--key-size) * 3));
+    margin: var(--m-5, calc(var(--key-size) * 1.25));
+  }
+  .desktop .l\:d\:m-6 {
+    margin: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .l\:d\:m-7 {
+    margin: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .l\:d\:m-8 {
+    margin: var(--m-8, calc(var(--key-size) * 2));
   }
   .desktop .l\:d\:m-auto {
     margin: auto;
@@ -9784,28 +10880,52 @@ h6,
     margin-right: var(--m-2, calc(var(--key-size) * 0.5));
   }
   .desktop .l\:d\:my-3 {
-    margin-top: var(--m-3, var(--key-size));
-    margin-bottom: var(--m-3, var(--key-size));
+    margin-top: var(--m-3, calc(var(--key-size) * 0.75));
+    margin-bottom: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .desktop .l\:d\:mx-3 {
-    margin-left: var(--m-3, var(--key-size));
-    margin-right: var(--m-3, var(--key-size));
+    margin-left: var(--m-3, calc(var(--key-size) * 0.75));
+    margin-right: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .desktop .l\:d\:my-4 {
-    margin-top: var(--m-4, calc(var(--key-size) * 1.5));
-    margin-bottom: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-top: var(--m-4, var(--key-size));
+    margin-bottom: var(--m-4, var(--key-size));
   }
   .desktop .l\:d\:mx-4 {
-    margin-left: var(--m-4, calc(var(--key-size) * 1.5));
-    margin-right: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-left: var(--m-4, var(--key-size));
+    margin-right: var(--m-4, var(--key-size));
   }
   .desktop .l\:d\:my-5 {
-    margin-top: var(--m-5, calc(var(--key-size) * 3));
-    margin-bottom: var(--m-5, calc(var(--key-size) * 3));
+    margin-top: var(--m-5, calc(var(--key-size) * 1.25));
+    margin-bottom: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .desktop .l\:d\:mx-5 {
-    margin-left: var(--m-5, calc(var(--key-size) * 3));
-    margin-right: var(--m-5, calc(var(--key-size) * 3));
+    margin-left: var(--m-5, calc(var(--key-size) * 1.25));
+    margin-right: var(--m-5, calc(var(--key-size) * 1.25));
+  }
+  .desktop .l\:d\:my-6 {
+    margin-top: var(--m-6, calc(var(--key-size) * 1.5));
+    margin-bottom: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .l\:d\:mx-6 {
+    margin-left: var(--m-6, calc(var(--key-size) * 1.5));
+    margin-right: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .l\:d\:my-7 {
+    margin-top: var(--m-7, calc(var(--key-size) * 1.75));
+    margin-bottom: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .l\:d\:mx-7 {
+    margin-left: var(--m-7, calc(var(--key-size) * 1.75));
+    margin-right: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .l\:d\:my-8 {
+    margin-top: var(--m-8, calc(var(--key-size) * 2));
+    margin-bottom: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .desktop .l\:d\:mx-8 {
+    margin-left: var(--m-8, calc(var(--key-size) * 2));
+    margin-right: var(--m-8, calc(var(--key-size) * 2));
   }
   .desktop .l\:d\:my-auto {
     margin-top: auto;
@@ -9852,40 +10972,76 @@ h6,
     margin-left: var(--m-2, calc(var(--key-size) * 0.5));
   }
   .desktop .l\:d\:mt-3 {
-    margin-top: var(--m-3, var(--key-size));
+    margin-top: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .desktop .l\:d\:mr-3 {
-    margin-right: var(--m-3, var(--key-size));
+    margin-right: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .desktop .l\:d\:mb-3 {
-    margin-bottom: var(--m-3, var(--key-size));
+    margin-bottom: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .desktop .l\:d\:ml-3 {
-    margin-left: var(--m-3, var(--key-size));
+    margin-left: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .desktop .l\:d\:mt-4 {
-    margin-top: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-top: var(--m-4, var(--key-size));
   }
   .desktop .l\:d\:mr-4 {
-    margin-right: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-right: var(--m-4, var(--key-size));
   }
   .desktop .l\:d\:mb-4 {
-    margin-bottom: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-bottom: var(--m-4, var(--key-size));
   }
   .desktop .l\:d\:ml-4 {
-    margin-left: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-left: var(--m-4, var(--key-size));
   }
   .desktop .l\:d\:mt-5 {
-    margin-top: var(--m-5, calc(var(--key-size) * 3));
+    margin-top: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .desktop .l\:d\:mr-5 {
-    margin-right: var(--m-5, calc(var(--key-size) * 3));
+    margin-right: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .desktop .l\:d\:mb-5 {
-    margin-bottom: var(--m-5, calc(var(--key-size) * 3));
+    margin-bottom: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .desktop .l\:d\:ml-5 {
-    margin-left: var(--m-5, calc(var(--key-size) * 3));
+    margin-left: var(--m-5, calc(var(--key-size) * 1.25));
+  }
+  .desktop .l\:d\:mt-6 {
+    margin-top: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .l\:d\:mr-6 {
+    margin-right: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .l\:d\:mb-6 {
+    margin-bottom: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .l\:d\:ml-6 {
+    margin-left: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .l\:d\:mt-7 {
+    margin-top: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .l\:d\:mr-7 {
+    margin-right: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .l\:d\:mb-7 {
+    margin-bottom: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .l\:d\:ml-7 {
+    margin-left: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .l\:d\:mt-8 {
+    margin-top: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .desktop .l\:d\:mr-8 {
+    margin-right: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .desktop .l\:d\:mb-8 {
+    margin-bottom: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .desktop .l\:d\:ml-8 {
+    margin-left: var(--m-8, calc(var(--key-size) * 2));
   }
   .desktop .l\:d\:mt-auto {
     margin-top: auto;
@@ -9909,13 +11065,22 @@ h6,
     padding: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .desktop .l\:d\:p-3 {
-    padding: var(--p-3, var(--key-size));
+    padding: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .desktop .l\:d\:p-4 {
-    padding: var(--p-4, calc(var(--key-size) * 1.5));
+    padding: var(--p-4, var(--key-size));
   }
   .desktop .l\:d\:p-5 {
-    padding: var(--p-5, calc(var(--key-size) * 3));
+    padding: var(--p-5, calc(var(--key-size) * 1.25));
+  }
+  .desktop .l\:d\:p-6 {
+    padding: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .l\:d\:p-7 {
+    padding: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .l\:d\:p-8 {
+    padding: var(--p-8, calc(var(--key-size) * 2));
   }
   .desktop .l\:d\:py-0 {
     padding-top: 0;
@@ -9930,40 +11095,64 @@ h6,
     padding-bottom: var(--p-1, calc(var(--key-size) * 0.25));
   }
   .desktop .l\:d\:px-1 {
-    padding-right: var(--p-1, calc(var(--key-size) * 0.25));
     padding-left: var(--p-1, calc(var(--key-size) * 0.25));
+    padding-right: var(--p-1, calc(var(--key-size) * 0.25));
   }
   .desktop .l\:d\:py-2 {
     padding-top: var(--p-2, calc(var(--key-size) * 0.5));
     padding-bottom: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .desktop .l\:d\:px-2 {
-    padding-right: var(--p-2, calc(var(--key-size) * 0.5));
     padding-left: var(--p-2, calc(var(--key-size) * 0.5));
+    padding-right: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .desktop .l\:d\:py-3 {
-    padding-top: var(--p-3, var(--key-size));
-    padding-bottom: var(--p-3, var(--key-size));
+    padding-top: var(--p-3, calc(var(--key-size) * 0.75));
+    padding-bottom: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .desktop .l\:d\:px-3 {
-    padding-right: var(--p-3, var(--key-size));
-    padding-left: var(--p-3, var(--key-size));
+    padding-left: var(--p-3, calc(var(--key-size) * 0.75));
+    padding-right: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .desktop .l\:d\:py-4 {
-    padding-top: var(--p-4, calc(var(--key-size) * 1.5));
-    padding-bottom: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-top: var(--p-4, var(--key-size));
+    padding-bottom: var(--p-4, var(--key-size));
   }
   .desktop .l\:d\:px-4 {
-    padding-right: var(--p-4, calc(var(--key-size) * 1.5));
-    padding-left: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-left: var(--p-4, var(--key-size));
+    padding-right: var(--p-4, var(--key-size));
   }
   .desktop .l\:d\:py-5 {
-    padding-top: var(--p-5, calc(var(--key-size) * 3));
-    padding-bottom: var(--p-5, calc(var(--key-size) * 3));
+    padding-top: var(--p-5, calc(var(--key-size) * 1.25));
+    padding-bottom: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .desktop .l\:d\:px-5 {
-    padding-right: var(--p-5, calc(var(--key-size) * 3));
-    padding-left: var(--p-5, calc(var(--key-size) * 3));
+    padding-left: var(--p-5, calc(var(--key-size) * 1.25));
+    padding-right: var(--p-5, calc(var(--key-size) * 1.25));
+  }
+  .desktop .l\:d\:py-6 {
+    padding-top: var(--p-6, calc(var(--key-size) * 1.5));
+    padding-bottom: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .l\:d\:px-6 {
+    padding-left: var(--p-6, calc(var(--key-size) * 1.5));
+    padding-right: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .l\:d\:py-7 {
+    padding-top: var(--p-7, calc(var(--key-size) * 1.75));
+    padding-bottom: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .l\:d\:px-7 {
+    padding-left: var(--p-7, calc(var(--key-size) * 1.75));
+    padding-right: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .l\:d\:py-8 {
+    padding-top: var(--p-8, calc(var(--key-size) * 2));
+    padding-bottom: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .desktop .l\:d\:px-8 {
+    padding-left: var(--p-8, calc(var(--key-size) * 2));
+    padding-right: var(--p-8, calc(var(--key-size) * 2));
   }
   .desktop .l\:d\:pt-0 {
     padding-top: 0;
@@ -10002,40 +11191,76 @@ h6,
     padding-left: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .desktop .l\:d\:pt-3 {
-    padding-top: var(--p-3, var(--key-size));
+    padding-top: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .desktop .l\:d\:pr-3 {
-    padding-right: var(--p-3, var(--key-size));
+    padding-right: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .desktop .l\:d\:pb-3 {
-    padding-bottom: var(--p-3, var(--key-size));
+    padding-bottom: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .desktop .l\:d\:pl-3 {
-    padding-left: var(--p-3, var(--key-size));
+    padding-left: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .desktop .l\:d\:pt-4 {
-    padding-top: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-top: var(--p-4, var(--key-size));
   }
   .desktop .l\:d\:pr-4 {
-    padding-right: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-right: var(--p-4, var(--key-size));
   }
   .desktop .l\:d\:pb-4 {
-    padding-bottom: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-bottom: var(--p-4, var(--key-size));
   }
   .desktop .l\:d\:pl-4 {
-    padding-left: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-left: var(--p-4, var(--key-size));
   }
   .desktop .l\:d\:pt-5 {
-    padding-top: var(--p-5, calc(var(--key-size) * 3));
+    padding-top: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .desktop .l\:d\:pr-5 {
-    padding-right: var(--p-5, calc(var(--key-size) * 3));
+    padding-right: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .desktop .l\:d\:pb-5 {
-    padding-bottom: var(--p-5, calc(var(--key-size) * 3));
+    padding-bottom: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .desktop .l\:d\:pl-5 {
-    padding-left: var(--p-5, calc(var(--key-size) * 3));
+    padding-left: var(--p-5, calc(var(--key-size) * 1.25));
+  }
+  .desktop .l\:d\:pt-6 {
+    padding-top: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .l\:d\:pr-6 {
+    padding-right: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .l\:d\:pb-6 {
+    padding-bottom: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .l\:d\:pl-6 {
+    padding-left: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .l\:d\:pt-7 {
+    padding-top: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .l\:d\:pr-7 {
+    padding-right: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .l\:d\:pb-7 {
+    padding-bottom: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .l\:d\:pl-7 {
+    padding-left: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .l\:d\:pt-8 {
+    padding-top: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .desktop .l\:d\:pr-8 {
+    padding-right: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .desktop .l\:d\:pb-8 {
+    padding-bottom: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .desktop .l\:d\:pl-8 {
+    padding-left: var(--p-8, calc(var(--key-size) * 2));
   }
   .desktop .l\:d\:g-0,
   .desktop .l\:d\:gap-0 {
@@ -10051,15 +11276,27 @@ h6,
   }
   .desktop .l\:d\:g-3,
   .desktop .l\:d\:gap-3 {
-    grid-gap: var(--g-3, var(--key-size));
+    grid-gap: var(--g-3, calc(var(--key-size) * 0.75));
   }
   .desktop .l\:d\:g-4,
   .desktop .l\:d\:gap-4 {
-    grid-gap: var(--g-4, calc(var(--key-size) * 1.5));
+    grid-gap: var(--g-4, var(--key-size));
   }
   .desktop .l\:d\:g-5,
   .desktop .l\:d\:gap-5 {
-    grid-gap: var(--g-5, calc(var(--key-size) * 3));
+    grid-gap: var(--g-5, calc(var(--key-size) * 1.25));
+  }
+  .desktop .l\:d\:g-6,
+  .desktop .l\:d\:gap-6 {
+    grid-gap: var(--g-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .l\:d\:g-7,
+  .desktop .l\:d\:gap-7 {
+    grid-gap: var(--g-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .l\:d\:g-8,
+  .desktop .l\:d\:gap-8 {
+    grid-gap: var(--g-8, calc(var(--key-size) * 2));
   }
   .desktop .l\:d\:text-start,
   .desktop .l\:d\:text-left {
@@ -10840,13 +12077,22 @@ h6,
     margin: var(--m-2, calc(var(--key-size) * 0.5));
   }
   .p\:m-3 {
-    margin: var(--m-3, var(--key-size));
+    margin: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .p\:m-4 {
-    margin: var(--m-4, calc(var(--key-size) * 1.5));
+    margin: var(--m-4, var(--key-size));
   }
   .p\:m-5 {
-    margin: var(--m-5, calc(var(--key-size) * 3));
+    margin: var(--m-5, calc(var(--key-size) * 1.25));
+  }
+  .p\:m-6 {
+    margin: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .p\:m-7 {
+    margin: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .p\:m-8 {
+    margin: var(--m-8, calc(var(--key-size) * 2));
   }
   .p\:m-auto {
     margin: auto;
@@ -10876,28 +12122,52 @@ h6,
     margin-right: var(--m-2, calc(var(--key-size) * 0.5));
   }
   .p\:my-3 {
-    margin-top: var(--m-3, var(--key-size));
-    margin-bottom: var(--m-3, var(--key-size));
+    margin-top: var(--m-3, calc(var(--key-size) * 0.75));
+    margin-bottom: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .p\:mx-3 {
-    margin-left: var(--m-3, var(--key-size));
-    margin-right: var(--m-3, var(--key-size));
+    margin-left: var(--m-3, calc(var(--key-size) * 0.75));
+    margin-right: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .p\:my-4 {
-    margin-top: var(--m-4, calc(var(--key-size) * 1.5));
-    margin-bottom: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-top: var(--m-4, var(--key-size));
+    margin-bottom: var(--m-4, var(--key-size));
   }
   .p\:mx-4 {
-    margin-left: var(--m-4, calc(var(--key-size) * 1.5));
-    margin-right: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-left: var(--m-4, var(--key-size));
+    margin-right: var(--m-4, var(--key-size));
   }
   .p\:my-5 {
-    margin-top: var(--m-5, calc(var(--key-size) * 3));
-    margin-bottom: var(--m-5, calc(var(--key-size) * 3));
+    margin-top: var(--m-5, calc(var(--key-size) * 1.25));
+    margin-bottom: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .p\:mx-5 {
-    margin-left: var(--m-5, calc(var(--key-size) * 3));
-    margin-right: var(--m-5, calc(var(--key-size) * 3));
+    margin-left: var(--m-5, calc(var(--key-size) * 1.25));
+    margin-right: var(--m-5, calc(var(--key-size) * 1.25));
+  }
+  .p\:my-6 {
+    margin-top: var(--m-6, calc(var(--key-size) * 1.5));
+    margin-bottom: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .p\:mx-6 {
+    margin-left: var(--m-6, calc(var(--key-size) * 1.5));
+    margin-right: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .p\:my-7 {
+    margin-top: var(--m-7, calc(var(--key-size) * 1.75));
+    margin-bottom: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .p\:mx-7 {
+    margin-left: var(--m-7, calc(var(--key-size) * 1.75));
+    margin-right: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .p\:my-8 {
+    margin-top: var(--m-8, calc(var(--key-size) * 2));
+    margin-bottom: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .p\:mx-8 {
+    margin-left: var(--m-8, calc(var(--key-size) * 2));
+    margin-right: var(--m-8, calc(var(--key-size) * 2));
   }
   .p\:my-auto {
     margin-top: auto;
@@ -10944,40 +12214,76 @@ h6,
     margin-left: var(--m-2, calc(var(--key-size) * 0.5));
   }
   .p\:mt-3 {
-    margin-top: var(--m-3, var(--key-size));
+    margin-top: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .p\:mr-3 {
-    margin-right: var(--m-3, var(--key-size));
+    margin-right: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .p\:mb-3 {
-    margin-bottom: var(--m-3, var(--key-size));
+    margin-bottom: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .p\:ml-3 {
-    margin-left: var(--m-3, var(--key-size));
+    margin-left: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .p\:mt-4 {
-    margin-top: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-top: var(--m-4, var(--key-size));
   }
   .p\:mr-4 {
-    margin-right: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-right: var(--m-4, var(--key-size));
   }
   .p\:mb-4 {
-    margin-bottom: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-bottom: var(--m-4, var(--key-size));
   }
   .p\:ml-4 {
-    margin-left: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-left: var(--m-4, var(--key-size));
   }
   .p\:mt-5 {
-    margin-top: var(--m-5, calc(var(--key-size) * 3));
+    margin-top: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .p\:mr-5 {
-    margin-right: var(--m-5, calc(var(--key-size) * 3));
+    margin-right: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .p\:mb-5 {
-    margin-bottom: var(--m-5, calc(var(--key-size) * 3));
+    margin-bottom: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .p\:ml-5 {
-    margin-left: var(--m-5, calc(var(--key-size) * 3));
+    margin-left: var(--m-5, calc(var(--key-size) * 1.25));
+  }
+  .p\:mt-6 {
+    margin-top: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .p\:mr-6 {
+    margin-right: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .p\:mb-6 {
+    margin-bottom: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .p\:ml-6 {
+    margin-left: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .p\:mt-7 {
+    margin-top: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .p\:mr-7 {
+    margin-right: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .p\:mb-7 {
+    margin-bottom: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .p\:ml-7 {
+    margin-left: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .p\:mt-8 {
+    margin-top: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .p\:mr-8 {
+    margin-right: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .p\:mb-8 {
+    margin-bottom: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .p\:ml-8 {
+    margin-left: var(--m-8, calc(var(--key-size) * 2));
   }
   .p\:mt-auto {
     margin-top: auto;
@@ -11001,13 +12307,22 @@ h6,
     padding: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .p\:p-3 {
-    padding: var(--p-3, var(--key-size));
+    padding: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .p\:p-4 {
-    padding: var(--p-4, calc(var(--key-size) * 1.5));
+    padding: var(--p-4, var(--key-size));
   }
   .p\:p-5 {
-    padding: var(--p-5, calc(var(--key-size) * 3));
+    padding: var(--p-5, calc(var(--key-size) * 1.25));
+  }
+  .p\:p-6 {
+    padding: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .p\:p-7 {
+    padding: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .p\:p-8 {
+    padding: var(--p-8, calc(var(--key-size) * 2));
   }
   .p\:py-0 {
     padding-top: 0;
@@ -11022,40 +12337,64 @@ h6,
     padding-bottom: var(--p-1, calc(var(--key-size) * 0.25));
   }
   .p\:px-1 {
-    padding-right: var(--p-1, calc(var(--key-size) * 0.25));
     padding-left: var(--p-1, calc(var(--key-size) * 0.25));
+    padding-right: var(--p-1, calc(var(--key-size) * 0.25));
   }
   .p\:py-2 {
     padding-top: var(--p-2, calc(var(--key-size) * 0.5));
     padding-bottom: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .p\:px-2 {
-    padding-right: var(--p-2, calc(var(--key-size) * 0.5));
     padding-left: var(--p-2, calc(var(--key-size) * 0.5));
+    padding-right: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .p\:py-3 {
-    padding-top: var(--p-3, var(--key-size));
-    padding-bottom: var(--p-3, var(--key-size));
+    padding-top: var(--p-3, calc(var(--key-size) * 0.75));
+    padding-bottom: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .p\:px-3 {
-    padding-right: var(--p-3, var(--key-size));
-    padding-left: var(--p-3, var(--key-size));
+    padding-left: var(--p-3, calc(var(--key-size) * 0.75));
+    padding-right: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .p\:py-4 {
-    padding-top: var(--p-4, calc(var(--key-size) * 1.5));
-    padding-bottom: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-top: var(--p-4, var(--key-size));
+    padding-bottom: var(--p-4, var(--key-size));
   }
   .p\:px-4 {
-    padding-right: var(--p-4, calc(var(--key-size) * 1.5));
-    padding-left: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-left: var(--p-4, var(--key-size));
+    padding-right: var(--p-4, var(--key-size));
   }
   .p\:py-5 {
-    padding-top: var(--p-5, calc(var(--key-size) * 3));
-    padding-bottom: var(--p-5, calc(var(--key-size) * 3));
+    padding-top: var(--p-5, calc(var(--key-size) * 1.25));
+    padding-bottom: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .p\:px-5 {
-    padding-right: var(--p-5, calc(var(--key-size) * 3));
-    padding-left: var(--p-5, calc(var(--key-size) * 3));
+    padding-left: var(--p-5, calc(var(--key-size) * 1.25));
+    padding-right: var(--p-5, calc(var(--key-size) * 1.25));
+  }
+  .p\:py-6 {
+    padding-top: var(--p-6, calc(var(--key-size) * 1.5));
+    padding-bottom: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .p\:px-6 {
+    padding-left: var(--p-6, calc(var(--key-size) * 1.5));
+    padding-right: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .p\:py-7 {
+    padding-top: var(--p-7, calc(var(--key-size) * 1.75));
+    padding-bottom: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .p\:px-7 {
+    padding-left: var(--p-7, calc(var(--key-size) * 1.75));
+    padding-right: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .p\:py-8 {
+    padding-top: var(--p-8, calc(var(--key-size) * 2));
+    padding-bottom: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .p\:px-8 {
+    padding-left: var(--p-8, calc(var(--key-size) * 2));
+    padding-right: var(--p-8, calc(var(--key-size) * 2));
   }
   .p\:pt-0 {
     padding-top: 0;
@@ -11094,40 +12433,76 @@ h6,
     padding-left: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .p\:pt-3 {
-    padding-top: var(--p-3, var(--key-size));
+    padding-top: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .p\:pr-3 {
-    padding-right: var(--p-3, var(--key-size));
+    padding-right: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .p\:pb-3 {
-    padding-bottom: var(--p-3, var(--key-size));
+    padding-bottom: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .p\:pl-3 {
-    padding-left: var(--p-3, var(--key-size));
+    padding-left: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .p\:pt-4 {
-    padding-top: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-top: var(--p-4, var(--key-size));
   }
   .p\:pr-4 {
-    padding-right: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-right: var(--p-4, var(--key-size));
   }
   .p\:pb-4 {
-    padding-bottom: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-bottom: var(--p-4, var(--key-size));
   }
   .p\:pl-4 {
-    padding-left: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-left: var(--p-4, var(--key-size));
   }
   .p\:pt-5 {
-    padding-top: var(--p-5, calc(var(--key-size) * 3));
+    padding-top: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .p\:pr-5 {
-    padding-right: var(--p-5, calc(var(--key-size) * 3));
+    padding-right: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .p\:pb-5 {
-    padding-bottom: var(--p-5, calc(var(--key-size) * 3));
+    padding-bottom: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .p\:pl-5 {
-    padding-left: var(--p-5, calc(var(--key-size) * 3));
+    padding-left: var(--p-5, calc(var(--key-size) * 1.25));
+  }
+  .p\:pt-6 {
+    padding-top: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .p\:pr-6 {
+    padding-right: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .p\:pb-6 {
+    padding-bottom: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .p\:pl-6 {
+    padding-left: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .p\:pt-7 {
+    padding-top: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .p\:pr-7 {
+    padding-right: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .p\:pb-7 {
+    padding-bottom: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .p\:pl-7 {
+    padding-left: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .p\:pt-8 {
+    padding-top: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .p\:pr-8 {
+    padding-right: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .p\:pb-8 {
+    padding-bottom: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .p\:pl-8 {
+    padding-left: var(--p-8, calc(var(--key-size) * 2));
   }
   .p\:g-0,
   .p\:gap-0 {
@@ -11143,15 +12518,27 @@ h6,
   }
   .p\:g-3,
   .p\:gap-3 {
-    grid-gap: var(--g-3, var(--key-size));
+    grid-gap: var(--g-3, calc(var(--key-size) * 0.75));
   }
   .p\:g-4,
   .p\:gap-4 {
-    grid-gap: var(--g-4, calc(var(--key-size) * 1.5));
+    grid-gap: var(--g-4, var(--key-size));
   }
   .p\:g-5,
   .p\:gap-5 {
-    grid-gap: var(--g-5, calc(var(--key-size) * 3));
+    grid-gap: var(--g-5, calc(var(--key-size) * 1.25));
+  }
+  .p\:g-6,
+  .p\:gap-6 {
+    grid-gap: var(--g-6, calc(var(--key-size) * 1.5));
+  }
+  .p\:g-7,
+  .p\:gap-7 {
+    grid-gap: var(--g-7, calc(var(--key-size) * 1.75));
+  }
+  .p\:g-8,
+  .p\:gap-8 {
+    grid-gap: var(--g-8, calc(var(--key-size) * 2));
   }
   .p\:text-start,
   .p\:text-left {
@@ -11930,13 +13317,22 @@ h6,
     margin: var(--m-2, calc(var(--key-size) * 0.5));
   }
   .mobile .p\:m\:m-3 {
-    margin: var(--m-3, var(--key-size));
+    margin: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .mobile .p\:m\:m-4 {
-    margin: var(--m-4, calc(var(--key-size) * 1.5));
+    margin: var(--m-4, var(--key-size));
   }
   .mobile .p\:m\:m-5 {
-    margin: var(--m-5, calc(var(--key-size) * 3));
+    margin: var(--m-5, calc(var(--key-size) * 1.25));
+  }
+  .mobile .p\:m\:m-6 {
+    margin: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .p\:m\:m-7 {
+    margin: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .p\:m\:m-8 {
+    margin: var(--m-8, calc(var(--key-size) * 2));
   }
   .mobile .p\:m\:m-auto {
     margin: auto;
@@ -11966,28 +13362,52 @@ h6,
     margin-right: var(--m-2, calc(var(--key-size) * 0.5));
   }
   .mobile .p\:m\:my-3 {
-    margin-top: var(--m-3, var(--key-size));
-    margin-bottom: var(--m-3, var(--key-size));
+    margin-top: var(--m-3, calc(var(--key-size) * 0.75));
+    margin-bottom: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .mobile .p\:m\:mx-3 {
-    margin-left: var(--m-3, var(--key-size));
-    margin-right: var(--m-3, var(--key-size));
+    margin-left: var(--m-3, calc(var(--key-size) * 0.75));
+    margin-right: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .mobile .p\:m\:my-4 {
-    margin-top: var(--m-4, calc(var(--key-size) * 1.5));
-    margin-bottom: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-top: var(--m-4, var(--key-size));
+    margin-bottom: var(--m-4, var(--key-size));
   }
   .mobile .p\:m\:mx-4 {
-    margin-left: var(--m-4, calc(var(--key-size) * 1.5));
-    margin-right: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-left: var(--m-4, var(--key-size));
+    margin-right: var(--m-4, var(--key-size));
   }
   .mobile .p\:m\:my-5 {
-    margin-top: var(--m-5, calc(var(--key-size) * 3));
-    margin-bottom: var(--m-5, calc(var(--key-size) * 3));
+    margin-top: var(--m-5, calc(var(--key-size) * 1.25));
+    margin-bottom: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .mobile .p\:m\:mx-5 {
-    margin-left: var(--m-5, calc(var(--key-size) * 3));
-    margin-right: var(--m-5, calc(var(--key-size) * 3));
+    margin-left: var(--m-5, calc(var(--key-size) * 1.25));
+    margin-right: var(--m-5, calc(var(--key-size) * 1.25));
+  }
+  .mobile .p\:m\:my-6 {
+    margin-top: var(--m-6, calc(var(--key-size) * 1.5));
+    margin-bottom: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .p\:m\:mx-6 {
+    margin-left: var(--m-6, calc(var(--key-size) * 1.5));
+    margin-right: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .p\:m\:my-7 {
+    margin-top: var(--m-7, calc(var(--key-size) * 1.75));
+    margin-bottom: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .p\:m\:mx-7 {
+    margin-left: var(--m-7, calc(var(--key-size) * 1.75));
+    margin-right: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .p\:m\:my-8 {
+    margin-top: var(--m-8, calc(var(--key-size) * 2));
+    margin-bottom: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .mobile .p\:m\:mx-8 {
+    margin-left: var(--m-8, calc(var(--key-size) * 2));
+    margin-right: var(--m-8, calc(var(--key-size) * 2));
   }
   .mobile .p\:m\:my-auto {
     margin-top: auto;
@@ -12034,40 +13454,76 @@ h6,
     margin-left: var(--m-2, calc(var(--key-size) * 0.5));
   }
   .mobile .p\:m\:mt-3 {
-    margin-top: var(--m-3, var(--key-size));
+    margin-top: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .mobile .p\:m\:mr-3 {
-    margin-right: var(--m-3, var(--key-size));
+    margin-right: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .mobile .p\:m\:mb-3 {
-    margin-bottom: var(--m-3, var(--key-size));
+    margin-bottom: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .mobile .p\:m\:ml-3 {
-    margin-left: var(--m-3, var(--key-size));
+    margin-left: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .mobile .p\:m\:mt-4 {
-    margin-top: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-top: var(--m-4, var(--key-size));
   }
   .mobile .p\:m\:mr-4 {
-    margin-right: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-right: var(--m-4, var(--key-size));
   }
   .mobile .p\:m\:mb-4 {
-    margin-bottom: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-bottom: var(--m-4, var(--key-size));
   }
   .mobile .p\:m\:ml-4 {
-    margin-left: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-left: var(--m-4, var(--key-size));
   }
   .mobile .p\:m\:mt-5 {
-    margin-top: var(--m-5, calc(var(--key-size) * 3));
+    margin-top: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .mobile .p\:m\:mr-5 {
-    margin-right: var(--m-5, calc(var(--key-size) * 3));
+    margin-right: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .mobile .p\:m\:mb-5 {
-    margin-bottom: var(--m-5, calc(var(--key-size) * 3));
+    margin-bottom: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .mobile .p\:m\:ml-5 {
-    margin-left: var(--m-5, calc(var(--key-size) * 3));
+    margin-left: var(--m-5, calc(var(--key-size) * 1.25));
+  }
+  .mobile .p\:m\:mt-6 {
+    margin-top: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .p\:m\:mr-6 {
+    margin-right: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .p\:m\:mb-6 {
+    margin-bottom: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .p\:m\:ml-6 {
+    margin-left: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .p\:m\:mt-7 {
+    margin-top: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .p\:m\:mr-7 {
+    margin-right: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .p\:m\:mb-7 {
+    margin-bottom: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .p\:m\:ml-7 {
+    margin-left: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .p\:m\:mt-8 {
+    margin-top: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .mobile .p\:m\:mr-8 {
+    margin-right: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .mobile .p\:m\:mb-8 {
+    margin-bottom: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .mobile .p\:m\:ml-8 {
+    margin-left: var(--m-8, calc(var(--key-size) * 2));
   }
   .mobile .p\:m\:mt-auto {
     margin-top: auto;
@@ -12091,13 +13547,22 @@ h6,
     padding: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .mobile .p\:m\:p-3 {
-    padding: var(--p-3, var(--key-size));
+    padding: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .mobile .p\:m\:p-4 {
-    padding: var(--p-4, calc(var(--key-size) * 1.5));
+    padding: var(--p-4, var(--key-size));
   }
   .mobile .p\:m\:p-5 {
-    padding: var(--p-5, calc(var(--key-size) * 3));
+    padding: var(--p-5, calc(var(--key-size) * 1.25));
+  }
+  .mobile .p\:m\:p-6 {
+    padding: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .p\:m\:p-7 {
+    padding: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .p\:m\:p-8 {
+    padding: var(--p-8, calc(var(--key-size) * 2));
   }
   .mobile .p\:m\:py-0 {
     padding-top: 0;
@@ -12112,40 +13577,64 @@ h6,
     padding-bottom: var(--p-1, calc(var(--key-size) * 0.25));
   }
   .mobile .p\:m\:px-1 {
-    padding-right: var(--p-1, calc(var(--key-size) * 0.25));
     padding-left: var(--p-1, calc(var(--key-size) * 0.25));
+    padding-right: var(--p-1, calc(var(--key-size) * 0.25));
   }
   .mobile .p\:m\:py-2 {
     padding-top: var(--p-2, calc(var(--key-size) * 0.5));
     padding-bottom: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .mobile .p\:m\:px-2 {
-    padding-right: var(--p-2, calc(var(--key-size) * 0.5));
     padding-left: var(--p-2, calc(var(--key-size) * 0.5));
+    padding-right: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .mobile .p\:m\:py-3 {
-    padding-top: var(--p-3, var(--key-size));
-    padding-bottom: var(--p-3, var(--key-size));
+    padding-top: var(--p-3, calc(var(--key-size) * 0.75));
+    padding-bottom: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .mobile .p\:m\:px-3 {
-    padding-right: var(--p-3, var(--key-size));
-    padding-left: var(--p-3, var(--key-size));
+    padding-left: var(--p-3, calc(var(--key-size) * 0.75));
+    padding-right: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .mobile .p\:m\:py-4 {
-    padding-top: var(--p-4, calc(var(--key-size) * 1.5));
-    padding-bottom: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-top: var(--p-4, var(--key-size));
+    padding-bottom: var(--p-4, var(--key-size));
   }
   .mobile .p\:m\:px-4 {
-    padding-right: var(--p-4, calc(var(--key-size) * 1.5));
-    padding-left: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-left: var(--p-4, var(--key-size));
+    padding-right: var(--p-4, var(--key-size));
   }
   .mobile .p\:m\:py-5 {
-    padding-top: var(--p-5, calc(var(--key-size) * 3));
-    padding-bottom: var(--p-5, calc(var(--key-size) * 3));
+    padding-top: var(--p-5, calc(var(--key-size) * 1.25));
+    padding-bottom: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .mobile .p\:m\:px-5 {
-    padding-right: var(--p-5, calc(var(--key-size) * 3));
-    padding-left: var(--p-5, calc(var(--key-size) * 3));
+    padding-left: var(--p-5, calc(var(--key-size) * 1.25));
+    padding-right: var(--p-5, calc(var(--key-size) * 1.25));
+  }
+  .mobile .p\:m\:py-6 {
+    padding-top: var(--p-6, calc(var(--key-size) * 1.5));
+    padding-bottom: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .p\:m\:px-6 {
+    padding-left: var(--p-6, calc(var(--key-size) * 1.5));
+    padding-right: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .p\:m\:py-7 {
+    padding-top: var(--p-7, calc(var(--key-size) * 1.75));
+    padding-bottom: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .p\:m\:px-7 {
+    padding-left: var(--p-7, calc(var(--key-size) * 1.75));
+    padding-right: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .p\:m\:py-8 {
+    padding-top: var(--p-8, calc(var(--key-size) * 2));
+    padding-bottom: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .mobile .p\:m\:px-8 {
+    padding-left: var(--p-8, calc(var(--key-size) * 2));
+    padding-right: var(--p-8, calc(var(--key-size) * 2));
   }
   .mobile .p\:m\:pt-0 {
     padding-top: 0;
@@ -12184,40 +13673,76 @@ h6,
     padding-left: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .mobile .p\:m\:pt-3 {
-    padding-top: var(--p-3, var(--key-size));
+    padding-top: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .mobile .p\:m\:pr-3 {
-    padding-right: var(--p-3, var(--key-size));
+    padding-right: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .mobile .p\:m\:pb-3 {
-    padding-bottom: var(--p-3, var(--key-size));
+    padding-bottom: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .mobile .p\:m\:pl-3 {
-    padding-left: var(--p-3, var(--key-size));
+    padding-left: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .mobile .p\:m\:pt-4 {
-    padding-top: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-top: var(--p-4, var(--key-size));
   }
   .mobile .p\:m\:pr-4 {
-    padding-right: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-right: var(--p-4, var(--key-size));
   }
   .mobile .p\:m\:pb-4 {
-    padding-bottom: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-bottom: var(--p-4, var(--key-size));
   }
   .mobile .p\:m\:pl-4 {
-    padding-left: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-left: var(--p-4, var(--key-size));
   }
   .mobile .p\:m\:pt-5 {
-    padding-top: var(--p-5, calc(var(--key-size) * 3));
+    padding-top: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .mobile .p\:m\:pr-5 {
-    padding-right: var(--p-5, calc(var(--key-size) * 3));
+    padding-right: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .mobile .p\:m\:pb-5 {
-    padding-bottom: var(--p-5, calc(var(--key-size) * 3));
+    padding-bottom: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .mobile .p\:m\:pl-5 {
-    padding-left: var(--p-5, calc(var(--key-size) * 3));
+    padding-left: var(--p-5, calc(var(--key-size) * 1.25));
+  }
+  .mobile .p\:m\:pt-6 {
+    padding-top: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .p\:m\:pr-6 {
+    padding-right: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .p\:m\:pb-6 {
+    padding-bottom: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .p\:m\:pl-6 {
+    padding-left: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .p\:m\:pt-7 {
+    padding-top: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .p\:m\:pr-7 {
+    padding-right: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .p\:m\:pb-7 {
+    padding-bottom: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .p\:m\:pl-7 {
+    padding-left: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .p\:m\:pt-8 {
+    padding-top: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .mobile .p\:m\:pr-8 {
+    padding-right: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .mobile .p\:m\:pb-8 {
+    padding-bottom: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .mobile .p\:m\:pl-8 {
+    padding-left: var(--p-8, calc(var(--key-size) * 2));
   }
   .mobile .p\:m\:g-0,
   .mobile .p\:m\:gap-0 {
@@ -12233,15 +13758,27 @@ h6,
   }
   .mobile .p\:m\:g-3,
   .mobile .p\:m\:gap-3 {
-    grid-gap: var(--g-3, var(--key-size));
+    grid-gap: var(--g-3, calc(var(--key-size) * 0.75));
   }
   .mobile .p\:m\:g-4,
   .mobile .p\:m\:gap-4 {
-    grid-gap: var(--g-4, calc(var(--key-size) * 1.5));
+    grid-gap: var(--g-4, var(--key-size));
   }
   .mobile .p\:m\:g-5,
   .mobile .p\:m\:gap-5 {
-    grid-gap: var(--g-5, calc(var(--key-size) * 3));
+    grid-gap: var(--g-5, calc(var(--key-size) * 1.25));
+  }
+  .mobile .p\:m\:g-6,
+  .mobile .p\:m\:gap-6 {
+    grid-gap: var(--g-6, calc(var(--key-size) * 1.5));
+  }
+  .mobile .p\:m\:g-7,
+  .mobile .p\:m\:gap-7 {
+    grid-gap: var(--g-7, calc(var(--key-size) * 1.75));
+  }
+  .mobile .p\:m\:g-8,
+  .mobile .p\:m\:gap-8 {
+    grid-gap: var(--g-8, calc(var(--key-size) * 2));
   }
   .mobile .p\:m\:text-start,
   .mobile .p\:m\:text-left {
@@ -13020,13 +14557,22 @@ h6,
     margin: var(--m-2, calc(var(--key-size) * 0.5));
   }
   .tablet .p\:t\:m-3 {
-    margin: var(--m-3, var(--key-size));
+    margin: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .tablet .p\:t\:m-4 {
-    margin: var(--m-4, calc(var(--key-size) * 1.5));
+    margin: var(--m-4, var(--key-size));
   }
   .tablet .p\:t\:m-5 {
-    margin: var(--m-5, calc(var(--key-size) * 3));
+    margin: var(--m-5, calc(var(--key-size) * 1.25));
+  }
+  .tablet .p\:t\:m-6 {
+    margin: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .p\:t\:m-7 {
+    margin: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .p\:t\:m-8 {
+    margin: var(--m-8, calc(var(--key-size) * 2));
   }
   .tablet .p\:t\:m-auto {
     margin: auto;
@@ -13056,28 +14602,52 @@ h6,
     margin-right: var(--m-2, calc(var(--key-size) * 0.5));
   }
   .tablet .p\:t\:my-3 {
-    margin-top: var(--m-3, var(--key-size));
-    margin-bottom: var(--m-3, var(--key-size));
+    margin-top: var(--m-3, calc(var(--key-size) * 0.75));
+    margin-bottom: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .tablet .p\:t\:mx-3 {
-    margin-left: var(--m-3, var(--key-size));
-    margin-right: var(--m-3, var(--key-size));
+    margin-left: var(--m-3, calc(var(--key-size) * 0.75));
+    margin-right: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .tablet .p\:t\:my-4 {
-    margin-top: var(--m-4, calc(var(--key-size) * 1.5));
-    margin-bottom: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-top: var(--m-4, var(--key-size));
+    margin-bottom: var(--m-4, var(--key-size));
   }
   .tablet .p\:t\:mx-4 {
-    margin-left: var(--m-4, calc(var(--key-size) * 1.5));
-    margin-right: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-left: var(--m-4, var(--key-size));
+    margin-right: var(--m-4, var(--key-size));
   }
   .tablet .p\:t\:my-5 {
-    margin-top: var(--m-5, calc(var(--key-size) * 3));
-    margin-bottom: var(--m-5, calc(var(--key-size) * 3));
+    margin-top: var(--m-5, calc(var(--key-size) * 1.25));
+    margin-bottom: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .tablet .p\:t\:mx-5 {
-    margin-left: var(--m-5, calc(var(--key-size) * 3));
-    margin-right: var(--m-5, calc(var(--key-size) * 3));
+    margin-left: var(--m-5, calc(var(--key-size) * 1.25));
+    margin-right: var(--m-5, calc(var(--key-size) * 1.25));
+  }
+  .tablet .p\:t\:my-6 {
+    margin-top: var(--m-6, calc(var(--key-size) * 1.5));
+    margin-bottom: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .p\:t\:mx-6 {
+    margin-left: var(--m-6, calc(var(--key-size) * 1.5));
+    margin-right: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .p\:t\:my-7 {
+    margin-top: var(--m-7, calc(var(--key-size) * 1.75));
+    margin-bottom: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .p\:t\:mx-7 {
+    margin-left: var(--m-7, calc(var(--key-size) * 1.75));
+    margin-right: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .p\:t\:my-8 {
+    margin-top: var(--m-8, calc(var(--key-size) * 2));
+    margin-bottom: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .tablet .p\:t\:mx-8 {
+    margin-left: var(--m-8, calc(var(--key-size) * 2));
+    margin-right: var(--m-8, calc(var(--key-size) * 2));
   }
   .tablet .p\:t\:my-auto {
     margin-top: auto;
@@ -13124,40 +14694,76 @@ h6,
     margin-left: var(--m-2, calc(var(--key-size) * 0.5));
   }
   .tablet .p\:t\:mt-3 {
-    margin-top: var(--m-3, var(--key-size));
+    margin-top: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .tablet .p\:t\:mr-3 {
-    margin-right: var(--m-3, var(--key-size));
+    margin-right: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .tablet .p\:t\:mb-3 {
-    margin-bottom: var(--m-3, var(--key-size));
+    margin-bottom: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .tablet .p\:t\:ml-3 {
-    margin-left: var(--m-3, var(--key-size));
+    margin-left: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .tablet .p\:t\:mt-4 {
-    margin-top: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-top: var(--m-4, var(--key-size));
   }
   .tablet .p\:t\:mr-4 {
-    margin-right: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-right: var(--m-4, var(--key-size));
   }
   .tablet .p\:t\:mb-4 {
-    margin-bottom: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-bottom: var(--m-4, var(--key-size));
   }
   .tablet .p\:t\:ml-4 {
-    margin-left: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-left: var(--m-4, var(--key-size));
   }
   .tablet .p\:t\:mt-5 {
-    margin-top: var(--m-5, calc(var(--key-size) * 3));
+    margin-top: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .tablet .p\:t\:mr-5 {
-    margin-right: var(--m-5, calc(var(--key-size) * 3));
+    margin-right: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .tablet .p\:t\:mb-5 {
-    margin-bottom: var(--m-5, calc(var(--key-size) * 3));
+    margin-bottom: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .tablet .p\:t\:ml-5 {
-    margin-left: var(--m-5, calc(var(--key-size) * 3));
+    margin-left: var(--m-5, calc(var(--key-size) * 1.25));
+  }
+  .tablet .p\:t\:mt-6 {
+    margin-top: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .p\:t\:mr-6 {
+    margin-right: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .p\:t\:mb-6 {
+    margin-bottom: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .p\:t\:ml-6 {
+    margin-left: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .p\:t\:mt-7 {
+    margin-top: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .p\:t\:mr-7 {
+    margin-right: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .p\:t\:mb-7 {
+    margin-bottom: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .p\:t\:ml-7 {
+    margin-left: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .p\:t\:mt-8 {
+    margin-top: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .tablet .p\:t\:mr-8 {
+    margin-right: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .tablet .p\:t\:mb-8 {
+    margin-bottom: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .tablet .p\:t\:ml-8 {
+    margin-left: var(--m-8, calc(var(--key-size) * 2));
   }
   .tablet .p\:t\:mt-auto {
     margin-top: auto;
@@ -13181,13 +14787,22 @@ h6,
     padding: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .tablet .p\:t\:p-3 {
-    padding: var(--p-3, var(--key-size));
+    padding: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .tablet .p\:t\:p-4 {
-    padding: var(--p-4, calc(var(--key-size) * 1.5));
+    padding: var(--p-4, var(--key-size));
   }
   .tablet .p\:t\:p-5 {
-    padding: var(--p-5, calc(var(--key-size) * 3));
+    padding: var(--p-5, calc(var(--key-size) * 1.25));
+  }
+  .tablet .p\:t\:p-6 {
+    padding: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .p\:t\:p-7 {
+    padding: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .p\:t\:p-8 {
+    padding: var(--p-8, calc(var(--key-size) * 2));
   }
   .tablet .p\:t\:py-0 {
     padding-top: 0;
@@ -13202,40 +14817,64 @@ h6,
     padding-bottom: var(--p-1, calc(var(--key-size) * 0.25));
   }
   .tablet .p\:t\:px-1 {
-    padding-right: var(--p-1, calc(var(--key-size) * 0.25));
     padding-left: var(--p-1, calc(var(--key-size) * 0.25));
+    padding-right: var(--p-1, calc(var(--key-size) * 0.25));
   }
   .tablet .p\:t\:py-2 {
     padding-top: var(--p-2, calc(var(--key-size) * 0.5));
     padding-bottom: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .tablet .p\:t\:px-2 {
-    padding-right: var(--p-2, calc(var(--key-size) * 0.5));
     padding-left: var(--p-2, calc(var(--key-size) * 0.5));
+    padding-right: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .tablet .p\:t\:py-3 {
-    padding-top: var(--p-3, var(--key-size));
-    padding-bottom: var(--p-3, var(--key-size));
+    padding-top: var(--p-3, calc(var(--key-size) * 0.75));
+    padding-bottom: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .tablet .p\:t\:px-3 {
-    padding-right: var(--p-3, var(--key-size));
-    padding-left: var(--p-3, var(--key-size));
+    padding-left: var(--p-3, calc(var(--key-size) * 0.75));
+    padding-right: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .tablet .p\:t\:py-4 {
-    padding-top: var(--p-4, calc(var(--key-size) * 1.5));
-    padding-bottom: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-top: var(--p-4, var(--key-size));
+    padding-bottom: var(--p-4, var(--key-size));
   }
   .tablet .p\:t\:px-4 {
-    padding-right: var(--p-4, calc(var(--key-size) * 1.5));
-    padding-left: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-left: var(--p-4, var(--key-size));
+    padding-right: var(--p-4, var(--key-size));
   }
   .tablet .p\:t\:py-5 {
-    padding-top: var(--p-5, calc(var(--key-size) * 3));
-    padding-bottom: var(--p-5, calc(var(--key-size) * 3));
+    padding-top: var(--p-5, calc(var(--key-size) * 1.25));
+    padding-bottom: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .tablet .p\:t\:px-5 {
-    padding-right: var(--p-5, calc(var(--key-size) * 3));
-    padding-left: var(--p-5, calc(var(--key-size) * 3));
+    padding-left: var(--p-5, calc(var(--key-size) * 1.25));
+    padding-right: var(--p-5, calc(var(--key-size) * 1.25));
+  }
+  .tablet .p\:t\:py-6 {
+    padding-top: var(--p-6, calc(var(--key-size) * 1.5));
+    padding-bottom: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .p\:t\:px-6 {
+    padding-left: var(--p-6, calc(var(--key-size) * 1.5));
+    padding-right: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .p\:t\:py-7 {
+    padding-top: var(--p-7, calc(var(--key-size) * 1.75));
+    padding-bottom: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .p\:t\:px-7 {
+    padding-left: var(--p-7, calc(var(--key-size) * 1.75));
+    padding-right: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .p\:t\:py-8 {
+    padding-top: var(--p-8, calc(var(--key-size) * 2));
+    padding-bottom: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .tablet .p\:t\:px-8 {
+    padding-left: var(--p-8, calc(var(--key-size) * 2));
+    padding-right: var(--p-8, calc(var(--key-size) * 2));
   }
   .tablet .p\:t\:pt-0 {
     padding-top: 0;
@@ -13274,40 +14913,76 @@ h6,
     padding-left: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .tablet .p\:t\:pt-3 {
-    padding-top: var(--p-3, var(--key-size));
+    padding-top: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .tablet .p\:t\:pr-3 {
-    padding-right: var(--p-3, var(--key-size));
+    padding-right: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .tablet .p\:t\:pb-3 {
-    padding-bottom: var(--p-3, var(--key-size));
+    padding-bottom: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .tablet .p\:t\:pl-3 {
-    padding-left: var(--p-3, var(--key-size));
+    padding-left: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .tablet .p\:t\:pt-4 {
-    padding-top: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-top: var(--p-4, var(--key-size));
   }
   .tablet .p\:t\:pr-4 {
-    padding-right: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-right: var(--p-4, var(--key-size));
   }
   .tablet .p\:t\:pb-4 {
-    padding-bottom: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-bottom: var(--p-4, var(--key-size));
   }
   .tablet .p\:t\:pl-4 {
-    padding-left: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-left: var(--p-4, var(--key-size));
   }
   .tablet .p\:t\:pt-5 {
-    padding-top: var(--p-5, calc(var(--key-size) * 3));
+    padding-top: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .tablet .p\:t\:pr-5 {
-    padding-right: var(--p-5, calc(var(--key-size) * 3));
+    padding-right: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .tablet .p\:t\:pb-5 {
-    padding-bottom: var(--p-5, calc(var(--key-size) * 3));
+    padding-bottom: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .tablet .p\:t\:pl-5 {
-    padding-left: var(--p-5, calc(var(--key-size) * 3));
+    padding-left: var(--p-5, calc(var(--key-size) * 1.25));
+  }
+  .tablet .p\:t\:pt-6 {
+    padding-top: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .p\:t\:pr-6 {
+    padding-right: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .p\:t\:pb-6 {
+    padding-bottom: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .p\:t\:pl-6 {
+    padding-left: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .p\:t\:pt-7 {
+    padding-top: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .p\:t\:pr-7 {
+    padding-right: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .p\:t\:pb-7 {
+    padding-bottom: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .p\:t\:pl-7 {
+    padding-left: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .p\:t\:pt-8 {
+    padding-top: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .tablet .p\:t\:pr-8 {
+    padding-right: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .tablet .p\:t\:pb-8 {
+    padding-bottom: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .tablet .p\:t\:pl-8 {
+    padding-left: var(--p-8, calc(var(--key-size) * 2));
   }
   .tablet .p\:t\:g-0,
   .tablet .p\:t\:gap-0 {
@@ -13323,15 +14998,27 @@ h6,
   }
   .tablet .p\:t\:g-3,
   .tablet .p\:t\:gap-3 {
-    grid-gap: var(--g-3, var(--key-size));
+    grid-gap: var(--g-3, calc(var(--key-size) * 0.75));
   }
   .tablet .p\:t\:g-4,
   .tablet .p\:t\:gap-4 {
-    grid-gap: var(--g-4, calc(var(--key-size) * 1.5));
+    grid-gap: var(--g-4, var(--key-size));
   }
   .tablet .p\:t\:g-5,
   .tablet .p\:t\:gap-5 {
-    grid-gap: var(--g-5, calc(var(--key-size) * 3));
+    grid-gap: var(--g-5, calc(var(--key-size) * 1.25));
+  }
+  .tablet .p\:t\:g-6,
+  .tablet .p\:t\:gap-6 {
+    grid-gap: var(--g-6, calc(var(--key-size) * 1.5));
+  }
+  .tablet .p\:t\:g-7,
+  .tablet .p\:t\:gap-7 {
+    grid-gap: var(--g-7, calc(var(--key-size) * 1.75));
+  }
+  .tablet .p\:t\:g-8,
+  .tablet .p\:t\:gap-8 {
+    grid-gap: var(--g-8, calc(var(--key-size) * 2));
   }
   .tablet .p\:t\:text-start,
   .tablet .p\:t\:text-left {
@@ -14110,13 +15797,22 @@ h6,
     margin: var(--m-2, calc(var(--key-size) * 0.5));
   }
   .desktop .p\:d\:m-3 {
-    margin: var(--m-3, var(--key-size));
+    margin: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .desktop .p\:d\:m-4 {
-    margin: var(--m-4, calc(var(--key-size) * 1.5));
+    margin: var(--m-4, var(--key-size));
   }
   .desktop .p\:d\:m-5 {
-    margin: var(--m-5, calc(var(--key-size) * 3));
+    margin: var(--m-5, calc(var(--key-size) * 1.25));
+  }
+  .desktop .p\:d\:m-6 {
+    margin: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .p\:d\:m-7 {
+    margin: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .p\:d\:m-8 {
+    margin: var(--m-8, calc(var(--key-size) * 2));
   }
   .desktop .p\:d\:m-auto {
     margin: auto;
@@ -14146,28 +15842,52 @@ h6,
     margin-right: var(--m-2, calc(var(--key-size) * 0.5));
   }
   .desktop .p\:d\:my-3 {
-    margin-top: var(--m-3, var(--key-size));
-    margin-bottom: var(--m-3, var(--key-size));
+    margin-top: var(--m-3, calc(var(--key-size) * 0.75));
+    margin-bottom: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .desktop .p\:d\:mx-3 {
-    margin-left: var(--m-3, var(--key-size));
-    margin-right: var(--m-3, var(--key-size));
+    margin-left: var(--m-3, calc(var(--key-size) * 0.75));
+    margin-right: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .desktop .p\:d\:my-4 {
-    margin-top: var(--m-4, calc(var(--key-size) * 1.5));
-    margin-bottom: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-top: var(--m-4, var(--key-size));
+    margin-bottom: var(--m-4, var(--key-size));
   }
   .desktop .p\:d\:mx-4 {
-    margin-left: var(--m-4, calc(var(--key-size) * 1.5));
-    margin-right: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-left: var(--m-4, var(--key-size));
+    margin-right: var(--m-4, var(--key-size));
   }
   .desktop .p\:d\:my-5 {
-    margin-top: var(--m-5, calc(var(--key-size) * 3));
-    margin-bottom: var(--m-5, calc(var(--key-size) * 3));
+    margin-top: var(--m-5, calc(var(--key-size) * 1.25));
+    margin-bottom: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .desktop .p\:d\:mx-5 {
-    margin-left: var(--m-5, calc(var(--key-size) * 3));
-    margin-right: var(--m-5, calc(var(--key-size) * 3));
+    margin-left: var(--m-5, calc(var(--key-size) * 1.25));
+    margin-right: var(--m-5, calc(var(--key-size) * 1.25));
+  }
+  .desktop .p\:d\:my-6 {
+    margin-top: var(--m-6, calc(var(--key-size) * 1.5));
+    margin-bottom: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .p\:d\:mx-6 {
+    margin-left: var(--m-6, calc(var(--key-size) * 1.5));
+    margin-right: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .p\:d\:my-7 {
+    margin-top: var(--m-7, calc(var(--key-size) * 1.75));
+    margin-bottom: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .p\:d\:mx-7 {
+    margin-left: var(--m-7, calc(var(--key-size) * 1.75));
+    margin-right: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .p\:d\:my-8 {
+    margin-top: var(--m-8, calc(var(--key-size) * 2));
+    margin-bottom: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .desktop .p\:d\:mx-8 {
+    margin-left: var(--m-8, calc(var(--key-size) * 2));
+    margin-right: var(--m-8, calc(var(--key-size) * 2));
   }
   .desktop .p\:d\:my-auto {
     margin-top: auto;
@@ -14214,40 +15934,76 @@ h6,
     margin-left: var(--m-2, calc(var(--key-size) * 0.5));
   }
   .desktop .p\:d\:mt-3 {
-    margin-top: var(--m-3, var(--key-size));
+    margin-top: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .desktop .p\:d\:mr-3 {
-    margin-right: var(--m-3, var(--key-size));
+    margin-right: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .desktop .p\:d\:mb-3 {
-    margin-bottom: var(--m-3, var(--key-size));
+    margin-bottom: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .desktop .p\:d\:ml-3 {
-    margin-left: var(--m-3, var(--key-size));
+    margin-left: var(--m-3, calc(var(--key-size) * 0.75));
   }
   .desktop .p\:d\:mt-4 {
-    margin-top: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-top: var(--m-4, var(--key-size));
   }
   .desktop .p\:d\:mr-4 {
-    margin-right: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-right: var(--m-4, var(--key-size));
   }
   .desktop .p\:d\:mb-4 {
-    margin-bottom: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-bottom: var(--m-4, var(--key-size));
   }
   .desktop .p\:d\:ml-4 {
-    margin-left: var(--m-4, calc(var(--key-size) * 1.5));
+    margin-left: var(--m-4, var(--key-size));
   }
   .desktop .p\:d\:mt-5 {
-    margin-top: var(--m-5, calc(var(--key-size) * 3));
+    margin-top: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .desktop .p\:d\:mr-5 {
-    margin-right: var(--m-5, calc(var(--key-size) * 3));
+    margin-right: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .desktop .p\:d\:mb-5 {
-    margin-bottom: var(--m-5, calc(var(--key-size) * 3));
+    margin-bottom: var(--m-5, calc(var(--key-size) * 1.25));
   }
   .desktop .p\:d\:ml-5 {
-    margin-left: var(--m-5, calc(var(--key-size) * 3));
+    margin-left: var(--m-5, calc(var(--key-size) * 1.25));
+  }
+  .desktop .p\:d\:mt-6 {
+    margin-top: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .p\:d\:mr-6 {
+    margin-right: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .p\:d\:mb-6 {
+    margin-bottom: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .p\:d\:ml-6 {
+    margin-left: var(--m-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .p\:d\:mt-7 {
+    margin-top: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .p\:d\:mr-7 {
+    margin-right: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .p\:d\:mb-7 {
+    margin-bottom: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .p\:d\:ml-7 {
+    margin-left: var(--m-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .p\:d\:mt-8 {
+    margin-top: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .desktop .p\:d\:mr-8 {
+    margin-right: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .desktop .p\:d\:mb-8 {
+    margin-bottom: var(--m-8, calc(var(--key-size) * 2));
+  }
+  .desktop .p\:d\:ml-8 {
+    margin-left: var(--m-8, calc(var(--key-size) * 2));
   }
   .desktop .p\:d\:mt-auto {
     margin-top: auto;
@@ -14271,13 +16027,22 @@ h6,
     padding: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .desktop .p\:d\:p-3 {
-    padding: var(--p-3, var(--key-size));
+    padding: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .desktop .p\:d\:p-4 {
-    padding: var(--p-4, calc(var(--key-size) * 1.5));
+    padding: var(--p-4, var(--key-size));
   }
   .desktop .p\:d\:p-5 {
-    padding: var(--p-5, calc(var(--key-size) * 3));
+    padding: var(--p-5, calc(var(--key-size) * 1.25));
+  }
+  .desktop .p\:d\:p-6 {
+    padding: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .p\:d\:p-7 {
+    padding: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .p\:d\:p-8 {
+    padding: var(--p-8, calc(var(--key-size) * 2));
   }
   .desktop .p\:d\:py-0 {
     padding-top: 0;
@@ -14292,40 +16057,64 @@ h6,
     padding-bottom: var(--p-1, calc(var(--key-size) * 0.25));
   }
   .desktop .p\:d\:px-1 {
-    padding-right: var(--p-1, calc(var(--key-size) * 0.25));
     padding-left: var(--p-1, calc(var(--key-size) * 0.25));
+    padding-right: var(--p-1, calc(var(--key-size) * 0.25));
   }
   .desktop .p\:d\:py-2 {
     padding-top: var(--p-2, calc(var(--key-size) * 0.5));
     padding-bottom: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .desktop .p\:d\:px-2 {
-    padding-right: var(--p-2, calc(var(--key-size) * 0.5));
     padding-left: var(--p-2, calc(var(--key-size) * 0.5));
+    padding-right: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .desktop .p\:d\:py-3 {
-    padding-top: var(--p-3, var(--key-size));
-    padding-bottom: var(--p-3, var(--key-size));
+    padding-top: var(--p-3, calc(var(--key-size) * 0.75));
+    padding-bottom: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .desktop .p\:d\:px-3 {
-    padding-right: var(--p-3, var(--key-size));
-    padding-left: var(--p-3, var(--key-size));
+    padding-left: var(--p-3, calc(var(--key-size) * 0.75));
+    padding-right: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .desktop .p\:d\:py-4 {
-    padding-top: var(--p-4, calc(var(--key-size) * 1.5));
-    padding-bottom: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-top: var(--p-4, var(--key-size));
+    padding-bottom: var(--p-4, var(--key-size));
   }
   .desktop .p\:d\:px-4 {
-    padding-right: var(--p-4, calc(var(--key-size) * 1.5));
-    padding-left: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-left: var(--p-4, var(--key-size));
+    padding-right: var(--p-4, var(--key-size));
   }
   .desktop .p\:d\:py-5 {
-    padding-top: var(--p-5, calc(var(--key-size) * 3));
-    padding-bottom: var(--p-5, calc(var(--key-size) * 3));
+    padding-top: var(--p-5, calc(var(--key-size) * 1.25));
+    padding-bottom: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .desktop .p\:d\:px-5 {
-    padding-right: var(--p-5, calc(var(--key-size) * 3));
-    padding-left: var(--p-5, calc(var(--key-size) * 3));
+    padding-left: var(--p-5, calc(var(--key-size) * 1.25));
+    padding-right: var(--p-5, calc(var(--key-size) * 1.25));
+  }
+  .desktop .p\:d\:py-6 {
+    padding-top: var(--p-6, calc(var(--key-size) * 1.5));
+    padding-bottom: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .p\:d\:px-6 {
+    padding-left: var(--p-6, calc(var(--key-size) * 1.5));
+    padding-right: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .p\:d\:py-7 {
+    padding-top: var(--p-7, calc(var(--key-size) * 1.75));
+    padding-bottom: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .p\:d\:px-7 {
+    padding-left: var(--p-7, calc(var(--key-size) * 1.75));
+    padding-right: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .p\:d\:py-8 {
+    padding-top: var(--p-8, calc(var(--key-size) * 2));
+    padding-bottom: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .desktop .p\:d\:px-8 {
+    padding-left: var(--p-8, calc(var(--key-size) * 2));
+    padding-right: var(--p-8, calc(var(--key-size) * 2));
   }
   .desktop .p\:d\:pt-0 {
     padding-top: 0;
@@ -14364,40 +16153,76 @@ h6,
     padding-left: var(--p-2, calc(var(--key-size) * 0.5));
   }
   .desktop .p\:d\:pt-3 {
-    padding-top: var(--p-3, var(--key-size));
+    padding-top: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .desktop .p\:d\:pr-3 {
-    padding-right: var(--p-3, var(--key-size));
+    padding-right: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .desktop .p\:d\:pb-3 {
-    padding-bottom: var(--p-3, var(--key-size));
+    padding-bottom: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .desktop .p\:d\:pl-3 {
-    padding-left: var(--p-3, var(--key-size));
+    padding-left: var(--p-3, calc(var(--key-size) * 0.75));
   }
   .desktop .p\:d\:pt-4 {
-    padding-top: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-top: var(--p-4, var(--key-size));
   }
   .desktop .p\:d\:pr-4 {
-    padding-right: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-right: var(--p-4, var(--key-size));
   }
   .desktop .p\:d\:pb-4 {
-    padding-bottom: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-bottom: var(--p-4, var(--key-size));
   }
   .desktop .p\:d\:pl-4 {
-    padding-left: var(--p-4, calc(var(--key-size) * 1.5));
+    padding-left: var(--p-4, var(--key-size));
   }
   .desktop .p\:d\:pt-5 {
-    padding-top: var(--p-5, calc(var(--key-size) * 3));
+    padding-top: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .desktop .p\:d\:pr-5 {
-    padding-right: var(--p-5, calc(var(--key-size) * 3));
+    padding-right: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .desktop .p\:d\:pb-5 {
-    padding-bottom: var(--p-5, calc(var(--key-size) * 3));
+    padding-bottom: var(--p-5, calc(var(--key-size) * 1.25));
   }
   .desktop .p\:d\:pl-5 {
-    padding-left: var(--p-5, calc(var(--key-size) * 3));
+    padding-left: var(--p-5, calc(var(--key-size) * 1.25));
+  }
+  .desktop .p\:d\:pt-6 {
+    padding-top: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .p\:d\:pr-6 {
+    padding-right: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .p\:d\:pb-6 {
+    padding-bottom: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .p\:d\:pl-6 {
+    padding-left: var(--p-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .p\:d\:pt-7 {
+    padding-top: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .p\:d\:pr-7 {
+    padding-right: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .p\:d\:pb-7 {
+    padding-bottom: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .p\:d\:pl-7 {
+    padding-left: var(--p-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .p\:d\:pt-8 {
+    padding-top: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .desktop .p\:d\:pr-8 {
+    padding-right: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .desktop .p\:d\:pb-8 {
+    padding-bottom: var(--p-8, calc(var(--key-size) * 2));
+  }
+  .desktop .p\:d\:pl-8 {
+    padding-left: var(--p-8, calc(var(--key-size) * 2));
   }
   .desktop .p\:d\:g-0,
   .desktop .p\:d\:gap-0 {
@@ -14413,15 +16238,27 @@ h6,
   }
   .desktop .p\:d\:g-3,
   .desktop .p\:d\:gap-3 {
-    grid-gap: var(--g-3, var(--key-size));
+    grid-gap: var(--g-3, calc(var(--key-size) * 0.75));
   }
   .desktop .p\:d\:g-4,
   .desktop .p\:d\:gap-4 {
-    grid-gap: var(--g-4, calc(var(--key-size) * 1.5));
+    grid-gap: var(--g-4, var(--key-size));
   }
   .desktop .p\:d\:g-5,
   .desktop .p\:d\:gap-5 {
-    grid-gap: var(--g-5, calc(var(--key-size) * 3));
+    grid-gap: var(--g-5, calc(var(--key-size) * 1.25));
+  }
+  .desktop .p\:d\:g-6,
+  .desktop .p\:d\:gap-6 {
+    grid-gap: var(--g-6, calc(var(--key-size) * 1.5));
+  }
+  .desktop .p\:d\:g-7,
+  .desktop .p\:d\:gap-7 {
+    grid-gap: var(--g-7, calc(var(--key-size) * 1.75));
+  }
+  .desktop .p\:d\:g-8,
+  .desktop .p\:d\:gap-8 {
+    grid-gap: var(--g-8, calc(var(--key-size) * 2));
   }
   .desktop .p\:d\:text-start,
   .desktop .p\:d\:text-left {

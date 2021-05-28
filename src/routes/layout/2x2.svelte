@@ -9,7 +9,7 @@
 	<title>TriaFly UI Kit - layout: 2x2 grid with blocks</title>
 </svelte:head>
 
-<div class="d-grid cols-2 rows-2 m:cols-none g-3 h-100"> <!-- style="grid-template-columns: 1fr 1fr;grid-template-rows: 1fr 1fr;min-height: 100%;" -->
+<div class="d-grid cols-2 rows-2 m:cols-none g-4 h-100"> <!-- style="grid-template-columns: 1fr 1fr;grid-template-rows: 1fr 1fr;min-height: 100%;" -->
     <div class="tf_block tf_block-secondary">
         <div class="tf_block-header">
             Secondary block title

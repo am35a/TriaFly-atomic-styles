@@ -11,7 +11,7 @@
         
     </slot>
     <div class="h1" role="heading" aria-level="1">Core</div>
-    <div id="devices" class="mb-3">
+    <div id="devices" class="mb-4">
         <div class="h2" role="heading" aria-level="2">Devices checking</div>
         <p>
             The <a href="https://github.com/matthewhudson/current-device">current-device (v0.10.2)</a> library is use to define devices and get other data from device, which install the breakpoints dependencies.
@@ -25,10 +25,10 @@
             <div>'ios', 'iphone', 'ipad', 'ipod', 'android', 'blackberry', 'windows', 'macos', 'fxos', 'meego', 'television', or 'unknown'</div>
         </div>
     </div>
-    <div id="breakpoints" class="mb-3">
+    <div id="breakpoints" class="mb-4">
         <div class="h2" role="heading" aria-level="2">Breakpoints</div>
         <p>Currently the UI Kit have not dependently from screen width. It will be soon.</p>
-        <div id="guard-breakpoints" class="mb-3">
+        <div id="guard-breakpoints" class="mb-4">
             <div class="h3" role="heading" aria-level="3">Guard breakpoints</div>
             <div class="d-grid cols-3 g-2">
                 <div class="fw-600">Breakpoint</div>
@@ -43,7 +43,7 @@
                 <div>.<span class="text-secondary">class-name</span></div>
             </div>
         </div>
-        <div id="available-breakpoints" class="mb-3">
+        <div id="available-breakpoints" class="mb-4">
             <div class="h3" role="heading" aria-level="3">Available breakpoints</div>
             <div class="d-grid cols-3 g-2">
                 <div class="fw-600">Breakpoint</div>
@@ -87,7 +87,7 @@
                 <div>.p:m:<span class="text-secondary">class-name</span></div>
             </div>
         </div>
-        <div id="components" class="mb-3">
+        <div id="components" class="mb-4">
             <div class="h3" role="heading" aria-level="3">Components</div>
             <div class="d-grid cols-3 g-2">
                 <div class="fw-600">Monolit</div>

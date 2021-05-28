@@ -10,12 +10,12 @@
     }
 </script>
 
-<div id="align-content" class="mb-3">
+<div id="align-content" class="mb-4">
     <div class="h4" role="heading" aria-level="4">Align content</div>
     <p>Align rows vertically. The alignment value sets to the container. Default value is <b>normal</b>.</p>
     <div class="rounded-2 overflow-hidden">
-        <div class="bg-positive p-3">
-            <div class="d-flex flex-wrap g-3">
+        <div class="bg-positive p-4">
+            <div class="d-flex flex-wrap g-4">
                 <button
                     on:click="{() => align.display = 'grid'}"
                     class="tf_btn tf_btn-sm tf_btn-secondary"
@@ -33,7 +33,7 @@
                 ><i class="fas {align.display === 'flex' ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i> Flex</button>
             </div>
             <hr>
-            <div class="d-flex flex-wrap g-3">
+            <div class="d-flex flex-wrap g-4">
                 <button
                     on:click="{() => align.content = 'around'}"
                     class="tf_btn tf_btn-sm tf_btn-secondary"
@@ -71,10 +71,10 @@
                 ><i class="fas {align.content === 'stretch' ? 'fa-toggle-on' : 'fa-toggle-off'} mr-2"></i> Stretch</button>
             </div>
             <hr>
-            <div class="d-{align.display === 'flex' ? 'flex flex-wrap' : align.display} g-3 p-3 rounded bg-positive cols-2 align-content-{align.content}" style="height:16rem;">
-                <div class="p-3 bg-background rounded">Item 1</div>
-                <div class="p-3 bg-background rounded">Item 2</div>
-                <div class="p-3 bg-background rounded">Item 3</div>
+            <div class="d-{align.display === 'flex' ? 'flex flex-wrap' : align.display} g-4 p-4 rounded bg-positive cols-2 align-content-{align.content}" style="height:16rem;">
+                <div class="p-4 bg-background rounded">Item 1</div>
+                <div class="p-4 bg-background rounded">Item 2</div>
+                <div class="p-4 bg-background rounded">Item 3</div>
             </div>
         </div>
         <Highlight

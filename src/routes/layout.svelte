@@ -5,13 +5,13 @@
     import { state } from '../store/store'
 </script>
 
-<div class="d-grid g-3">
+<div class="d-grid g-4">
 
     <div id="layout">
         <div class="h1" role="heading" aria-level="1">Layout</div>
-        <div class="d-flex g-3">
+        <div class="d-flex g-4">
             <div class="text-info"><i class="fas fa-anchor"></i> Fast to goal:</div>
-            <div class="d-flex g-3 flex-wrap">
+            <div class="d-flex g-4 flex-wrap">
                 <a href="layout#main">Main</a>
                 <a href="layout#header">Header</a>
                 <a href="layout#fullscreen">Full screen mode</a>
@@ -19,9 +19,9 @@
                 <a href="layout#modal">Modal</a>
             </div>
         </div>
-        <div class="d-flex g-3 mt-3">
+        <div class="d-flex g-4 mt-4">
             <div class="text-info"><i class="fas fa-anchor"></i> Examples:</div>
-            <div class="d-flex g-3 flex-wrap">
+            <div class="d-flex g-4 flex-wrap">
                 <a href="layout/2x2">2x2</a>
             </div>
         </div>
@@ -32,7 +32,7 @@
         <p>
             The main layout use grid system with the <b>body</b> tag dependence and sets by <b>.tf_layout</b> class. 
         </p>
-        <p class="rounded-2 bg-warning p-3">
+        <p class="rounded-2 bg-warning p-4">
             <i class="fas fa-exclamation-circle"></i> Inside the body tag we can put any bloks but only containing the <b>.tf_</b> prefix in classes will showing and working.
         </p>
         <div>
@@ -91,7 +91,7 @@
             To put <b>.tf_layout-main</b> into full-screen mode, you need to add a class <b>.tf_layout-main--fullscreen</b>.
         </p>
         <div>
-            <div class="bg-background rounded-2 rounded-bottom-0 p-3 text-center">
+            <div class="bg-background rounded-2 rounded-bottom-0 p-4 text-center">
                 <button
                     on:click="{() => $state.fullscreen = !$state.fullscreen}"
                     class="tf_btn tf_btn-secondary m-1"
@@ -115,7 +115,7 @@
             <!-- To put <b>.tf_layout-main</b> into full-screen mode, you need to add a class <b>.tf_layout-main--fullscreen</b>. -->
         </p>
         <div>
-            <div class="bg-background rounded-2 rounded-bottom-0 p-3 text-center">
+            <div class="bg-background rounded-2 rounded-bottom-0 p-4 text-center">
                 <button
                     on:click="{() => $state.popupLoader = !$state.popupLoader}"
                     class="tf_btn tf_btn-secondary m-1"
@@ -155,7 +155,7 @@
             <!-- To put <b>.tf_layout-main</b> into full-screen mode, you need to add a class <b>.tf_layout-main--fullscreen</b>. -->
         </p>
         <div>
-            <div class="bg-background rounded-2 rounded-bottom-0 p-3 text-center">
+            <div class="bg-background rounded-2 rounded-bottom-0 p-4 text-center">
                 <button
                     on:click="{() => $state.modalLoader = !$state.modalLoader}"
                     class="tf_btn tf_btn-secondary m-1"
@@ -168,7 +168,7 @@
                 language='{xml}'
                 code='
     <div class="tf_layout-modal-loader">
-        <div class="m-auto bg-positive px-5 py-3 rounded d-flex">
+        <div class="m-auto bg-positive px-5 py-4 rounded d-flex">
             <svg viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
                 <g fill="none" fill-rule="evenodd">
                     <g transform="translate(1 1)" stroke-width="2">
@@ -179,7 +179,7 @@
                     </g>
                 </g>
             </svg>
-            <div class="my-auto ml-3">
+            <div class="my-auto ml-4">
                 Loading data...
             </div>
         </div>

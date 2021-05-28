@@ -3,11 +3,11 @@
     import { xml } from "svelte-highlight/languages"
 </script>
 
-<div id="info" class="mb-3">
+<div id="info" class="mb-4">
     <div class="h3" role="heading" aria-level="3">Info</div>
     <div class="rounded-2 overflow-hidden">
-        <div class="bg-positive rounded-2 rounded-bottom-0 p-3 text-center">
-            <div class="d-inline-flex g-3 flex-wrap">
+        <div class="bg-positive rounded-2 rounded-bottom-0 p-4 text-center">
+            <div class="d-inline-flex g-4 flex-wrap">
                 <button class="tf_btn tf_btn-info">info button</button>
                 <button class="tf_btn tf_btn-info"><i class="fas fa-home"></i> icon button</button>
                 <button class="tf_btn tf_btn-info active">active button</button>

@@ -13,17 +13,17 @@
         <script src="https://unpkg.com/current-device/umd/current-device.min.js"></script>
     </head>
     <body class="tf_layout">
-        <div class="tf_layout-main p-3">
+        <div class="tf_layout-main p-4">
             <div class="tf_finder">
                 <div class="tf_finder-header">
-                    <div class="d-inline">
+                    <div class="d-inline-flex flex-wrap g-1">
                         <button id="finder-all" class="tf_btn fw-600 tf_btn-secondary active" disabled>Все показатели</button>
                         <button id="finder-new" class="tf_btn fw-600 tf_btn-transparent">Новые</button>
                         <button id="finder-pop" class="tf_btn fw-600 tf_btn-transparent">Популярные</button>
-                        <button id="finder-pop" class="tf_btn fw-600 tf_btn-transparent">Популярные</button>
-                        <button id="finder-pop" class="tf_btn fw-600 tf_btn-transparent">Популярные</button>
-                        <button id="finder-pop" class="tf_btn fw-600 tf_btn-transparent">Популярные</button>
-                        <button id="finder-pop" class="tf_btn fw-600 tf_btn-transparent">Популярные</button>
+                        <button id="finder-pop" class="tf_btn fw-600 tf_btn-transparent">Не популярные</button>
+                        <button id="finder-pop" class="tf_btn fw-600 tf_btn-transparent">Полезные</button>
+                        <button id="finder-pop" class="tf_btn fw-600 tf_btn-transparent">Серые</button>
+                        <button id="finder-pop" class="tf_btn fw-600 tf_btn-transparent">Пурпурные</button>
                     </div>
                     <div class="float-right">
                         <button id="finder-filters-toogle" class="tf_btn tf_btn-transparent tf_btn-icon"><i class="fa fa-filter"></i></button>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="tf_finder-explorer">
                     <div class="tf_explorer-header">
-                        <div class="tf_explorer-filters rounded bg-positive p-3 mb-3 d-none">
+                        <div class="tf_explorer-filters rounded bg-positive p-4 mb-3 d-none">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>Фильтры</div>
                                 <div>
@@ -42,7 +42,7 @@
                                 </div>
                             </div>
                             <hr>
-                            <div class="g-3 d-grid cols-2">
+                            <div class="g-4 d-grid cols-2">
                                 <div>
                                     <label for="inputText1" class="tf_form-label text-secondary">Тип значений</label>
                                     <input id="inputText1" class="tf_form-control tf_form-control-sm tf_form-control-secondary" type="text">
@@ -66,11 +66,11 @@
                                 <button id="finder-filters-close" class="tf_btn tf_btn-sm tf_btn-transparent"><i class="fa fa-times"></i> Закрыть</button>
                             </div> -->
                         </div>
-                        <div class="tf_explorer-search rounded rounded-bottom-0 bg-positive p-3">
+                        <div class="tf_explorer-search rounded rounded-bottom-0 bg-positive p-4">
                             <div class="d-flex">
-                                <div class="flex-grow-1 position-relative">
+                                <div class="flex-grow-1 position-relative my-auto">
                                     <i class="fa fa-search position-absolute text-secondary left-0 top-50 translate-middle-y pl-2"></i>
-                                    <input id="finder-search" class="tf_form-control tf_form-control-sm tf_form-control-secondary pl-4" type="text" placeholder="Поиск по названию...">
+                                    <input id="finder-search" class="tf_form-control tf_form-control-sm tf_form-control-secondary pl-7" type="text" placeholder="Поиск по названию...">
                                     <button class="tf_btn tf_btn-sm tf_btn-secondary tf_btn-icon position-absolute right-0 top-50 translate-middle-y"><i class="fa fa-ban"></i></button>
                                 </div>
                                 <div class="tf_finder-folders-toogle ml-3">
@@ -89,7 +89,7 @@
                             <hr class="mb-0">
                         </div>
                     </div>
-                    <div class="tf_explorer-body rounded rounded-top-0 bg-positive p-3 pt-0">
+                    <div class="tf_explorer-body rounded rounded-top-0 bg-positive p-4 pt-0">
                         list or folders
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, libero quis. Voluptates mollitia at rerum doloribus, molestiae repellendus asperiores. Expedita consequatur voluptatibus facere fugiat eveniet inventore laudantium quae odio! Earum.</p>
                         <p>Recusandae voluptates maiores cupiditate error molestias magni repudiandae, sunt dolore voluptatem quod itaque eius corrupti sapiente est eos voluptate voluptatum eaque quas sed inventore neque omnis suscipit numquam a! Blanditiis.</p>
@@ -105,7 +105,7 @@
                         <p>Alias quasi nobis iste nisi numquam vel porro officiis optio reprehenderit minima earum fugit nam, harum voluptate! Perspiciatis asperiores, adipisci dolorem, hic quia sequi expedita inventore reprehenderit itaque, est quae?</p>
                     </div>
                 </div>
-                <div class="tf_finder-preview rounded bg-positive p-3">
+                <div class="tf_finder-preview rounded bg-positive p-4">
                     preview
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, libero quis. Voluptates mollitia at rerum doloribus, molestiae repellendus asperiores. Expedita consequatur voluptatibus facere fugiat eveniet inventore laudantium quae odio! Earum.</p>
                     <p>Recusandae voluptates maiores cupiditate error molestias magni repudiandae, sunt dolore voluptatem quod itaque eius corrupti sapiente est eos voluptate voluptatum eaque quas sed inventore neque omnis suscipit numquam a! Blanditiis.</p>

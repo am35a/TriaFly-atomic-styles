@@ -35,7 +35,7 @@
     <ButtonDefault/>
     <ButtonInverse/>
     <ButtonTransparent/>
-    <div id="main-buttons" class="mb-3">
+    <div id="main-buttons" class="mb-4">
         <div class="h2" role="heading" aria-level="2">Main color buttons</div>
         <div>
             The following classes defining button colors:
@@ -51,7 +51,7 @@
         <ButtonPrimary/>
         <ButtonSecondary/>
     </div>
-    <div id="extra-buttons" class="mb-3">
+    <div id="extra-buttons" class="mb-4">
         <div class="h2" role="heading" aria-level="2">Extra color buttons</div>
         <p>The following classes defining action button colors:</p>
         <ButtonInfo/>
