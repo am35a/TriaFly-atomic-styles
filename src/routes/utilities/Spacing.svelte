@@ -43,9 +43,12 @@
             <li>0 - for classes that eliminate the margin or padding by setting it to 0</li>
             <li>1 - set the margin or padding to --key-size * .25</li>
             <li>2 - set the margin or padding to --key-size * .5</li>
-            <li>3 - set the margin or padding to --key-size</li>
-            <li>4 - set the margin or padding to --key-size * 1.5</li>
-            <li>5 - set the margin or padding to --key-size * 3</li>
+            <li>3 - set the margin or padding to --key-size * .75</li>
+            <li>4 - set the margin or padding to --key-size</li>
+            <li>5 - set the margin or padding to --key-size * 1.25</li>
+            <li>6 - set the margin or padding to --key-size * 1.5</li>
+            <li>7 - set the margin or padding to --key-size * 1.75</li>
+            <li>8 - set the margin or padding to --key-size * 2</li>
             <li>auto - for classes that set only the margin to auto</li>
         </ul>
         <div class="rounded-2 overflow-hidden">
@@ -68,9 +71,12 @@
             <li>0 - set the gap to 0</li>
             <li>1 - set the gap to --key-size * .25</li>
             <li>2 - set the gap to --key-size * .5</li>
-            <li>3 - set the gap to --key-size</li>
-            <li>4 - set the gap to --key-size * 1.5</li>
-            <li>5 - set the gap to --key-size * 3</li>
+            <li>3 - set the gap to --key-size * .75</li>
+            <li>4 - set the gap to --key-size</li>
+            <li>5 - set the gap to --key-size * 1.25</li>
+            <li>6 - set the gap to --key-size * 1.5</li>
+            <li>7 - set the gap to --key-size * 1.75</li>
+            <li>8 - set the gap to --key-size * 2</li>
         </ul>
         <div class="rounded-2 overflow-hidden">
             <div class="bg-positive p-4 d-flex g-4">

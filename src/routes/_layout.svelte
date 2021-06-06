@@ -147,16 +147,16 @@
             </div>
             <div class="mb-4">
                 <div class="h5" role="heading">Fonts</div>
-                <label class="d-block p-2" for="default">
-                    <input type="radio" id="default" bind:group={font} value="">
+                <label class="d-block p-2" for="font-default">
+                    <input type="radio" id="font-default" bind:group={font} value="">
                     Default system
                 </label>
-                <label class="d-block p-2" for="source-sans-pro">
-                    <input type="radio" id="source-sans-pro" bind:group={font} value="source-sans-pro">
+                <label class="d-block p-2" for="font-source-sans-pro">
+                    <input type="radio" id="font-source-sans-pro" bind:group={font} value="source-sans-pro">
                     Source Sans Pro
                 </label>
-                <label class="d-block p-2" for="roboto">
-                    <input type="radio" id="roboto" bind:group={font} value="roboto">
+                <label class="d-block p-2" for="font-roboto">
+                    <input type="radio" id="font-roboto" bind:group={font} value="roboto">
                     Roboto
                 </label>
             </div>
