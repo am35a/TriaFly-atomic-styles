@@ -979,10 +979,11 @@ select.tf_form-control {
   grid-template-columns: min-content;
 }
 .tf_form-check input[type="checkbox"] {
-  margin-top: calc(var(--key-size) * 0.25);
+  margin-top: auto;
   width: var(--key-size);
   height: var(--key-size);
   border-radius: calc(var(--key-size) * 0.125);
+  background-color: var(--positive-color);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -1049,10 +1050,9 @@ select.tf_form-control {
 }
 .tf_input-group {
   position: relative;
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
   align-items: stretch;
-  width: 100%;
 }
 .tf_input-group > * {
   z-index: 0;
@@ -1060,14 +1060,23 @@ select.tf_form-control {
 .tf_input-group > *:focus {
   z-index: 1;
 }
+.tf_input-group > *:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.tf_input-group > *:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
 .tf_input-group-icon {
-  display: inline-block;
+  display: inline-grid;
+  justify-items: center;
+  align-items: center;
   margin: unset;
   padding: calc(var(--key-size) * 0.25);
   min-width: calc(calc(calc(var(--key-size) * 1.5) + 0.125rem) + calc(var(--key-size) * 0.25 * 2));
   background: var(--negative-color-15);
   border-radius: calc(var(--key-size) * 0.125);
-  text-align: center;
   line-height: 1.5;
   font-size: var(--key-size);
 }

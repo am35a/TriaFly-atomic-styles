@@ -119,11 +119,11 @@
         justify-items: start;
         grid-template-columns: min-content;
         input[type="checkbox"] {
-            margin-top: calc(var(--key-size) * .25);
+            margin-top: auto;
             width: var(--key-size);
             height: var(--key-size);
             border-radius: calc(var(--key-size) * .125);
-            // background-color: var(--positive-color);
+            background-color: var(--positive-color);
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;
@@ -248,24 +248,33 @@
 
 .tf_input-group {
     position: relative;
-    display: flex;
+    display: inline-flex;
     flex-wrap: wrap;
     align-items: stretch;
-    width: 100%;
+    // width: 100%;
     > * {
         z-index: 0;
         &:focus {
             z-index: 1;
         }
     }
+    > *:not(:first-child) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    > *:not(:last-child) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
     &-icon {
-        display: inline-block;
+        display: inline-grid;
+        justify-items: center;
+        align-items: center;
         margin: unset;
         padding: calc(var(--key-size) * 0.25);
         min-width: calc(calc(calc(var(--key-size) * 1.5) + 0.125rem) + calc(var(--key-size) * 0.25 * 2));
         background: var(--negative-color-15);
         border-radius: calc(var(--key-size) * .125);
-        text-align: center;
         line-height: 1.5;
         font-size: var(--key-size);
         &-xs {
