@@ -1068,34 +1068,34 @@ select.tf_form-control {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-.tf_input-group-icon {
+.tf_input-group-text {
   display: inline-grid;
   justify-items: center;
   align-items: center;
   margin: unset;
-  padding: calc(var(--key-size) * 0.25);
+  padding: calc(var(--key-size) * 0.25) calc(var(--key-size) * 0.5);
   min-width: calc(calc(calc(var(--key-size) * 1.5) + 0.125rem) + calc(var(--key-size) * 0.25 * 2));
   background: var(--negative-color-15);
   border-radius: calc(var(--key-size) * 0.125);
   line-height: 1.5;
   font-size: var(--key-size);
 }
-.tf_input-group-icon-xs {
+.tf_input-group-text-xs {
   --key-size-xs: calc(var(--key-size) * 0.75);
   min-width: calc(calc(calc(var(--key-size-xs) * 1.5) + 0.125rem) + calc(var(--key-size-xs) * 0.25 * 2));
-  padding: calc(var(--key-size-xs) * 0.25);
+  padding: calc(var(--key-size-xs) * 0.25) calc(var(--key-size-xs) * 0.5);
   font-size: var(--key-size-xs);
 }
-.tf_input-group-icon-sm {
+.tf_input-group-text-sm {
   --key-size-sm: calc(var(--key-size) * 0.875);
   min-width: calc(calc(calc(var(--key-size-sm) * 1.5) + 0.125rem) + calc(var(--key-size-sm) * 0.25 * 2));
-  padding: calc(var(--key-size-sm) * 0.25);
+  padding: calc(var(--key-size-sm) * 0.25) calc(var(--key-size-sm) * 0.5);
   font-size: var(--key-size-sm);
 }
-.tf_input-group-icon-lg {
+.tf_input-group-text-lg {
   --key-size-lg: calc(var(--key-size) * 1.125);
   min-width: calc(calc(calc(var(--key-size-lg) * 1.5) + 0.125rem) + calc(var(--key-size-lg) * 0.25 * 2));
-  padding: calc(var(--key-size-lg) * 0.25);
+  padding: calc(var(--key-size-lg) * 0.25) calc(var(--key-size-lg) * 0.5);
   font-size: var(--key-size-lg);
 }
 .tf_input-group .tf_form-control {

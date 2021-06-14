@@ -28,7 +28,7 @@
 
     <div class="p-3">
         <div class="tf_input-group">
-            <div class="tf_input-group-icon">
+            <div class="tf_input-group-text">
                 <div class="tf_form-check tf_form-check">
                     <input type="checkbox" value="" id="flexCheckChecked">
                 </div>
@@ -38,9 +38,15 @@
         </div>
         <div><br></div>
         <div class="tf_input-group">
-            <div class="tf_input-group-icon"><i class="fa fa-search"></i></div>
+            <div class="tf_input-group-text"><i class="fa fa-search"></i></div>
             <input id="finder-search" class="tf_form-control tf_form-control-secondary" type="text" placeholder="Поиск по названию...">
             <button class="tf_btn tf_btn-secondary tf_btn-icon"><i class="fa fa-ban"></i></button>
+        </div>
+        <div><br></div>
+        <div class="tf_input-group">
+            <div class="tf_input-group-text tf_input-group-text-sm">Привет мир</div>
+            <input id="finder-search" class="tf_form-control tf_form-control-sm tf_form-control-secondary" type="text" placeholder="Поиск по названию...">
+            <button class="tf_btn tf_btn-sm tf_btn-secondary tf_btn-icon"><i class="fa fa-ban"></i></button>
         </div>
         <!-- <div class="tf_input-group">
             <i class="fa fa-search"></i>
