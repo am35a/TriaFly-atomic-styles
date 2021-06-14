@@ -25,6 +25,22 @@
         <a href="forms#disabled">Disabled</a>
     </slot>
     <div class="h1" role="heading" aria-level="1">Forms</div>
+
+    <div class="p-3">
+        <div class="tf_input-group">
+            <div class="tf_input-group-icon"><i class="fa fa-search"></i></div>
+            <input id="finder-search" class="tf_form-control tf_form-control-secondary" type="text" placeholder="Поиск по названию...">
+            <button class="tf_btn tf_btn-secondary tf_btn-icon"><i class="fa fa-ban"></i></button>
+        </div>
+        <div><br></div>
+        <div class="tf_input-group">
+            <i class="fa fa-search"></i>
+            <input id="finder-search" class="tf_form-control tf_form-control-secondary" type="text" placeholder="Поиск по названию...">
+            <button class="tf_btn tf_btn-secondary tf_btn-icon"><i class="fa fa-ban"></i></button>
+            <input id="finder-search" class="tf_form-control tf_form-control-secondary" type="text" placeholder="Поиск по названию...">
+        </div>
+    </div>
+
     <FormDefault/>
     <div id="main-forms">
         <div class="h2" role="heading" aria-level="2">Main color forms</div>
