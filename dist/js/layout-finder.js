@@ -33,3 +33,19 @@ $( "#finder-as-list" ).on( "click", function() {
 //     $( ".tf_finder-filters-container" ).addClass( "d-none" )
 // else
 //     $( ".tf_finder-filters-container" ).removeClass( "d-none" )
+
+
+
+// create event to clear button in input field
+$('[data-action="clearable"]').each(function(){
+    var $input = $(this).find('input'),
+        $clear = $(this).find('[data-action="clear"]');
+    $input.on('input focusin', function(){
+        // $clear.toggle(!!this.value);
+        $clear.prop('disabled', !this.value);
+    });
+    $clear.on('touchstart click', function(e) {
+        e.preventDefault();
+        $input.val('').trigger('input').focus();
+    });
+});
