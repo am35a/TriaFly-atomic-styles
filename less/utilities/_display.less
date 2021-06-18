@@ -1,20 +1,20 @@
 .display(@device-orientation-value, @device-type-value) {
 
     .@{device-orientation-value}@{device-type-value}d {
-        &-inline { display: inline; }
-        &-block { display: block; }
-        &-inline-block { display: inline-block; }
-        &-grid { display: grid; }
-        &-inline-grid { display: inline-grid; }
-        &-flex { display: flex; }
-        &-inline-flex { display: inline-flex; }
+        &-inline { display: inline !important; }
+        &-block { display: block !important; }
+        &-inline-block { display: inline-block !important; }
+        &-grid { display: grid !important; }
+        &-inline-grid { display: inline-grid !important; }
+        &-flex { display: flex !important; }
+        &-inline-flex { display: inline-flex !important; }
         &-table {
             display: table;
-            &-row { display: table-row; }
-            &-cell { display: table-cell; }
+            &-row { display: table-row !important; }
+            &-cell { display: table-cell !important; }
         }
-        &-none { display: none; }
-        &-unset { display: unset; }
+        &-none { display: none !important; }
+        &-unset { display: unset !important; }
     }
 
 }
