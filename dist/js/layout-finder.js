@@ -36,7 +36,7 @@ $( "#finder-as-list" ).on( "click", function() {
 
 
 
-// create event to clear button in input field
+// create event to clear button for input field
 $('[data-action="clearable"]').each(function(){
     var $input = $(this).find('input'),
         $clear = $(this).find('[data-action="clear"]');
