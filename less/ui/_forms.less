@@ -42,7 +42,6 @@
         background-repeat: no-repeat;
         background-position: left calc(var(--key-size) * .625) center;
         background-size: calc(var(--key-size) * 1.25);
-
         &::file-selector-button {
             display: none;
         }
@@ -115,11 +114,11 @@
     &-check {
         display: grid;
         grid-auto-flow: column;
-        align-items: start;
+        align-items: center;
         justify-items: start;
         grid-template-columns: min-content;
         input[type="checkbox"] {
-            margin-top: auto;
+            margin: unset;
             width: var(--key-size);
             height: var(--key-size);
             border-radius: calc(var(--key-size) * .125);

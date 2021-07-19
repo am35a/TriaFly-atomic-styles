@@ -975,12 +975,12 @@ select.tf_form-control {
 .tf_form-check {
   display: grid;
   grid-auto-flow: column;
-  align-items: start;
+  align-items: center;
   justify-items: start;
   grid-template-columns: min-content;
 }
 .tf_form-check input[type="checkbox"] {
-  margin-top: auto;
+  margin: unset;
   width: var(--key-size);
   height: var(--key-size);
   border-radius: calc(var(--key-size) * 0.125);
