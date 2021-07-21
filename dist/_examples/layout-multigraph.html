@@ -16,19 +16,178 @@
         <div class="tf_layout-main p-4">
             <h1>Настройки мультиграфика</h1>
 
-            <div class="border">
-                <div class="">
-
+            <div class="bg-positive d-flex">
+                <div class="flex-grow-1">
+                    graph will here
                 </div>
-                <div class="">
+                <div class="p-2 border" style="width:32rem">
+                    <div class="d-grid g-2">
+                        <div class="d-grid g-2 grid-flow-col">
+                            <div class="mx-auto">
+                                <input id="rows" name="dataDirectionview" value="rows" type="radio" checked>
+                                <label for="rows" class="text-secondary">По строкам</label>
+                            </div>
+                            <div class="mx-auto">
+                                <input id="cols" name="dataDirectionview" value="cols" type="radio">
+                                <label for="cols" class="text-secondary">По столбцам</label>
+                            </div>
+                        </div>
+                        <div class="d-flex g-2">
+                            <label for="graphType" class="tf_form-label text-secondary pt-1 text-end">Тип графика</label>
+                            <div class="flex-grow-1">
+                                <select id="graphType" class="w-100 tf_form-control tf_form-control-xs tf_form-control-secondary">
+                                    <option selected value="line">Line</option>
+                                    <option value="bar">Bar</option>
+                                    <option value="stream">Stream</option>
+                                    <option value="bump">Bump</option>
+                                    <option value="area-bump">AreaBump</option>
+                                    <option value="radar">Radar</option>
+                                </select>
+                                <div class="tf_form-text text-secondary" lang="ru">По умолчанию тип графика линейный.</div>
+                            </div>
+                        </div>
+                        <div class="d-grid grid-flow-col g-1 border-bottom">
+                            <button class="rounded-bottom-0 tf_btn tf_btn-secondary tf_btn-sm active" disabled>Базовые</button>
+                            <button class="rounded-bottom-0 tf_btn tf_btn-transparent tf_btn-sm">Стиль</button>
+                            <button class="rounded-bottom-0 tf_btn tf_btn-transparent tf_btn-sm">Элементы графика</button>
+                            <button class="rounded-bottom-0 tf_btn tf_btn-transparent tf_btn-sm">Сетка и оси</button>
+                            <button class="rounded-bottom-0 tf_btn tf_btn-transparent tf_btn-sm">Легенда</button>
+                        </div>
+                    </div>
+                    <div class="p-2">
+                        <div id="baseTab" class="d-grid g-2">
 
+                            <div class="d-grid g-2">
+                                <label for="marginTop" class="text-secondary">Отступ сверху</label>
+                                <div class="d-flex align-items-center g-2">
+                                    <div class="">
+                                        <input id="marginTop" class="tf_form-control tf_form-control-xs tf_form-control-secondary" type="number" value="0" size="4" min="0" max="100" step="2">
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <input class="w-100" type="range" min="0" max="100" step="2">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-grid g-2">
+                                <label for="marginRight" class="text-secondary">Отступ справа</label>
+                                <div class="d-flex align-items-center g-2">
+                                    <div class="">
+                                        <input xz class="tf_form-control tf_form-control-xs tf_form-control-secondary" type="number" value="0" size="4" min="0" max="100" step="2">
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <input class="w-100" type="range" min="0" max="100" step="2">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-grid g-2">
+                                <label for="marginBottom" class="text-secondary">Отступ снизу</label>
+                                <div class="d-flex align-items-center g-2">
+                                    <div class="">
+                                        <input class="tf_form-control tf_form-control-xs tf_form-control-secondary" type="number" value="0" size="4" min="0" max="100" step="2">
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <input id="marginBottom" class="w-100" type="range" min="0" max="100" step="2">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-grid g-2">
+                                <label for="marginLeft" class="text-secondary">Отступ слева</label>
+                                <div class="d-flex align-items-center g-2">
+                                    <div class="">
+                                        <input id="marginLeft" class="tf_form-control tf_form-control-xs tf_form-control-secondary" type="number" value="0" size="4" min="0" max="100" step="2">
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <input class="w-100" type="range" min="0" max="100" step="2">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-grid">
+                                <label for="groupMode" class="tf_form-label text-secondary pt-1">Группировка столбцов</label>
+                                <select id="groupMode" class="tf_form-control tf_form-control-xs tf_form-control-secondary">
+                                    <option selected value="groupModeH">Обычная</option>
+                                    <option value="groupModeV">С накоплением</option>
+                                </select>
+                            </div>
+
+                            <div class="d-grid g-2">
+                                <label for="yBorderEdge" class="text-secondary">Граница значений по Y</label>
+                                <div class="d-flex align-items-center g-2">
+                                    <div>
+                                        от
+                                    </div>
+                                    <div>
+                                        <input class="tf_form-control tf_form-control-xs tf_form-control-secondary" type="number" value="0" size="4" min="0" max="100" step="2">
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <input id="yBorderEdge" class="w-100" type="range" min="0" max="100" step="2">
+                                    </div>
+                                    <div>
+                                        до
+                                    </div>
+                                    <div>
+                                        <input class="tf_form-control tf_form-control-xs tf_form-control-secondary" type="number" value="0" size="4" min="0" max="100" step="2">
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <input id="yBorderEdge" class="w-100" type="range" min="0" max="100" step="2">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="d-grid g-2">
+                                <label for="groupMode" class="text-secondary">Группировка столбцов</label>
+                                <div class="d-grid g-2 grid-flow-col">
+                                    <div class="mx-auto">
+                                        <input id="groupModeH" name="groupMode" value="rows" type="radio" checked>
+                                        <label for="groupModeH" class="text-secondary">Обычная</label>
+                                    </div>
+                                    <div class="mx-auto">
+                                        <input id="groupModeV" name="groupMode" value="cols" type="radio">
+                                        <label for="groupModeV" class="text-secondary">С накоплением</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-grid g-2">
+                                <label for="groupMode" class="text-secondary">Расположение столбцов</label>
+                                <div class="d-grid g-2 grid-flow-col">
+                                    <div class="mx-auto">
+                                        <input id="groupModeH2" name="groupMode2" value="rows" type="radio" checked>
+                                        <label for="groupModeH2" class="text-secondary">Горизонтальное</label>
+                                    </div>
+                                    <div class="mx-auto">
+                                        <input id="groupModeV2" name="groupMode2" value="cols" type="radio">
+                                        <label for="groupModeV2" class="text-secondary">Вертикальное</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-grid g-2">
+                                <label for="groupMode" class="text-secondary">Тип шкалы значений</label>
+                                <div class="d-grid g-2 grid-flow-col">
+                                    <div class="mx-auto">
+                                        <input id="groupModeH3" name="groupMode3" value="rows" type="radio" checked>
+                                        <label for="groupModeH3" class="text-secondary">Linear</label>
+                                    </div>
+                                    <div class="mx-auto">
+                                        <input id="groupModeV3" name="groupMode3" value="cols" type="radio">
+                                        <label for="groupModeV3" class="text-secondary">Sumlog</label>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                        </div>
+                    </div>
                 </div>
-            </div> 
+            </div>
 
 
+<br><br><br>
 
-
-            <div class="d-grid d-none" style="width: 24rem;">
+            <div class="d-grid d-none-" style="width: 24rem;">
                 <div class="text-end mb-1">
                     <button class="tf_btn tf_btn-secondary tf_btn-xs tf_btn-icon"><i class="fas fa-cog"></i></button>
                 </div>
