@@ -528,6 +528,29 @@ hr {
     grid-template-rows: max-content 1fr;
   }
 }
+.tf_visualisation-multigraph {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-rows: max-content 1fr;
+  grid-template-columns: 1fr auto;
+  grid-row-gap: calc(var(--key-size) * 0.5);
+}
+.tf_visualisation-multigraph .tf_multigraph-header {
+  grid-column: 1/-1;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr max-content;
+  grid-gap: calc(var(--key-size) * 0.5);
+}
+.tf_visualisation-multigraph .tf_multigraph-settings {
+  width: calc(var(--key-size) * 30);
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: max-content 1fr;
+  margin-left: calc(var(--key-size) * 0.5);
+}
 @media print {
   .tf_layout {
     height: unset;
