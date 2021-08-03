@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SPA layout</title>
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/global.css">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://unpkg.com/current-device/umd/current-device.min.js"></script>
+    </head>
+    <body class="tf_layout">
+        <div class="tf_layout-main p-4">
+            <!-- ... -->
+        </div>
+        <div class="tf_layout-header">
+            <button class="tf_layout-aside-expander" tabindex="-1"><i class="fas fa-bars"></i></button>
+            Лента событий
+            <div class="px-2">
+                <button id="eventsPopup" class="tf_btn tf_btn- tf_btn-icon" title="Показать только отмеченные">
+                    <i class="fa fa-bell" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+        <div class="tf_layout-aside">
+            <div class="tf_aside-fader">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="tf_aside-navbar">
+                <!-- ... -->
+            </div>
+        </div>
+        <div class="tf_events d-none-">
+            <div class="tf_events-header">
+                <div class="h6 my-auto text-secondary">Лента событий</div>
+                <div>
+                    <button id="eventsBookmark" class="tf_btn tf_btn-transparent tf_btn-icon tf_btn-xs" title="Показать только отмеченные">
+                        <i class="fa fa-bookmark"></i>
+                    </button>
+                    <button id="eventsSearch" class="tf_btn tf_btn-transparent tf_btn-icon tf_btn-xs" title="Поиск событий">
+                        <i class="fa fa-search"></i>
+                    </button>
+                    <button id="eventsSettings" class="tf_btn tf_btn-transparent tf_btn-icon tf_btn-xs" title="Настроить ленту событий">
+                        <i class="fa fa-cog"></i>
+                    </button>
+                    <button id="hideEventsView" class="tf_btn tf_btn-transparent tf_btn-icon tf_btn-xs ml-2" title="Скрыть ленту событий">
+                        <i class="fa fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="tf_events-servises">
+                <div class="tf_events-search d-none p-1">
+                    <div class="d-flex">
+                        <div class="tf_input-group flex-grow-1 position-relative my-auto" data-action="clearable">
+                            <input id="finder-search" class="tf_form-control tf_form-control-xs tf_form-control-secondary" type="text" placeholder="Поиск по событиям...">
+                            <button class="tf_btn tf_btn-xs tf_btn-secondary tf_btn-icon" data-action="clear" disabled=""><i class="fa fa-ban"></i></button>
+                        </div>
+                    </div>
+                    <div class="tf_form-text text-right mt-0 pr-7" lang="ru">
+                        <small class="text-secondary">По вашему запросу найдено событий:</small> <small><b>0</b></small>
+                    </div>
+                    <!-- <hr class="mb-0 mt-2 w-100"> -->
+                </div>
+                <div class="tf_events-settings d-none p-1">
+                    <div class="d-grid g-2 pl-1">
+                        <small>
+                            <input id="noDeleteBookmark" value="rows" type="checkbox" checked>
+                            <label for="noDeleteBookmark" class="text-secondary">Не удалять "избранные" <i class="fa fa-bookmark"></i> события</label>
+                        </small>
+                        <small>
+                            <input id="showRead" value="rows" type="checkbox">
+                            <label for="showRead" class="text-secondary">Скрывать "прочитанные" <i class="fa fa-check-square-o"></i> события</label>
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="tf_events-list">
+                <!-- <small class="tf_events-item">
+                    <div class="tf_item-header"><i class="fa fa-bookmark mr-1 text-primary"></i> 05.07.2021 19:21</div>
+                    <div class="tf_item-actions">
+                        <button class="tf_btn tf_btn-transparent tf_btn-icon tf_btn-xs" title="Отметить как не прочитанное">
+                            <i class="fa fa-square-o"></i>
+                        </button>
+                        <div class="d-none">
+                            <button class="tf_btn tf_btn-transparent tf_btn-icon tf_btn-xs" title="Удалить событие">
+                                <i class="fa fa-bookmark"></i>
+                            </button>
+                            <button class="tf_btn tf_btn-transparent tf_btn-icon tf_btn-xs text-error" title="Удалить событие">
+                                <i class="fa fa-trash-o"></i>
+                            </button>
+                        </div>
+                        <button class="tf_btn tf_btn-transparent tf_btn-icon tf_btn-xs mt-auto" title="Развернуть событие">
+                            <i class="fa fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <a href="#" class="tf_item-body" title="Перейти к событию">
+                        <textarea rows="3" readonly lang="ru">Сообщение события которое свернуто. В длину оно больше чем обертка для неразвернутого сообщения</textarea>
+                    </a>
+                </small> -->
+                <small id="eventId" class="tf_events-item active">
+                    <div class="tf_item-header"><i id="eventBookmark" class="fa fa-bookmark ml-1 mr-2 text-primary d-none"></i>15.06.2021 19:11</div>
+                    <div class="tf_item-actions">
+                        <button id="eventDeactivate" class="tf_btn tf_btn-transparent tf_btn-icon tf_btn-xs" title="Отметить как прочитанное">
+                            <i class="fa fa-check-square-o"></i>
+                        </button>
+                        <div id="eventExpandButtons" class="d-none">
+                            <button id="eventBookmarkToogle" class="tf_btn tf_btn-transparent tf_btn-icon tf_btn-xs" title="Пометить событие как избранное">
+                                <i class="fa fa-bookmark"></i>
+                            </button>
+                            <button id="eventRemove" class="tf_btn tf_btn-transparent tf_btn-icon tf_btn-xs" title="Удалить событие">
+                                <i class="fa fa-trash-o"></i>
+                            </button>
+                        </div>
+                        <button id="eventExpand" class="tf_btn tf_btn-transparent tf_btn-icon tf_btn-xs mt-auto" title="Развернуть событие">
+                            <i class="fa fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="tf_item-body">
+                        <a href="#" title="Перейти к событию">
+                            <textarea rows="3" readonly lang="ru">Кстати, многие известные личности лишь добавляют фракционных разногласий и указаны как претенденты на роль ключевых факторов. Кстати, непосредственные участники технического прогресса, превозмогая сложившуюся непростую экономическую ситуацию, обнародованы. Как принято считать, сторонники тоталитаризма в науке и по сей день остаются уделом либералов.</textarea>
+                        </a>
+                    </div>
+                    <div id="eventDeleteAlert" class="tf_item-alert d-none">
+                        <div class="rounded-1 bg-positive text-error p-2 m-auto border">
+                            <i class="fa fa-warning"></i> Удалить событие безвозвратно?
+                            <hr class="my-2">
+                            <div class="d-flex justify-content-between">
+                                <button id="eventDeleteYes" class="tf_btn tf_btn-error tf_btn-xs" title="Удалить событие безвозвратно">Удалить</button>
+                                <button id="eventDeleteNo" class="tf_btn tf_btn-secondary tf_btn-xs" title="Отменить удаление">Отмена</button>
+                            </div>
+                        </div>
+                    </div>
+            </small>
+            </div>
+            <div class="tf_events-footer">
+                <hr class="m-0 w-100">
+                <div class="d-grid grid-flow-col g-1 p-1">
+                    <button class="tf_btn tf_btn-secondary tf_btn-xs" title="Удалить все события в ленте кроме избранных">
+                        <i class="fa fa-trash mr-1" aria-hidden="true"></i>
+                        Очистить ленту
+                    </button>
+                    <button class="tf_btn tf_btn-secondary tf_btn-xs" title="Пометить все события как прочитанные">
+                        <i class="fa fa-check-square-o mr-1" aria-hidden="true"></i>
+                        Всё прочитано
+                    </button>
+                </div>
+            </div>
+        </div>
+    </body>
+    <!-- logic scripts -->
+    <script>
+        let isEventsSearch = false
+        let isEventsSettings = false
+
+        function EventsSearchView(status) {
+            
+            if(isEventsSearch = status) {
+                EventsSettingsView(false)
+                $(".tf_events-search").removeClass("d-none")
+                $("#eventsSearch").addClass("active")
+            } else {
+                $(".tf_events-search").addClass("d-none")
+                $("#eventsSearch").removeClass("active")
+            }
+
+            console.log(isEventsSearch, "поиск")
+        }
+
+        function EventsSettingsView(status) {
+            
+            if(isEventsSettings = status) {
+                EventsSearchView(false)
+                $(".tf_events-settings").removeClass("d-none")
+                $("#eventsSettings").addClass("active")
+            } else {
+                $(".tf_events-settings").addClass("d-none")
+                $("#eventsSettings").removeClass("active")
+            }
+
+            console.log("настройки")
+        }
+        
+        function ToogleEventsServises(servise) {
+            switch(servise) {
+                case "search":
+                    EventsSearchView( isEventsSearch ? false : true)
+                    break;
+                case "settings":
+                    EventsSettingsView( isEventsSettings ? false : true)
+                    break;
+                default:
+                    EventsSearchView(false)
+                    EventsSettingsView(false)
+            }
+        }
+
+        $("#eventsSearch").on("click", function() {
+            ToogleEventsServises("search")
+        })
+        $("#eventsSettings").on("click", function() {
+            ToogleEventsServises("settings")
+        })
+
+
+        $("#eventDeactivate").on("click", function() {
+            if($("#eventId").hasClass("active")) {
+                $("#eventId").removeClass("active")
+                $("#eventDeactivate i").removeClass("fa-check-square-o").addClass("fa-square-o")
+            } else {
+                $("#eventId").addClass("active")
+                $("#eventDeactivate i").removeClass("fa-square-o").addClass("fa-check-square-o")
+            }
+        })
+
+        let isEventExpand = false
+        $("#eventExpand").on("click", function() {
+            if(isEventExpand) {
+                $("#eventExpand i").removeClass("fa-chevron-up").addClass("fa-chevron-down")
+                $("#eventExpandButtons").addClass("d-none")
+                $("#eventId textarea").attr("rows", 3 )
+                $("#eventExpand").attr("title", "Развернуть событие")
+            } else {
+                $("#eventExpand i").removeClass("fa-chevron-down").addClass("fa-chevron-up")
+                $("#eventExpandButtons").removeClass("d-none")
+                $("#eventId textarea").attr("rows", 7 )
+                $("#eventExpand").attr("title", "Свернуть событие")
+            }
+            isEventExpand = !isEventExpand
+        })
+
+        let isEventBookmarked = false
+        $("#eventBookmarkToogle").on("click", function() {
+            if(isEventBookmarked) {
+                $("#eventBookmarkToogle i").removeClass("fa-bookmark-o").addClass("fa-bookmark")
+                $("#eventBookmarkToogle").attr("title", "Пометить как избранное")
+                $("#eventBookmark").addClass("d-none")
+            } else {
+                $("#eventBookmarkToogle i").removeClass("fa-bookmark").addClass("fa-bookmark-o")
+                $("#eventBookmarkToogle").attr("title", "Удалить из избранного")
+                $("#eventBookmark").removeClass("d-none")
+            }
+            isEventBookmarked = !isEventBookmarked
+        })
+
+        let isEventDeleteAlertView = false
+        $("#eventRemove, #eventDeleteNo").on("click", function() {
+            if(isEventDeleteAlertView) {
+                $("#eventRemove").removeAttr("disabled")
+                $("#eventDeleteAlert").addClass("d-none")
+            } else {
+                $("#eventRemove").attr("disabled", "disabled")
+                $("#eventDeleteAlert").removeClass("d-none")
+            }
+            isEventDeleteAlertView = !isEventDeleteAlertView
+        })
+        $("#eventDeleteYes").on("click", function() {
+            $("#eventId").remove()
+        })
+
+
+        $("#hideEventsView").on("click", function() {
+            $(".tf_events").addClass("d-none")
+        })
+
+
+    </script>
+
+    <!-- no logic scripts -->
+    <script>
+        $( "#eventsPopup" ).on( "click", function() {
+            $(".tf_events").toggleClass("d-none")
+        })
+    </script>
+</html>

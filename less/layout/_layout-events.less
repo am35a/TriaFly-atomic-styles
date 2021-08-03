@@ -1,0 +1,94 @@
+.tf_events {
+    grid-row: 1/-1;
+    grid-column: 1/-1;
+    display: grid;
+    // grid-gap: var(--g-2, calc(var(--key-size) * .5));
+    grid-template-rows: repeat(2, min-content) 1fr min-content;
+    width: calc(var(--key-size) * 20);
+    margin-left: auto;
+    margin-top: var(--layout-header-height);
+    background-color: var(--positive-color);
+    z-index: 1000;
+    // > * {
+        // padding: var(--p-2, calc(var(--key-size) * .5));
+    // } 
+    &-header {
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: 1fr max-content;
+        padding: var(--p-2, calc(var(--key-size) * .5));
+    }
+    &-list {
+        display: grid;
+        grid-auto-rows: max-content;
+        grid-gap: var(--g-1, calc(var(--key-size) * .25));
+        padding: var(--p-4, calc(var(--key-size) * .25));
+        overflow-y: auto;
+    }
+    &-item {
+        display: grid;
+        grid-gap: var(--g-1, calc(var(--key-size) * .25));
+        padding: var(--p-1, calc(var(--key-size) * .25));
+        grid-template-columns: 1fr min-content;
+        grid-template-rows: min-content 1fr;
+        border: 1px solid var(--negative-color-10);
+        border-radius: var(--rounded-1, calc(var(--key-size) * 0.125));
+        // &:hover,
+        // &:hover.active {
+        //     border-color: var(--secondary-color);
+        // }
+        &.active {
+            border-color: transparent;
+            background-color: var(--secondary-color-l2);
+        }
+        .tf_item {
+            &-header {
+                grid-column: 1/2;
+                grid-row: 1/2;
+                color: var(--secondary-color);
+            }
+            &-actions {
+                grid-column: 2/3;
+                grid-row: 1/3;
+                display: flex;
+                flex-direction: column;                
+            }
+            &-body {
+                grid-column: 1/2;
+                grid-row: 2/3;
+                text-decoration: none;
+                color: var(--negative-color-90);
+                textarea {
+                    border: transparent;
+                    background: transparent;
+                    width: 100%;
+                    overflow: hidden;
+                    cursor: pointer;
+                    min-height: 100%;
+                    padding: 0;
+                    resize: none;                    
+                }
+                &.expand {
+                    border: transparent;
+                    background: transparent;
+                    width: 100%;
+                    overflow: hidden;
+                    cursor: pointer;
+                    min-height: 100%;
+                    padding: 0;
+                    resize: none;                    
+                }
+            }
+            &-alert {
+                display: grid;
+                grid-column: 1/-1;
+                grid-row: 1/-1;
+                margin: calc(var(--p-1, calc(var(--key-size) * .25)) * -1);
+                background-color: var(--positive-color-90);
+            }
+        }
+    }
+    &-footer {
+        display: grid;
+    }
+}

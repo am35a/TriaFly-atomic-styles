@@ -551,6 +551,83 @@ hr {
   grid-template-rows: max-content 1fr;
   margin-left: calc(var(--key-size) * 0.5);
 }
+.tf_events {
+  grid-row: 1/-1;
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-rows: repeat(2, min-content) 1fr min-content;
+  width: calc(var(--key-size) * 20);
+  margin-left: auto;
+  margin-top: var(--layout-header-height);
+  background-color: var(--positive-color);
+  z-index: 1000;
+}
+.tf_events-header {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr max-content;
+  padding: var(--p-2, calc(var(--key-size) * 0.5));
+}
+.tf_events-list {
+  display: grid;
+  grid-auto-rows: max-content;
+  grid-gap: var(--g-1, calc(var(--key-size) * 0.25));
+  padding: var(--p-4, calc(var(--key-size) * 0.25));
+}
+.tf_events-item {
+  display: grid;
+  padding: var(--p-1, calc(var(--key-size) * 0.25));
+  grid-template-columns: 1fr min-content;
+  grid-template-rows: min-content 1fr;
+  border: 1px solid var(--negative-color-10);
+  border-radius: var(--rounded-1, calc(var(--key-size) * 0.125));
+}
+.tf_events-item.active {
+  border-color: transparent;
+  background-color: var(--secondary-color-l2);
+}
+.tf_events-item .tf_item-header {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  padding: var(--p-1, calc(var(--key-size) * 0.25));
+  padding-top: 0;
+  color: var(--secondary-color);
+}
+.tf_events-item .tf_item-actions {
+  grid-column: 2/3;
+  grid-row: 1/3;
+  display: flex;
+  flex-direction: column;
+}
+.tf_events-item .tf_item-body {
+  grid-column: 1/2;
+  grid-row: 2/3;
+  text-decoration: none;
+  color: var(--negative-color-90);
+}
+.tf_events-item .tf_item-body textarea {
+  border: transparent;
+  background: transparent;
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  min-height: 100%;
+  padding: 0;
+  resize: none;
+}
+.tf_events-item .tf_item-body.expand {
+  border: transparent;
+  background: transparent;
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  min-height: 100%;
+  padding: 0;
+  resize: none;
+}
+.tf_events-footer {
+  display: grid;
+}
 @media print {
   .tf_layout {
     height: unset;
@@ -1595,34 +1672,34 @@ h6,
   justify-self: stretch;
 }
 .bg-positive {
-  background-color: var(--positive-color);
+  background-color: var(--positive-color) !important;
 }
 .bg-negative {
-  background-color: var(--negative-color);
+  background-color: var(--negative-color) !important;
 }
 .bg-background {
-  background-color: var(--background-color);
+  background-color: var(--background-color) !important;
 }
 .bg-primary {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color) !important;
 }
 .bg-secondary {
-  background-color: var(--secondary-color);
+  background-color: var(--secondary-color) !important;
 }
 .bg-info {
-  background-color: var(--info-color);
+  background-color: var(--info-color) !important;
 }
 .bg-success {
-  background-color: var(--success-color);
+  background-color: var(--success-color) !important;
 }
 .bg-warning {
-  background-color: var(--warning-color);
+  background-color: var(--warning-color) !important;
 }
 .bg-error {
-  background-color: var(--error-color);
+  background-color: var(--error-color) !important;
 }
 .bg-transparent {
-  background-color: transparent;
+  background-color: transparent !important;
 }
 .rounded {
   border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
@@ -2846,34 +2923,34 @@ h6,
   justify-self: stretch;
 }
 .mobile .m\:bg-positive {
-  background-color: var(--positive-color);
+  background-color: var(--positive-color) !important;
 }
 .mobile .m\:bg-negative {
-  background-color: var(--negative-color);
+  background-color: var(--negative-color) !important;
 }
 .mobile .m\:bg-background {
-  background-color: var(--background-color);
+  background-color: var(--background-color) !important;
 }
 .mobile .m\:bg-primary {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color) !important;
 }
 .mobile .m\:bg-secondary {
-  background-color: var(--secondary-color);
+  background-color: var(--secondary-color) !important;
 }
 .mobile .m\:bg-info {
-  background-color: var(--info-color);
+  background-color: var(--info-color) !important;
 }
 .mobile .m\:bg-success {
-  background-color: var(--success-color);
+  background-color: var(--success-color) !important;
 }
 .mobile .m\:bg-warning {
-  background-color: var(--warning-color);
+  background-color: var(--warning-color) !important;
 }
 .mobile .m\:bg-error {
-  background-color: var(--error-color);
+  background-color: var(--error-color) !important;
 }
 .mobile .m\:bg-transparent {
-  background-color: transparent;
+  background-color: transparent !important;
 }
 .mobile .m\:rounded {
   border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
@@ -4086,34 +4163,34 @@ h6,
   justify-self: stretch;
 }
 .tablet .t\:bg-positive {
-  background-color: var(--positive-color);
+  background-color: var(--positive-color) !important;
 }
 .tablet .t\:bg-negative {
-  background-color: var(--negative-color);
+  background-color: var(--negative-color) !important;
 }
 .tablet .t\:bg-background {
-  background-color: var(--background-color);
+  background-color: var(--background-color) !important;
 }
 .tablet .t\:bg-primary {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color) !important;
 }
 .tablet .t\:bg-secondary {
-  background-color: var(--secondary-color);
+  background-color: var(--secondary-color) !important;
 }
 .tablet .t\:bg-info {
-  background-color: var(--info-color);
+  background-color: var(--info-color) !important;
 }
 .tablet .t\:bg-success {
-  background-color: var(--success-color);
+  background-color: var(--success-color) !important;
 }
 .tablet .t\:bg-warning {
-  background-color: var(--warning-color);
+  background-color: var(--warning-color) !important;
 }
 .tablet .t\:bg-error {
-  background-color: var(--error-color);
+  background-color: var(--error-color) !important;
 }
 .tablet .t\:bg-transparent {
-  background-color: transparent;
+  background-color: transparent !important;
 }
 .tablet .t\:rounded {
   border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
@@ -5326,34 +5403,34 @@ h6,
   justify-self: stretch;
 }
 .desktop .d\:bg-positive {
-  background-color: var(--positive-color);
+  background-color: var(--positive-color) !important;
 }
 .desktop .d\:bg-negative {
-  background-color: var(--negative-color);
+  background-color: var(--negative-color) !important;
 }
 .desktop .d\:bg-background {
-  background-color: var(--background-color);
+  background-color: var(--background-color) !important;
 }
 .desktop .d\:bg-primary {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color) !important;
 }
 .desktop .d\:bg-secondary {
-  background-color: var(--secondary-color);
+  background-color: var(--secondary-color) !important;
 }
 .desktop .d\:bg-info {
-  background-color: var(--info-color);
+  background-color: var(--info-color) !important;
 }
 .desktop .d\:bg-success {
-  background-color: var(--success-color);
+  background-color: var(--success-color) !important;
 }
 .desktop .d\:bg-warning {
-  background-color: var(--warning-color);
+  background-color: var(--warning-color) !important;
 }
 .desktop .d\:bg-error {
-  background-color: var(--error-color);
+  background-color: var(--error-color) !important;
 }
 .desktop .d\:bg-transparent {
-  background-color: transparent;
+  background-color: transparent !important;
 }
 .desktop .d\:rounded {
   border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
@@ -6567,34 +6644,34 @@ h6,
     justify-self: stretch;
   }
   .l\:bg-positive {
-    background-color: var(--positive-color);
+    background-color: var(--positive-color) !important;
   }
   .l\:bg-negative {
-    background-color: var(--negative-color);
+    background-color: var(--negative-color) !important;
   }
   .l\:bg-background {
-    background-color: var(--background-color);
+    background-color: var(--background-color) !important;
   }
   .l\:bg-primary {
-    background-color: var(--primary-color);
+    background-color: var(--primary-color) !important;
   }
   .l\:bg-secondary {
-    background-color: var(--secondary-color);
+    background-color: var(--secondary-color) !important;
   }
   .l\:bg-info {
-    background-color: var(--info-color);
+    background-color: var(--info-color) !important;
   }
   .l\:bg-success {
-    background-color: var(--success-color);
+    background-color: var(--success-color) !important;
   }
   .l\:bg-warning {
-    background-color: var(--warning-color);
+    background-color: var(--warning-color) !important;
   }
   .l\:bg-error {
-    background-color: var(--error-color);
+    background-color: var(--error-color) !important;
   }
   .l\:bg-transparent {
-    background-color: transparent;
+    background-color: transparent !important;
   }
   .l\:rounded {
     border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
@@ -7807,34 +7884,34 @@ h6,
     justify-self: stretch;
   }
   .mobile .l\:m\:bg-positive {
-    background-color: var(--positive-color);
+    background-color: var(--positive-color) !important;
   }
   .mobile .l\:m\:bg-negative {
-    background-color: var(--negative-color);
+    background-color: var(--negative-color) !important;
   }
   .mobile .l\:m\:bg-background {
-    background-color: var(--background-color);
+    background-color: var(--background-color) !important;
   }
   .mobile .l\:m\:bg-primary {
-    background-color: var(--primary-color);
+    background-color: var(--primary-color) !important;
   }
   .mobile .l\:m\:bg-secondary {
-    background-color: var(--secondary-color);
+    background-color: var(--secondary-color) !important;
   }
   .mobile .l\:m\:bg-info {
-    background-color: var(--info-color);
+    background-color: var(--info-color) !important;
   }
   .mobile .l\:m\:bg-success {
-    background-color: var(--success-color);
+    background-color: var(--success-color) !important;
   }
   .mobile .l\:m\:bg-warning {
-    background-color: var(--warning-color);
+    background-color: var(--warning-color) !important;
   }
   .mobile .l\:m\:bg-error {
-    background-color: var(--error-color);
+    background-color: var(--error-color) !important;
   }
   .mobile .l\:m\:bg-transparent {
-    background-color: transparent;
+    background-color: transparent !important;
   }
   .mobile .l\:m\:rounded {
     border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
@@ -9047,34 +9124,34 @@ h6,
     justify-self: stretch;
   }
   .tablet .l\:t\:bg-positive {
-    background-color: var(--positive-color);
+    background-color: var(--positive-color) !important;
   }
   .tablet .l\:t\:bg-negative {
-    background-color: var(--negative-color);
+    background-color: var(--negative-color) !important;
   }
   .tablet .l\:t\:bg-background {
-    background-color: var(--background-color);
+    background-color: var(--background-color) !important;
   }
   .tablet .l\:t\:bg-primary {
-    background-color: var(--primary-color);
+    background-color: var(--primary-color) !important;
   }
   .tablet .l\:t\:bg-secondary {
-    background-color: var(--secondary-color);
+    background-color: var(--secondary-color) !important;
   }
   .tablet .l\:t\:bg-info {
-    background-color: var(--info-color);
+    background-color: var(--info-color) !important;
   }
   .tablet .l\:t\:bg-success {
-    background-color: var(--success-color);
+    background-color: var(--success-color) !important;
   }
   .tablet .l\:t\:bg-warning {
-    background-color: var(--warning-color);
+    background-color: var(--warning-color) !important;
   }
   .tablet .l\:t\:bg-error {
-    background-color: var(--error-color);
+    background-color: var(--error-color) !important;
   }
   .tablet .l\:t\:bg-transparent {
-    background-color: transparent;
+    background-color: transparent !important;
   }
   .tablet .l\:t\:rounded {
     border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
@@ -10287,34 +10364,34 @@ h6,
     justify-self: stretch;
   }
   .desktop .l\:d\:bg-positive {
-    background-color: var(--positive-color);
+    background-color: var(--positive-color) !important;
   }
   .desktop .l\:d\:bg-negative {
-    background-color: var(--negative-color);
+    background-color: var(--negative-color) !important;
   }
   .desktop .l\:d\:bg-background {
-    background-color: var(--background-color);
+    background-color: var(--background-color) !important;
   }
   .desktop .l\:d\:bg-primary {
-    background-color: var(--primary-color);
+    background-color: var(--primary-color) !important;
   }
   .desktop .l\:d\:bg-secondary {
-    background-color: var(--secondary-color);
+    background-color: var(--secondary-color) !important;
   }
   .desktop .l\:d\:bg-info {
-    background-color: var(--info-color);
+    background-color: var(--info-color) !important;
   }
   .desktop .l\:d\:bg-success {
-    background-color: var(--success-color);
+    background-color: var(--success-color) !important;
   }
   .desktop .l\:d\:bg-warning {
-    background-color: var(--warning-color);
+    background-color: var(--warning-color) !important;
   }
   .desktop .l\:d\:bg-error {
-    background-color: var(--error-color);
+    background-color: var(--error-color) !important;
   }
   .desktop .l\:d\:bg-transparent {
-    background-color: transparent;
+    background-color: transparent !important;
   }
   .desktop .l\:d\:rounded {
     border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
@@ -11529,34 +11606,34 @@ h6,
     justify-self: stretch;
   }
   .p\:bg-positive {
-    background-color: var(--positive-color);
+    background-color: var(--positive-color) !important;
   }
   .p\:bg-negative {
-    background-color: var(--negative-color);
+    background-color: var(--negative-color) !important;
   }
   .p\:bg-background {
-    background-color: var(--background-color);
+    background-color: var(--background-color) !important;
   }
   .p\:bg-primary {
-    background-color: var(--primary-color);
+    background-color: var(--primary-color) !important;
   }
   .p\:bg-secondary {
-    background-color: var(--secondary-color);
+    background-color: var(--secondary-color) !important;
   }
   .p\:bg-info {
-    background-color: var(--info-color);
+    background-color: var(--info-color) !important;
   }
   .p\:bg-success {
-    background-color: var(--success-color);
+    background-color: var(--success-color) !important;
   }
   .p\:bg-warning {
-    background-color: var(--warning-color);
+    background-color: var(--warning-color) !important;
   }
   .p\:bg-error {
-    background-color: var(--error-color);
+    background-color: var(--error-color) !important;
   }
   .p\:bg-transparent {
-    background-color: transparent;
+    background-color: transparent !important;
   }
   .p\:rounded {
     border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
@@ -12769,34 +12846,34 @@ h6,
     justify-self: stretch;
   }
   .mobile .p\:m\:bg-positive {
-    background-color: var(--positive-color);
+    background-color: var(--positive-color) !important;
   }
   .mobile .p\:m\:bg-negative {
-    background-color: var(--negative-color);
+    background-color: var(--negative-color) !important;
   }
   .mobile .p\:m\:bg-background {
-    background-color: var(--background-color);
+    background-color: var(--background-color) !important;
   }
   .mobile .p\:m\:bg-primary {
-    background-color: var(--primary-color);
+    background-color: var(--primary-color) !important;
   }
   .mobile .p\:m\:bg-secondary {
-    background-color: var(--secondary-color);
+    background-color: var(--secondary-color) !important;
   }
   .mobile .p\:m\:bg-info {
-    background-color: var(--info-color);
+    background-color: var(--info-color) !important;
   }
   .mobile .p\:m\:bg-success {
-    background-color: var(--success-color);
+    background-color: var(--success-color) !important;
   }
   .mobile .p\:m\:bg-warning {
-    background-color: var(--warning-color);
+    background-color: var(--warning-color) !important;
   }
   .mobile .p\:m\:bg-error {
-    background-color: var(--error-color);
+    background-color: var(--error-color) !important;
   }
   .mobile .p\:m\:bg-transparent {
-    background-color: transparent;
+    background-color: transparent !important;
   }
   .mobile .p\:m\:rounded {
     border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
@@ -14009,34 +14086,34 @@ h6,
     justify-self: stretch;
   }
   .tablet .p\:t\:bg-positive {
-    background-color: var(--positive-color);
+    background-color: var(--positive-color) !important;
   }
   .tablet .p\:t\:bg-negative {
-    background-color: var(--negative-color);
+    background-color: var(--negative-color) !important;
   }
   .tablet .p\:t\:bg-background {
-    background-color: var(--background-color);
+    background-color: var(--background-color) !important;
   }
   .tablet .p\:t\:bg-primary {
-    background-color: var(--primary-color);
+    background-color: var(--primary-color) !important;
   }
   .tablet .p\:t\:bg-secondary {
-    background-color: var(--secondary-color);
+    background-color: var(--secondary-color) !important;
   }
   .tablet .p\:t\:bg-info {
-    background-color: var(--info-color);
+    background-color: var(--info-color) !important;
   }
   .tablet .p\:t\:bg-success {
-    background-color: var(--success-color);
+    background-color: var(--success-color) !important;
   }
   .tablet .p\:t\:bg-warning {
-    background-color: var(--warning-color);
+    background-color: var(--warning-color) !important;
   }
   .tablet .p\:t\:bg-error {
-    background-color: var(--error-color);
+    background-color: var(--error-color) !important;
   }
   .tablet .p\:t\:bg-transparent {
-    background-color: transparent;
+    background-color: transparent !important;
   }
   .tablet .p\:t\:rounded {
     border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
@@ -15249,34 +15326,34 @@ h6,
     justify-self: stretch;
   }
   .desktop .p\:d\:bg-positive {
-    background-color: var(--positive-color);
+    background-color: var(--positive-color) !important;
   }
   .desktop .p\:d\:bg-negative {
-    background-color: var(--negative-color);
+    background-color: var(--negative-color) !important;
   }
   .desktop .p\:d\:bg-background {
-    background-color: var(--background-color);
+    background-color: var(--background-color) !important;
   }
   .desktop .p\:d\:bg-primary {
-    background-color: var(--primary-color);
+    background-color: var(--primary-color) !important;
   }
   .desktop .p\:d\:bg-secondary {
-    background-color: var(--secondary-color);
+    background-color: var(--secondary-color) !important;
   }
   .desktop .p\:d\:bg-info {
-    background-color: var(--info-color);
+    background-color: var(--info-color) !important;
   }
   .desktop .p\:d\:bg-success {
-    background-color: var(--success-color);
+    background-color: var(--success-color) !important;
   }
   .desktop .p\:d\:bg-warning {
-    background-color: var(--warning-color);
+    background-color: var(--warning-color) !important;
   }
   .desktop .p\:d\:bg-error {
-    background-color: var(--error-color);
+    background-color: var(--error-color) !important;
   }
   .desktop .p\:d\:bg-transparent {
-    background-color: transparent;
+    background-color: transparent !important;
   }
   .desktop .p\:d\:rounded {
     border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
