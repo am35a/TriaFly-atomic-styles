@@ -563,29 +563,38 @@ hr {
   background-color: var(--positive-color);
   z-index: 1000;
 }
+.tf_events-alert {
+  position: relative;
+  display: grid;
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+  padding: var(--p-2, calc(var(--key-size) * 0.25));
+  background-color: var(--positive-color-90);
+}
 .tf_events-header {
+  grid-column: 1/-1;
+  grid-row: 1/2;
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: 1fr max-content;
   padding: var(--p-2, calc(var(--key-size) * 0.5));
 }
+.tf_events-servises {
+  grid-column: 1/-1;
+  grid-row: 2/3;
+}
 .tf_events-list {
-  position: relative;
+  grid-column: 1/-1;
+  grid-row: 3/4;
   display: grid;
   grid-auto-rows: max-content;
   grid-gap: var(--g-1, calc(var(--key-size) * 0.25));
   padding: var(--p-4, calc(var(--key-size) * 0.25));
   overflow-y: auto;
 }
-.tf_events-list-alert {
-  display: grid;
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  padding: var(--p-2, calc(var(--key-size) * 0.25));
-  background-color: var(--positive-color-90);
+.tf_events-footer {
+  grid-column: 1/-1;
+  grid-row: 4/5;
 }
 .tf_events-item {
   display: grid;
@@ -599,6 +608,9 @@ hr {
 .tf_events-item.active {
   border-color: transparent;
   background-color: var(--secondary-color-l2);
+}
+.tf_events-item:hover {
+  border: 1px solid var(--negative-color-25);
 }
 .tf_events-item .tf_item-header {
   grid-column: 1/2;
@@ -638,6 +650,7 @@ hr {
   resize: none;
 }
 .tf_events-item .tf_item-alert {
+  position: relative;
   display: grid;
   grid-column: 1/-1;
   grid-row: 1/-1;

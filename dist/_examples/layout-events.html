@@ -135,8 +135,8 @@
                         </div>
                     </div>
                 </small>
-                <div class="tf_events-list-alert">
-                    <div class="rounded-1 bg-positive text-error p-2 m-auto mb-0 w-75 border" lang="ru">
+                <!-- <div class="tf_events-list-alert d-none">
+                    <div class="rounded-1 bg-positive text-error p-2 m-auto w-75 border" lang="ru">
                         <i class="fa fa-warning"></i> Удалить все события безвозвратно?
                         <div class="fs-sm">
                             <hr class="mb-1 mt-2">
@@ -144,23 +144,37 @@
                         </div>
                         <hr class="my-2">
                         <div class="d-flex justify-content-between">
-                            <button id="eventDeleteYes" class="tf_btn tf_btn-error tf_btn-xs" title="Удалить событие безвозвратно">Удалить</button>
-                            <button id="eventDeleteNo" class="tf_btn tf_btn-secondary tf_btn-xs" title="Отменить удаление">Отмена</button>
+                            <button id="eventsDeleteYes" class="tf_btn tf_btn-error tf_btn-xs" title="Удалить событие безвозвратно">Удалить</button>
+                            <button id="eventsDeleteNo" class="tf_btn tf_btn-secondary tf_btn-xs" title="Отменить удаление">Отмена</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="tf_events-footer">
                 <hr class="m-0 w-100">
                 <div class="d-grid grid-flow-col g-1 p-1">
-                    <button class="tf_btn tf_btn-secondary tf_btn-xs" title="Удалить все события в ленте кроме избранных">
+                    <button id="deleteAllEvents" class="tf_btn tf_btn-secondary tf_btn-xs" title="Удалить все события в ленте кроме избранных">
                         <i class="fa fa-trash mr-1" aria-hidden="true"></i>
                         Очистить ленту
                     </button>
-                    <button class="tf_btn tf_btn-secondary tf_btn-xs" title="Пометить все события как прочитанные">
+                    <button id="readAllEvents" class="tf_btn tf_btn-secondary tf_btn-xs" title="Пометить все события как прочитанные">
                         <i class="fa fa-check-square-o mr-1" aria-hidden="true"></i>
                         Всё прочитано
                     </button>
+                </div>
+            </div>
+            <div class="tf_events-alert d-none">
+                <div class="rounded-1 bg-positive text-error p-2 m-auto w-75 border" lang="ru">
+                    <i class="fa fa-warning"></i> Удалить все события безвозвратно?
+                    <div class="fs-sm">
+                        <hr class="mb-1 mt-2">
+                        Чтобы сохранить избранные в настройках ленты укажите "Не удалять избранные"
+                    </div>
+                    <hr class="my-2">
+                    <div class="d-flex justify-content-between">
+                        <button id="eventsDeleteYes" class="tf_btn tf_btn-error tf_btn-xs" title="Удалить событие безвозвратно">Удалить</button>
+                        <button id="eventsDeleteNo" class="tf_btn tf_btn-secondary tf_btn-xs" title="Отменить удаление">Отмена</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -275,19 +289,24 @@
             $("#eventId").remove()
             $("#eventsPopup i").removeClass("fa-bell").addClass("fa-bell-o")
             $("#eventsPopup div").remove()
+            $("#deleteAllEvents, #readAllEvents, #eventsSearch").attr("disabled", "disabled")
         })
 
-        $("#hideEventsView").on("click", function() {
-            $(".tf_events").addClass("d-none")
+        $("#deleteAllEvents").on("click", function() {
+            $(".tf_events-alert").toggleClass("d-none")
         })
-
-
+        $("#eventsDeleteYes").on("click", function() {
+            $(".tf_events-alert").toggleClass("d-none")
+        })
+        $("#eventsDeleteNo").on("click", function() {
+            $(".tf_events-alert").toggleClass("d-none")
+        })
     </script>
 
     <!-- out logic scripts -->
     <script>
         let isEventsExpand = false
-        $("#eventsPopup").on( "click", function() {
+        $("#eventsPopup, #hideEventsView").on( "click", function() {
             if(isEventsExpand) {
                 $("#eventsPopup").removeClass("active")
                 $("#eventsPopup").attr("title", "Показать ленту событий")
