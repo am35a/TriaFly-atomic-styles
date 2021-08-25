@@ -19,19 +19,19 @@
             class="my-0"
             language='{xml}'
             code='
-    // inverse color button
+    // default color button
     <button class="tf_btn">default button</button>
 
-    // inverse color button with icon
+    // default color button with icon
     <button class="tf_btn">
         <i class="fas fa-home"></i>
         icon button
     </button>
 
-    // active button
+    // default color active button
     <button class="tf_btn active">active button</button>
 
-    // inverse color disabled button
+    // default color disabled button
     <button class="tf_btn" disabled>disabled button</button>
             '
         />

@@ -557,6 +557,7 @@ hr {
   display: grid;
   grid-template-rows: repeat(2, min-content) 1fr min-content;
   width: calc(var(--key-size) * 20);
+  height: calc(100% - var(--layout-header-height));
   margin-left: auto;
   margin-top: var(--layout-header-height);
   background-color: var(--positive-color);
@@ -573,9 +574,11 @@ hr {
   grid-auto-rows: max-content;
   grid-gap: var(--g-1, calc(var(--key-size) * 0.25));
   padding: var(--p-4, calc(var(--key-size) * 0.25));
+  overflow-y: auto;
 }
 .tf_events-item {
   display: grid;
+  grid-gap: var(--g-1, calc(var(--key-size) * 0.25));
   padding: var(--p-1, calc(var(--key-size) * 0.25));
   grid-template-columns: 1fr min-content;
   grid-template-rows: min-content 1fr;
@@ -589,8 +592,6 @@ hr {
 .tf_events-item .tf_item-header {
   grid-column: 1/2;
   grid-row: 1/2;
-  padding: var(--p-1, calc(var(--key-size) * 0.25));
-  padding-top: 0;
   color: var(--secondary-color);
 }
 .tf_events-item .tf_item-actions {
@@ -624,6 +625,13 @@ hr {
   min-height: 100%;
   padding: 0;
   resize: none;
+}
+.tf_events-item .tf_item-alert {
+  display: grid;
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+  margin: calc(var(--p-1, calc(var(--key-size) * 0.25)) * -1);
+  background-color: var(--positive-color-90);
 }
 .tf_events-footer {
   display: grid;
