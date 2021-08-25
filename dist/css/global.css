@@ -570,11 +570,22 @@ hr {
   padding: var(--p-2, calc(var(--key-size) * 0.5));
 }
 .tf_events-list {
+  position: relative;
   display: grid;
   grid-auto-rows: max-content;
   grid-gap: var(--g-1, calc(var(--key-size) * 0.25));
   padding: var(--p-4, calc(var(--key-size) * 0.25));
   overflow-y: auto;
+}
+.tf_events-list-alert {
+  display: grid;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: var(--p-2, calc(var(--key-size) * 0.25));
+  background-color: var(--positive-color-90);
 }
 .tf_events-item {
   display: grid;
@@ -1537,6 +1548,27 @@ h6,
 }
 .fst-normal {
   font-style: normal;
+}
+.fs-xxs {
+  font-size: xx-small;
+}
+.fs-xs {
+  font-size: x-small;
+}
+.fs-sm {
+  font-size: small;
+}
+.fs-md {
+  font-size: medium;
+}
+.fs-lg {
+  font-size: large;
+}
+.fs-xl {
+  font-size: x-large;
+}
+.fs-xxl {
+  font-size: xx-large;
 }
 .lh-1 {
   line-height: 1;

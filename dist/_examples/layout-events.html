@@ -20,8 +20,9 @@
             <button class="tf_layout-aside-expander" tabindex="-1"><i class="fas fa-bars"></i></button>
             Лента событий
             <div class="px-2">
-                <button id="eventsPopup" class="tf_btn tf_btn- tf_btn-icon" title="Показать только отмеченные">
-                    <i class="fa fa-bell" aria-hidden="true"></i>
+                <button id="eventsPopup" class="tf_btn tf_btn-transparent tf_btn-icon position-relative" title="Показать ленту событий">
+                    <i class="fa fa-bell" aria-hidden="true"></i> <!-- если нет событий тогда fa-bell-o -->
+                    <div class="position-absolute top-0 left-0 pl-1 text-primary fs-xxs">1<!--sup>+</sup--></div>
                 </button>
             </div>
         </div>
@@ -33,7 +34,7 @@
                 <!-- ... -->
             </div>
         </div>
-        <div class="tf_events d-none-">
+        <div class="tf_events d-none">
             <div class="tf_events-header">
                 <div class="h6 my-auto text-secondary">Лента событий</div>
                 <div>
@@ -124,7 +125,7 @@
                         </a>
                     </div>
                     <div id="eventDeleteAlert" class="tf_item-alert d-none">
-                        <div class="rounded-1 bg-positive text-error p-2 m-auto border">
+                        <div class="rounded-1 bg-positive text-error p-2 m-auto border w-75">
                             <i class="fa fa-warning"></i> Удалить событие безвозвратно?
                             <hr class="my-2">
                             <div class="d-flex justify-content-between">
@@ -133,7 +134,21 @@
                             </div>
                         </div>
                     </div>
-            </small>
+                </small>
+                <div class="tf_events-list-alert">
+                    <div class="rounded-1 bg-positive text-error p-2 m-auto mb-0 w-75 border" lang="ru">
+                        <i class="fa fa-warning"></i> Удалить все события безвозвратно?
+                        <div class="fs-sm">
+                            <hr class="mb-1 mt-2">
+                            Чтобы сохранить избранные в настройках ленты укажите "Не удалять избранные"
+                        </div>
+                        <hr class="my-2">
+                        <div class="d-flex justify-content-between">
+                            <button id="eventDeleteYes" class="tf_btn tf_btn-error tf_btn-xs" title="Удалить событие безвозвратно">Удалить</button>
+                            <button id="eventDeleteNo" class="tf_btn tf_btn-secondary tf_btn-xs" title="Отменить удаление">Отмена</button>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="tf_events-footer">
                 <hr class="m-0 w-100">
@@ -258,8 +273,9 @@
         })
         $("#eventDeleteYes").on("click", function() {
             $("#eventId").remove()
+            $("#eventsPopup i").removeClass("fa-bell").addClass("fa-bell-o")
+            $("#eventsPopup div").remove()
         })
-
 
         $("#hideEventsView").on("click", function() {
             $(".tf_events").addClass("d-none")
@@ -268,10 +284,20 @@
 
     </script>
 
-    <!-- no logic scripts -->
+    <!-- out logic scripts -->
     <script>
-        $( "#eventsPopup" ).on( "click", function() {
-            $(".tf_events").toggleClass("d-none")
+        let isEventsExpand = false
+        $("#eventsPopup").on( "click", function() {
+            if(isEventsExpand) {
+                $("#eventsPopup").removeClass("active")
+                $("#eventsPopup").attr("title", "Показать ленту событий")
+                $(".tf_events").addClass("d-none")
+            } else {
+                $("#eventsPopup").addClass("active")
+                $("#eventsPopup").attr("title", "Скрыть ленту события")
+                $(".tf_events").removeClass("d-none")
+            }
+            isEventsExpand = !isEventsExpand
         })
     </script>
 </html>

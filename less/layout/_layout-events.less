@@ -20,11 +20,24 @@
         padding: var(--p-2, calc(var(--key-size) * .5));
     }
     &-list {
+        position: relative;
         display: grid;
         grid-auto-rows: max-content;
         grid-gap: var(--g-1, calc(var(--key-size) * .25));
         padding: var(--p-4, calc(var(--key-size) * .25));
         overflow-y: auto;
+        &-alert {
+            display: grid;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            // margin: calc(var(--m-1, calc(var(--key-size) * .25)) * -1);
+
+            padding: var(--p-2, calc(var(--key-size) * .25));
+            background-color: var(--positive-color-90);
+        }
     }
     &-item {
         display: grid;
