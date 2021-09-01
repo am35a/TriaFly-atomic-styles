@@ -126,6 +126,11 @@ html {
   color: var(--negative-color-85);
   font-family: Roboto-, "Source Sans Pro-", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+html,
+body {
+  position: relative;
+  height: 100%;
+}
 *,
 ::after,
 ::before {
@@ -207,7 +212,6 @@ hr {
   color: var(--negative-color-25);
 }
 .tf_layout {
-  height: 100vh;
   display: grid;
   grid-template-columns: min-content 1fr;
   grid-template-rows: min-content 1fr;
@@ -609,8 +613,20 @@ hr {
   border-color: transparent;
   background-color: var(--secondary-color-l2);
 }
-.tf_events-item:hover {
-  border: 1px solid var(--negative-color-25);
+.tf_events-item:hover .tf_item-link > *,
+.tf_events-item:hover .tf_item-link:before {
+  grid-column: 1/1;
+  grid-row: 1/1;
+}
+.tf_events-item:hover .tf_item-link:before {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  border-radius: var(--rounded-1, calc(var(--key-size) * 0.125));
+  background-color: var(--positive-color-90);
+  content: "Перейти к событию...";
+  z-index: 1;
+  color: var(--primary-color);
 }
 .tf_events-item .tf_item-header {
   grid-column: 1/2;
@@ -628,6 +644,10 @@ hr {
   grid-row: 2/3;
   text-decoration: none;
   color: var(--negative-color-90);
+}
+.tf_events-item .tf_item-body .tf_item-link {
+  display: grid;
+  text-decoration: none;
 }
 .tf_events-item .tf_item-body textarea {
   border: transparent;

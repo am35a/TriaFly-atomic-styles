@@ -55,7 +55,25 @@
             background-color: var(--secondary-color-l2);
         }
         &:hover {
-            border: 1px solid var(--negative-color-25);
+            .tf_item-link {
+                > *,
+                &:before {
+                    grid-column: 1/1;
+                    grid-row: 1/1;
+                }
+                &:before {
+                    display: grid;
+                    justify-content: center;
+                    align-content: center;
+                    border-radius: var(--rounded-1, calc(var(--key-size) * 0.125));
+                    background-color: var(--positive-color-90);
+                    content: "Перейти к событию...";
+                    z-index: 1;
+                    color: var(--primary-color);
+                    
+                }
+            }
+            // border: 1px solid var(--negative-color-25);
         }
         .tf_item {
             &-header {
@@ -74,6 +92,10 @@
                 grid-row: 2/3;
                 text-decoration: none;
                 color: var(--negative-color-90);
+                .tf_item-link {
+                    display: grid;
+                    text-decoration: none;
+                }
                 textarea {
                     border: transparent;
                     background: transparent;
