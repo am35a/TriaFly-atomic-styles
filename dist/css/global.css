@@ -574,6 +574,7 @@ hr {
   grid-row: 1/-1;
   padding: var(--p-2, calc(var(--key-size) * 0.25));
   background-color: var(--positive-color-90);
+  z-index: 1;
 }
 .tf_events-header {
   grid-column: 1/-1;
@@ -676,6 +677,7 @@ hr {
   grid-row: 1/-1;
   margin: calc(var(--p-1, calc(var(--key-size) * 0.25)) * -1);
   background-color: var(--positive-color-90);
+  z-index: 1;
 }
 .tf_events-footer {
   display: grid;
