@@ -66,7 +66,7 @@
 
                             <div class="d-grid grid-flow-col g-1 px-1 border-bottom">
                                 <!-- tab на кнопках - класс не нужный, сделал только длятого чтобы показать что куда надо добавлять -->
-                                <button id="base" class="tab rounded-bottom-0 tf_btn tf_btn-secondary tf_btn-sm active" disabled>Базовые</button>
+                                <button id="base" class="tab rounded-bottom-0 tf_btn tf_btn-transparent tf_btn-sm active" disabled>Базовые</button>
                                 <button id="style" class="tab rounded-bottom-0 tf_btn tf_btn-transparent tf_btn-sm">Стиль</button>
                                 <button id="elements" class="tab rounded-bottom-0 tf_btn tf_btn-transparent tf_btn-sm">Элементы графика</button>
                                 <button id="layout" class="tab rounded-bottom-0 tf_btn tf_btn-transparent tf_btn-sm">Сетка и оси</button>
@@ -338,9 +338,9 @@
     <script>
         $( ".tab" ).on( "click", function() {
             $( "#baseTab, #styleTab, #elementsTab, #layoutTab, #legendTab" ).addClass( "d-none" )
-            $( "#base, #style, #elements, #layout, #legend" ).removeClass( "tf_btn-secondary active" ).addClass( "tf_btn-transparent" ).removeAttr( "disabled" )
+            $( "#base, #style, #elements, #layout, #legend" ).removeClass( "active" ).removeAttr( "disabled" )
             let tabBodyId = "#" + $(this).attr("id") + "Tab"
-            $(this).removeClass( "tf_btn-transparent" ).addClass( "tf_btn-secondary active" ).attr( "disabled", "disabled" )
+            $(this).addClass( "active" ).attr( "disabled", "disabled" )
             $( tabBodyId ).removeClass( "d-none" )
         })
     </script>

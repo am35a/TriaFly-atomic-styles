@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SPA layout | finder</title>
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/global.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://unpkg.com/current-device/umd/current-device.min.js"></script>
+        <style>
+            :root {
+                --aside-navbar-background-color: #082f3d;
+                --header-background-color: #dde5f3;
+            }
+        </style>
+    </head>
+    <!-- https://stackoverflow.com/questions/55425419/how-to-do-a-dropdown-menu-on-click#55425502 -->
+    <body class="tf_layout">
+        <div class="tf_layout-main p-4 d-none">
+            <div class="tf_finder">
+                <div class="tf_finder-header">
+                    <div class="d-inline-flex flex-wrap g-1">
+                        <button id="finder-all" class="tf_btn fw-600 tf_btn-transparent active" disabled>Все показатели</button>
+                        <button id="finder-new" class="tf_btn fw-600 tf_btn-transparent">Новые</button>
+                        <button id="finder-pop" class="tf_btn fw-600 tf_btn-transparent">Популярные</button>
+                        <button id="finder-pop" class="tf_btn fw-600 tf_btn-transparent">Не популярные</button>
+                        <button id="finder-pop" class="tf_btn fw-600 tf_btn-transparent">Полезные</button>
+                        <button id="finder-pop" class="tf_btn fw-600 tf_btn-transparent">Серые</button>
+                        <button id="finder-pop" class="tf_btn fw-600 tf_btn-transparent">Пурпурные</button>
+                    </div>
+                    <div class="float-right">
+                        <button id="finder-filters-toogle" class="tf_btn tf_btn-transparent tf_btn-icon"><i class="fa fa-filter"></i></button>
+                        <button id="finder-as-folder" class="tf_btn tf_btn-transparent tf_btn-icon" disabled><i class="fa fa-folder-open"></i></button>
+                        <button id="finder-as-list" class="tf_btn tf_btn-transparent tf_btn-icon"><i class="fa fa-list-ul"></i></button>
+                    </div>
+                </div>
+                <div class="tf_finder-explorer">
+                    <div class="tf_explorer-header">
+                        <div class="tf_explorer-filters d-none">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>Фильтры</div>
+                                <div>
+                                    <button class="tf_btn tf_btn-sm tf_btn-warning"><i class="fa fa-sync"></i> Сбросить</button>
+                                    <button id="finder-filters-close" class="tf_btn tf_btn-secondary tf_btn-sm tf_btn-icon"><i class="fa fa-times"></i></button>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="g-4 d-grid cols-2">
+                                <div>
+                                    <label for="inputText1" class="tf_form-label text-secondary">Тип значений</label>
+                                    <input id="inputText1" class="tf_form-control tf_form-control-sm tf_form-control-secondary" type="text">
+                                </div>
+                                <div>
+                                    <label for="inputText1" class="tf_form-label text-secondary">Аналитические признаки</label>
+                                    <input id="inputText1" class="tf_form-control tf_form-control-sm tf_form-control-secondary" type="text">
+                                </div>
+                                <div>
+                                    <label for="inputText1" class="tf_form-label text-secondary">Элемент скрыт?</label>
+                                    <input id="inputText1" class="tf_form-control tf_form-control-sm tf_form-control-secondary" type="text">
+                                </div>
+                                <div>
+                                    <label for="inputText1" class="tf_form-label text-secondary">Избранное</label>
+                                    <input id="inputText1" class="tf_form-control tf_form-control-sm tf_form-control-secondary" type="text">
+                                </div>
+                            </div>
+                            <!-- <hr> -->
+                            <!-- <div class="d-flex justify-content-between">
+                                <button class="tf_btn tf_btn-sm tf_btn-warning"><i class="fa fa-sync"></i> Сбросить фильры</button>
+                                <button id="finder-filters-close" class="tf_btn tf_btn-sm tf_btn-transparent"><i class="fa fa-times"></i> Закрыть</button>
+                            </div> -->
+                        </div>
+                        <div class="tf_explorer-nav">
+                            <div class="d-flex">
+                                <div class="tf_input-group flex-grow-1 position-relative my-auto" data-action="clearable">
+                                    <!-- <label class="tf_input-group-text tf_input-group-text-sm border border-right-0 border-secondary" for="finder-search"><i class="fa fa-search"></i></label> -->
+                                    <input id="finder-search" class="tf_form-control tf_form-control-sm tf_form-control-secondary" type="text" placeholder="Поиск по названию...">
+                                    <button class="tf_btn tf_btn-sm tf_btn-secondary tf_btn-icon" data-action="clear" disabled><i class="fa fa-ban"></i></button>
+                                </div>
+                                <div class="tf_finder-folders-toogle ml-3">
+                                    <button class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-icon position-relative">
+                                        <i class="fa fa-folder-open-o"></i>
+                                        <small class="position-absolute top-0 right-0 mr-1"><i class="fa fa-plus"></i></small>
+                                    </button>
+                                    <button class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-icon"><i class="fa fa-plus"></i></button>
+                                    <button class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-icon"><i class="fa fa-minus"></i></button>
+                                    <button class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-icon position-relative">
+                                        <i class="fa fa-folder-o"></i>
+                                        <small class="position-absolute top-0 right-0 mr-1"><i class="fa fa-minus"></i></small>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tf_explorer-body d-grid">
+                        <div class="overflow-auto">
+                            ...
+                        </div>
+                    </div>
+                </div>
+                <div class="tf_finder-preview">
+                    <div class="tf_finder-preview-body"></div>
+                    <div class="tf_finder-preview-prompt">
+                            <div class="mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 174 108" width="16rem">
+                                    <path fill="currentColor" d="M148,0H88h-2H3C1.3,0,0,1.3,0,3v102c0,1.7,1.3,3,3,3h83h2h83c1.7,0,3-1.3,3-3V26L148,0z M86,106H3
+                                    c-0.6,0-1-0.4-1-1V3c0-0.6,0.4-1,1-1h83V106z M172,105c0,0.6-0.4,1-1,1H88V2h58l0.1,21c0,2.7,2.2,5,5,5l21,0.1V105z M72.9,18.5
+                                    H15.1c-1.6,0-3-1.4-3-3v0c0-1.7,1.4-3,3-3h57.8c1.7,0,3,1.3,3,3v0C75.9,17.1,74.5,18.5,72.9,18.5z M72.9,29.5H15.1
+                                    c-1.6,0-3-1.4-3-3v0c0-1.7,1.4-3,3-3h57.8c1.7,0,3,1.3,3,3v0C75.9,28.1,74.5,29.5,72.9,29.5z M72.9,40.5H15.1c-1.6,0-3-1.3-3-3v0
+                                    c0-1.7,1.4-3,3-3h57.8c1.7,0,3,1.3,3,3v0C75.9,39.1,74.5,40.5,72.9,40.5z M72.9,51.5H15.1c-1.6,0-3-1.3-3-3v0c0-1.6,1.4-3,3-3h57.8
+                                    c1.7,0,3,1.4,3,3v0C75.9,50.2,74.5,51.5,72.9,51.5z M72.9,62.5H15.1c-1.6,0-3-1.4-3-3v0c0-1.7,1.4-3,3-3h57.8c1.7,0,3,1.3,3,3v0
+                                    C75.9,61.2,74.5,62.5,72.9,62.5z M72.9,73.5H15.1c-1.6,0-3-1.4-3-3v0c0-1.7,1.4-3,3-3h57.8c1.7,0,3,1.3,3,3v0
+                                    C75.9,72.2,74.5,73.5,72.9,73.5z M72.9,84.5H15.1c-1.6,0-3-1.3-3-3l0,0c0-1.7,1.4-3,3-3h57.8c1.7,0,3,1.3,3,3l0,0
+                                    C75.9,83.2,74.5,84.5,72.9,84.5z M72.9,95.5H15.1c-1.6,0-3-1.3-3-3v0c0-1.6,1.4-3,3-3h57.8c1.7,0,3,1.4,3,3v0
+                                    C75.9,94.2,74.5,95.5,72.9,95.5z M115,78h-6v-8.4c0-1.7,1.3-3,3-3h0c1.6,0,3,1.3,3,3V78z M151,78h-6V54.2c0-1.6,1.3-3,3-3l0,0
+                                    c1.6,0,3,1.4,3,3V78z M127,78h-6V59.6c0-1.7,1.3-3,3-3l0,0c1.7,0,3,1.3,3,3V78z M139,78h-6V33.3c0-1.6,1.4-3,3-3h0c1.6,0,3,1.4,3,3
+                                    V78z"></path>
+                                </svg>
+                            </div>
+                            <span class="h2 mb-0">Выберите задание</span> из списка слева, и информация о нем появится здесь
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="tf_layout-header">
+            <button class="tf_layout-aside-expander" tabindex="-1"><i class="fas fa-bars"></i></button>
+            <div class="">
+                <button class="tf_btn tf_btn-transparent bg-transparent fw-600 active" disabled>Текущие</button>
+                <button class="tf_btn tf_btn-transparent bg-transparent fw-600">Выполненные</button>
+                <button class="tf_btn tf_btn-transparent bg-transparent fw-600">Архив</button>
+            </div>
+            <div class="pr-2">
+                <button id="eventsPopup" class="tf_btn tf_btn-transparent tf_btn-icon position-relative" title="Показать ленту событий">
+                    <i class="fa fa-bell" aria-hidden="true"></i> <!-- если нет событий тогда fa-bell-o -->
+                    <div class="position-absolute top-0 left-0 pl-1 text-primary fs-xxs">1<!--sup>+</sup--></div>
+                </button>
+                <button class="tf_btn tf_btn-transparent">
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    Помощь
+                </button>
+                <div class="tf_drop-focus">
+                    <button class="tf_btn tf_btn-drop tf_btn-transparent">
+                        <i class="fa fa-user-circle" aria-hidden="true"></i>
+                        admin
+                    </button>
+                    <div class="tf_drop-content right-0 mt-1 bg-positive rounded-2 overflow-hidden p-1">
+                        <div class="p-2 fst-italic text-secondary">admin</div>
+                        <div class="d-grid">
+                            <button class="tf_btn tf_btn-transparent text-start">Личный кабинет</button>
+                            <button class="tf_btn tf_btn-transparent text-start">Настройки</button>
+                            <button class="tf_btn tf_btn-transparent text-start">Сделать стартовой страницей</button>
+                            <button class="tf_btn tf_btn-transparent text-start">Войти в режим ретроспекции</button>
+                            <hr class="my-1 w-100">
+                            <button class="tf_btn tf_btn-transparent text-start d-inline-flex">
+                                Выход
+                                <i class="fa fa-sign-out my-auto ml-auto" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!-- 
+            <div class="float-right mr-2">
+                <button onclick="window.print()" class="tf_btn"><i class="fas fa-print"></i></button>
+                <button id="toggle-preview" class="tf_btn">Toggle preview</button>
+            </div> -->
+        </div>
+        <div class="tf_layout-aside">
+            <div class="tf_aside-fader">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="tf_aside-navbar">
+                <div class="tf_navbar-item">
+                    <div class="tf_item-hover"></div>
+                    <div class="tf_item-active"></div>
+                    <a class="tf_item-identicon" href="#"><i class="fas fa-home"></i></a>
+                    <a class="tf_item-title" href="#">Начало</a>
+                    <!-- <a class="tf_item-actioncon" href="#"><i class="fas fa-plus"></i></a> -->
+                </div>
+                <div class="tf_navbar-item">
+                    <div class="tf_item-hover"></div>
+                    <div class="tf_item-active"></div>
+                    <a class="tf_item-identicon" href="#"><i class="fas fa-tasks"></i></a>
+                    <a class="tf_item-title" href="#">Задания сбора</a>
+                    <!-- <a class="tf_item-actioncon" href="#"><i class="fas fa-plus"></i></a> -->
+                </div>
+                <div class="tf_navbar-item tf_navbar-item--active">
+                    <div class="tf_item-hover"></div>
+                    <div class="tf_item-active"></div>
+                    <a class="tf_item-identicon" href="#"><i class="fas fa-chart-pie"></i></a>
+                    <a class="tf_item-title" href="#">Дашборды</a>
+                    <a class="tf_item-actioncon" href="#"><i class="fas fa-plus"></i></a>
+                </div>
+                <div class="tf_navbar-item">
+                    <div class="tf_item-hover"></div>
+                    <div class="tf_item-active"></div>
+                    <a class="tf_item-identicon" href="#"><i class="fas fa-clipboard-list"></i></a>
+                    <a class="tf_item-title" href="#">Формы</a>
+                    <a class="tf_item-actioncon" href="#"><i class="fas fa-plus"></i></a>
+                </div>
+                <div class="tf_navbar-item">
+                    <div class="tf_item-hover"></div>
+                    <div class="tf_item-active"></div>
+                    <a class="tf_item-identicon" href="#"><i class="fas fa-calendar-check"></i></a>
+                    <a class="tf_item-title" href="#">Отчеты</a>
+                    <a class="tf_item-actioncon" href="#"><i class="fas fa-plus"></i></a>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="../js/layout.js"></script>
+    <script src="../js/layout-finder.js"></script>
+    <script>
+        let isDropBtnActive = false
+        window.onmousedown = function(event) {
+            if (event.target.matches('.tf_drop-focus .tf_btn-drop, .tf_drop-focus tf_btn-drop *'))
+                event.target == document.activeElement ? isDropBtnActive = true : isDropBtnActive = false
+        }
+        window.onmouseup = function(event) {
+            if (event.target.matches('.tf_drop-focus .tf_btn-drop, .tf_drop-focus tf_btn-drop *'))
+                if (isDropBtnActive) {
+                    event.target.blur()
+                    isDropBtnActive = false
+                } else
+                    event.target.focus()
+        }
+    </script>
+    <script>
+        $( "#toggle-preview" ).on( "click", function() {
+            $( ".tf_finder" ).toggleClass( "explorer" )
+        });
+    </script>
+</html>

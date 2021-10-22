@@ -1,5 +1,17 @@
 :root {
   --key-size: 1rem;
+  --font-size-offset: 1;
+  --fs-xxx-large: calc(var(--key-size) * calc(2.25 * var(--font-size-offset)));
+  --fs-xx-large: calc(var(--key-size) * calc(2 * var(--font-size-offset)));
+  --fs-x-large: calc(var(--key-size) * calc(1.75 * var(--font-size-offset)));
+  --fs-larger: calc(var(--key-size) * calc(1.5 * var(--font-size-offset)));
+  --fs-large: calc(var(--key-size) * calc(1.25 * var(--font-size-offset)));
+  --fs-medium: calc(var(--key-size) * var(--font-size-offset));
+  --fs-small: calc(var(--key-size) * calc(1.25 * var(--font-size-offset)));
+  --fs-smaller: calc(var(--key-size) * calc(1.5 * var(--font-size-offset)));
+  --fs-x-small: calc(var(--key-size) * calc(1.75 * var(--font-size-offset)));
+  --fs-xx-small: calc(var(--key-size) * calc(2 * var(--font-size-offset)));
+  --fs-xxx-small: calc(var(--key-size) * calc(2.25 * var(--font-size-offset)));
   --primary-color-l2: #bfddf1;
   --primary-color-l1: #80bbe3;
   --primary-color: #0077c8;
@@ -130,6 +142,9 @@ html,
 body {
   position: relative;
   height: 100%;
+}
+body {
+  font-size: var(--fs-medium);
 }
 *,
 ::after,
@@ -488,7 +503,11 @@ hr {
   overflow-y: auto;
 }
 .tf_finder-explorer .tf_explorer-body {
-  overflow-y: auto;
+  border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  background-color: var(--positive-color);
+  overflow: hidden;
 }
 .tf_finder-preview {
   grid-column: 2/3;
@@ -574,6 +593,7 @@ hr {
   grid-row: 1/-1;
   padding: var(--p-2, calc(var(--key-size) * 0.25));
   background-color: var(--positive-color-90);
+  z-index: 1;
 }
 .tf_events-header {
   grid-column: 1/-1;
@@ -612,6 +632,9 @@ hr {
 .tf_events-item.active {
   border-color: transparent;
   background-color: var(--secondary-color-l2);
+}
+.tf_events-item:hover {
+  border: 1px solid var(--negative-color-25);
 }
 .tf_events-item:hover .tf_item-link > *,
 .tf_events-item:hover .tf_item-link:before {
@@ -676,6 +699,7 @@ hr {
   grid-row: 1/-1;
   margin: calc(var(--p-1, calc(var(--key-size) * 0.25)) * -1);
   background-color: var(--positive-color-90);
+  z-index: 1;
 }
 .tf_events-footer {
   display: grid;
@@ -760,7 +784,7 @@ hr {
   color: var(--negative-color-25);
 }
 .tf_btn-transparent:disabled.active {
-  color: var(--negative-color);
+  color: var(--negative-color-50);
 }
 .tf_btn-transparent:focus {
   background-color: var(--negative-color-15);
@@ -1401,6 +1425,24 @@ h6,
   background-color: var(--error-color-l1);
   color: var(--error-color-d1);
 }
+.tf_details summary {
+  align-content: center;
+  display: flex;
+  list-style: none;
+  cursor: pointer;
+}
+.tf_details summary::before {
+  content: "\f054";
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: 50%;
+  text-rendering: auto;
+  margin: auto 0.5rem auto 0;
+  transition: 0.25s;
+}
+.tf_details[open] summary::before {
+  transform: rotate(90deg);
+}
 .border {
   border: var(--border-width, calc(var(--key-size) * 0.0625)) solid var(--border-color, currentColor);
 }
@@ -1508,112 +1550,112 @@ h6,
   text-decoration: line-through;
 }
 .text-positive {
-  color: var(--positive-color);
+  color: var(--positive-color) !important;
 }
 .text-negative {
-  color: var(--negative-color);
+  color: var(--negative-color) !important;
 }
 .text-background {
-  color: var(--background-color);
+  color: var(--background-color) !important;
 }
 .text-primary {
-  color: var(--primary-color);
+  color: var(--primary-color) !important;
 }
 .text-secondary {
-  color: var(--secondary-color);
+  color: var(--secondary-color) !important;
 }
 .text-info {
-  color: var(--info-color);
+  color: var(--info-color) !important;
 }
 .text-success {
-  color: var(--success-color);
+  color: var(--success-color) !important;
 }
 .text-warning {
-  color: var(--warning-color);
+  color: var(--warning-color) !important;
 }
 .text-error {
-  color: var(--error-color);
+  color: var(--error-color) !important;
 }
 .text-currentcolor {
-  color: currentColor;
+  color: currentColor !important;
 }
 .fw-lighter {
-  font-weight: lighter;
+  font-weight: lighter !important;
 }
 .fw-normal {
-  font-weight: normal;
+  font-weight: normal !important;
 }
 .fw-bold {
-  font-weight: bold;
+  font-weight: bold !important;
 }
 .fw-bolder {
-  font-weight: bolder;
+  font-weight: bolder !important;
 }
 .fw-100 {
-  font-weight: 100;
+  font-weight: 100 !important;
 }
 .fw-200 {
-  font-weight: 200;
+  font-weight: 200 !important;
 }
 .fw-300 {
-  font-weight: 300;
+  font-weight: 300 !important;
 }
 .fw-400 {
-  font-weight: 400;
+  font-weight: 400 !important;
 }
 .fw-500 {
-  font-weight: 500;
+  font-weight: 500 !important;
 }
 .fw-600 {
-  font-weight: 600;
+  font-weight: 600 !important;
 }
 .fw-700 {
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 .fw-800 {
-  font-weight: 800;
+  font-weight: 800 !important;
 }
 .fw-900 {
-  font-weight: 900;
+  font-weight: 900 !important;
 }
 .fst-italic {
-  font-style: italic;
+  font-style: italic !important;
 }
 .fst-normal {
-  font-style: normal;
+  font-style: normal !important;
 }
 .fs-xxs {
-  font-size: xx-small;
+  font-size: xx-small !important;
 }
 .fs-xs {
-  font-size: x-small;
+  font-size: x-small !important;
 }
 .fs-sm {
-  font-size: small;
+  font-size: small !important;
 }
 .fs-md {
-  font-size: medium;
+  font-size: medium !important;
 }
 .fs-lg {
-  font-size: large;
+  font-size: large !important;
 }
 .fs-xl {
-  font-size: x-large;
+  font-size: x-large !important;
 }
 .fs-xxl {
-  font-size: xx-large;
+  font-size: xx-large !important;
 }
 .lh-1 {
-  line-height: 1;
+  line-height: 1 !important;
 }
 .lh-sm {
-  line-height: 1.25;
+  line-height: 1.25 !important;
 }
 .lh-base {
-  line-height: 1.5;
+  line-height: 1.5 !important;
 }
 .lh-lg {
-  line-height: 2;
+  line-height: 2 !important;
 }
 .visible {
   visibility: visible;
@@ -2848,29 +2890,33 @@ h6,
 .gap-8 {
   grid-gap: var(--g-8, calc(var(--key-size) * 2)) !important;
 }
-.text-start,
-.text-left {
-  text-align: left;
+.text-start {
+  text-align: start !important;
 }
-.text-end,
+.text-left {
+  text-align: left !important;
+}
+.text-end {
+  text-align: end !important;
+}
 .text-right {
-  text-align: right;
+  text-align: right !important;
 }
 .text-center {
-  text-align: center;
+  text-align: center !important;
 }
 .text-justify {
-  text-align: justify;
+  text-align: justify !important;
 }
 .text-wrap {
-  white-space: normal;
+  white-space: normal !important;
 }
 .text-nowrap {
-  white-space: nowrap;
+  white-space: nowrap !important;
 }
 .text-break {
-  word-wrap: break-word;
-  word-break: break-word;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
 }
 .mobile .m\:align-baseline {
   vertical-align: baseline;
@@ -4088,29 +4134,33 @@ h6,
 .mobile .m\:gap-8 {
   grid-gap: var(--g-8, calc(var(--key-size) * 2)) !important;
 }
-.mobile .m\:text-start,
-.mobile .m\:text-left {
-  text-align: left;
+.mobile .m\:text-start {
+  text-align: start !important;
 }
-.mobile .m\:text-end,
+.mobile .m\:text-left {
+  text-align: left !important;
+}
+.mobile .m\:text-end {
+  text-align: end !important;
+}
 .mobile .m\:text-right {
-  text-align: right;
+  text-align: right !important;
 }
 .mobile .m\:text-center {
-  text-align: center;
+  text-align: center !important;
 }
 .mobile .m\:text-justify {
-  text-align: justify;
+  text-align: justify !important;
 }
 .mobile .m\:text-wrap {
-  white-space: normal;
+  white-space: normal !important;
 }
 .mobile .m\:text-nowrap {
-  white-space: nowrap;
+  white-space: nowrap !important;
 }
 .mobile .m\:text-break {
-  word-wrap: break-word;
-  word-break: break-word;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
 }
 .tablet .t\:align-baseline {
   vertical-align: baseline;
@@ -5328,29 +5378,33 @@ h6,
 .tablet .t\:gap-8 {
   grid-gap: var(--g-8, calc(var(--key-size) * 2)) !important;
 }
-.tablet .t\:text-start,
-.tablet .t\:text-left {
-  text-align: left;
+.tablet .t\:text-start {
+  text-align: start !important;
 }
-.tablet .t\:text-end,
+.tablet .t\:text-left {
+  text-align: left !important;
+}
+.tablet .t\:text-end {
+  text-align: end !important;
+}
 .tablet .t\:text-right {
-  text-align: right;
+  text-align: right !important;
 }
 .tablet .t\:text-center {
-  text-align: center;
+  text-align: center !important;
 }
 .tablet .t\:text-justify {
-  text-align: justify;
+  text-align: justify !important;
 }
 .tablet .t\:text-wrap {
-  white-space: normal;
+  white-space: normal !important;
 }
 .tablet .t\:text-nowrap {
-  white-space: nowrap;
+  white-space: nowrap !important;
 }
 .tablet .t\:text-break {
-  word-wrap: break-word;
-  word-break: break-word;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
 }
 .desktop .d\:align-baseline {
   vertical-align: baseline;
@@ -6568,29 +6622,33 @@ h6,
 .desktop .d\:gap-8 {
   grid-gap: var(--g-8, calc(var(--key-size) * 2)) !important;
 }
-.desktop .d\:text-start,
-.desktop .d\:text-left {
-  text-align: left;
+.desktop .d\:text-start {
+  text-align: start !important;
 }
-.desktop .d\:text-end,
+.desktop .d\:text-left {
+  text-align: left !important;
+}
+.desktop .d\:text-end {
+  text-align: end !important;
+}
 .desktop .d\:text-right {
-  text-align: right;
+  text-align: right !important;
 }
 .desktop .d\:text-center {
-  text-align: center;
+  text-align: center !important;
 }
 .desktop .d\:text-justify {
-  text-align: justify;
+  text-align: justify !important;
 }
 .desktop .d\:text-wrap {
-  white-space: normal;
+  white-space: normal !important;
 }
 .desktop .d\:text-nowrap {
-  white-space: nowrap;
+  white-space: nowrap !important;
 }
 .desktop .d\:text-break {
-  word-wrap: break-word;
-  word-break: break-word;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
 }
 @media (orientation: landscape) {
   .l\:align-baseline {
@@ -7809,29 +7867,33 @@ h6,
   .l\:gap-8 {
     grid-gap: var(--g-8, calc(var(--key-size) * 2)) !important;
   }
-  .l\:text-start,
-  .l\:text-left {
-    text-align: left;
+  .l\:text-start {
+    text-align: start !important;
   }
-  .l\:text-end,
+  .l\:text-left {
+    text-align: left !important;
+  }
+  .l\:text-end {
+    text-align: end !important;
+  }
   .l\:text-right {
-    text-align: right;
+    text-align: right !important;
   }
   .l\:text-center {
-    text-align: center;
+    text-align: center !important;
   }
   .l\:text-justify {
-    text-align: justify;
+    text-align: justify !important;
   }
   .l\:text-wrap {
-    white-space: normal;
+    white-space: normal !important;
   }
   .l\:text-nowrap {
-    white-space: nowrap;
+    white-space: nowrap !important;
   }
   .l\:text-break {
-    word-wrap: break-word;
-    word-break: break-word;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
   }
   .mobile .l\:m\:align-baseline {
     vertical-align: baseline;
@@ -9049,29 +9111,33 @@ h6,
   .mobile .l\:m\:gap-8 {
     grid-gap: var(--g-8, calc(var(--key-size) * 2)) !important;
   }
-  .mobile .l\:m\:text-start,
-  .mobile .l\:m\:text-left {
-    text-align: left;
+  .mobile .l\:m\:text-start {
+    text-align: start !important;
   }
-  .mobile .l\:m\:text-end,
+  .mobile .l\:m\:text-left {
+    text-align: left !important;
+  }
+  .mobile .l\:m\:text-end {
+    text-align: end !important;
+  }
   .mobile .l\:m\:text-right {
-    text-align: right;
+    text-align: right !important;
   }
   .mobile .l\:m\:text-center {
-    text-align: center;
+    text-align: center !important;
   }
   .mobile .l\:m\:text-justify {
-    text-align: justify;
+    text-align: justify !important;
   }
   .mobile .l\:m\:text-wrap {
-    white-space: normal;
+    white-space: normal !important;
   }
   .mobile .l\:m\:text-nowrap {
-    white-space: nowrap;
+    white-space: nowrap !important;
   }
   .mobile .l\:m\:text-break {
-    word-wrap: break-word;
-    word-break: break-word;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
   }
   .tablet .l\:t\:align-baseline {
     vertical-align: baseline;
@@ -10289,29 +10355,33 @@ h6,
   .tablet .l\:t\:gap-8 {
     grid-gap: var(--g-8, calc(var(--key-size) * 2)) !important;
   }
-  .tablet .l\:t\:text-start,
-  .tablet .l\:t\:text-left {
-    text-align: left;
+  .tablet .l\:t\:text-start {
+    text-align: start !important;
   }
-  .tablet .l\:t\:text-end,
+  .tablet .l\:t\:text-left {
+    text-align: left !important;
+  }
+  .tablet .l\:t\:text-end {
+    text-align: end !important;
+  }
   .tablet .l\:t\:text-right {
-    text-align: right;
+    text-align: right !important;
   }
   .tablet .l\:t\:text-center {
-    text-align: center;
+    text-align: center !important;
   }
   .tablet .l\:t\:text-justify {
-    text-align: justify;
+    text-align: justify !important;
   }
   .tablet .l\:t\:text-wrap {
-    white-space: normal;
+    white-space: normal !important;
   }
   .tablet .l\:t\:text-nowrap {
-    white-space: nowrap;
+    white-space: nowrap !important;
   }
   .tablet .l\:t\:text-break {
-    word-wrap: break-word;
-    word-break: break-word;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
   }
   .desktop .l\:d\:align-baseline {
     vertical-align: baseline;
@@ -11529,29 +11599,33 @@ h6,
   .desktop .l\:d\:gap-8 {
     grid-gap: var(--g-8, calc(var(--key-size) * 2)) !important;
   }
-  .desktop .l\:d\:text-start,
-  .desktop .l\:d\:text-left {
-    text-align: left;
+  .desktop .l\:d\:text-start {
+    text-align: start !important;
   }
-  .desktop .l\:d\:text-end,
+  .desktop .l\:d\:text-left {
+    text-align: left !important;
+  }
+  .desktop .l\:d\:text-end {
+    text-align: end !important;
+  }
   .desktop .l\:d\:text-right {
-    text-align: right;
+    text-align: right !important;
   }
   .desktop .l\:d\:text-center {
-    text-align: center;
+    text-align: center !important;
   }
   .desktop .l\:d\:text-justify {
-    text-align: justify;
+    text-align: justify !important;
   }
   .desktop .l\:d\:text-wrap {
-    white-space: normal;
+    white-space: normal !important;
   }
   .desktop .l\:d\:text-nowrap {
-    white-space: nowrap;
+    white-space: nowrap !important;
   }
   .desktop .l\:d\:text-break {
-    word-wrap: break-word;
-    word-break: break-word;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
   }
 }
 @media (orientation: portrait) {
@@ -12771,29 +12845,33 @@ h6,
   .p\:gap-8 {
     grid-gap: var(--g-8, calc(var(--key-size) * 2)) !important;
   }
-  .p\:text-start,
-  .p\:text-left {
-    text-align: left;
+  .p\:text-start {
+    text-align: start !important;
   }
-  .p\:text-end,
+  .p\:text-left {
+    text-align: left !important;
+  }
+  .p\:text-end {
+    text-align: end !important;
+  }
   .p\:text-right {
-    text-align: right;
+    text-align: right !important;
   }
   .p\:text-center {
-    text-align: center;
+    text-align: center !important;
   }
   .p\:text-justify {
-    text-align: justify;
+    text-align: justify !important;
   }
   .p\:text-wrap {
-    white-space: normal;
+    white-space: normal !important;
   }
   .p\:text-nowrap {
-    white-space: nowrap;
+    white-space: nowrap !important;
   }
   .p\:text-break {
-    word-wrap: break-word;
-    word-break: break-word;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
   }
   .mobile .p\:m\:align-baseline {
     vertical-align: baseline;
@@ -14011,29 +14089,33 @@ h6,
   .mobile .p\:m\:gap-8 {
     grid-gap: var(--g-8, calc(var(--key-size) * 2)) !important;
   }
-  .mobile .p\:m\:text-start,
-  .mobile .p\:m\:text-left {
-    text-align: left;
+  .mobile .p\:m\:text-start {
+    text-align: start !important;
   }
-  .mobile .p\:m\:text-end,
+  .mobile .p\:m\:text-left {
+    text-align: left !important;
+  }
+  .mobile .p\:m\:text-end {
+    text-align: end !important;
+  }
   .mobile .p\:m\:text-right {
-    text-align: right;
+    text-align: right !important;
   }
   .mobile .p\:m\:text-center {
-    text-align: center;
+    text-align: center !important;
   }
   .mobile .p\:m\:text-justify {
-    text-align: justify;
+    text-align: justify !important;
   }
   .mobile .p\:m\:text-wrap {
-    white-space: normal;
+    white-space: normal !important;
   }
   .mobile .p\:m\:text-nowrap {
-    white-space: nowrap;
+    white-space: nowrap !important;
   }
   .mobile .p\:m\:text-break {
-    word-wrap: break-word;
-    word-break: break-word;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
   }
   .tablet .p\:t\:align-baseline {
     vertical-align: baseline;
@@ -15251,29 +15333,33 @@ h6,
   .tablet .p\:t\:gap-8 {
     grid-gap: var(--g-8, calc(var(--key-size) * 2)) !important;
   }
-  .tablet .p\:t\:text-start,
-  .tablet .p\:t\:text-left {
-    text-align: left;
+  .tablet .p\:t\:text-start {
+    text-align: start !important;
   }
-  .tablet .p\:t\:text-end,
+  .tablet .p\:t\:text-left {
+    text-align: left !important;
+  }
+  .tablet .p\:t\:text-end {
+    text-align: end !important;
+  }
   .tablet .p\:t\:text-right {
-    text-align: right;
+    text-align: right !important;
   }
   .tablet .p\:t\:text-center {
-    text-align: center;
+    text-align: center !important;
   }
   .tablet .p\:t\:text-justify {
-    text-align: justify;
+    text-align: justify !important;
   }
   .tablet .p\:t\:text-wrap {
-    white-space: normal;
+    white-space: normal !important;
   }
   .tablet .p\:t\:text-nowrap {
-    white-space: nowrap;
+    white-space: nowrap !important;
   }
   .tablet .p\:t\:text-break {
-    word-wrap: break-word;
-    word-break: break-word;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
   }
   .desktop .p\:d\:align-baseline {
     vertical-align: baseline;
@@ -16491,28 +16577,32 @@ h6,
   .desktop .p\:d\:gap-8 {
     grid-gap: var(--g-8, calc(var(--key-size) * 2)) !important;
   }
-  .desktop .p\:d\:text-start,
-  .desktop .p\:d\:text-left {
-    text-align: left;
+  .desktop .p\:d\:text-start {
+    text-align: start !important;
   }
-  .desktop .p\:d\:text-end,
+  .desktop .p\:d\:text-left {
+    text-align: left !important;
+  }
+  .desktop .p\:d\:text-end {
+    text-align: end !important;
+  }
   .desktop .p\:d\:text-right {
-    text-align: right;
+    text-align: right !important;
   }
   .desktop .p\:d\:text-center {
-    text-align: center;
+    text-align: center !important;
   }
   .desktop .p\:d\:text-justify {
-    text-align: justify;
+    text-align: justify !important;
   }
   .desktop .p\:d\:text-wrap {
-    white-space: normal;
+    white-space: normal !important;
   }
   .desktop .p\:d\:text-nowrap {
-    white-space: nowrap;
+    white-space: nowrap !important;
   }
   .desktop .p\:d\:text-break {
-    word-wrap: break-word;
-    word-break: break-word;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
   }
 }

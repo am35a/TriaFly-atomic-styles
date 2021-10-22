@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SPA layout</title>
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/global.css">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://unpkg.com/current-device/umd/current-device.min.js"></script>
+        <style>
+            .tf_layout-main > * {
+                max-width: 1024px;
+            }
+        </style>
+    </head>
+    <body class="tf_layout">
+        <div class="tf_layout-main p-4">
+            <div class="h2" role="heading" aria-level="1">Настройки</div>
+            <div class="h4" role="heading" aria-level="2">О системе</div>
+            <div class="mb-6 p-4 bg-positive rounded">
+                <div class="d-grid g-1">
+                    <div class="d-grid cols-2 g-3">
+                        <div class="ml-auto fw-600">Версия</div>
+                        <div class="mr-auto">default</div>
+                    </div>
+                    <div class="d-grid cols-2 g-3">
+                        <div class="ml-auto fw-600">Лицензия</div>
+                        <div class="mr-auto">00000000000000000000000000000000</div>
+                    </div>
+                    <div class="d-grid cols-2 g-3">
+                        <div class="ml-auto fw-600">Срок действия</div>
+                        <div class="mr-auto">бессрочно</div>
+                    </div>
+                    <div class="d-grid cols-2 g-3">
+                        <div class="ml-auto fw-600">Максимум пользователей</div>
+                        <div class="mr-auto">неограниченно</div>
+                    </div>
+                </div>
+            </div>
+            <div class="h4" role="heading" aria-level="2">Учетная запись</div>
+            <div class="bg-positive mb-6 rounded">
+                <div class="profile-preview d-grid p-4 g-4">
+                    <div class="d-grid g-1">
+                        <div class="d-grid cols-2 g-3">
+                            <div class="ml-auto fw-600">Логин</div>
+                            <div class="mr-auto">admin</div>
+                        </div>
+                        <div class="d-grid cols-2 g-3">
+                            <div class="ml-auto fw-600">Роль</div>
+                            <div class="mr-auto">Администратор</div>
+                        </div>
+                        <div class="d-grid cols-2 g-3">
+                            <div class="ml-auto fw-600">Ф.И.О.</div>
+                            <div class="mr-auto">Иван Иваныч Иванов</div>
+                        </div>
+                        <div class="d-grid cols-2 g-3">
+                            <div class="ml-auto fw-600">Email</div>
+                            <div class="mr-auto">iii@triafly.ru</div>
+                        </div>
+                    </div>
+                    <hr class="w-100 m-0">
+                    <button class="edit-profile tf_btn tf_btn-sm ml-auto">
+                        <i class="fa fa-pencil-square" aria-hidden="true"></i> Редактировать
+                    </button>
+                </div>
+                <form action="" class="profile-editor d-grid p-4 g-4 d-none">
+                    <div class="d-grid g-4 cols-3 p:cols-1">
+                        <div>
+                            <label for="inputText" class="tf_form-label text-secondary">Имя</label>
+                            <input id="inputText" class="tf_form-control tf_form-control-secondary" type="text"  value="Иван">
+                        </div>
+                        <div>
+                            <label for="inputText" class="tf_form-label text-secondary">Фамилия</label>
+                            <input id="inputText" class="tf_form-control tf_form-control-secondary" type="text" value="Иванов">
+                        </div>
+                        <div>
+                            <label for="inputText" class="tf_form-label text-secondary">Отчество</label>
+                            <input id="inputText" class="tf_form-control tf_form-control-secondary" type="text" value="Иваныч">
+                        </div>
+                    </div>
+                    <div class="d-grid g-4 cols-3 p:cols-1">
+                        <div>
+                            <label for="inputText" class="tf_form-label text-secondary">Email</label>
+                            <input id="inputText" class="tf_form-control tf_form-control-secondary" type="text" value="iii@triafly.ru">
+                        </div>
+                    </div>
+                    <div class="d-grid g-4 cols-3 p:cols-1">
+                        <div>
+                            <label for="inputText" class="tf_form-label text-secondary">Новый пароль</label>
+                            <input id="inputText" class="tf_form-control tf_form-control-secondary" type="text">
+                        </div>
+                        <div>
+                            <label for="inputText" class="tf_form-label text-secondary">Повторите новый пароль</label>
+                            <input id="inputText" class="tf_form-control tf_form-control-secondary" type="text">
+                        </div>
+                        <div>
+                            <label for="inputText" class="tf_form-label text-secondary">Текущий пароль</label>
+                            <input id="inputText" class="tf_form-control tf_form-control-secondary" type="text">
+                            <div class="tf_form-text text-secondary">
+                                <i class="fa fa-info-circle text-info" aria-hidden="true"></i> Обязательное поле при смене почты или пароля
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="w-100 m-0">
+                    <div class="text-right">
+                        <button class="profile-editor-esc tf_btn tf_btn-transparent tf_btn-sm mr-2">Отмена</button>
+                        <button class="profile-editor-save tf_btn tf_btn-sm ml-auto">
+                            <i class="fa fa-save" aria-hidden="true"></i> Сохранить изменения
+                        </button>
+                    </div>
+                </form>
+                <div>
+                    <hr class="my-0">
+                    <div class="p-4">
+                        <div class="h5" role="heading" aria-level="3">Администрирование</div>
+                        <div class="d-inline-flex flex-wrap g-2">
+                            <button class="tf_btn tf_btn-sm">
+                                <i class="fa fa-users" aria-hidden="true"></i> Управление пользователями
+                            </button>
+                            <button class="tf_btn tf_btn-sm">
+                                <i class="fa fa-key" aria-hidden="true"></i> Редактирование ролей пользователей
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <details class="tf_details">
+                <summary class="h4" role="heading" aria-level="2">Восстановление</summary>
+                <div class="mb-6 bg-positive rounded">
+                    <div class="d-grid g-4 p-4">
+                        <div>
+                            <div class="h5" role="heading" aria-level="3">Создать точку восстановления</div>
+                            <div class="d-grid">
+                                <label for="inputTextDefault" class="tf_form-label">Краткое описание</label>
+                                <div class="d-flex g-2">
+                                    <input id="inputTextDefault" class="tf_form-control tf_form-control-sm flex-grow-1 w-auto" type="text">
+                                    <button class="tf_btn tf_btn-sm">
+                                        <i class="fa fa-flag" aria-hidden="true"></i> Создать точку ...
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="my-0">
+                    <div class="d-grid g-4 p-4">
+                        <div>
+                            <div class="h5" role="heading" aria-level="3">Точки восстановления</div>
+                            <div class="mb-2 fs-sm text-secondary">
+                                <i class="fa fa-info-circle text-info" aria-hidden="true"></i> Eсли ваша система работает нестабильно, ее можно востановить используя установленные ранее точки восстановления
+                            </div>
+                            <div class="d-grid">
+                                <div class="d-grid g-2 cols-3">
+                                    <div class="col-span-1 text-center fw-500">дата</div>
+                                    <div class="col-span-2 text-center fw-500">описание</div>
+                                </div>
+                                <div class="d-grid g-3 cols-3 border-top mt-2 pt-2 fs-sm align-items-center">
+                                    <div class="col-span-1 text-center">09:41 30-09-2021</div>
+                                    <div class="col-span-2 d-flex align-items-center">
+                                        <div class="flex-grow-1 w-auto">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit - emporibus debitis blanditiis.
+                                        </div>
+                                        <button class="tf_btn bg-transparent tf_btn-xs py-0" title=" Вернуться к точке восстановления">
+                                            <i class="fa fa-undo" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="d-grid g-3 cols-3 border-top mt-2 pt-2 fs-sm align-items-center">
+                                    <div class="col-span-1 text-center">09:41 30-09-2021</div>
+                                    <div class="col-span-2 d-flex align-items-center">
+                                        <div class="flex-grow-1 w-auto">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit - emporibus debitis blanditiis.
+                                        </div>
+                                        <button class="tf_btn bg-transparent tf_btn-xs py-0" title=" Вернуться к точке восстановления">
+                                            <i class="fa fa-undo" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <details class="tf_details" open>
+                <summary class="h4" role="heading" aria-level="2">Прочее</summary>
+                <div class="mb-6 bg-positive rounded p-4">
+                    <div class="d-inline-flex flex-wrap g-2">
+                        <button class="tf_btn  tf_btn-sm" title="Экспорт данных системы">
+                            <i class="fa fa-upload" aria-hidden="true"></i> Экспорт базы данных
+                        </button>
+                        <button class="tf_btn tf_btn-sm" title="Импорт данных системы">
+                            <i class="fa fa-download" aria-hidden="true"></i> Импорт базы данных
+                        </button>
+                    </div>
+                    <hr>
+                    <button class="tf_btn tf_btn-sm" title="Экспорт/Импорт метаданных">
+                        <i class="fa fa-retweet" aria-hidden="true"></i> Экспорт / Импорт метаданных
+                    </button>
+                    <hr>
+                    <button class="tf_btn tf_btn-sm" title="Редактировать внешний вид приложения">
+                        <i class="fa fa-code" aria-hidden="true"></i> Редактировать внешний вид приложения
+                    </button>
+                </div>
+            </details>
+
+            <!-- Система
+            - Информация
+            - Учетная запись
+            - Защита
+            - - Создать точку восстановления
+            - - Вернуться к точке восстановления
+             (если ваша система работает нестабильно, ее можно востановить используя установленные ранее точки восстановления)
+            - - Данные
+
+            - Дополнительно
+            - - Данные
+            - - Администрирование
+            - - Для разработчиков -->
+<!--
+            <div class="my-6">
+                <div class="h4" role="heading" aria-level="2">Система</div>
+                <div class="d-inline-grid g-1">
+                    <div class="d-grid cols-2 g-3">
+                        <div class="ml-auto fw-600">Версия</div>
+                        <div class="mr-auto">default</div>
+                    </div>
+                    <div class="d-grid cols-2 g-3">
+                        <div class="ml-auto fw-600">Лицензия</div>
+                        <div class="mr-auto">00000000000000000000000000000000</div>
+                    </div>
+                    <div class="d-grid cols-2 g-3">
+                        <div class="ml-auto fw-600">Срок действия</div>
+                        <div class="mr-auto">бессрочно</div>
+                    </div>
+                    <div class="d-grid cols-2 g-3">
+                        <div class="ml-auto fw-600">Максимум пользователей</div>
+                        <div class="mr-auto">неограниченно</div>
+                    </div>
+                </div>
+            </div>
+            <div class="my-6">
+                <div class="h4" role="heading" aria-level="2">Восстановление</div>
+                <div class="d-inline-flex flex-wrap g-2">
+                    <button class="tf_btn">
+                        <i class="fa fa-flag" aria-hidden="true"></i> Создать точку восстановления
+                    </button>
+                    <button class="tf_btn">
+                        <i class="fa fa-undo" aria-hidden="true"></i> Вернуться к точке восстановления
+                    </button>
+                </div>
+            </div>
+            <div class="my-6">
+                <div class="h4" role="heading" aria-level="2">База данных</div>
+                <div class="d-inline-flex flex-wrap g-2">
+                    <button class="tf_btn">
+                        <i class="fa fa-upload" aria-hidden="true"></i> Экспорт
+                    </button>
+                    <button class="tf_btn">
+                        <i class="fa fa-download" aria-hidden="true"></i> Импорт
+                    </button>
+                </div>
+            </div>
+            <div class="my-6">
+                <div class="h4" role="heading" aria-level="2">Метаданные</div>
+                <button class="tf_btn">
+                    <i class="fa fa-retweet" aria-hidden="true"></i> Экспорт / импорт...
+                </button>
+            </div>
+            <div class="my-6">
+                <div class="h4" role="heading" aria-level="2">Профиль</div>
+                <button class="tf_btn">
+                    <i class="fa fa-pencil-square" aria-hidden="true"></i> Редактировать профиль
+                </button>
+                <form action="">
+                    <div class="d-inline-grid g-4 bg-positive p-4 mt-4 rounded">
+                        <div class="d-grid g-4 cols-3 p:cols-1">
+                            <div>
+                                <label for="inputText" class="tf_form-label text-secondary">Имя</label>
+                                <input id="inputText" class="tf_form-control tf_form-control-secondary" type="text">
+                            </div>
+                            <div>
+                                <label for="inputText" class="tf_form-label text-secondary">Фамилия</label>
+                                <input id="inputText" class="tf_form-control tf_form-control-secondary" type="text">
+                            </div>
+                            <div>
+                                <label for="inputText" class="tf_form-label text-secondary">Отчество</label>
+                                <input id="inputText" class="tf_form-control tf_form-control-secondary" type="text">
+                            </div>
+                        </div>
+                        <div class="d-grid g-4 cols-3 p:cols-1">
+                            <div>
+                                <label for="inputText" class="tf_form-label text-secondary">Email</label>
+                                <input id="inputText" class="tf_form-control tf_form-control-secondary" type="text">
+                            </div>
+                        </div>
+                        <div class="d-grid g-4 cols-3 p:cols-1">
+                            <div>
+                                <label for="inputText" class="tf_form-label text-secondary">Новый пароль</label>
+                                <input id="inputText" class="tf_form-control tf_form-control-secondary" type="text">
+                            </div>
+                            <div>
+                                <label for="inputText" class="tf_form-label text-secondary">Повторите новый пароль</label>
+                                <input id="inputText" class="tf_form-control tf_form-control-secondary" type="text">
+                            </div>
+                            <div>
+                                <label for="inputText" class="tf_form-label text-secondary">Текущий пароль</label>
+                                <input id="inputText" class="tf_form-control tf_form-control-secondary" type="text">
+                                <div class="tf_form-text text-secondary">
+                                    <i class="fa fa-info-circle text-info" aria-hidden="true"></i> Обязательное поле при смене почты или пароля
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="w-100 m-0">
+                        <button class="tf_btn tf_btn-sm ml-auto">
+                            <i class="fa fa-save" aria-hidden="true"></i> Сохранить изменения
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="my-6">
+                <div class="h4" role="heading" aria-level="2">Внешний вид</div>
+                <button class="tf_btn">
+                    <i class="fa fa-code" aria-hidden="true"></i> Редактировать внешний вид ...
+                </button>
+            </div>
+            <div class="my-6">
+                <div class="h4" role="heading" aria-level="2">Пользователи</div>
+                <div class="d-inline-flex flex-wrap g-2">
+                    <button class="tf_btn">
+                        <i class="fa fa-users" aria-hidden="true"></i> Управление пользователями...
+                    </button>
+                    <button class="tf_btn">
+                        <i class="fa fa-key" aria-hidden="true"></i> Редактирование ролей...
+                    </button>
+                </div>
+            </div>
+-->
+
+        </div>
+        <div class="tf_layout-header">
+            <button class="tf_layout-aside-expander" tabindex="-1"><i class="fa fa-bars"></i></button>
+            &nbsp;
+            <div class="px-2">
+                ...
+            </div>
+        </div>
+        <div class="tf_layout-aside">
+            <div class="tf_aside-fader">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="tf_aside-navbar">
+                <!-- ... -->
+            </div>
+        </div>
+    </body>
+    <script>
+        let isEventsExpand = false
+        $(".edit-profile").on( "click", function() {
+            $(".profile-editor").removeClass("d-none")
+            $(".profile-preview").addClass("d-none")
+        })
+
+        
+    </script>
+</html>

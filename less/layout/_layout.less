@@ -10,7 +10,7 @@
         // display: flex;
         // gap: var(--key-size);
         align-items: center;
-        background-color: var(--layout-header-background-color, var(--negative-color-10));
+        background-color: var(--header-background-color, var(--negative-color-10));
 
         display: grid;
         grid-gap: var(--key-size);
@@ -50,6 +50,11 @@
             grid-column: 1/-1;
             background-color: var(--background-color);
             z-index: 1010; // here is temporary z-index, after the transfer, it must be reduced, preferably to "z-index: 10"
+            .tf_layout_header,
+            .tf_layout_aside {
+                display: none;
+            }
+
         }
     }
     //> :not([class*="tf_layout-"]) { // kill all not in layout

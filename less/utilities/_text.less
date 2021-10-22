@@ -1,17 +1,19 @@
 .text(@device-orientation-value, @device-type-value) {
     
     .@{device-orientation-value}@{device-type-value}text {
-        &-start, &-left { text-align: left; }
-        &-end, &-right { text-align: right; }
-        &-center { text-align: center; }
-        &-justify { text-align: justify; }
+        &-start { text-align: start !important; }
+        &-left { text-align: left !important; }
+        &-end { text-align: end !important; }
+        &-right { text-align: right !important; }
+        &-center { text-align: center !important; }
+        &-justify { text-align: justify !important; }
 
-        &-wrap { white-space: normal; }
-        &-nowrap { white-space: nowrap; }
+        &-wrap { white-space: normal !important; }
+        &-nowrap { white-space: nowrap !important; }
 
         &-break {
-            word-wrap: break-word;
-            word-break: break-word;
+            word-wrap: break-word !important;
+            word-break: break-word !important;
         }
     }
 
@@ -39,48 +41,48 @@
 
     each(@text-color-names, {
         &-@{value} when (@value = currentcolor) {
-            color: currentColor;
+            color: currentColor !important;
         }
         &-@{value} when not (@value = currentcolor) {
-            color: var(~"--@{value}-color");
+            color: var(~"--@{value}-color") !important;
         }
     });
 }
 
 .f {
     &w {
-        &-lighter { font-weight: lighter; }
-        &-normal { font-weight: normal; }
-        &-bold { font-weight: bold; }
-        &-bolder { font-weight: bolder; }
-        &-100 { font-weight: 100; }
-        &-200 { font-weight: 200; }
-        &-300 { font-weight: 300; }
-        &-400 { font-weight: 400; }
-        &-500 { font-weight: 500; }
-        &-600 { font-weight: 600; }
-        &-700 { font-weight: 700; }
-        &-800 { font-weight: 800; }
-        &-900 { font-weight: 900; }
+        &-lighter { font-weight: lighter !important; }
+        &-normal { font-weight: normal !important; }
+        &-bold { font-weight: bold !important; }
+        &-bolder { font-weight: bolder !important; }
+        &-100 { font-weight: 100 !important; }
+        &-200 { font-weight: 200 !important; }
+        &-300 { font-weight: 300 !important; }
+        &-400 { font-weight: 400 !important; }
+        &-500 { font-weight: 500 !important; }
+        &-600 { font-weight: 600 !important; }
+        &-700 { font-weight: 700 !important; }
+        &-800 { font-weight: 800 !important; }
+        &-900 { font-weight: 900 !important; }
     }
     &st {
-        &-italic { font-style: italic; }
-        &-normal { font-style: normal; }
+        &-italic { font-style: italic !important; }
+        &-normal { font-style: normal !important; }
     }
     &s {
-        &-xxs { font-size: xx-small; }
-        &-xs { font-size: x-small; }
-        &-sm { font-size: small; }
-        &-md { font-size: medium; }
-        &-lg { font-size: large; }
-        &-xl { font-size: x-large; }
-        &-xxl { font-size: xx-large; }
+        &-xxs { font-size: xx-small !important; }
+        &-xs { font-size: x-small !important; }
+        &-sm { font-size: small !important; }
+        &-md { font-size: medium !important; }
+        &-lg { font-size: large !important; }
+        &-xl { font-size: x-large !important; }
+        &-xxl { font-size: xx-large !important; }
     }
 }
 
 .lh {
-    &-1 { line-height: 1; }
-    &-sm { line-height: 1.25; }
-    &-base { line-height: 1.5; }
-    &-lg { line-height: 2; }
+    &-1 { line-height: 1 !important; }
+    &-sm { line-height: 1.25 !important; }
+    &-base { line-height: 1.5 !important; }
+    &-lg { line-height: 2 !important; }
 }

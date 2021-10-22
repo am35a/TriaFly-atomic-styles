@@ -1,0 +1,30 @@
+.tf_drop-hover,
+.tf_drop-focus {
+    position: relative;
+    display: inline-block;
+    .tf_btn-drop::after {
+        content: "▾";
+        position: relative;
+    }    
+    .tf_drop-content {
+        position: absolute;
+        width: max-content;
+        filter: drop-shadow(.125rem .125rem .25rem var(--negative-color-25));
+    }
+}
+
+.tf_drop-hover {
+    &:not(:hover, :focus-within) {
+        .tf_drop-content {
+            display: none;
+        }
+    }
+}
+
+.tf_drop-focus {
+    &:not(:focus-within) {
+        .tf_drop-content {
+            display: none;
+        }
+    }
+}

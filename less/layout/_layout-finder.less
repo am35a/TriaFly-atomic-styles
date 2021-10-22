@@ -17,15 +17,54 @@
         .tf_explorer {
             display: grid;
             grid-template-rows: max-content auto;
-            overflow-y: auto;
+            // overflow-y: auto;
+            &-filters {
+                margin-bottom: var(--m-3,calc(var(--key-size) * 0.75)) !important;
+                padding: var(--p-4,var(--key-size)) !important;
+                border-radius: var(--rounded-2,calc(var(--key-size) * 0.25));
+                background-color: var(--positive-color);
+            }
+            &-nav {
+                padding: var(--p-4,var(--key-size)) !important;
+                border-radius: var(--rounded-2,calc(var(--key-size) * 0.25));
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+                background-color: var(--positive-color);
+            }
             &-body {
-                overflow-y: auto;
+                border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+                background-color: var(--positive-color);
+                overflow: hidden;
             }
         }
     }
     &-preview {
         grid-column: 2/3;
+        position: relative;
+        padding: var(--p-4,var(--key-size)) !important;
+        border-radius: var(--rounded-2,calc(var(--key-size) * 0.25));
+        background-color: var(--positive-color);
         overflow: auto;
+        &-body:empty {
+            display: none;
+        }
+        &-body:not(:empty) + &-prompt {
+            display: none;
+        }
+        &-prompt {
+            display: grid;
+            height: 100%;
+            justify-content: center;
+            align-content: center;
+            text-align: center;
+            color: var(--negative-color-25);
+            svg {
+                width: calc(var(--key-size) * 12);
+                color: var(--negative-color-10);
+            }
+        }
     }
     @media (orientation: portrait) {
         grid-template-rows: max-content 1fr;
