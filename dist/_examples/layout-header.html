@@ -127,7 +127,18 @@
         </div>
         <div class="tf_layout-header">
             <button class="tf_layout-aside-expander" tabindex="-1"><i class="fas fa-bars"></i></button>
-            <div class="">
+            <div class="l:d:d-none">
+                <div class="tf_drop-focus">
+                    <button class="tf_btn tf_btn-drop tf_btn-transparent fw-600" title="Текущие">Текущие</button>
+                    <div class="tf_drop-content left-0 mt-1 bg-positive rounded-2 overflow-hidden p-1">
+                        <div class="d-grid">
+                            <button class="tf_btn tf_btn-transparent text-start">Выполненные</button>
+                            <button class="tf_btn tf_btn-transparent text-start">Архив</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-none l:d:d-flex text-nowrap overflow-hidden py-1">
                 <button class="tf_btn tf_btn-transparent bg-transparent fw-600 active" disabled>Текущие</button>
                 <button class="tf_btn tf_btn-transparent bg-transparent fw-600">Выполненные</button>
                 <button class="tf_btn tf_btn-transparent bg-transparent fw-600">Архив</button>
@@ -137,17 +148,17 @@
                     <i class="fa fa-bell" aria-hidden="true"></i> <!-- если нет событий тогда fa-bell-o -->
                     <div class="position-absolute top-0 left-0 pl-1 text-primary fs-xxs">1<!--sup>+</sup--></div>
                 </button>
-                <button class="tf_btn tf_btn-transparent">
+                <button class="tf_btn tf_btn-transparent" title="Помощь">
                     <i class="fa fa-question-circle" aria-hidden="true"></i>
-                    Помощь
+                    <span class="d-none l:d:d-unset">Помощь</span>
                 </button>
                 <div class="tf_drop-focus">
-                    <button class="tf_btn tf_btn-drop tf_btn-transparent">
+                    <button class="tf_btn tf_btn-drop tf_btn-transparent" title="admin">
                         <i class="fa fa-user-circle" aria-hidden="true"></i>
-                        admin
+                        <span class="d-none l:d:d-unset">admin</span>
                     </button>
                     <div class="tf_drop-content right-0 mt-1 bg-positive rounded-2 overflow-hidden p-1">
-                        <div class="p-2 fst-italic text-secondary">admin</div>
+                        <div class="p-2 fst-italic text-secondary l:d:d-none">admin</div>
                         <div class="d-grid">
                             <button class="tf_btn tf_btn-transparent text-start">Личный кабинет</button>
                             <button class="tf_btn tf_btn-transparent text-start">Настройки</button>
