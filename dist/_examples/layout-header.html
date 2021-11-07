@@ -127,13 +127,36 @@
         </div>
         <div class="tf_layout-header">
             <button class="tf_layout-aside-expander" tabindex="-1"><i class="fas fa-bars"></i></button>
-            <div class="l:d:d-none">
+            <!-- <div class="d-inline-flex">
+                <div class="d-none l:d:d-inline-flex">
+                    <button class="tf_btn tf_btn-transparent fw-600" title="Дашборды" disabled>Дашборды</button>
+                    <div class="border-right border-secondary my-1 mx-1"></div>
+                </div>
                 <div class="tf_drop-focus">
-                    <button class="tf_btn tf_btn-drop tf_btn-transparent fw-600" title="Текущие">Текущие</button>
+                    <button class="tf_btn tf_btn-drop tf_btn-transparent fw-600" title="Выполненные">Выполненные</button>
                     <div class="tf_drop-content left-0 mt-1 bg-positive rounded-2 overflow-hidden p-1">
                         <div class="d-grid">
-                            <button class="tf_btn tf_btn-transparent text-start">Выполненные</button>
+                            <button class="tf_btn tf_btn-transparent text-start">Текущие</button>
+                            <button class="tf_btn tf_btn-transparent text-start" disabled>Выполненные</button>
                             <button class="tf_btn tf_btn-transparent text-start">Архив</button>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="l:d:d-none">
+                <div class="tf_drop-focus">
+                    <button
+                        class="tf_btn tf_btn-drop tf_btn-transparent fw-600"
+                        data-pointer-position="after"
+                        data-drop-position="bottom right"
+                        title="Текущие"
+                    >Текущие</button>
+                    <div class="tf_drop-content">
+                        <div class="bg-positive rounded p-1 shadow">
+                            <div class="d-grid">
+                                <button class="tf_btn tf_btn-transparent text-start">Выполненные</button>
+                                <button class="tf_btn tf_btn-transparent text-start">Архив</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -153,22 +176,29 @@
                     <span class="d-none l:d:d-unset">Помощь</span>
                 </button>
                 <div class="tf_drop-focus">
-                    <button class="tf_btn tf_btn-drop tf_btn-transparent" title="admin">
+                    <button
+                        class="tf_btn tf_btn-drop tf_btn-transparent"
+                        data-pointer-position="after"
+                        data-drop-position="bottom left"
+                        title="admin"
+                    >
                         <i class="fa fa-user-circle" aria-hidden="true"></i>
                         <span class="d-none l:d:d-unset">admin</span>
                     </button>
-                    <div class="tf_drop-content right-0 mt-1 bg-positive rounded-2 overflow-hidden p-1">
-                        <div class="p-2 fst-italic text-secondary l:d:d-none">admin</div>
-                        <div class="d-grid">
-                            <button class="tf_btn tf_btn-transparent text-start">Личный кабинет</button>
-                            <button class="tf_btn tf_btn-transparent text-start">Настройки</button>
-                            <button class="tf_btn tf_btn-transparent text-start">Сделать стартовой страницей</button>
-                            <button class="tf_btn tf_btn-transparent text-start">Войти в режим ретроспекции</button>
-                            <hr class="my-1 w-100">
-                            <button class="tf_btn tf_btn-transparent text-start d-inline-flex">
-                                Выход
-                                <i class="fa fa-sign-out my-auto ml-auto" aria-hidden="true"></i>
-                            </button>
+                    <div class="tf_drop-content">
+                        <div class="bg-positive rounded overflow-hidden p-1 shadow">
+                            <div class="p-2 fst-italic text-secondary l:d:d-none">admin</div>
+                            <div class="d-grid">
+                                <button class="tf_btn tf_btn-transparent text-start">Личный кабинет</button>
+                                <button class="tf_btn tf_btn-transparent text-start">Настройки</button>
+                                <button class="tf_btn tf_btn-transparent text-start">Сделать стартовой страницей</button>
+                                <button class="tf_btn tf_btn-transparent text-start">Войти в режим ретроспекции</button>
+                                <hr class="my-1 w-100">
+                                <button class="tf_btn tf_btn-transparent text-start d-inline-flex">
+                                    Выход
+                                    <i class="fa fa-sign-out my-auto ml-auto" aria-hidden="true"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -224,21 +254,7 @@
     </body>
     <script src="../js/layout.js"></script>
     <script src="../js/layout-finder.js"></script>
-    <script>
-        let isDropBtnActive = false
-        window.onmousedown = function(event) {
-            if (event.target.matches('.tf_drop-focus .tf_btn-drop, .tf_drop-focus tf_btn-drop *'))
-                event.target == document.activeElement ? isDropBtnActive = true : isDropBtnActive = false
-        }
-        window.onmouseup = function(event) {
-            if (event.target.matches('.tf_drop-focus .tf_btn-drop, .tf_drop-focus tf_btn-drop *'))
-                if (isDropBtnActive) {
-                    event.target.blur()
-                    isDropBtnActive = false
-                } else
-                    event.target.focus()
-        }
-    </script>
+    <script src="../js/ui-drops.js"></script>
     <script>
         $( "#toggle-preview" ).on( "click", function() {
             $( ".tf_finder" ).toggleClass( "explorer" )

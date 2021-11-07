@@ -2,29 +2,115 @@
 .tf_drop-focus {
     position: relative;
     display: inline-block;
-    .tf_btn-drop::after {
-        content: "▾";
+    .tf_btn-drop {
         position: relative;
-    }    
+        &[data-drop-position^="left"] {
+            &[data-pointer-position="before"]:before,
+            &[data-pointer-position="after"]::after {
+                content: "◂";
+            }
+            &[data-drop-position] + .tf_drop-content {
+                padding-right: calc(var(--key-size) * .25);
+                right: 100%;
+            }
+            &[data-drop-position$="top"] + .tf_drop-content {
+                bottom: 0%;
+            }
+            &[data-drop-position$="center"] + .tf_drop-content {
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            &[data-drop-position$="bottom"] + .tf_drop-content {
+                top: 0%;
+            }
+        }
+        &[data-drop-position^="top"] {
+            &[data-pointer-position="before"]:before,
+            &[data-pointer-position="after"]::after {
+                content: "▴";
+            }
+            &[data-drop-position] + .tf_drop-content {
+                padding-bottom: calc(var(--key-size) * .25);
+                bottom: 100%;
+            }
+            &[data-drop-position$="left"] + .tf_drop-content {
+                right: 0%;
+            }
+            &[data-drop-position$="center"] + .tf_drop-content {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            &[data-drop-position$="right"] + .tf_drop-content {
+                left: 0%;
+            }
+        }
+        &[data-drop-position^="right"] {
+            &[data-pointer-position="before"]:before,
+            &[data-pointer-position="after"]::after {
+                content: "▸";
+            }
+            &[data-drop-position] + .tf_drop-content {
+                padding-left: calc(var(--key-size) * .25);
+                left: 100%;
+            }
+            &[data-drop-position$="top"] + .tf_drop-content {
+                bottom: 0%;
+            }
+            &[data-drop-position$="center"] + .tf_drop-content {
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            &[data-drop-position$="bottom"] + .tf_drop-content {
+                top: 0%;
+            }
+        }
+        &[data-drop-position^="bottom"] {
+            &[data-pointer-position="before"]:before,
+            &[data-pointer-position="after"]::after {
+                content: "▾";
+            }
+            &[data-drop-position] + .tf_drop-content {
+                padding-top: calc(var(--key-size) * .25);
+                top: 100%;
+            }
+            &[data-drop-position$="left"] + .tf_drop-content {
+                right: 0%;
+            }
+            &[data-drop-position$="center"] + .tf_drop-content {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            &[data-drop-position$="right"] + .tf_drop-content {
+                left: 0%;
+            }
+        }
+    }
+    .tf_btn-drop {
+        &::before,
+        &::after {
+            display: inline-grid;
+            width: 0;
+            justify-content: center;
+        }
+        &:not(:empty)::before {
+            margin-right: calc(var(--key-size) * .5);
+        }
+        &:not(:empty)::after {
+            margin-left: calc(var(--key-size) * .5);
+        }
+    }
     .tf_drop-content {
         position: absolute;
         width: max-content;
-        filter: drop-shadow(.125rem .125rem .25rem var(--negative-color-25));
     }
 }
-
-.tf_drop-hover {
-    &:not(:hover, :focus-within) {
-        .tf_drop-content {
-            display: none;
-        }
+.tf_drop-hover:not(:hover, :focus-within) {
+    .tf_drop-content {
+        display: none;
     }
 }
-
-.tf_drop-focus {
-    &:not(:focus-within) {
-        .tf_drop-content {
-            display: none;
-        }
+.tf_drop-focus:not(:focus-within) {
+    .tf_drop-content {
+        display: none;
     }
 }
