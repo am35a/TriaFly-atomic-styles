@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>SPA layout | finder</title>
+        <title>SPA layout | конструктор реестра</title>
         <link rel="stylesheet" href="../css/normalize.css">
         <link rel="stylesheet" href="../css/global.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
@@ -31,31 +31,187 @@
     <body class="tf_layout">
         <div class="tf_layout-main p-4">
             <div class="tf_report">
-                <div class="tf_report-header d-flex g-4">
-                    <div class="d-flex flex-grow-1 g-1">
-                        <div class="tf_drop-focus">
-                            <button class="tf_btn tf_btn-dropdown tf_btn-transparent" title="Текущие"><i class="fa fa-columns"></i> Реестр</button>
-                            <div class="tf_drop-content left-0 mt-1 bg-positive rounded-2 p-1">
-                                <div class="d-grid">
-                                    <button class="tf_btn tf_btn-transparent text-start">Загрузить реестр</button>
+                <div class="tf_report-header d-grid d-4">
+                    <div class="d-flex g-4">
+                        <div class="d-flex flex-grow-1 g-1">
+                            <div class="tf_drop-focus">
+                                <button
+                                    class="tf_btn tf_btn-transparent tf_btn-drop"
+                                    data-pointer-position="after"
+                                    data-drop-position="bottom right"
+                                    title=""
+                                ><i class="fa fa-columns"></i><!-- Реестр --></button>
+                                <div class="tf_drop-content">
+                                    <div class="d-grid g-1 bg-positive rounded p-1 shadow">
+                                        <button class="tf_btn tf_btn-transparent text-start">
+                                            <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                                            Создать новый
+                                        </button>
+                                        <button class="tf_btn tf_btn-transparent text-start">
+                                            <i class="fa fa-folder-open-o" aria-hidden="true"></i>
+                                            Загрузить
+                                        </button>
+                                        <button class="tf_btn tf_btn-transparent text-start">
+                                            <i class="fa fa-exchange" aria-hidden="true"></i>
+                                            Изменить группу
+                                        </button>
+                                        <button class="tf_btn tf_btn-transparent text-start">
+                                            <i class="fa fa-clone" aria-hidden="true"></i>
+                                            Копировать
+                                        </button>
+                                        <button class="tf_btn tf_btn-transparent text-start">
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            Добавить в избранное
+                                        </button>
+                                        <hr class="my-0 w-100">
+                                        <button class="tf_btn tf_btn-transparent text-start">
+                                            <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                                            Сохранить
+                                        </button>
+                                        <div class="tf_drop-hover">
+                                            <button
+                                                class="tf_btn tf_btn-transparent tf_btn-drop w-100 text-start"
+                                                data-pointer-position="after"
+                                                data-drop-position="right bottom"
+                                                title="Default"
+                                            >
+                                                <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                                                Сохранить как
+                                            </button>
+                                            <div class="tf_drop-content">
+                                                <div class="bg-positive rounded ml-1 p-1 shadow">
+                                                    Здесь будет форма и т.п. и тд.
+                                                    <br>
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
+                                                    Laborum tempore, quos fuga voluptatibus similique rem<br>
+                                                    error aperiam unde magnam maiores amet voluptatum<br>
+                                                    laudantium dignissimos tempora sed sit ab reiciendis iste.
+                                                </div>
+                                            </div>
+                                        </div>
+            
+                                        <!-- <button class="tf_btn tf_btn-transparent text-start">
+                                            <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                                            Сохранить как новый
+                                        </button> -->
+                                        <hr class="my-0 w-100">
+                                        <button class="tf_btn tf_btn-transparent text-start">
+                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                            Удалить реестр ...
+                                        </button>
+                                        
+
+                                    </div>
                                 </div>
                             </div>
+
+                            <!-- <input id="inputTextDefault" class="tf_form-control" value="Суперское название для заголовка" type="text" placeholder="Название реестра"> -->
+                            <div class="tf_input-group flex-grow-1 position-relative my-auto">
+                                <!-- <label for="inputTextDefault" class="tf_input-group-text bg-transparent text-secondary"><i class="fa fa-pencil"></i></label> -->
+                                <input id="inputTextDefault" class="tf_form-control border-0 bg-transparent" value="Суперское название для заголовка" type="text" placeholder="Название реестра">
+                            </div>
                         </div>
-                        <!-- <input id="inputTextDefault" class="tf_form-control" value="Суперское название для заголовка" type="text" placeholder="Название реестра"> -->
-                        <!-- <div class="tf_input-group flex-grow-1 position-relative my-auto">
-                            <label for="inputTextDefault" class="tf_input-group-text bg-transparent text-secondary"><i class="fa fa-pencil"></i></label>
-                            <input id="inputTextDefault" class="tf_form-control border-0 bg-transparent" value="Суперское название для заголовка" type="text" placeholder="Название реестра">
-                        </div> -->
+                        <div class="float-right">
+                            <div class="d-grid grid-flow-col g-2">
+                                <div class="tf_drop-focus">
+                                    <button
+                                        class="tf_btn tf_btn-transparent tf_btn-drop w-100 text-start"
+                                        data-pointer-position="after"
+                                        data-drop-position="bottom left"
+                                        title="Настройки реестра"
+                                    ><i class="fa fa-cogs" aria-hidden="true"></i></button>
+                                    <div class="tf_drop-content">
+                                        <div class="bg-positive rounded p-1 shadow">
+                                            <div class="d-grid g-1">
+                                                <button class="tf_btn tf_btn-transparent text-start">
+                                                    <i class="fa fa-cog" aria-hidden="true"></i>
+                                                    Параметры
+                                                </button>
+                                                <button class="tf_btn tf_btn-transparent text-start">
+                                                    <i class="fa fa-refresh" aria-hidden="true"></i>
+                                                    Сброс настроект
+                                                </button>
+                                            </div>
+                                            <hr class="my-1">
+                                            <div class="d-grid g-1">
+                                                <button class="tf_btn tf_btn-transparent text-start">
+                                                    <i class="fa fa-eraser" aria-hidden="true"></i>
+                                                    Очистить столбцы
+                                                </button>
+                                                <button class="tf_btn tf_btn-transparent text-start">
+                                                    <i class="fa fa-eraser" aria-hidden="true"></i>
+                                                    Очистить все
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <button class="tf_btn tf_btn-icon tf_btn-transparent" title="Экспортировать в *.xlsx">
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                    </button>
+                                    <div class="border-left my-2"></div>
+                                    <div class="tf_drop-focus">
+                                        <button
+                                            class="tf_btn tf_btn-transparent tf_btn-drop w-100 text-start"
+                                            data-pointer-position="after"
+                                            data-drop-position="bottom left"
+                                            title="Экспортировать ..."
+                                        ></button>
+                                        <div class="tf_drop-content">
+                                            <div class="bg-positive rounded p-1 shadow">
+                                                <div class="d-grid g-1">
+                                                    <button class="tf_btn tf_btn-transparent text-start">*.xlsx</button>
+                                                    <button class="tf_btn tf_btn-transparent text-start">*.ods</button>
+                                                    <button class="tf_btn tf_btn-transparent text-start">*.csv</button>
+                                                    <button class="tf_btn tf_btn-transparent text-start">*.html</button>
+                                                    <button class="tf_btn tf_btn-transparent text-start">*.docx</button>
+                                                    <button class="tf_btn tf_btn-transparent text-start">*.pdf (книжный)</button>
+                                                    <button class="tf_btn tf_btn-transparent text-start">*.pdf (альбомный)</button>
+                                                    <button class="tf_btn tf_btn-transparent text-start">*.xml</button>
+                                                </div>
+                                                <hr class="my-1">
+                                                <div class="d-grid g-1">
+                                                    <div class="tf_form-check px-2">
+                                                        <input type="checkbox" value="" id="flexCheckChecked1">
+                                                        <label for="flexCheckChecked1" tabindex="1">Только видимые строки</label>
+                                                    </div>
+                                                    <div class="tf_form-check px-2">
+                                                        <input type="checkbox" value="" id="flexCheckChecked2">
+                                                        <label for="flexCheckChecked2" tabindex="1">Группировочные заголовки строк</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+
+                                </div>
+                                <div>
+                                    <button class="tf_btn tf_btn-transparent" title="Просмотр реестра">
+                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                        <span class="d-none l:d:d-inline">Просмотр</span>
+                                    </button>
+                                </div>
+                            </div>
+                                <!-- <button id="finder-filters-toogle" class="tf_btn tf_btn-transparent tf_btn-icon"><i class="fa fa-filter"></i></button>
+                            <button id="finder-as-folder" class="tf_btn tf_btn-transparent tf_btn-icon" disabled><i class="fa fa-folder-open"></i></button>
+                            <button id="finder-as-list" class="tf_btn tf_btn-transparent tf_btn-icon"><i class="fa fa-list-ul"></i></button> -->
+                        </div>
                     </div>
-                    <div class="float-right">
-                        <button id="finder-filters-toogle" class="tf_btn tf_btn-transparent tf_btn-icon"><i class="fa fa-filter"></i></button>
-                        <button id="finder-as-folder" class="tf_btn tf_btn-transparent tf_btn-icon" disabled><i class="fa fa-folder-open"></i></button>
-                        <button id="finder-as-list" class="tf_btn tf_btn-transparent tf_btn-icon"><i class="fa fa-list-ul"></i></button>
+                    <div class="text-right">
+                        <!-- <button class="tf_btn tf_btn-transparent text-start"><i class="fa fa-info"></i></button>
+                        <button class="tf_btn tf_btn-transparent text-start"><i class="fa fa-info"></i></button>
+                        <button class="tf_btn tf_btn-transparent text-start"><i class="fa fa-info"></i></button>
+                        <button class="tf_btn tf_btn-transparent text-start"><i class="fa fa-info"></i></button>
+                        <button class="tf_btn tf_btn-transparent text-start"><i class="fa fa-info"></i></button> -->
+                        <!-- <button id="finder-as-folder" class="tf_btn tf_btn-transparent tf_btn-icon" disabled><i class="fa fa-folder-open"></i></button>
+                        <button id="finder-as-list" class="tf_btn tf_btn-transparent tf_btn-icon"><i class="fa fa-list-ul"></i></button> -->
                     </div>
                 </div>
                 <div class="tf_report-body bg-positive rounded-2 d-grid">
 
-                    <div class="d-inline-grid g-8 rows-3 cols-3">
+                    <div class="d-inline-grid g-8 rows-3 cols-3 d-none">
                         <div class="p-8 m-auto">
                             <div class="tf_drop-focus">
                                 <button
@@ -145,21 +301,25 @@
                         data-pointer-position="after"
                         data-drop-position="bottom right"
                         title="Текущие"
-                    >Текущие</button>
+                    >Реестры</button>
                     <div class="tf_drop-content">
                         <div class="bg-positive rounded p-1 shadow">
                             <div class="d-grid">
-                                <button class="tf_btn tf_btn-transparent text-start">Выполненные</button>
-                                <button class="tf_btn tf_btn-transparent text-start">Архив</button>
+                                <button class="tf_btn tf_btn-transparent text-start">
+                                    <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                                    Новый реестр
+                                </button>
+                                <!-- <button class="tf_btn tf_btn-transparent text-start">Выполненные</button>
+                                <button class="tf_btn tf_btn-transparent text-start">Архив</button> -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="d-none l:d:d-flex text-nowrap overflow-hidden py-1">
-                <button class="tf_btn tf_btn-transparent bg-transparent fw-600 active" disabled>Текущие</button>
-                <button class="tf_btn tf_btn-transparent bg-transparent fw-600">Выполненные</button>
-                <button class="tf_btn tf_btn-transparent bg-transparent fw-600">Архив</button>
+                <button class="tf_btn tf_btn-transparent bg-transparent fw-600 active" disabled>Реестры</button>
+                <!-- <button class="tf_btn tf_btn-transparent bg-transparent fw-600">Выполненные</button>
+                <button class="tf_btn tf_btn-transparent bg-transparent fw-600">Архив</button> -->
             </div>
             <div class="pr-2">
                 <button id="eventsPopup" class="tf_btn tf_btn-transparent tf_btn-icon position-relative" title="Показать ленту событий">
