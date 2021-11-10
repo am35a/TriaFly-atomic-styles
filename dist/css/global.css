@@ -1600,10 +1600,12 @@ h6,
 .tf_drop-hover .tf_btn-drop:not(:empty)::before,
 .tf_drop-focus .tf_btn-drop:not(:empty)::before {
   margin-right: calc(var(--key-size) * 0.5);
+  float: left;
 }
 .tf_drop-hover .tf_btn-drop:not(:empty)::after,
 .tf_drop-focus .tf_btn-drop:not(:empty)::after {
   margin-left: calc(var(--key-size) * 0.5);
+  float: right;
 }
 .tf_drop-hover .tf_drop-content,
 .tf_drop-focus .tf_drop-content {

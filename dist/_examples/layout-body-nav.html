@@ -32,7 +32,7 @@
         <div class="tf_layout-main p-4">
             <div class="tf_report">
                 <div class="tf_report-header d-grid d-4">
-                    <div class="d-flex g-4">
+                    <div class="d-flex flex-wrap g-4">
                         <div class="d-flex flex-grow-1 g-1">
                             <div class="tf_drop-focus">
                                 <button
@@ -73,7 +73,6 @@
                                                 class="tf_btn tf_btn-transparent tf_btn-drop w-100 text-start"
                                                 data-pointer-position="after"
                                                 data-drop-position="right bottom"
-                                                title="Default"
                                             >
                                                 <i class="fa fa-floppy-o" aria-hidden="true"></i>
                                                 Сохранить как
@@ -111,7 +110,7 @@
                                 <input id="inputTextDefault" class="tf_form-control border-0 bg-transparent" value="Суперское название для заголовка" type="text" placeholder="Название реестра">
                             </div>
                         </div>
-                        <div class="float-right">
+                        <div class="ml-auto">
                             <div class="d-grid grid-flow-col g-2">
                                 <div class="tf_drop-focus">
                                     <button
@@ -123,10 +122,45 @@
                                     <div class="tf_drop-content">
                                         <div class="bg-positive rounded p-1 shadow">
                                             <div class="d-grid g-1">
-                                                <button class="tf_btn tf_btn-transparent text-start">
-                                                    <i class="fa fa-cog" aria-hidden="true"></i>
-                                                    Параметры
-                                                </button>
+                                                <div class="tf_drop-hover">
+                                                    <button
+                                                        class="tf_btn tf_btn-transparent tf_btn-drop w-100 text-start"
+                                                        data-pointer-position="after"
+                                                        data-drop-position="left bottom"
+                                                    >
+                                                        <i class="fa fa-cog" aria-hidden="true"></i>
+                                                        Параметры
+                                                    </button>
+                                                    <div class="tf_drop-content">
+                                                        <div class="bg-positive rounded p-1 mr-1 shadow">
+                                                            <div class="d-grid g-1 px-1">
+                                                                <div class="tf_form-check">
+                                                                    <input type="checkbox" value="" id="flexCheckChecked1">
+                                                                    <label for="flexCheckChecked1" tabindex="1">История изменений</label>
+                                                                </div>
+                                                                <div class="tf_form-check">
+                                                                    <input type="checkbox" value="" id="flexCheckChecked2">
+                                                                    <label for="flexCheckChecked2" tabindex="1">Итоговая строка</label>
+                                                                </div>
+                                                                <div class="tf_form-check">
+                                                                    <input type="checkbox" value="" id="flexCheckChecked3">
+                                                                    <label for="flexCheckChecked3" tabindex="1">Перенос текста</label>
+                                                                </div>
+                                                                <div class="tf_form-check">
+                                                                    <input type="checkbox" value="" id="flexCheckChecked4">
+                                                                    <label for="flexCheckChecked4" tabindex="1">Редактирование карточкой</label>
+                                                                </div>
+                                                            </div>
+                                                            <hr class="my-1">
+                                                            <div>
+                                                                <input id="inputTextDefault" class="tf_form-control tf_form-control-secondary" type="text" placeholder="Ссылка">
+                                                                <div class="tf_form-text text-secondary">
+                                                                    Можно использовать {id}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <button class="tf_btn tf_btn-transparent text-start">
                                                     <i class="fa fa-refresh" aria-hidden="true"></i>
                                                     Сброс настроект
@@ -184,8 +218,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                
-
                                 </div>
                                 <div>
                                     <button class="tf_btn tf_btn-transparent" title="Просмотр реестра">

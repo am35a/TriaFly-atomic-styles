@@ -94,9 +94,11 @@
         }
         &:not(:empty)::before {
             margin-right: calc(var(--key-size) * .5);
+            float: left;
         }
         &:not(:empty)::after {
             margin-left: calc(var(--key-size) * .5);
+            float: right;
         }
     }
     .tf_drop-content {
