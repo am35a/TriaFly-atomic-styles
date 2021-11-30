@@ -4,10 +4,11 @@
     display: inline-block;
     .tf_btn-drop {
         position: relative;
+        // ◂
         &[data-drop-position^="left"] {
             &[data-pointer-position="before"]:before,
             &[data-pointer-position="after"]::after {
-                content: "◂";
+                content: "\25C2";
             }
             &[data-drop-position] + .tf_drop-content {
                 padding-right: calc(var(--key-size) * .25);
@@ -24,10 +25,11 @@
                 top: 0%;
             }
         }
+        // ▴
         &[data-drop-position^="top"] {
             &[data-pointer-position="before"]:before,
             &[data-pointer-position="after"]::after {
-                content: "▴";
+                content: "\25B4";
             }
             &[data-drop-position] + .tf_drop-content {
                 padding-bottom: calc(var(--key-size) * .25);
@@ -44,10 +46,11 @@
                 left: 0%;
             }
         }
+        // ▸
         &[data-drop-position^="right"] {
             &[data-pointer-position="before"]:before,
             &[data-pointer-position="after"]::after {
-                content: "▸";
+                content: "\25B8";
             }
             &[data-drop-position] + .tf_drop-content {
                 padding-left: calc(var(--key-size) * .25);
@@ -64,10 +67,11 @@
                 top: 0%;
             }
         }
+        // ▾
         &[data-drop-position^="bottom"] {
             &[data-pointer-position="before"]:before,
             &[data-pointer-position="after"]::after {
-                content: "▾";
+                content: "\25BE";
             }
             &[data-drop-position] + .tf_drop-content {
                 padding-top: calc(var(--key-size) * .25);
@@ -86,6 +90,9 @@
         }
     }
     .tf_btn-drop {
+        * {
+            pointer-events: none;
+        }
         &::before,
         &::after {
             display: inline-grid;
@@ -94,11 +101,9 @@
         }
         &:not(:empty)::before {
             margin-right: calc(var(--key-size) * .5);
-            float: left;
         }
         &:not(:empty)::after {
             margin-left: calc(var(--key-size) * .5);
-            float: right;
         }
     }
     .tf_drop-content {

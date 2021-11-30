@@ -358,9 +358,32 @@
                     <i class="fa fa-bell" aria-hidden="true"></i> <!-- если нет событий тогда fa-bell-o -->
                     <div class="position-absolute top-0 left-0 pl-1 text-primary fs-xxs">1<!--sup>+</sup--></div>
                 </button>
-                <button class="tf_btn tf_btn-transparent" title="Помощь">
-                    <i class="fa fa-question-circle" aria-hidden="true"></i>
-                    <span class="d-none l:d:d-unset">Помощь</span>
+                <div class="tf_drop-focus">
+                    <button
+                        class="tf_btn tf_btn-drop tf_btn-transparent"
+                        data-pointer-position="after"
+                        data-drop-position="bottom left"
+                        title="Помощь"
+                    >
+                        <i class="fa fa-question-circle" aria-hidden="true"></i>
+                        <span class="d-none l:d:d-unset">Помощь</span>
+                    </button>
+                    <div class="tf_drop-content">
+                        <div class="bg-positive rounded overflow-hidden p-3 shadow">
+                            <div class="d-grid g-2" style="width: 16rem;">
+                                <div class="fs-lg">
+                                    <i class="fa fa-info-circle text-info" aria-hidden="true"></i> Уважаемые пользователи
+                                </div>
+                                <div>
+                                    При возникновении ошибок или вопросов по работе с системой обратитесь в службу технической поддержки
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="tf_btn tf_btn-transparent" title="Войти">
+                    <i class="fa fa-sign-in" aria-hidden="true"></i>
+                    <span class="d-none l:d:d-unset">Войти</span>
                 </button>
                 <div class="tf_drop-focus">
                     <button
