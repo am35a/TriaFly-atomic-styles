@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SPA layout | дашборд</title>
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/global.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://unpkg.com/current-device/umd/current-device.min.js"></script>
+        <style>
+            :root {
+                --aside-navbar-background-color: #082f3d;
+                --header-background-color: #dde5f3;
+            }
+
+            .tf_report,
+            .tf_dashboard {
+                display: grid;
+                grid-gap: var(--key-size);
+                height: 100%;
+                margin-bottom: 0 !important;
+                grid-template-rows: max-content auto;
+                grid-template-columns: 1fr;
+            }
+        </style>
+    </head>
+    <!-- https://stackoverflow.com/questions/55425419/how-to-do-a-dropdown-menu-on-click#55425502 -->
+    <body class="tf_layout">
+        <div class="tf_layout-main p-4">
+            <div class="tf_dashboard">
+                <div class="tf_dashboard-header d-grid g-2">
+                    <div class="d-flex flex-wrap g-2">
+                        <div class="d-flex flex-grow-1 g-1">
+                            <div class="tf_drop-focus">
+                                <button
+                                    class="tf_btn tf_btn-transparent tf_btn-drop"
+                                    data-pointer-position="after"
+                                    data-drop-position="bottom right"
+                                    title=""
+                                ><i class="fas fa-chart-line fa-fw"></i></button>
+                                <div class="tf_drop-content">
+                                    <div class="d-grid g-1 bg-positive rounded p-1 shadow">
+                                        <button class="tf_btn tf_btn-sm tf_btn-transparent text-start">
+                                            <i class="fas fa-plus-square fa-fw"></i>
+                                            Создать новый
+                                        </button>
+                                        <button class="tf_btn tf_btn-sm tf_btn-transparent text-start">
+                                            <i class="fas fa-folder-open fa-fw"></i>
+                                            Загрузить
+                                        </button>
+                                        <button class="tf_btn tf_btn-sm tf_btn-transparent text-start">
+                                            <i class="fas fa-exchange-alt fa-fw"></i>
+                                            Изменить группу
+                                        </button>
+                                        <button class="tf_btn tf_btn-sm tf_btn-transparent text-start">
+                                            <i class="fas fa-clone fa-fw"></i>
+                                            Копировать
+                                        </button>
+                                        <button class="tf_btn tf_btn-sm tf_btn-transparent text-start">
+                                            <i class="fas fa-star fa-fw"></i>
+                                            Добавить в избранное
+                                        </button>
+                                        <hr class="my-0 w-100">
+                                        <button class="tf_btn tf_btn-sm tf_btn-transparent text-start">
+                                            <i class="fas fa-save fa-fw"></i>
+                                            Сохранить
+                                        </button>
+                                        <div class="tf_drop-hover">
+                                            <button
+                                                class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-drop w-100 text-start"
+                                                data-pointer-position="after"
+                                                data-drop-position="right bottom"
+                                            >
+                                                <i class="fas fa-save fa-fw"></i>
+                                                Сохранить как
+                                            </button>
+                                            <div class="tf_drop-content">
+                                                <div class="bg-positive rounded ml-1 p-1 shadow">
+                                                    Здесь будет форма и т.п. и тд.
+                                                    <br>
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
+                                                    Laborum tempore, quos fuga voluptatibus similique rem<br>
+                                                    error aperiam unde magnam maiores amet voluptatum<br>
+                                                    laudantium dignissimos tempora sed sit ab reiciendis iste.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- <button class="tf_btn tf_btn-transparent text-start">
+                                            <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                                            Сохранить как новый
+                                        </button> -->
+                                        <hr class="my-0 w-100">
+                                        <button class="tf_btn tf_btn-sm tf_btn-transparent text-start">
+                                            <i class="fas fa-trash fa-fw"></i>
+                                            Удалить Дашборд ...
+                                        </button>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- <input id="inputTextDefault" class="tf_form-control" value="Суперское название для заголовка" type="text" placeholder="Название реестра"> -->
+                            <div class="tf_input-group flex-grow-1 position-relative my-auto">
+                                <!-- <label for="inputTextDefault" class="tf_input-group-text bg-transparent text-secondary"><i class="fa fa-pencil"></i></label> -->
+                                <input id="inputTextDefault" class="tf_form-control border-0 bg-transparent fw-600" value="Название дашборда" type="text" placeholder="Название дашборда">
+                            </div>
+                        </div>
+                        <div class="ml-auto">
+                            <div class="d-grid grid-flow-col g-2">
+                                <button class="tf_btn tf_btn-icon tf_btn-transparent" title="Развернуть на весь экран">
+                                    <i class="fas fa-expand-arrows-alt fa-fw"></i>
+                                </button>
+                                <div class="tf_drop-focus">
+                                    <button
+                                        class="tf_btn tf_btn-transparent tf_btn-drop w-100 text-start"
+                                        data-pointer-position="after"
+                                        data-drop-position="bottom left"
+                                        title="Настройки дашборда"
+                                    ><i class="fas fa-cogs fa-fw"></i></button>
+                                    <div class="tf_drop-content">
+                                        <div class="bg-positive rounded p-1 shadow" tabindex="0">
+                                            <div class="d-grid g-1">
+                                                <div class="d-grid g-1">
+                                                    <div>Размер сетки:</div>
+                                                    <div class="d-flex flex-wrap g-1">
+                                                        <div class="tf_input-group">
+                                                            <div class="tf_input-group-text"><i class="fa fa-arrows-h"></i>                                                            </div>
+                                                            <input
+                                                                class="tf_form-control tf_form-control-xs text-center content-box"
+                                                                value="32"
+                                                                type="text"
+                                                                minlength="1"
+                                                                maxlength="2"
+                                                                style="width: 4ch !important"
+                                                            >
+                                                            <button class="tf_btn tf_btn-xs tf_btn-icon"><i class="fa fa-minus"></i></button>
+                                                            <button class="tf_btn tf_btn-xs tf_btn-icon"><i class="fa fa-plus"></i></button>
+                                                        </div>
+                                                        <input
+                                                            class="tf_form-control tf_form-control-xs"
+                                                            value="18"
+                                                            type="text"
+                                                        >
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div>Расстояние между блоками:</div>
+                                                </div>
+                                                <div>
+                                                    <div class="tf_form-check">
+                                                        <input type="checkbox" value="" id="flexCheckChecked">
+                                                        <label for="flexCheckChecked">Checked checkbox</label>
+                                                    </div>
+                                                    <div class="tf_form-check">
+                                                        <input type="checkbox" value="" id="flexCheckChecked2">
+                                                        <label for="flexCheckChecked2">Checked checkbox</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tf_drop-focus">
+                                    <button
+                                        class="tf_btn tf_btn-transparent tf_btn-drop w-100 text-start"
+                                        data-pointer-position="after"
+                                        data-drop-position="bottom left"
+                                        title="CSS / JS ..."
+                                    ><i class="fas fa-code fa-fw"></i></button>
+                                    <div class="tf_drop-content">
+                                        <div class="bg-positive rounded p-1 shadow" tabindex="0">
+                                            <div class="d-grid g-1">
+                                                <div class="d-flex flex-wrap g-1">
+                                                    <button class="tf_btn tf_btn-sm tf_btn-transparent active" title="Редактирование CSS" disabled>
+                                                        <span class="d-none l:d:d-inline">CSS</span>
+                                                    </button>
+                                                    <button class="tf_btn tf_btn-sm tf_btn-transparent" title="Редактирование JS">
+                                                        <span class="d-none l:d:d-inline">JS</span>
+                                                    </button>
+                                                    <button class="tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent ml-auto" title="Правила работы с редактором">
+                                                        <i class="fas fa-question fa-fw"></i>
+                                                    </button>
+                                                </div>
+                                                <textarea class="tf_form-control resize-vertical" rows="3" placeholder="CSS код" style="width: 320px;height: 240px;"></textarea>
+                                                <div class="d-flex flex-wrap g-1">
+                                                    <button class="tf_btn tf_btn-sm tf_btn-transparent" title="Сохранить">
+                                                        <i class="fas fa-times"></i> Отменить
+                                                    </button>
+                                                    <button class="tf_btn tf_btn-sm tf_btn-primary ml-auto" title="Сохранить">
+                                                        <i class="fas fa-save"></i> Сохранить
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- <div class="d-grid g-1">
+                                                <button class="tf_btn tf_btn-transparent text-start">
+                                                    <i class="fa fa-file-image-o" aria-hidden="true"></i>
+                                                    Видимая область / *.png
+                                                </button>
+                                                <button class="tf_btn tf_btn-transparent text-start">
+                                                    <i class="fa fa-file-image-o" aria-hidden="true"></i>
+                                                    Целиком / *.png
+                                                </button>
+                                                <button class="tf_btn tf_btn-transparent text-start">
+                                                    <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                                                    По странично / *.pdf
+                                                </button>
+                                            </div> -->
+                                            <!-- <hr class="my-1">
+                                            <div class="d-grid g-1">
+                                                <button class="tf_btn tf_btn-transparent text-start">
+                                                    <i class="fa fa-print" aria-hidden="true"></i>
+                                                    На принтер
+                                                </button>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="tf_btn tf_btn-transparent" title="Просмотр реестра">
+                                        <i class="fas fa-eye fa-fw"></i>
+                                        <span class="d-none l:d:d-inline">Просмотр</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="text-right"> -->
+                        <!-- <button class="tf_btn tf_btn-transparent text-start"><i class="fa fa-info"></i></button>
+                        <button class="tf_btn tf_btn-transparent text-start"><i class="fa fa-info"></i></button>
+                        <button class="tf_btn tf_btn-transparent text-start"><i class="fa fa-info"></i></button>
+                        <button class="tf_btn tf_btn-transparent text-start"><i class="fa fa-info"></i></button>
+                        <button class="tf_btn tf_btn-transparent text-start"><i class="fa fa-info"></i></button> -->
+                        <!-- <button id="finder-as-folder" class="tf_btn tf_btn-transparent tf_btn-icon" disabled><i class="fa fa-folder-open"></i></button>
+                        <button id="finder-as-list" class="tf_btn tf_btn-transparent tf_btn-icon"><i class="fa fa-list-ul"></i></button> -->
+                    <!-- </div> -->
+                    <div class="d-grid grid-flow-col justify-content-start g-1">
+                        <div>
+                            <button class="tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent" title="Добавить вкладку">
+                                <i class="fas fa-plus fa-fw"></i>
+                            </button>
+                        </div>
+                        <div>
+                            <div class="tf_drop-focus">
+                                <button
+                                    class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-drop fw-600 active"
+                                    data-pointer-position="after"
+                                    data-drop-position="bottom center"
+                                    title="Экспортировать ..."
+                                >Первая вкладка активная</button>
+                                <div class="tf_drop-content w-100">
+                                    <div class="bg-positive rounded p-1 shadow">
+                                        <div>
+                                            <label for="inputTitleTab1" class="tf_form-label fs-sm mb-1" tabindex="0">Название вкладки</label>
+                                            <input id="inputTitleTab1" class="tf_form-control tf_form-control-sm tf_form-control-secondary" value="Первая вкладка активная" type="text" placeholder="Навзание вкладки">
+                                            <!-- <div class="tf_form-text text-secondary">
+                                                Можно использовать {id}
+                                            </div> -->
+                                        </div>
+                                        <!-- <hr class="my-1"> -->
+                                        <!-- <div class="d-grid g-1">
+                                            <button class="tf_btn tf_btn-sm tf_btn-transparent text-start">
+                                                <i class="fa fa-share" aria-hidden="true"></i>
+                                                Ссылка на вкладку
+                                            </button>
+                                        </div> -->
+                                        <hr class="my-1">
+                                        <div class="d-grid g-1">
+                                            <button class="tf_btn tf_btn-sm tf_btn-transparent text-start">
+                                                <i class="fas fa-trash"></i>
+                                                Удалить вкладку
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="tf_btn tf_btn-transparent p-0 active border-0">
+                                <button class="tf_btn tf_btn-sm bg-transparent fw-600 active pr-0" disabled>
+                                    Первая вкладка активная
+                                </button>
+                                <button class="tf_btn tf_btn-icon tf_btn-sm tf_btn-transparent fw-600" title="Настройки вкладки">
+                                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                </button>
+                            </div> -->
+                            <button class="tf_btn tf_btn-sm tf_btn-transparent fw-600" title="Название вкладки">
+                                Вторая вкладка
+                            </button>
+                            <button class="tf_btn tf_btn-sm tf_btn-transparent fw-600" title="Название вкладки">
+                                Третья вкладка
+                            </button>
+
+                            <!-- <input id="inputTextDefault" class="tf_form-control border-0 bg-transparent fw-600" value="Общие данные" type="text" placeholder="Название вкладки"> -->
+                        </div>
+                        
+                        <!-- <div class="d-grid grid-flow-col g-1 px-1 border-bottom">
+                            <button class="tab rounded-bottom-0 tf_btn tf_btn-transparent tf_btn-sm">Базовые</button>
+                            <button class="tab rounded-bottom-0 tf_btn tf_btn-transparent tf_btn-sm">Стиль</button>
+                            <button class="tab rounded-bottom-0 tf_btn tf_btn-transparent tf_btn-sm">Элементы графика</button>
+                            <button class="tab rounded-bottom-0 tf_btn tf_btn-transparent tf_btn-sm">Сетка и оси</button>
+                            <button class="tab rounded-bottom-0 tf_btn tf_btn-transparent tf_btn-sm active" disabled="disabled">Легенда</button>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="tf_dashboard-body bg-positive rounded-2 d-grid">
+
+                </div>
+            </div>
+        </div>
+        <div class="tf_layout-header">
+            <button class="tf_layout-aside-expander" tabindex="-1"><i class="fas fa-bars"></i></button>
+            <div class="l:d:d-none">
+                <div class="tf_drop-focus">
+                    <button
+                        class="tf_btn tf_btn-drop tf_btn-transparent fw-600"
+                        data-pointer-position="after"
+                        data-drop-position="bottom right"
+                        title="Текущие"
+                    >Реестры</button>
+                    <div class="tf_drop-content">
+                        <div class="bg-positive rounded p-1 shadow">
+                            <div class="d-grid">
+                                <button class="tf_btn tf_btn-transparent text-start">
+                                    <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                                    Новый реестр
+                                </button>
+                                <!-- <button class="tf_btn tf_btn-transparent text-start">Выполненные</button>
+                                <button class="tf_btn tf_btn-transparent text-start">Архив</button> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-none l:d:d-flex text-nowrap overflow-hidden py-1">
+                <button class="tf_btn tf_btn-transparent bg-transparent fw-600 active" disabled>Реестры</button>
+                <!-- <button class="tf_btn tf_btn-transparent bg-transparent fw-600">Выполненные</button>
+                <button class="tf_btn tf_btn-transparent bg-transparent fw-600">Архив</button> -->
+            </div>
+            <div class="pr-2">
+                <button id="eventsPopup" class="tf_btn tf_btn-transparent tf_btn-icon position-relative" title="Показать ленту событий">
+                    <i class="fas fa-bell fa-fw"></i> <!-- если нет событий тогда fa-bell-o -->
+                    <div class="position-absolute top-0 left-0 pl-1 text-primary fs-xxs">1<!--sup>+</sup--></div>
+                </button>
+                <div class="tf_drop-focus">
+                    <button
+                        class="tf_btn tf_btn-drop tf_btn-transparent"
+                        data-pointer-position="after"
+                        data-drop-position="bottom left"
+                        title="Помощь"
+                    >
+                        <i class="fas fa-question-circle"></i>
+                        <span class="d-none l:d:d-unset">Помощь</span>
+                    </button>
+                    <div class="tf_drop-content">
+                        <div class="bg-positive rounded overflow-hidden p-3 shadow">
+                            <div class="d-grid g-2" style="width: 16rem;">
+                                <div class="fs-lg">
+                                    <i class="fas fa-info-circle text-info"></i> Уважаемые пользователи
+                                </div>
+                                <div>
+                                    При возникновении ошибок или вопросов по работе с системой обратитесь в службу технической поддержки
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="tf_btn tf_btn-transparent" title="Войти">
+                    <i class="fa fa-sign-in" aria-hidden="true"></i>
+                    <span class="d-none l:d:d-unset">Войти</span>
+                </button>
+                <div class="tf_drop-focus">
+                    <button
+                        class="tf_btn tf_btn-drop tf_btn-transparent"
+                        data-pointer-position="after"
+                        data-drop-position="bottom left"
+                        title="admin"
+                    >
+                        <i class="fa fa-user-circle" aria-hidden="true"></i>
+                        <span class="d-none l:d:d-unset">admin</span>
+                    </button>
+                    <div class="tf_drop-content">
+                        <div class="bg-positive rounded overflow-hidden p-1 shadow">
+                            <div class="p-2 fst-italic text-secondary l:d:d-none">admin</div>
+                            <div class="d-grid">
+                                <button class="tf_btn tf_btn-transparent text-start">Личный кабинет</button>
+                                <button class="tf_btn tf_btn-transparent text-start">Настройки</button>
+                                <button class="tf_btn tf_btn-transparent text-start">Сделать стартовой страницей</button>
+                                <button class="tf_btn tf_btn-transparent text-start">Войти в режим ретроспекции</button>
+                                <hr class="my-1 w-100">
+                                <button class="tf_btn tf_btn-transparent text-start d-inline-flex">
+                                    Выход
+                                    <i class="fa fa-sign-out my-auto ml-auto" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!-- 
+            <div class="float-right mr-2">
+                <button onclick="window.print()" class="tf_btn"><i class="fas fa-print"></i></button>
+                <button id="toggle-preview" class="tf_btn">Toggle preview</button>
+            </div> -->
+        </div>
+        <div class="tf_layout-aside">
+            <div class="tf_aside-fader">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="tf_aside-navbar">
+                <div class="tf_navbar-item">
+                    <div class="tf_item-hover"></div>
+                    <div class="tf_item-active"></div>
+                    <a class="tf_item-identicon" href="#"><i class="fas fa-home"></i></a>
+                    <a class="tf_item-title" href="#">Начало</a>
+                    <!-- <a class="tf_item-actioncon" href="#"><i class="fas fa-plus"></i></a> -->
+                </div>
+                <div class="tf_navbar-item">
+                    <div class="tf_item-hover"></div>
+                    <div class="tf_item-active"></div>
+                    <a class="tf_item-identicon" href="#"><i class="fas fa-tasks"></i></a>
+                    <a class="tf_item-title" href="#">Задания сбора</a>
+                    <!-- <a class="tf_item-actioncon" href="#"><i class="fas fa-plus"></i></a> -->
+                </div>
+                <div class="tf_navbar-item tf_navbar-item--active">
+                    <div class="tf_item-hover"></div>
+                    <div class="tf_item-active"></div>
+                    <a class="tf_item-identicon" href="#"><i class="fas fa-chart-pie"></i></a>
+                    <a class="tf_item-title" href="#">Дашборды</a>
+                    <a class="tf_item-actioncon" href="#"><i class="fas fa-plus"></i></a>
+                </div>
+                <div class="tf_navbar-item">
+                    <div class="tf_item-hover"></div>
+                    <div class="tf_item-active"></div>
+                    <a class="tf_item-identicon" href="#"><i class="fas fa-clipboard-list"></i></a>
+                    <a class="tf_item-title" href="#">Формы</a>
+                    <a class="tf_item-actioncon" href="#"><i class="fas fa-plus"></i></a>
+                </div>
+                <div class="tf_navbar-item">
+                    <div class="tf_item-hover"></div>
+                    <div class="tf_item-active"></div>
+                    <a class="tf_item-identicon" href="#"><i class="fas fa-calendar-check"></i></a>
+                    <a class="tf_item-title" href="#">Отчеты</a>
+                    <a class="tf_item-actioncon" href="#"><i class="fas fa-plus"></i></a>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="../js/layout.js"></script>
+    <script src="../js/ui-drops.js"></script>
+    <script>
+        // $( "#toggle-preview" ).on( "click", function() {
+        //     $( ".tf_finder" ).toggleClass( "explorer" )
+        // });
+    </script>
+</html>
