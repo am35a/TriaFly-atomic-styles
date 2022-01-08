@@ -1,9 +1,9 @@
 .border {
-    border: var(--border-width, calc(var(--key-size) * .0625)) solid var(--border-color, currentColor);
-    &-top { border-top: var(--border-width, calc(var(--key-size) * .0625)) solid var(--border-color, currentColor); }
-    &-right { border-right: var(--border-width, calc(var(--key-size) * .0625)) solid var(--border-color, currentColor); }
-    &-bottom { border-bottom: var(--border-width, calc(var(--key-size) * .0625)) solid var(--border-color, currentColor); }
-    &-left { border-left: var(--border-width, calc(var(--key-size) * .0625)) solid var(--border-color, currentColor); }
+    border: var(--border-width, calc(var(--key-size) * .0625)) solid var(--border-color, currentColor) !important;
+    &-top { border-top: var(--border-width, calc(var(--key-size) * .0625)) solid var(--border-color, currentColor) !important; }
+    &-right { border-right: var(--border-width, calc(var(--key-size) * .0625)) solid var(--border-color, currentColor) !important; }
+    &-bottom { border-bottom: var(--border-width, calc(var(--key-size) * .0625)) solid var(--border-color, currentColor) !important; }
+    &-left { border-left: var(--border-width, calc(var(--key-size) * .0625)) solid var(--border-color, currentColor) !important; }
 
     &-0 { border: 0  !important; }
     &-top-0 { border-top: 0  !important; }
@@ -13,10 +13,10 @@
 
     each(@border-color-names, {
         &-@{value} when (@value = transparent) {
-            border-color: transparent;
+            border-color: transparent !important;
         }
         &-@{value} when not (@value = transparent) {
-            border-color: var(~"--@{value}-color");
+            border-color: var(~"--@{value}-color") !important;
         }
     });
 
