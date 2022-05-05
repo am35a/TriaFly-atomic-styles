@@ -26,8 +26,8 @@
     </slot>
     <div class="h1" role="heading" aria-level="1">Forms</div>
 
-    <div class="p-3">
-        <div class="tf_input-group">
+    <!-- <div class="p-3"> -->
+        <!--div class="tf_input-group">
             <div class="tf_input-group-text">
                 <div class="tf_form-check tf_form-check">
                     <input type="checkbox" value="" id="flexCheckChecked">
@@ -47,14 +47,14 @@
             <div class="tf_input-group-text tf_input-group-text-sm">Привет мир</div>
             <input id="finder-search" class="tf_form-control tf_form-control-sm tf_form-control-secondary" type="text" placeholder="Поиск по названию...">
             <button class="tf_btn tf_btn-sm tf_btn-secondary tf_btn-icon"><i class="fa fa-ban"></i></button>
-        </div>
+        </div-->
         <!-- <div class="tf_input-group">
             <i class="fa fa-search"></i>
             <input id="finder-search" class="tf_form-control tf_form-control-secondary" type="text" placeholder="Поиск по названию...">
             <button class="tf_btn tf_btn-secondary tf_btn-icon"><i class="fa fa-ban"></i></button>
             <input id="finder-search" class="tf_form-control tf_form-control-secondary" type="text" placeholder="Поиск по названию...">
         </div> -->
-    </div>
+    <!-- </div> -->
 
     <FormDefault/>
     <div id="main-forms">

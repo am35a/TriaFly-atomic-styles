@@ -35,7 +35,24 @@
         background-color: var(--negative-color-25);
         // color: var(--positive-color);
     }
-
+    &.used {
+        position: relative;
+        &:after {
+            content: '';
+            position: absolute;
+            top: calc(var(--key-size) * 0.0625);
+            right: calc(var(--key-size) * 0.0625);
+            width: calc(var(--key-size) * 0.5);
+            height: calc(var(--key-size) * 0.5);
+            border-radius: var(--key-size);
+        }
+        &:not(.tf_btn-transparent):after {
+            background-color: currentColor;
+        }
+        &.tf_btn-transparent:after {
+            background-color: var(--primary-color);
+        }
+    }
     &-inverse {
         background-color: var(--negative-color);
         color: var(--positive-color);

@@ -8,25 +8,65 @@
     <div class="rounded-2 overflow-hidden">
         <form class="bg-positive p-4 d-grid g-4">
             <div>
+                <label class="tf_form-check" disabled>
+                    <input class="tf_form-check-input" type="checkbox" value="">
+                    Checkbox input
+                </label>
+                <label class="tf_form-check">
+                    <input class="tf_form-check-input" type="checkbox" value="" checked>
+                    Checkbox input checked
+                </label>
+                <label class="tf_form-check">
+                    <input class="tf_form-check-input" type="checkbox" value="" checked disabled>
+                    Checkbox input checked
+                </label>
+            </div>
+
+            <div>
                 <div class="tf_form-check">
-                    <input type="checkbox" value="" id="flexCheckChecked">
-                    <label for="flexCheckChecked">Checked checkbox</label>
+                    <input class="tf_form-check-input" id="сheck1" type="checkbox" value="">
+                    <label class="tf_form-check-label" for="сheck1">Checkbox input</label>
                 </div>
                 <div class="tf_form-check">
-                    <input type="checkbox" value="" id="flexCheckChecked2" checked>
-                    <label for="flexCheckChecked2">Checked checkbox</label>
+                    <input class="tf_form-check-input" id="сheckChecked1" type="checkbox" value="" checked>
+                    <label class="tf_form-check-label" for="сheckChecked1">Checkbox input checked</label>
+                </div>
+                <div class="tf_form-check">
+                    <input class="tf_form-check-input" id="сheckDisabled1" type="checkbox" value="" checked disabled>
+                    <label class="tf_form-check-label" for="сheckDdisabled1">Checkbox input checked</label>
                 </div>
             </div>
+            
             <div>
                 <div class="tf_form-radio">
-                    <input id="radioDefault1" name="radioDefault" type="radio">
-                    <label for="radioDefault1">Checked checkbox</label>
+                    <input class="tf_form-radio-input" name="radioNameGroup" type="radio">
+                    Radio input
                 </div>
                 <div class="tf_form-radio">
-                    <input id="radioDefault2" name="radioDefault" type="radio" checked>
-                    <label for="radioDefault2">Checked checkbox</label>
+                    <input class="tf_form-radio-input" name="radioNameGroup" type="radio" checked>
+                    Radio input checked
+                </div>
+                <div class="tf_form-radio">
+                    <input class="tf_form-radio-input" name="radioNameGroup" type="radio" checked disabled>
+                    Radio input checked
                 </div>
             </div>
+
+            <div>
+                <div class="tf_form-radio">
+                    <input class="tf_form-radio-input" id="radio" name="radioNameGroup" type="radio">
+                    <label class="tf_form-radio-label" for="radio">Radio input</label>
+                </div>
+                <div class="tf_form-radio">
+                    <input class="tf_form-radio-input" id="radioChecked" name="radioNameGroup" type="radio" checked>
+                    <label class="tf_form-radio-label" for="radioChecked">Radio input checked</label>
+                </div>
+                <div class="tf_form-radio">
+                    <input class="tf_form-radio-input" id="radioDisabled" name="radioNameGroup" type="radio" checked disabled>
+                    <label class="tf_form-radio-label" for="radioDisabled">Radio input checked</label>
+                </div>
+            </div>
+
             <div>
                 <label for="inputTextDefault" class="tf_form-label">Label default</label>
                 <input id="inputTextDefault" class="tf_form-control" type="text" placeholder="Placeholder">
@@ -63,6 +103,15 @@
                 <input id="inputFile" class="tf_form-control" type="file">
             </div>
             <input class="tf_form-control" type="date" id="party" name="party" min="2017-04-01" max="2017-04-30">
+
+            <input class="tf_form-control tf_form-control-xs" type="color" id="body" name="body" value="#f6b73c">
+            <input class="tf_form-control tf_form-control-sm" type="color" id="body" name="body" value="#f6b73c">
+
+            <div class="tf_input-group">
+                <input id="inputTextDefault" class="tf_form-control" type="text" placeholder="Placeholder">
+                <input class="tf_form-control" type="color" id="body" name="body" value="#f6b73c">
+            </div>
+            <input class="tf_form-control tf_form-control-lg" type="color" id="body" name="body" value="#f6b73c">
         </form>
         <Highlight
             class="my-0"

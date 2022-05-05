@@ -29,7 +29,7 @@
         </style>
     </head>
     <!-- https://stackoverflow.com/questions/55425419/how-to-do-a-dropdown-menu-on-click#55425502 -->
-    <body class="tf_layout">
+    <body class="tf_layout" tabindex="-1">
         <div class="tf_layout-main p-4">
             <div class="tf_dashboard">
                 <div class="tf_dashboard-top-panel">
@@ -45,7 +45,7 @@
                                     ><i class="fas fa-chart-line fa-fw"></i></button>
                                     <div class="tf_drop-content">
                                         <div class="d-grid g-1 bg-positive rounded p-1 shadow">
-                                            <button class="tf_btn tf_btn-sm tf_btn-transparent text-start">
+                                            <button class="tf_btn tf_btn-sm tf_btn-transparent text-start" onclick="alert('клик')">
                                                 <i class="fas fa-plus-square fa-fw"></i>
                                                 Создать новый
                                             </button>
@@ -81,6 +81,11 @@
                                                 </button>
                                                 <div class="tf_drop-content">
                                                     <div class="bg-positive rounded ml-1 p-1 shadow">
+                                                        <button class="tf_btn tf_btn-sm tf_btn-transparent text-start" onclick="alert('клик')">
+                                                            <i class="fas fa-plus-square fa-fw"></i>
+                                                            Создать новый
+                                                        </button>
+                                                        <br>
                                                         Здесь будет форма и т.п. и тд.
                                                         <br>
                                                         Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
@@ -502,10 +507,10 @@
                         <div class="bg-positive rounded overflow-hidden p-1 shadow">
                             <div class="p-2 fst-italic text-secondary l:d:d-none">admin</div>
                             <div class="d-grid">
-                                <button class="tf_btn tf_btn-transparent text-start">Личный кабинет</button>
-                                <button class="tf_btn tf_btn-transparent text-start">Настройки</button>
-                                <button class="tf_btn tf_btn-transparent text-start">Сделать стартовой страницей</button>
-                                <button class="tf_btn tf_btn-transparent text-start">Войти в режим ретроспекции</button>
+                                <button class="lc tf_btn tf_btn-transparent text-start" blured>Личный кабинет</button>
+                                <button class="tf_btn tf_btn-transparent text-start" blured>Настройки</button>
+                                <button class="tf_btn tf_btn-transparent text-start" blured>Сделать стартовой страницей</button>
+                                <button class="tf_btn tf_btn-transparent text-start" blured>Войти в режим ретроспекции</button>
                                 <hr class="my-1 w-100">
                                 <button class="tf_btn tf_btn-transparent text-start d-inline-flex">
                                     Выход
@@ -568,11 +573,17 @@
     <script src="../js/layout.js"></script>
     <script src="../js/ui-drops.js"></script>
     <script>
+
+        // $('body').on('click', '[blured]', function() {
+        //     this.blur()
+        // })
+
         // $( "#toggle-preview" ).on( "click", function() {
         //     $( ".tf_finder" ).toggleClass( "explorer" )
         // });
         $( ".desktop .tf_navbar-item" ).on( "click", function() {
-            $( ".desktop .tf_layout-aside" ).unbind('mouseenter mouseleave');
+            // $( ".desktop .tf_layout-aside" ).unbind('mouseenter mouseleave');
+            // $("#contents").trigger("focus")
         });
     </script>
 </html>

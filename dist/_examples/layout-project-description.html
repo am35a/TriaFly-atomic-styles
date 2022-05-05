@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SPA layout</title>
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/global.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://unpkg.com/current-device/umd/current-device.min.js"></script>
+        <style>
+            /*  */
+            .tf_details summary::before {
+                content: "\f054";
+                display: inline-block;
+                font: normal normal normal 14px/1 FontAwesome;
+                    font-weight: normal;
+                text-rendering: auto;
+                margin-right: 0.25rem;
+                transition: 0.25s;
+                font-weight: 900;
+                text-align: center;
+                width: 1.25em;
+                align-self: center;
+            }
+            .thumb {
+                max-width: calc(var(--key-size) * 6);
+                max-height: calc(var(--key-size) * 6);
+                /* height: auto; */
+                /* object-position: center;
+                object-fit: contain;
+                aspect-ratio: 1 / 1; */
+            }
+            .thumb img {
+                width: 100%;
+                height: 100%;
+                object-position: center;
+                object-fit: contain;
+            }
+        </style>
+    </head>
+    <body class="tf_layout">
+        <div class="tf_layout-main p-4">
+            <div class="h2 mb-0" role="heading" aria-level="1"> Изображения и корпоративный стиль</div>
+            <div>
+                <details class="tf_details">
+                    <summary class="h4" role="heading" aria-level="2">Восстановление</summary>
+                    <div class="mb-6 bg-positive rounded">
+                        <div class="d-grid g-4 p-4">
+                            <div>
+                                <div class="h5" role="heading" aria-level="3">Создать точку восстановления</div>
+                                <div class="d-grid">
+                                    <label for="inputTextDefault" class="tf_form-label">Краткое описание</label>
+                                    <div class="d-flex g-2">
+                                        <input id="inputTextDefault" class="tf_form-control tf_form-control-sm flex-grow-1 w-auto" type="text">
+                                        <button class="tf_btn tf_btn-sm">
+                                            <i class="fa fa-flag" aria-hidden="true"></i> Создать точку ...
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="my-0">
+                        <div class="d-grid g-4 p-4">
+                            <div>
+                                <div class="h5" role="heading" aria-level="3">Точки восстановления</div>
+                                <div class="mb-2 fs-sm text-secondary">
+                                    <i class="fa fa-info-circle text-info" aria-hidden="true"></i> Eсли ваша система работает нестабильно, ее можно востановить используя установленные ранее точки восстановления
+                                </div>
+                                <div class="d-grid">
+                                    <div class="d-grid g-2 cols-3">
+                                        <div class="col-span-1 text-center fw-500">дата</div>
+                                        <div class="col-span-2 text-center fw-500">описание</div>
+                                    </div>
+                                    <div class="d-grid g-3 cols-3 border-top mt-2 pt-2 fs-sm align-items-center">
+                                        <div class="col-span-1 text-center">09:41 30-09-2021</div>
+                                        <div class="col-span-2 d-flex align-items-center">
+                                            <div class="flex-grow-1 w-auto">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit - emporibus debitis blanditiis.
+                                            </div>
+                                            <button class="tf_btn bg-transparent tf_btn-xs py-0" title=" Вернуться к точке восстановления">
+                                                <i class="fa fa-undo" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid g-3 cols-3 border-top mt-2 pt-2 fs-sm align-items-center">
+                                        <div class="col-span-1 text-center">09:41 30-09-2021</div>
+                                        <div class="col-span-2 d-flex align-items-center">
+                                            <div class="flex-grow-1 w-auto">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit - emporibus debitis blanditiis.
+                                            </div>
+                                            <button class="tf_btn bg-transparent tf_btn-xs py-0" title=" Вернуться к точке восстановления">
+                                                <i class="fa fa-undo" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+    
+
+                
+                <div class="d-grid g-1">
+                    <div class="h4 mt-6" role="heading" aria-level="2">Изображения</div>
+                    <div class="d-grid cols-4 p:cols-2 p:m:cols-1 g-3">
+                        <div class="">
+                            <div class="thumb">
+                                <img class="" src="https://net-dev.chtd.ru/static/base/img/logo-full.svg">
+                            </div>
+                            <!-- <div class="d-inline-grid">
+                                <div class="thumb p-2">
+                                    <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fyesofcorsa.com%2Fwp-content%2Fuploads%2F2020%2F02%2FFunny-Monkeys-Wallpaper-1024x731.jpg&f=1&nofb=1" alt="">
+                                </div>
+                            </div> -->
+                            <div>
+                                <label for="project_logo" class="tf_form-label">Логотип</label>
+                                <input id="project_logo" class="tf_form-control" name="project_logo" accept="image/jpeg, image/png" type="file" autocomplete="off">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="project_welcome_logo" class="tf_form-label">Логотип авторизации</label>
+                            <input id="project_welcome_logo" class="tf_form-control" name="project_welcome_logo" accept="image/jpeg, image/png" type="file" autocomplete="off">
+                        </div>
+                        <div>
+                            
+                        </div>
+                        <div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <button class="tf_btn"><i class="fas fa-save fa-fw"></i> Сохранить</button>
+            </div>
+        </div>
+        <div class="tf_layout-header">
+            <button class="tf_layout-aside-expander" tabindex="-1"><i class="fa fa-bars"></i></button>
+            &nbsp;
+            <div class="px-2">
+                <!-- right buttons -->
+            </div>
+        </div>
+        <div class="tf_layout-aside">
+            <div class="tf_aside-fader">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="tf_aside-navbar">
+                <!-- ... -->
+            </div>
+        </div>
+    </body>
+    <script>
+        // 
+    </script>
+</html>

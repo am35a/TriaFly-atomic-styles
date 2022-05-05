@@ -175,9 +175,9 @@ hr {
 }
 .tf_authorization {
   display: grid;
-  min-width: 100vw;
+  min-width: 100%;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100%;
   height: 100%;
   background-image: url(../images/bkg-login-page.svg);
   background-position: left center;
@@ -185,6 +185,11 @@ hr {
   background-size: cover;
   overflow-x: hidden;
   overflow-y: auto;
+}
+@media (orientation: landscape) {
+  .mobile .tf_authorization {
+    background-position: 65vh center;
+  }
 }
 .tf_authorization > *:not(script) {
   grid-row: 1/2;
@@ -201,7 +206,8 @@ hr {
   max-width: calc(var(--key-size) * 16);
 }
 @media (orientation: landscape) {
-  .tf_authorization .tf_authorization-body {
+  .tablet .tf_authorization .tf_authorization-body,
+  .desktop .tf_authorization .tf_authorization-body {
     width: 50%;
     margin: auto auto auto 0;
   }
@@ -287,6 +293,16 @@ hr {
   border: none;
   background-color: var(--aside-expander-background-color, var(--primary-color));
   color: var(--positive-color);
+}
+.tf_layout-tabs {
+  grid-template-columns: max-content auto max-content;
+  grid-gap: calc(var(--key-size) * 0.25);
+}
+.tf_layout-tabs-container {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  grid-gap: 0.25rem;
 }
 .tf_aside-fader {
   display: grid;
@@ -798,6 +814,24 @@ hr {
 .tf_btn.active {
   background-color: var(--negative-color-25);
 }
+.tf_btn.used {
+  position: relative;
+}
+.tf_btn.used:after {
+  content: '';
+  position: absolute;
+  top: calc(var(--key-size) * 0.0625);
+  right: calc(var(--key-size) * 0.0625);
+  width: calc(var(--key-size) * 0.5);
+  height: calc(var(--key-size) * 0.5);
+  border-radius: var(--key-size);
+}
+.tf_btn.used:not(.tf_btn-transparent):after {
+  background-color: currentColor;
+}
+.tf_btn.used.tf_btn-transparent:after {
+  background-color: var(--primary-color);
+}
 .tf_btn-inverse {
   background-color: var(--negative-color);
   color: var(--positive-color);
@@ -1033,9 +1067,11 @@ hr {
   font-size: var(--key-size);
   line-height: 1.5;
   appearance: none;
+  -webkit-appearance: none;
 }
 .tf_form-control:disabled,
 .tf_form-control[readonly] {
+  color: var(--negative-color-25);
   pointer-events: none;
 }
 .tf_form-control:focus {
@@ -1043,29 +1079,47 @@ hr {
   box-shadow: 0 0 0 calc(var(--key-size) * 0.125) currentColor;
 }
 select.tf_form-control {
-  padding-right: calc(var(--key-size) * 2.5);
-  /*  1.25 + .625 * 2 */
+  padding-right: calc(var(--key-size) * 1.75);
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><rect x='0' y='0' width='24' height='24' fill='white' fill-opacity='0.75' rx='2'/><path d='M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z'/></svg>");
   background-repeat: no-repeat;
-  background-position: right calc(var(--key-size) * 0.625) center;
+  background-position: right calc(var(--key-size) * 0.25) center;
   background-size: calc(var(--key-size) * 1.25);
 }
-[type="file"].tf_form-control {
-  padding-left: calc(var(--key-size) * 2.5);
-  /*  1.25 + .625 * 2 */
+[type=file].tf_form-control {
+  padding-left: calc(var(--key-size) * 1.75);
+  min-height: calc(var(--key-size) * 2.125);
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><rect x='0' y='0' width='24' height='24' fill='white' fill-opacity='0.75' rx='2'/><path d='M5,20h14v-2H5V20z M5,10h4v6h6v-6h4l-7-7L5,10z'/></svg>");
   background-repeat: no-repeat;
-  background-position: left calc(var(--key-size) * 0.625) center;
+  background-position: left calc(var(--key-size) * 0.25) center;
   background-size: calc(var(--key-size) * 1.25);
 }
-[type="file"].tf_form-control::file-selector-button {
+[type=file].tf_form-control::file-selector-button {
   display: none;
 }
-[type="file"].tf_form-control::-webkit-file-upload-button {
+[type=file].tf_form-control::-webkit-file-upload-button {
   display: none;
 }
 [type=number].tf_form-control {
   -moz-appearance: textfield;
+}
+[type=number].tf_form-control::-webkit-outer-spin-button,
+[type=number].tf_form-control::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+[type=color].tf_form-control {
+  min-width: calc(var(--key-size) * 2.125);
+  min-height: calc(var(--key-size) * 2.125);
+  padding: calc(var(--key-size) * 0.25);
+}
+[type=color].tf_form-control::-moz-color-swatch,
+[type=color].tf_form-control::-webkit-color-swatch,
+[type=color].tf_form-control::-webkit-color-swatch-wrapper {
+  padding: 0;
+  border-width: 0;
+}
+[type=color].tf_form-control:not(:disabled):not([readonly]) {
+  cursor: pointer;
 }
 .tf_form-control-primary {
   border-color: var(--primary-color);
@@ -1074,7 +1128,8 @@ select.tf_form-control {
 .tf_form-control-primary:hover {
   border-color: var(--primary-color-d1);
 }
-.tf_form-control-primary:disabled {
+.tf_form-control-primary:disabled,
+.tf_form-control-primary[readonly] {
   border-color: var(--primary-color-l1);
   background-color: var(--primary-color-l2);
   color: var(--primary-color-l1);
@@ -1093,7 +1148,8 @@ select.tf_form-control {
 .tf_form-control-secondary:hover {
   border-color: var(--secondary-color-d1);
 }
-.tf_form-control-secondary:disabled {
+.tf_form-control-secondary:disabled,
+.tf_form-control-secondary[readonly] {
   border-color: var(--secondary-color-l1);
   background-color: var(--secondary-color-l2);
   color: var(--secondary-color-l1);
@@ -1112,7 +1168,8 @@ select.tf_form-control {
 .tf_form-control-info:hover {
   border-color: var(--info-color-d1);
 }
-.tf_form-control-info:disabled {
+.tf_form-control-info:disabled,
+.tf_form-control-info[readonly] {
   border-color: var(--info-color-l1);
   background-color: var(--info-color-l2);
   color: var(--info-color-l1);
@@ -1131,7 +1188,8 @@ select.tf_form-control {
 .tf_form-control-success:hover {
   border-color: var(--success-color-d1);
 }
-.tf_form-control-success:disabled {
+.tf_form-control-success:disabled,
+.tf_form-control-success[readonly] {
   border-color: var(--success-color-l1);
   background-color: var(--success-color-l2);
   color: var(--success-color-l1);
@@ -1150,7 +1208,8 @@ select.tf_form-control {
 .tf_form-control-warning:hover {
   border-color: var(--warning-color-d1);
 }
-.tf_form-control-warning:disabled {
+.tf_form-control-warning:disabled,
+.tf_form-control-warning[readonly] {
   border-color: var(--warning-color-l1);
   background-color: var(--warning-color-l2);
   color: var(--warning-color-l1);
@@ -1169,7 +1228,8 @@ select.tf_form-control {
 .tf_form-control-error:hover {
   border-color: var(--error-color-d1);
 }
-.tf_form-control-error:disabled {
+.tf_form-control-error:disabled,
+.tf_form-control-error[readonly] {
   border-color: var(--error-color-l1);
   background-color: var(--error-color-l2);
   color: var(--error-color-l1);
@@ -1186,92 +1246,121 @@ select.tf_form-control {
   padding: calc(var(--key-size-xs) * 0.25) calc(var(--key-size-xs) * 0.625);
   font-size: var(--key-size-xs);
 }
+[type=file].tf_form-control-xs {
+  min-height: calc(var(--key-size) * 1.625);
+}
+[type=color].tf_form-control-xs {
+  min-width: calc(var(--key-size) * 1.625);
+  min-height: calc(var(--key-size) * 1.625);
+  padding: calc(var(--key-size-xs) * 0.25);
+}
 .tf_form-control-sm {
   --key-size-sm: calc(var(--key-size) * 0.875);
   padding: calc(var(--key-size-sm) * 0.25) calc(var(--key-size-sm) * 0.625);
   font-size: var(--key-size-sm);
+}
+[type=file].tf_form-control-sm {
+  min-height: calc(var(--key-size) * 1.875);
+}
+[type=color].tf_form-control-sm {
+  min-width: calc(var(--key-size) * 1.875);
+  min-height: calc(var(--key-size) * 1.875);
+  padding: calc(var(--key-size-sm) * 0.25);
 }
 .tf_form-control-lg {
   --key-size-lg: calc(var(--key-size) * 1.125);
   padding: calc(var(--key-size-lg) * 0.25) calc(var(--key-size-lg) * 0.625);
   font-size: var(--key-size-lg);
 }
-.tf_form-check {
-  display: grid;
-  grid-auto-flow: column;
-  align-items: center;
-  justify-items: start;
-  grid-template-columns: min-content;
+[type=file].tf_form-control-lg {
+  min-height: calc(var(--key-size) * 2.375);
 }
-.tf_form-check input[type="checkbox"] {
-  margin: unset;
-  width: var(--key-size);
-  height: var(--key-size);
-  border-radius: calc(var(--key-size) * 0.125);
-  background-color: var(--positive-color);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  border: calc(var(--key-size) * 0.0625) solid currentColor;
-  cursor: pointer;
-  appearance: none;
+[type=color].tf_form-control-lg {
+  min-width: calc(var(--key-size) * 2.375);
+  min-height: calc(var(--key-size) * 2.375);
+  padding: calc(var(--key-size-lg) * 0.25);
 }
-.tf_form-check input[type="checkbox"]:disabled,
-.tf_form-check input[type="checkbox"][readonly] {
-  pointer-events: none;
-}
-.tf_form-check input[type="checkbox"]:checked {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><path d='M0.4,7.7l2.1-2.1l3.9,3.9l7.1-7.1l2.1,2.1l-9.2,9.2L0.4,7.7z'/></svg>");
-  background-color: currentColor;
-  border-color: transparent;
-}
-.tf_form-check input[type="checkbox"]:focus {
-  outline: 0;
-  box-shadow: 0 0 0 calc(var(--key-size) * 0.125) currentColor;
-}
-.tf_form-check label {
-  padding-left: calc(var(--key-size) * 0.25);
-  line-height: 1.5;
-  user-select: none;
-  cursor: pointer;
-}
+.tf_form-check,
 .tf_form-radio {
   display: grid;
   grid-auto-flow: column;
-  align-items: start;
-  justify-items: start;
   grid-template-columns: min-content;
+  grid-gap: calc(var(--key-size) * 0.25);
+  align-items: center;
+  justify-items: start;
+  line-height: 1.5;
 }
-.tf_form-radio input[type="radio"] {
-  margin-top: calc(var(--key-size) * 0.25);
-  width: var(--key-size);
-  height: var(--key-size);
-  border-radius: calc(var(--key-size) * 0.5);
+.tf_form-check-input[type="checkbox"],
+.tf_form-radio-input[type="checkbox"],
+.tf_form-check-input[type="radio"],
+.tf_form-radio-input[type="radio"] {
+  margin: unset;
+  width: 1em;
+  height: 1em;
+  border-radius: calc(1em * 0.125);
+  background-color: transparent;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   border: calc(var(--key-size) * 0.0625) solid currentColor;
   cursor: pointer;
   appearance: none;
+  -webkit-appearance: none;
 }
-.tf_form-radio input[type="radio"]:disabled,
-.tf_form-radio input[type="radio"][readonly] {
+.tf_form-check-input[type="checkbox"]:disabled,
+.tf_form-radio-input[type="checkbox"]:disabled,
+.tf_form-check-input[type="radio"]:disabled,
+.tf_form-radio-input[type="radio"]:disabled,
+.tf_form-check-input[type="checkbox"][readonly],
+.tf_form-radio-input[type="checkbox"][readonly],
+.tf_form-check-input[type="radio"][readonly],
+.tf_form-radio-input[type="radio"][readonly] {
+  color: var(--negative-color-25);
   pointer-events: none;
+  cursor: default;
 }
-.tf_form-radio input[type="radio"]:checked {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><circle cx='8' cy='8' r='5'/></svg>");
+.tf_form-check-input[type="checkbox"]:checked,
+.tf_form-radio-input[type="checkbox"]:checked,
+.tf_form-check-input[type="radio"]:checked,
+.tf_form-radio-input[type="radio"]:checked {
   background-color: currentColor;
   border-color: transparent;
 }
-.tf_form-radio input[type="radio"]:focus {
+.tf_form-check-input[type="checkbox"]:focus,
+.tf_form-radio-input[type="checkbox"]:focus,
+.tf_form-check-input[type="radio"]:focus,
+.tf_form-radio-input[type="radio"]:focus {
   outline: 0;
   box-shadow: 0 0 0 calc(var(--key-size) * 0.125) currentColor;
 }
-.tf_form-radio label {
-  padding-left: calc(var(--key-size) * 0.25);
-  line-height: 1.5;
+.tf_form-check-label,
+.tf_form-radio-label {
   user-select: none;
   cursor: pointer;
+}
+.tf_form-check-input:disabled ~ .tf_form-check-label,
+.tf_form-check-input:disabled ~ .tf_form-radio-label,
+.tf_form-radio-input:disabled ~ .tf_form-check-label,
+.tf_form-radio-input:disabled ~ .tf_form-radio-label,
+.tf_form-check-input.tf_form-check[readonly] ~ .tf_form-check-label,
+.tf_form-check-input.tf_form-check[readonly] ~ .tf_form-radio-label,
+.tf_form-check-input.tf_form-radio[readonly] ~ .tf_form-check-label,
+.tf_form-check-input.tf_form-radio[readonly] ~ .tf_form-radio-label,
+.tf_form-radio-input.tf_form-check[readonly] ~ .tf_form-check-label,
+.tf_form-radio-input.tf_form-check[readonly] ~ .tf_form-radio-label,
+.tf_form-radio-input.tf_form-radio[readonly] ~ .tf_form-check-label,
+.tf_form-radio-input.tf_form-radio[readonly] ~ .tf_form-radio-label {
+  color: var(--negative-color-25);
+  cursor: default;
+}
+.tf_form-check-input[type="checkbox"]:checked {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><path d='M0.4,7.7l2.1-2.1l3.9,3.9l7.1-7.1l2.1,2.1l-9.2,9.2L0.4,7.7z'/></svg>");
+}
+.tf_form-radio-input[type="radio"] {
+  border-radius: calc(1em * 0.5);
+}
+.tf_form-radio-input[type="radio"]:checked {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><circle cx='8' cy='8' r='5'/></svg>");
 }
 .tf_input-group {
   position: relative;
@@ -1626,10 +1715,10 @@ h6,
 .tf_drop-focus:hover > .tf_drop-content {
   z-index: 1010;
 }
-.tf_drop-hover:not(:hover, :focus-within) .tf_drop-content {
+.tf_drop-hover:not(:hover) .tf_drop-content {
   display: none;
 }
-.tf_drop-focus:not(:focus-within) .tf_drop-content {
+.tf_drop-focus > .tf_btn-drop:not(.open) + .tf_drop-content {
   display: none;
 }
 .border {
@@ -1705,6 +1794,7 @@ h6,
 }
 .shadow {
   box-shadow: 0 calc(var(--key-size) * 0.25) calc(var(--key-size) * 0.5) var(--negative-color-10) !important;
+  border: calc(var(--key-size) * 0.0625) solid var(--negative-color-10);
 }
 .shadow-0 {
   box-shadow: none !important;

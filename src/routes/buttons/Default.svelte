@@ -9,10 +9,11 @@
     <div class="rounded-2 overflow-hidden">
         <div class="bg-positive p-4 text-center">
             <div class="d-inline-flex g-4 flex-wrap">
-                <button class="tf_btn">default button</button>
-                <button class="tf_btn"><i class="fas fa-home"></i> icon button</button>
-                <button class="tf_btn active">active button</button>
-                <button class="tf_btn" disabled>disabled button</button>
+                <button class="tf_btn">Default button</button>
+                <button class="tf_btn"><i class="fas fa-home"></i> Icon button</button>
+                <button class="tf_btn active">Active button</button>
+                <button class="tf_btn used">Used button</button>
+                <button class="tf_btn" disabled>Disabled button</button>
             </div>
         </div>
         <Highlight

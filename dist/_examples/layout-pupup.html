@@ -10,11 +10,55 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://unpkg.com/current-device/umd/current-device.min.js"></script>
+        <style>
+            .tf_layout-popix {
+                position: absolute;
+            }
+            .tf_card {
+                --border-color: var(--negative-color-15);
+                background-color: var(--positive-color);
+            }
+            .tf_card:first-child {
+                border-top-left-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
+                border-top-right-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
+            }
+            .tf_card:last-child {
+                border-bottom-right-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
+                border-bottom-left-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
+            }
+            .tf_card > [class*="tf_card"] {
+                padding: var(--p-2, calc(var(--key-size) * 0.5));
+            }
+            .tf_card > .tf_card-header {
+                /* padding-bottom: var(--p-1, calc(var(--key-size) * 0.25)); */
+                /* background-color: var(--negative-color-15); */
+                display: flex;
+                grid-gap: var(--g-1, calc(var(--key-size) * 0.25));
+                align-items: center;
+                justify-content: space-between;
+                font-weight: 600;
+            }
+            .tf_card > .tf_card-footer {
+                /* display: flex;
+                grid-gap: var(--g-1, calc(var(--key-size) * 0.25)); */
+            }
+            /* .tf_card > [class*="tf_card"]:first-child {
+                padding-top: var(--p-2, calc(var(--key-size) * 0.5));
+            }
+            .tf_card > [class*="tf_card"] {
+                padding-left: var(--p-2, calc(var(--key-size) * 0.5));
+                padding-right: var(--p-2, calc(var(--key-size) * 0.5));
+
+            }
+            .tf_card > [class*="tf_card"]:last-child {
+                padding-bottom: var(--p-2, calc(var(--key-size) * 0.5));
+            } */
+        </style>
     </head>
     <body class="tf_layout">
         <div class="tf_layout-main p-4">
             <h1>Заголовок</h1>
-            <div class="d-grid" style="width: 24rem;">
+            <!-- <div class="d-grid" style="width: 24rem;">
                 <div class="text-end mb-1">
                     <button class="tf_btn tf_btn-secondary tf_btn-xs tf_btn-icon"><i class="fas fa-cog"></i></button>
                 </div>
@@ -92,8 +136,228 @@
                         <label for="showControls" class="text-secondary mb-3">Показывать настройки</label>
                     </div>
                 </div>
+            </div> -->
+
+            
+            <div class="tf_layout-popix" style="left: 5rem;top: 5rem;width: 32rem;">
+
+                <div class="tf_card border shadow">
+                    <div class="tf_card-header pb-0">
+                        <div class="rounded bg-secondary text-positive px-2 py-1 fs-xs">ИЛИ</div>
+                        <button class="tf_btn tf_btn-xs tf_btn-transparent tf_btn-icon" title="Отменить">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+            
+                    <!-- <div class="tf_card-header pb-0">
+                        <div class="rounded bg-secondary text-positive px-2 py-1 fs-xs">ИЛИ</div>
+                    </div> -->
+                    <!-- <div class="tf_card-header pb-0">
+                        <div class="w-100 border-bottom border-secondary d-flex">
+                            <small class="rounded rounded-bottom-0 bg-secondary text-positive px-2 py-1 d-flex-w-auto mx-auto">ИЛИ</small>
+                        </div>
+                    </div> -->
+                    <div class="tf_card-body d-grid g-2">
+        
+                        <div class="tf_card border border success shadow">
+                            <div class="tf_card-header pb-0">
+                                <div class="rounded bg-secondary text-positive px-2 py-1 fs-xs">И</div>
+                                <button class="tf_btn tf_btn-xs tf_btn-transparent tf_btn-icon" title="Отменить">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                                    
+                            <div class="tf_card-body d-grid g-2">
+
+                                <div class="tf_card border shadow">
+                                    <div class="tf_card-header">
+                                        <span class="ml-1">Заголовок</span>
+                                        <div>
+                                            <button class="tf_btn tf_btn-xs tf_btn-icon tf_btn-transparent ml-auto" title="Фильтр">
+                                                <i class="fas fa-filter"></i>
+                                            </button>
+                                            <button class="tf_btn tf_btn-xs tf_btn-icon tf_btn-transparent ml-auto" title="Удалить фильтр">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <div class="tf_card border shadow">
+                                    <div class="tf_card-header">
+                                        <span class="ml-1">Заголовок</span>
+                                        <div>
+                                            <button class="tf_btn tf_btn-xs tf_btn-icon tf_btn-transparent ml-auto" title="Фильтр">
+                                                <i class="fas fa-filter"></i>
+                                            </button>
+                                            <button class="tf_btn tf_btn-xs tf_btn-icon tf_btn-transparent ml-auto" title="Удалить фильтр">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="tf_card-footer pt-0">
+                                <hr class="mt-0 mb-2">
+                                <div class="d-flex g-2">
+                                    <button class="tf_btn tf_btn-xs tf_btn-success-" title="Добавить фильтр И">
+                                        <i class="fas fa-plus"></i>
+                                        И
+                                    </button>
+                                    <button class="tf_btn tf_btn-xs tf_btn-primary-" title="Добавить фильтр ИЛИ">
+                                        <i class="fas fa-plus"></i>
+                                        ИЛИ
+                                    </button>
+                                    <button class="tf_btn tf_btn-xs tf_btn-transparent ml-auto" title="Удалить">
+                                        <i class="fas fa-save"></i>
+                                        Сохранить
+                                    </button>
+                                    <!-- <button class="tf_btn tf_btn-xs tf_btn-transparent tf_btn-icon" title="Отменить">
+                                        <i class="fas fa-times"></i>
+                                    </button> -->
+                                </div>
+                            </div>
+                        </div>
+        
+
+                        <div class="tf_card border shadow">
+                            <div class="tf_card-header">
+                                <span class="ml-1">Заголовок</span>
+                                <div>
+                                    <button class="tf_btn tf_btn-xs tf_btn-icon tf_btn-transparent ml-auto" title="Фильтр">
+                                        <i class="fas fa-filter"></i>
+                                    </button>
+                                    <button class="tf_btn tf_btn-xs tf_btn-icon tf_btn-transparent ml-auto" title="Удалить фильтр">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tf_card border shadow">
+                            <div class="tf_card-header">
+                                <span class="ml-1">Заголовок</span>
+                                <div>
+                                    <button class="tf_btn tf_btn-xs tf_btn-icon tf_btn-transparent ml-auto" title="Фильтр">
+                                        <i class="fas fa-filter"></i>
+                                    </button>
+                                    <button class="tf_btn tf_btn-xs tf_btn-icon tf_btn-transparent ml-auto" title="Удалить фильтр">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="tf_card-footer pt-0">
+                        <hr class="mt-0 mb-2">
+                        <div class="d-flex g-2">
+                            <button class="tf_btn tf_btn-xs tf_btn-success-" title="Добавить фильтр И">
+                                <i class="fas fa-plus"></i>
+                                И
+                            </button>
+                            <button class="tf_btn tf_btn-xs tf_btn-primary-" title="Добавить фильтр ИЛИ">
+                                <i class="fas fa-plus"></i>
+                                ИЛИ
+                            </button>
+                            <button class="tf_btn tf_btn-xs tf_btn-transparent ml-auto" title="Удалить">
+                                <i class="fas fa-save"></i>
+                                Сохранить
+                            </button>
+                            <!-- <button class="tf_btn tf_btn-xs tf_btn-transparent tf_btn-icon" title="Отменить">
+                                <i class="fas fa-times"></i>
+                            </button> -->
+                        </div>
+                    </div>
+                </div>
+
             </div>
-                    
+
+
+
+            <!-- <div class="tf_card border shadow">
+                <div class="tf_card-header">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-circle fa-sm text-primary ml-1 mr-2"></i>
+                        <span>Заголовок</span>
+                    </div>
+                    <div>
+                        <button class="tf_btn tf_btn-xs tf_btn-icon tf_btn-transparent ml-auto" title="Фильтр">
+                            <i class="fas fa-filter"></i>
+                        </button>
+                        <button class="tf_btn tf_btn-xs tf_btn-icon tf_btn-transparent ml-auto" title="Удалить фильтр">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="tf_card-body d-grid g-2">
+                    Контейнер
+                </div>
+                <div class="tf_card-footer pt-0">
+                    <hr class="mt-0 mb-2">
+                    <div class="d-flex g-2">
+                        <button class="tf_btn tf_btn-xs tf_btn-success" title="Добавить фильтр И">
+                            <i class="fas fa-plus"></i>
+                            И
+                        </button>
+                        <button class="tf_btn tf_btn-xs tf_btn-primary" title="Добавить фильтр ИЛИ">
+                            <i class="fas fa-plus"></i>
+                            ИЛИ
+                        </button>
+                        <button class="tf_btn tf_btn-xs tf_btn-transparent ml-auto" title="Удалить">
+                            <i class="fas fa-save"></i>
+                            Сохранить
+                        </button>
+                        <button class="tf_btn tf_btn-xs tf_btn-transparent tf_btn-icon" title="Отменить">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+            </div> -->
+
+
+            <!-- <div class="tf_layout-popix" style="left: 5rem;top: 5rem;width: 32rem;">
+                <div class="tf_card shadow border border-secondary">
+                    <div class="tf_card-header">
+                        <div class="d-flex g-2">
+                            <span class="fs-xs p-1 bg-primary text-positive rounded">ИЛИ</span>
+                            <span>Заголовок</span>
+                        </div>
+                        <div>
+                            <button class="tf_btn tf_btn-xs tf_btn-icon tf_btn-transparent ml-auto" title="Фильтр">
+                                <i class="fas fa-filter"></i>
+                            </button>
+                            <button class="tf_btn tf_btn-xs tf_btn-icon tf_btn-transparent ml-auto" title="Удалить фильтр">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="tf_card-body d-grid g-2">
+                        Контейнер
+                    </div>
+                    <div class="tf_card-footer pt-0">
+                        <hr class="mt-0 mb-2">
+                        <div class="d-flex g-2">
+                            <button class="tf_btn tf_btn-xs tf_btn-success" title="Добавить фильтр И">
+                                <i class="fas fa-plus"></i>
+                                И
+                            </button>
+                            <button class="tf_btn tf_btn-xs tf_btn-primary" title="Добавить фильтр ИЛИ">
+                                <i class="fas fa-plus"></i>
+                                ИЛИ
+                            </button>
+                            <button class="tf_btn tf_btn-xs tf_btn-transparent ml-auto" title="Удалить">
+                                <i class="fas fa-save"></i>
+                                Сохранить
+                            </button>
+                            <button class="tf_btn tf_btn-xs tf_btn-transparent tf_btn-icon" title="Отменить">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
         </div>
         <div class="tf_layout-header">
             <button class="tf_layout-aside-expander" tabindex="-1"><i class="fas fa-bars"></i></button>

@@ -8,3 +8,13 @@
     background-color: var(--aside-expander-background-color, var(--primary-color));
     color: var(--positive-color);
 }
+.tf_layout-tabs {
+    grid-template-columns: max-content auto max-content;
+    grid-gap: calc(var(--key-size) * .25);
+    &-container {
+        display: flex;
+        overflow: hidden;
+        white-space: nowrap;
+        grid-gap: .25rem;        
+    }
+}
