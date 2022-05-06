@@ -2685,6 +2685,9 @@ h6,
 .w-100 {
   width: 100% !important;
 }
+.w-fit {
+  width: fit-content !important;
+}
 .w-auto {
   width: auto !important;
 }
@@ -2699,6 +2702,9 @@ h6,
 }
 .h-100 {
   height: 100% !important;
+}
+.h-fit {
+  height: fit-content !important;
 }
 .h-auto {
   height: auto !important;
@@ -3930,6 +3936,9 @@ h6,
 .mobile .m\:w-100 {
   width: 100% !important;
 }
+.mobile .m\:w-fit {
+  width: fit-content !important;
+}
 .mobile .m\:w-auto {
   width: auto !important;
 }
@@ -3944,6 +3953,9 @@ h6,
 }
 .mobile .m\:h-100 {
   height: 100% !important;
+}
+.mobile .m\:h-fit {
+  height: fit-content !important;
 }
 .mobile .m\:h-auto {
   height: auto !important;
@@ -5175,6 +5187,9 @@ h6,
 .tablet .t\:w-100 {
   width: 100% !important;
 }
+.tablet .t\:w-fit {
+  width: fit-content !important;
+}
 .tablet .t\:w-auto {
   width: auto !important;
 }
@@ -5189,6 +5204,9 @@ h6,
 }
 .tablet .t\:h-100 {
   height: 100% !important;
+}
+.tablet .t\:h-fit {
+  height: fit-content !important;
 }
 .tablet .t\:h-auto {
   height: auto !important;
@@ -6420,6 +6438,9 @@ h6,
 .desktop .d\:w-100 {
   width: 100% !important;
 }
+.desktop .d\:w-fit {
+  width: fit-content !important;
+}
 .desktop .d\:w-auto {
   width: auto !important;
 }
@@ -6434,6 +6455,9 @@ h6,
 }
 .desktop .d\:h-100 {
   height: 100% !important;
+}
+.desktop .d\:h-fit {
+  height: fit-content !important;
 }
 .desktop .d\:h-auto {
   height: auto !important;
@@ -7666,6 +7690,9 @@ h6,
   .l\:w-100 {
     width: 100% !important;
   }
+  .l\:w-fit {
+    width: fit-content !important;
+  }
   .l\:w-auto {
     width: auto !important;
   }
@@ -7680,6 +7707,9 @@ h6,
   }
   .l\:h-100 {
     height: 100% !important;
+  }
+  .l\:h-fit {
+    height: fit-content !important;
   }
   .l\:h-auto {
     height: auto !important;
@@ -8911,6 +8941,9 @@ h6,
   .mobile .l\:m\:w-100 {
     width: 100% !important;
   }
+  .mobile .l\:m\:w-fit {
+    width: fit-content !important;
+  }
   .mobile .l\:m\:w-auto {
     width: auto !important;
   }
@@ -8925,6 +8958,9 @@ h6,
   }
   .mobile .l\:m\:h-100 {
     height: 100% !important;
+  }
+  .mobile .l\:m\:h-fit {
+    height: fit-content !important;
   }
   .mobile .l\:m\:h-auto {
     height: auto !important;
@@ -10156,6 +10192,9 @@ h6,
   .tablet .l\:t\:w-100 {
     width: 100% !important;
   }
+  .tablet .l\:t\:w-fit {
+    width: fit-content !important;
+  }
   .tablet .l\:t\:w-auto {
     width: auto !important;
   }
@@ -10170,6 +10209,9 @@ h6,
   }
   .tablet .l\:t\:h-100 {
     height: 100% !important;
+  }
+  .tablet .l\:t\:h-fit {
+    height: fit-content !important;
   }
   .tablet .l\:t\:h-auto {
     height: auto !important;
@@ -11401,6 +11443,9 @@ h6,
   .desktop .l\:d\:w-100 {
     width: 100% !important;
   }
+  .desktop .l\:d\:w-fit {
+    width: fit-content !important;
+  }
   .desktop .l\:d\:w-auto {
     width: auto !important;
   }
@@ -11415,6 +11460,9 @@ h6,
   }
   .desktop .l\:d\:h-100 {
     height: 100% !important;
+  }
+  .desktop .l\:d\:h-fit {
+    height: fit-content !important;
   }
   .desktop .l\:d\:h-auto {
     height: auto !important;
@@ -12648,6 +12696,9 @@ h6,
   .p\:w-100 {
     width: 100% !important;
   }
+  .p\:w-fit {
+    width: fit-content !important;
+  }
   .p\:w-auto {
     width: auto !important;
   }
@@ -12662,6 +12713,9 @@ h6,
   }
   .p\:h-100 {
     height: 100% !important;
+  }
+  .p\:h-fit {
+    height: fit-content !important;
   }
   .p\:h-auto {
     height: auto !important;
@@ -13893,6 +13947,9 @@ h6,
   .mobile .p\:m\:w-100 {
     width: 100% !important;
   }
+  .mobile .p\:m\:w-fit {
+    width: fit-content !important;
+  }
   .mobile .p\:m\:w-auto {
     width: auto !important;
   }
@@ -13907,6 +13964,9 @@ h6,
   }
   .mobile .p\:m\:h-100 {
     height: 100% !important;
+  }
+  .mobile .p\:m\:h-fit {
+    height: fit-content !important;
   }
   .mobile .p\:m\:h-auto {
     height: auto !important;
@@ -15138,6 +15198,9 @@ h6,
   .tablet .p\:t\:w-100 {
     width: 100% !important;
   }
+  .tablet .p\:t\:w-fit {
+    width: fit-content !important;
+  }
   .tablet .p\:t\:w-auto {
     width: auto !important;
   }
@@ -15152,6 +15215,9 @@ h6,
   }
   .tablet .p\:t\:h-100 {
     height: 100% !important;
+  }
+  .tablet .p\:t\:h-fit {
+    height: fit-content !important;
   }
   .tablet .p\:t\:h-auto {
     height: auto !important;
@@ -16383,6 +16449,9 @@ h6,
   .desktop .p\:d\:w-100 {
     width: 100% !important;
   }
+  .desktop .p\:d\:w-fit {
+    width: fit-content !important;
+  }
   .desktop .p\:d\:w-auto {
     width: auto !important;
   }
@@ -16397,6 +16466,9 @@ h6,
   }
   .desktop .p\:d\:h-100 {
     height: 100% !important;
+  }
+  .desktop .p\:d\:h-fit {
+    height: fit-content !important;
   }
   .desktop .p\:d\:h-auto {
     height: auto !important;
