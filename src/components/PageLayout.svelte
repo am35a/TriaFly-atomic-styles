@@ -1,11 +1,11 @@
-<div class="d-grid g-3
+<div class="d-grid g-3 mb-0
     l:d:cols-4
     l:t:cols-4"
     {...$$restProps} >
     <div class="
         l:d:col-start-4
         l:t:col-start-4">
-        <div class="d-grid g-3 position-sticky top-0">
+        <div class="d-grid g-3 position-sticky top-0 overflow-auto lh-normal" style="max-height: calc(100vh - var(--key-size)* 5);">
             <div class="text-info">
                 <i class="fas fa-anchor"></i> Fast to goal:
             </div>

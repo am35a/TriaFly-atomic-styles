@@ -56,7 +56,7 @@
             <a href="utilities#text-transform">- Transform</a>
             <a href="utilities#text-decoration">- Decoration</a>
             <a href="utilities#text-colors">- Colors</a>
-            <a href="utilities#weight-style">- Weight & style</a>
+            <a href="utilities#weight-style">- Size, weight & style</a>
             <a href="utilities#line-height">- Line height</a>
     </slot>
     <div class="h1" role="heading" aria-level="1">Utilities</div>

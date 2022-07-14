@@ -17,6 +17,7 @@
             .tf_card {
                 --border-color: var(--negative-color-15);
                 background-color: var(--positive-color);
+                overflow: auto;
             }
             .tf_card:first-child {
                 border-top-left-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
@@ -171,8 +172,8 @@
 
                                 <div class="tf_card border shadow">
                                     <div class="tf_card-header">
-                                        <span class="ml-1">Заголовок</span>
-                                        <div>
+                                        <span class="ml-1 text-truncate" title="Заголовок">Заголовок</span>
+                                        <div class="text-nowrap">
                                             <button class="tf_btn tf_btn-xs tf_btn-icon tf_btn-transparent ml-auto" title="Фильтр">
                                                 <i class="fas fa-filter"></i>
                                             </button>
@@ -185,8 +186,8 @@
         
                                 <div class="tf_card border shadow">
                                     <div class="tf_card-header">
-                                        <span class="ml-1">Заголовок</span>
-                                        <div>
+                                        <span class="ml-1 text-truncate" title="Заголовок заголовок бывает динный и его надо обрезать">Заголовок заголовок бывает динный и его надо обрезать</span>
+                                        <div class="text-nowrap">
                                             <button class="tf_btn tf_btn-xs tf_btn-icon tf_btn-transparent ml-auto" title="Фильтр">
                                                 <i class="fas fa-filter"></i>
                                             </button>
@@ -219,8 +220,8 @@
 
                         <div class="tf_card border shadow">
                             <div class="tf_card-header">
-                                <span class="ml-1">Заголовок</span>
-                                <div>
+                                <span class="ml-1 text-truncate" title="Заголовок">Заголовок</span>
+                                <div class="text-nowrap">
                                     <button class="tf_btn tf_btn-xs tf_btn-icon tf_btn-transparent ml-auto" title="Фильтр">
                                         <i class="fas fa-filter"></i>
                                     </button>
@@ -233,7 +234,7 @@
 
                         <div class="tf_card border shadow">
                             <div class="tf_card-header">
-                                <span class="ml-1">Заголовок</span>
+                                <span class="ml-1 text-truncate" title="Заголовок">Заголовок</span>
                                 <div>
                                     <button class="tf_btn tf_btn-xs tf_btn-icon tf_btn-transparent ml-auto" title="Фильтр">
                                         <i class="fas fa-filter"></i>

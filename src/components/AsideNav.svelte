@@ -93,9 +93,9 @@
 </div>
 <div class="tf_aside-logo">
     <div class="tf_logo-container">
-        <!-- <div class="tf_logo-small"> -->
+        <div class="tf_logo-small">
             <img class="tf_logo-small" src="images/logo-icon.svg" alt="TriaFly">
-        <!-- </div> -->
+        </div>
         <div class="tf_logo-normal">
             <img src="images/logo-icon.svg" alt="TriaFly">
             <div class="tf_logo-title">

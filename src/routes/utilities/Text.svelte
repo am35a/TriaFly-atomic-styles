@@ -146,6 +146,14 @@
         <div class="rounded-2 overflow-hidden">
             <div class="bg-positive p-4">
                 <div class="d-grid g-4">
+                    <div class="fs-xxs">.fs-xxs</div>
+                    <div class="fs-xs">.fs-xs</div>
+                    <div class="fs-sm">.fs-sm</div>
+                    <div class="fs-md">.fs-md</div>
+                    <div class="fs-lg">.fs-lg</div>
+                    <div class="fs-xl">.fs-xl</div>
+                    <div class="fs-xxl">.fs-xxl</div>
+                    <div></div>
                     <div class="fw-lighter">.fw-lighter</div>
                     <div class="fw-normal">.fw-normal</div>
                     <div class="fw-bold">.fw-bold</div>
@@ -168,6 +176,15 @@
                 class="my-0"
                 language='{xml}'
                 code='
+    // Size
+    <div class="fs-xxs">.fs-xxs</div>
+    <div class="fs-xs">.fs-xs</div>
+    <div class="fs-sm">.fs-sm</div>
+    <div class="fs-md">.fs-md</div>
+    <div class="fs-lg">.fs-lg</div>
+    <div class="fs-xl">.fs-xl</div>
+    <div class="fs-xxl">.fs-xxl</div>
+
     // Weight
     <div class="fw-lighter">.fw-lighter</div>
     <div class="fw-normal">.fw-normal</div>
@@ -194,19 +211,23 @@
         <div class="h3" role="heading" aria-level="3">Line height</div>
         <div class="rounded-2 overflow-hidden">
             <div class="bg-positive p-4">
+                <p class="lh-0">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem qui at veritatis aliquid ipsum voluptatem sapiente cumque hic, eligendi sequi! Eum officia sint sed dolore explicabo iste est ipsam incidunt?</p>
                 <p class="lh-1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem qui at veritatis aliquid ipsum voluptatem sapiente cumque hic, eligendi sequi! Eum officia sint sed dolore explicabo iste est ipsam incidunt?</p>
                 <p class="lh-sm">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem qui at veritatis aliquid ipsum voluptatem sapiente cumque hic, eligendi sequi! Eum officia sint sed dolore explicabo iste est ipsam incidunt?</p>
                 <p class="lh-base">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem qui at veritatis aliquid ipsum voluptatem sapiente cumque hic, eligendi sequi! Eum officia sint sed dolore explicabo iste est ipsam incidunt?</p>
                 <p class="lh-lg">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem qui at veritatis aliquid ipsum voluptatem sapiente cumque hic, eligendi sequi! Eum officia sint sed dolore explicabo iste est ipsam incidunt?</p>
+                <p class="lh-normal">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem qui at veritatis aliquid ipsum voluptatem sapiente cumque hic, eligendi sequi! Eum officia sint sed dolore explicabo iste est ipsam incidunt?</p>
             </div>
             <Highlight
                 class="my-0"
                 language='{xml}'
                 code='
+    <p class="lh-0">Lorem ipsum dolor sit amet consectetur... incidunt?</p>
     <p class="lh-1">Lorem ipsum dolor sit amet consectetur... incidunt?</p>
     <p class="lh-sm">Lorem ipsum dolor sit amet consectetur... incidunt?</p>
     <p class="lh-base">Lorem ipsum dolor sit amet consectetur... incidunt?</p>
     <p class="lh-lg">Lorem ipsum dolor sit amet consectetur... incidunt?</p>
+    <p class="lh-normal">Lorem ipsum dolor sit amet consectetur... incidunt?</p>
                 '
             />
         </div>

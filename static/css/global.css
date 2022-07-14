@@ -1943,6 +1943,9 @@ h6,
 .fs-xxl {
   font-size: xx-large !important;
 }
+.lh-0 {
+  line-height: 0 !important;
+}
 .lh-1 {
   line-height: 1 !important;
 }
@@ -1954,6 +1957,9 @@ h6,
 }
 .lh-lg {
   line-height: 2 !important;
+}
+.lh-normal {
+  line-height: normal !important;
 }
 .visible {
   visibility: visible;

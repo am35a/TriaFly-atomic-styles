@@ -35,10 +35,10 @@
                     <div class="bg-secondary text-center p-2 w-100">.w-100</div>
                 </div>
                 <div class="bg-background d-flex" style="height: 16rem;">
-                    <div class="bg-secondary text-center p-2 h-25">.w-25</div>
-                    <div class="bg-secondary text-center p-2 h-50">.w-50</div>
-                    <div class="bg-secondary text-center p-2 h-75">.w-75</div>
-                    <div class="bg-secondary text-center p-2 h-100">.w-100</div>
+                    <div class="bg-secondary text-center p-2 h-25">.h-25</div>
+                    <div class="bg-secondary text-center p-2 h-50">.h-50</div>
+                    <div class="bg-secondary text-center p-2 h-75">.h-75</div>
+                    <div class="bg-secondary text-center p-2 h-100">.h-100</div>
                 </div>
             </div>
             <Highlight
