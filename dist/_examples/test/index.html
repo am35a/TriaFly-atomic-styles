@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Vanilla Example</title>
+    <base href="/" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+  <body>
+    <div id="gasps-header"></div>
+    <div id="loading">Loading...</div>
+    <div
+      id="content"
+      style="display: none; padding: 20px; max-width: 100%; overflow: hidden"
+    >
+      <div>Vanilla app content</div>
+      <div>
+        Token is
+        <pre id="token" style="font-size: 10px"></pre>
+      </div>
+      <div>
+        Config is
+        <pre id="config"></pre>
+      </div>
+    </div>
+    <script src="/gasps.min.js"></script>
+    <script>
+      GASPS.renderHeader(document.getElementById('gasps-header'), {
+        breadcrumbs: [
+          {
+            title: 'foo',
+            link: '/foo',
+          },
+          {
+            title: 'bar',
+            link: '/bar',
+          },
+          {
+            title: 'baz',
+          },
+        ],
+        onReady: () => {
+          document.getElementById('loading').style.display = 'none';
+          document.getElementById('content').style.display = 'block';
+          document.getElementById('token').innerText = GASPS.getToken();
+          document.getElementById('config').innerText = JSON.stringify(
+            GASPS.getConfig(),
+            null,
+            '  '
+          );
+        },
+      });
+    </script>
+  </body>
+</html>
