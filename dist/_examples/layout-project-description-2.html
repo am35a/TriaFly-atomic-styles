@@ -30,73 +30,42 @@
                 object-position: center;
                 object-fit: contain; */
             }
+
+
+            .tf_pd {
+                
+            }
+            .tf_pd-body {
+                
+            }
+            .tf_pd-footer {
+                position: sticky;
+                display: flex;
+                bottom: var(--p-2, calc(var(--key-size) * -0.5));
+                padding-top: var(--p-2, calc(var(--key-size) * 0.5));
+                padding-bottom: var(--p-2, calc(var(--key-size) * 0.5));
+            }
+
+
+            .tf_pd-css.tf_fullscreen {
+                position: fixed;
+                left: 48px;
+                top: 48px;
+                bottom: 0;
+                z-index: 1;
+                right: 0;
+                border-radius: unset !important;
+            }
         </style>
     </head>
     <body class="tf_layout">
-        <div class="tf_layout-main p-4">
-            <div class="d-grid mb-0 h-100 overflow-hidden">
-                <div class="overflow-y-auto">
-                    <div class="h2 mb-0" role="heading" aria-level="1">Настройка системы</div>
-                    <!-- <details class="tf_details d-none">
-                        <summary class="h4" role="heading" aria-level="2">Восстановление</summary>
-                        <div class="mb-6 bg-positive rounded">
-                            <div class="d-grid g-4 p-4">
-                                <div>
-                                    <div class="h5" role="heading" aria-level="3">Создать точку восстановления</div>
-                                    <div class="d-grid">
-                                        <label for="inputTextDefault" class="tf_form-label">Краткое описание</label>
-                                        <div class="d-flex g-2">
-                                            <input id="inputTextDefault" class="tf_form-control tf_form-control-sm flex-grow-1 w-auto" type="text">
-                                            <button class="tf_btn tf_btn-sm">
-                                                <i class="fa fa-flag" aria-hidden="true"></i> Создать точку ...
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr class="my-0">
-                            <div class="d-grid g-4 p-4">
-                                <div>
-                                    <div class="h5" role="heading" aria-level="3">Точки восстановления</div>
-                                    <div class="mb-2 fs-sm text-secondary">
-                                        <i class="fa fa-info-circle text-info" aria-hidden="true"></i> Eсли ваша система работает нестабильно, ее можно востановить используя установленные ранее точки восстановления
-                                    </div>
-                                    <div class="d-grid">
-                                        <div class="d-grid g-2 cols-3">
-                                            <div class="col-span-1 text-center fw-500">дата</div>
-                                            <div class="col-span-2 text-center fw-500">описание</div>
-                                        </div>
-                                        <div class="d-grid g-3 cols-3 border-top mt-2 pt-2 fs-sm align-items-center">
-                                            <div class="col-span-1 text-center">09:41 30-09-2021</div>
-                                            <div class="col-span-2 d-flex align-items-center">
-                                                <div class="flex-grow-1 w-auto">
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit - emporibus debitis blanditiis.
-                                                </div>
-                                                <button class="tf_btn bg-transparent tf_btn-xs py-0" title=" Вернуться к точке восстановления">
-                                                    <i class="fa fa-undo" aria-hidden="true"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="d-grid g-3 cols-3 border-top mt-2 pt-2 fs-sm align-items-center">
-                                            <div class="col-span-1 text-center">09:41 30-09-2021</div>
-                                            <div class="col-span-2 d-flex align-items-center">
-                                                <div class="flex-grow-1 w-auto">
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit - emporibus debitis blanditiis.
-                                                </div>
-                                                <button class="tf_btn bg-transparent tf_btn-xs py-0" title=" Вернуться к точке восстановления">
-                                                    <i class="fa fa-undo" aria-hidden="true"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </details> -->
+        <div class="tf_layout-main p-2">
+            <div class="tf_pd d-grid mb-0 h-100">
+                <div class="tf_pd-body">
+                    <div class="h2 mb-0 text-truncate" role="heading" aria-level="1">Настройка системы</div>
                     
-                    <div class="d-grid g-4">
-    
-                        <div>
+                    <div class="d-grid l:cols-3 l:g-4">
+                        <div class="l:col-span-2">
                             <div class="h3 mt-6" role="heading" aria-level="2">Название</div>
                             <div>
                                 <input id="inputTextDefault" class="tf_form-control" type="text" placeholder="Без названия">
@@ -105,74 +74,93 @@
                                 </div>
                             </div>
                         </div>
-    
                         <div>
-                            <div class="h3 mt-6" role="heading" aria-level="2">Изображения</div>
-                            <div class="d-grid cols-4 p:cols-2 p:m:cols-1 g-3">
-                                <div class="">
-                                    <!-- <div class="thumb">
-                                        <img class="" src="https://net-dev.chtd.ru/static/base/img/logo-full.svg">
-                                    </div> -->
-                                    <!-- <div class="d-inline-grid">
-                                        <div class="thumb p-2">
-                                            <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fyesofcorsa.com%2Fwp-content%2Fuploads%2F2020%2F02%2FFunny-Monkeys-Wallpaper-1024x731.jpg&f=1&nofb=1" alt="">
-                                        </div>
-                                    </div> -->
-                                    <!-- <div>
-                                        <label for="project_logo" class="tf_form-label">Логотип</label>
-                                        <input id="project_logo" class="tf_form-control" name="project_logo" accept="image/jpeg, image/png" type="file" autocomplete="off">
-                                    </div> -->
-                                </div>
-                                <div>
-                                    <label for="project_welcome_logo" class="tf_form-label">Логотип авторизации</label>
-                                    <input id="project_welcome_logo" class="tf_form-control" name="project_welcome_logo" accept="image/jpeg, image/png" type="file" autocomplete="off">
-                                </div>
-                                <div>
-                                    3
-                                </div>
-                                <div>
-                                    4
-                                </div>
-                            </div>
+                            <div class="h3 mt-6 text-truncate" role="heading" aria-level="2">Главное меню</div>
+                            <select id="project_fixed_menu" class="tf_form-control" name="project_fixed_menu">
+                                <option value="" selected>Расскрывать по наведению</option>
+                                <option value="True">Расскрывать по нажатию</option>
+                            </select>
                         </div>
-    
-                        <div class="">
-                            <div class="h3 mt-6" role="heading" aria-level="2">Дополнительные CSS и JavaScript</div>
-                            <div class="d-grid cols-2 g-4">
-                                <div class="bg-positive rounded">
-                                    <div class="d-flex p-1">
-                                        <div class="h5 my-auto px-1" role="heading" aria-level="3">CSS</div>
-                                        <div class="ml-auto">
-                                            <button class="tf_btn tf_btn-sm tf_btn-transparent"><i class="fas fa-toggle-on mr-2"></i> Отключить</button>
-                                            <button class="tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                    </div>
-                                    <hr class="mx-1 my-0 border-secondary">
-                                    <div class="p-2" style="min-height: 50vh;">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste recusandae perferendis maiores corrupti. Quasi, accusantium. Provident dicta molestiae libero recusandae fugit, itaque aspernatur sunt veniam ullam tempore quidem nam at!
-                                    </div>
-                                </div>
-                                <div class="bg-positive rounded">
-                                    <div class="d-flex p-1">
-                                        <div class="h5 my-auto px-1" role="heading" aria-level="3">JavaScript</div>
-                                        <div class="ml-auto">
-                                            <button class="tf_btn tf_btn-sm tf_btn-transparent"><i class="fas fa-toggle-on mr-2"></i> Отключить</button>
-                                            <button class="tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                    </div>
-                                    <hr class="mx-1 my-0 border-secondary">
-                                    <div class="p-2" style="min-height: 50vh;">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste recusandae perferendis maiores corrupti. Quasi, accusantium. Provident dicta molestiae libero recusandae fugit, itaque aspernatur sunt veniam ullam tempore quidem nam at!
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-        
                     </div>
+    
+                    <div>
+                        <div class="h3 mt-6" role="heading" aria-level="2">Изображения</div>
+                        <div class="d-grid cols-4 p:cols-2 p:m:cols-1 g-3">
+                            <div>
+                                <label for="project_logo" class="tf_form-label d-block text-truncate">Логотип</label>
+                                <input id="project_logo" class="tf_form-control" name="project_logo" accept="image/jpeg, image/png" type="file" autocomplete="off">
+                                <div class="d-grid mt-2 border rounded-sm bg-positive p-1">
+                                    <div class="d-flex mb-1 align-items-baseline justify-content-between">
+                                        <span class="text-secondary ml-1">Превью</span>
+                                        <button class="tf_btn tf_btn-xs tf_btn-icon tf_btn-transparent" title="Удалить изображение">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                    <img class="w-max-100 mx-auto" style="max-height: 120px;" src="https://triafly.ru/wp-content/uploads/2021/04/Logo_Triaflaj_original.svg">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="project_welcome_logo" class="tf_form-label d-block text-truncate">Логотип авторизации</label>
+                                <input id="project_welcome_logo" class="tf_form-control" name="project_welcome_logo" accept="image/jpeg, image/png" type="file" autocomplete="off">
+                                <div class="d-grid mt-2 border rounded-sm bg-positive p-1">
+                                    <div class="d-flex mb-1 align-items-baseline justify-content-between">
+                                        <span class="text-secondary ml-1">Превью</span>
+                                        <button class="tf_btn tf_btn-xs tf_btn-icon tf_btn-transparent" title="Удалить изображение">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                    <img class="w-max-100 mx-auto" style="max-height: 120px;" src="https://net-dev.chtd.ru/static/base/img/logo-icon.svg">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="project_wide_logo" class="tf_form-label d-block text-truncate">Широкий логотип</label>
+                                <input id="project_wide_logo" class="tf_form-control" name="project_wide_logo" accept="image/jpeg, image/png" type="file" autocomplete="off">
+                            </div>
+                            <div>
+                                <label for="project_favicon" class="tf_form-label d-block text-truncate">Favicon</label>
+                                <input id="project_favicon" class="tf_form-control" name="project_welcome_logo" accept="image/jpeg, image/png" type="file" autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div>
+                        <div class="h3 mt-6 text-truncate" role="heading" aria-level="2">Дополнительные CSS и JavaScript</div>
+                        <div class="d-grid l:cols-2 g-4">
+                            <div class="tf_pd-css bg-positive rounded">
+                                <div class="d-flex p-1">
+                                    <div class="h5 my-auto px-1" role="heading" aria-level="3">CSS</div>
+                                    <div class="ml-auto">
+                                        <button class="tf_btn tf_btn-sm tf_btn-transparent"><i class="fas fa-toggle-on mr-2"></i> Отключить</button>
+                                        <button class="tf_btn-pd-css tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent">
+                                            <i class="fas fa-expand"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <hr class="mx-1 my-0 border-secondary">
+                                <div class="p-2" style="min-height: 50vh;">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste recusandae perferendis maiores corrupti. Quasi, accusantium. Provident dicta molestiae libero recusandae fugit, itaque aspernatur sunt veniam ullam tempore quidem nam at!
+                                </div>
+                            </div>
+                            <div class="bg-positive rounded">
+                                <div class="d-flex p-1">
+                                    <div class="h5 my-auto px-1" role="heading" aria-level="3">JavaScript</div>
+                                    <div class="ml-auto">
+                                        <button class="tf_btn tf_btn-sm tf_btn-transparent"><i class="fas fa-toggle-on mr-2"></i> Отключить</button>
+                                        <button class="tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent"><i class="fas fa-expand"></i></button>
+                                    </div>
+                                </div>
+                                <hr class="mx-1 my-0 border-secondary">
+                                <div class="p-2" style="min-height: 50vh;">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste recusandae perferendis maiores corrupti. Quasi, accusantium. Provident dicta molestiae libero recusandae fugit, itaque aspernatur sunt veniam ullam tempore quidem nam at!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
                     <!-- <hr>
                     <button class="tf_btn"><i class="fas fa-save fa-fw"></i> Сохранить</button> -->
                 </div>
-                <div class="position-sticky bottom-0 bg-main pt-4 d-flex h-fit align-self-end">
+                <div class="tf_pd-footer bg-main">
                     <button class="tf_btn"><i class="fas fa-clock fa-fw"></i> Ретроспекция</button>
                     <button class="tf_btn tf_btn-primary ml-auto"><i class="fas fa-save fa-fw"></i> Сохранить</button>
                 </div>
@@ -195,6 +183,10 @@
         </div>
     </body>
     <script>
-        // 
+        $( ".tf_btn-pd-css" ).on( "click", function() {
+            $(".tf_pd-css").toggleClass("tf_fullscreen");
+            $(".tf_btn-pd-css").toggleClass("active");
+            $(".tf_btn-pd-css > i").toggleClass("fa-expand").toggleClass("fa-compress");
+        });
     </script>
 </html>
