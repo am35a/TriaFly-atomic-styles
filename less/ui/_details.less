@@ -1,14 +1,12 @@
 .tf_details {
-    summary {
-        align-content: center;
-        display: flex;
+    > .tf_summary {
         list-style: none;
         cursor: pointer;
         &::before {
             content: "\f054";
             display: inline-block;
             font: normal normal normal 14px/1 "Font Awesome 5 Free";
-            font-size: 50%;
+            font-size: 1em;
             font-weight: 900;
             text-rendering: auto;
             margin: auto .5rem auto 0;
@@ -16,10 +14,41 @@
         }
     }
     &[open] {
-        summary {
+        > .tf_summary {
             &::before  {
                 transform: rotate(90deg);
             }
         }
+    }
+}
+
+.tf_details:not(.tf_details-drop) {
+    > .tf_summary {
+        display: flex;
+        align-content: center;
+        &::before {
+            font-size: .75em;
+        }
+    }
+}
+
+.tf_details.tf_details-drop {
+    > .tf_summary {
+        display: flex;
+        grid-gap: var(--g-1, calc(var(--key-size) * 0.25));
+        align-content: center;
+        &::before {
+            display: inline-grid;
+            justify-items: center;
+            align-items: center;
+            margin: 0;
+            width: 1.25em;
+            font-size: inherit;
+        }
+    }
+    > .tf_details-body {
+        max-height: 240px;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 }

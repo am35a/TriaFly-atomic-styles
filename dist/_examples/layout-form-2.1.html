@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SPA layout | форма</title>
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/global.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://unpkg.com/current-device/umd/current-device.min.js"></script>
+        <style>
+            :root {
+                --aside-navbar-background-color: #082f3d;
+                --header-background-color: #dde5f3;
+            }
+
+            .tf_report,
+            .tf_dashb-oard,
+            .tf_form {
+                display: grid;
+                height: 100%;
+                margin-bottom: 0 !important;
+                grid-template-rows: max-content auto;
+                grid-template-columns: 1fr;
+            }
+
+            .tf_form-body {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: auto max-content;
+                grid-gap: var(--g-2, calc(var(--key-size) * 0.5));
+            }
+            .tf_fb-table {
+                background-color: var(--positive-color);
+                border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
+            }
+            .tf_fb-footer {
+                display: flex;
+                grid-gap: var(--g-2, calc(var(--key-size) * 0.5));
+                padding-left: var(--p-1, calc(var(--key-size) * 0.25));
+                padding-right: var(--p-1, calc(var(--key-size) * 0.25)); 
+                justify-content: space-between;
+            }
+
+            /* fullscreen */
+            .tf_layout.tf_fullscreen {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr;
+            }
+            .tf_layout.tf_fullscreen .tf_layout-header,
+            .tf_layout.tf_fullscreen .tf_layout-aside {
+                display: none;
+            }
+            .tf_layout.tf_fullscreen .tf_layout-main {
+                grid-row: 1/-1;
+                grid-column: 1/-1;
+            }
+            .tf_layout.tf_fullscreen .tf_form {
+                grid-template-rows: 1fr;
+            }
+            .tf_layout.tf_fullscreen .tf_form .tf_form-top-panel,
+            .tf_layout.tf_fullscreen .tf_form .tf_form-body {
+                grid-row: 1/-1;
+                grid-column: 1/-1;
+            }
+            .tf_layout.tf_fullscreen .tf_form .tf_form-top-panel {
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                padding: .5rem .5rem .25rem .5rem;
+                background-color: var(--positive-color-75);
+                transform: translateY(calc(-100% + .5rem));
+                transition: transform .15s;
+                z-index: 1;
+                box-shadow: 0 calc(var(--key-size) * 0.25) calc(var(--key-size) * 0.5) var(--negative-color-10) !important;
+            }
+            .tf_layout.tf_fullscreen .tf_form .tf_form-top-panel:hover {
+                transform: translateY(0%);
+            }
+            .tf_layout.tf_fullscreen .tf_form .tf_form-top-panel:after {
+                position: absolute;
+                content: "\f141";
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                transition: all .15s;
+                color: var(--negative-color-25);
+                font-size: small;
+            }
+            .tf_layout.tf_fullscreen .tf_form .tf_form-top-panel:hover:after {
+                color: transparent;
+            }
+
+        </style>
+    </head>
+    <!-- https://stackoverflow.com/questions/55425419/how-to-do-a-dropdown-menu-on-click#55425502 -->
+    <body class="tf_layout" tabindex="-1">
+        <div class="tf_layout-main p-2">
+            <div class="tf_form">
+                <div class="tf_form-top-panel">
+                    <div class="tf_form-header d-grid pb-2 g-2">
+
+                        <div class="tf_fh-inner-primary d-flex flex-wrap m:flex-nowrap l:d:flex-nowrap g-2">
+                            <div class="d-flex flex-grow-1 g-1">
+                                <div class="tf_drop-focus">
+                                    <button class="tf_btn tf_btn-transparent tf_btn-drop db-list-toggle" data-pointer-position="after" data-drop-position="bottom right" title="Загрузить"><i class="fas fa-folder-open fa-fw"></i></button>
+                                    <div class="tf_drop-content">
+                                        <div class="bg-positive rounded p-1 shadow" tabindex="0">
+                                            <div class="p-2" style="width:240px">
+                                                Тут будет компонент загрузки форм\отчетов
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tf_input-group flex-grow-1 d-grid position-relative my-auto overflow-auto db-head">
+                                    <div class="tf_form-control bg-transparent fw-600 border-transparent text-truncate" title="New UI for forms page">
+                                        New UI for forms page<small class="text-secondary fw-400"></small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- для мобильных -->
+                            <div class="ml-auto t:d-none d:d-none">
+                                <div class="tf_drop-focus">
+                                    <button data-drop-position="bottom left" id="dropSettings" class="tf_btn tf_btn-drop tf_btn-transparent">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <div class="tf_drop-content">
+                                        <div class="d-grid bg-positive rounded overflow-hidden p-1 shadow">
+                                            <button class="favorite-control tf_btn tf_btn-sm tf_btn-transparent text-start t:d-none">
+                                                <i class="fas fa-star fa-fw" aria-hidden="true"></i>
+                                                Удалить из избранного
+                                            </button>
+                                            <button class="db-fullscreen tf_btn tf_btn-sm tf_btn-transparent text-start">
+                                                <i class="fas fa-expand-arrows-alt fa-fw" aria-hidden="true"></i>
+                                                Развернуть Дашборд
+                                            </button>
+                                            <details class="tf_details tf_details-drop" open>
+                                                <summary class="tf_summary tf_btn tf_btn-sm -tf_btn-transparent text-start">
+                                                    Экспорт данных в
+                                                    <i class="fa fa-ellipsis-v ml-auto my-auto pl-2"></i>
+                                                </summary>
+                                                <div class="tf_details-body d-grid g-1">
+                                                    <button class="tf_btn tf_btn-sm tf_btn-transparent text-start t:d-none">
+                                                        <i class="fas fa-file-excel fa-fw" aria-hidden="true"></i>
+                                                        <!-- Экспортировать данные в xlsx -->Xlsx
+                                                    </button>
+                                                    <button class="tf_btn tf_btn-sm tf_btn-transparent text-start t:d-none">
+                                                        <i class="fas fa-file-excel fa-fw" aria-hidden="true"></i>
+                                                        <!-- Экспортировать данные в xls -->Xls
+                                                    </button>
+                                                    <button class="tf_btn tf_btn-sm tf_btn-transparent text-start t:d-none">
+                                                        <i class="fas fa-file fa-fw" aria-hidden="true"></i>
+                                                        <!-- Экспортировать данные в Ods -->Ods
+                                                    </button>
+                                                    <button class="tf_btn tf_btn-sm tf_btn-transparent text-start t:d-none">
+                                                        <i class="fas fa-file-powerpoint fa-fw" aria-hidden="true"></i>
+                                                        <!-- Экспортировать параметры -->Параметры
+                                                    </button>
+                                                    <hr class="my-0 mx-2">
+                                                    <button class="tf_btn tf_btn-sm tf_btn-transparent text-start t:d-none">
+                                                        <i class="fas fa-file fa-fw" aria-hidden="true"></i>
+                                                        <!-- Экспортировать данные в Csv -->Csv
+                                                    </button>
+                                                    <button class="tf_btn tf_btn-sm tf_btn-transparent text-start t:d-none">
+                                                        <i class="fas fa-file-code fa-fw" aria-hidden="true"></i>
+                                                        <!-- Экспортировать данные в HTML -->HTML
+                                                    </button>
+                                                    <button class="tf_btn tf_btn-sm tf_btn-transparent text-start t:d-none">
+                                                    <i class="fas fa-file-word fa-fw" aria-hidden="true"></i>
+                                                        <!-- Экспортировать данные в Docx -->Docx
+                                                    </button>
+                                                    <button class="tf_btn tf_btn-sm tf_btn-transparent text-start t:d-none">
+                                                    <i class="fas fa-file fa-fw" aria-hidden="true"></i>
+                                                        <!-- Экспортировать данные в Odt -->Odt
+                                                    </button>
+                                                    <button class="tf_btn tf_btn-sm tf_btn-transparent text-start t:d-none">
+                                                    <i class="fas fa-file-pdf fa-fw" aria-hidden="true"></i>
+                                                        <!-- Экспортировать данные в Pdf (книжный) -->Pdf (книжный)
+                                                    </button>
+                                                    <button class="tf_btn tf_btn-sm tf_btn-transparent text-start t:d-none">
+                                                    <i class="fas fa-file-pdf fa-fw" aria-hidden="true"></i>
+                                                        <!-- Экспортировать данные в Pdf (альбомный) -->Pdf (альбомный)
+                                                    </button>
+                                                    <button class="tf_btn tf_btn-sm tf_btn-transparent text-start t:d-none">
+                                                    <i class="fas fa-file-alt fa-fw" aria-hidden="true"></i>
+                                                        <!-- Экспортировать данные в Xml -->XML
+                                                    </button>
+                                                    <hr class="my-0 mx-2">
+                                                    <div class="d-grid tf_drop-hover">
+                                                        <div class="tf_form-check px-3 py-1 fs-sm">
+                                                            <input class="tf_form-check-input" id="visual-rows" name="export-visual-rows" type="checkbox">
+                                                            <label class="tf_form-check-label w-100" for="visual-rows">
+                                                                Только видимые строки
+                                                            </label>
+                                                        </div>
+                                                        <div class="tf_form-check px-3 py-1 fs-sm">
+                                                            <input class="tf_form-check-input" id="whole-row-span-headers" name="export-whole-row-span-headers" type="checkbox" checked="checked">
+                                                            <label class="tf_form-check-label w-100" for="whole-row-span-headers">
+                                                                Группировочные заголовки строк
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </details>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- для планшетов и десктопа -->
+                            <div class="ml-auto m:d-none">
+                                <div class="d-grid grid-flow-col g-2">
+                                    <div id="favorite">
+                                        <span class="favorite-control">
+                                            <button class="tf_btn tf_btn-icon tf_btn-transparent" title="Удалить из избранного">
+                                                <i class="fas fa-star fa-fw"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                    <button class="tf_btn tf_btn-icon tf_btn-transparent db-fullscreen" title="Развернуть дашборд на весь экран"><i class="fas fa-expand-arrows-alt fa-fw"></i></button>
+                                    <div class="d-inline-flex">
+                                        <button class="tf_btn tf_btn-icon reload tf_btn-transparent" title="Импортировать данные из xlsx">
+                                            <i class="fas fa-upload fa-fw"></i>
+                                        </button>
+                                        <!-- <button class="tf_btn tf_btn-icon reload tf_btn-transparent" title="Экспортировать данные в xlsx">
+                                            <i class="fas fa-download fa-fw"></i>
+                                        </button> -->
+                                        <div class="tf_drop-focus">
+                                            <button class="tf_btn tf_btn-transparent tf_btn-drop" data-pointer-position="after" data-drop-position="bottom left" title="Экспортировать данные...">
+                                                <i class="fas fa-download fa-fw"></i>
+                                            </button>
+                                            <div class="tf_drop-content">
+                                                <div class="bg-positive rounded p-1 shadow">
+                                                    <div class="d-grid g-1">
+                                                        <button class="tf_btn tf_btn-sm tf_btn-transparent text-start report-export">
+                                                            <i class="fas fa-file-excel fa-fw" aria-hidden="true"></i> Xlsx
+                                                        </button>
+                                                        <button class="tf_btn tf_btn-sm tf_btn-transparent text-start report-export" data-format="xls">
+                                                            <i class="fas fa-file-excel fa-fw" aria-hidden="true"></i> Xls
+                                                        </button>
+                                                        <button class="tf_btn tf_btn-sm tf_btn-transparent text-start report-export" data-format="ods">
+                                                            <i class="fas fa-file fa-fw" aria-hidden="true"></i> Ods
+                                                        </button>
+                                                        <button class="tf_btn tf_btn-sm tf_btn-transparent text-start report-export-params">
+                                                            <i class="fas fa-file-powerpoint fa-fw" aria-hidden="true"></i> Параметры
+                                                        </button>
+                                                    </div>
+                                                    <hr class="my-1">
+                                                    <div class="d-grid g-1">
+                                                        <button class="tf_btn tf_btn-sm tf_btn-transparent text-start report-export" data-format="csv">
+                                                            <i class="fas fa-file fa-fw" aria-hidden="true"></i> Csv
+                                                        </button>
+                                                        <button class="tf_btn tf_btn-sm tf_btn-transparent text-start report-export" data-format="html">
+                                                            <i class="fas fa-file-code fa-fw" aria-hidden="true"></i> HTML
+                                                        </button>
+                                                        <button class="tf_btn tf_btn-sm tf_btn-transparent text-start report-export" data-format="docx">
+                                                            <i class="fas fa-file-word fa-fw" aria-hidden="true"></i> Docx
+                                                        </button>
+                                                        <button class="tf_btn tf_btn-sm tf_btn-transparent text-start report-export" data-format="odt">
+                                                            <i class="fas fa-file fa-fw" aria-hidden="true"></i> Odt
+                                                        </button>
+                                                        <button class="tf_btn tf_btn-sm tf_btn-transparent text-start report-export" data-format="pdf">
+                                                            <i class="fas fa-file-pdf fa-fw" aria-hidden="true"></i> Pdf (книжный)
+                                                        </button>
+                                                        <button class="tf_btn tf_btn-sm tf_btn-transparent text-start report-export" data-format="pdf-landscape">
+                                                            <i class="fas fa-file-pdf fa-fw" aria-hidden="true"></i> Pdf (альбомный)
+                                                        </button>
+                                                        <button class="tf_btn tf_btn-sm tf_btn-transparent text-start report-export" data-format="xml">
+                                                            <i class="fas fa-file-alt fa-fw" aria-hidden="true"></i> Xml
+                                                        </button>
+                                                    </div>
+                                                    <hr class="my-1">
+                                                    <div class="d-grid tf_drop-hover">
+                                                        <div class="tf_form-check px-3 py-1 fs-sm">
+                                                            <input class="tf_form-check-input" id="visual-rows" name="export-visual-rows" type="checkbox">
+                                                            <label class="tf_form-check-label w-100" for="visual-rows">
+                                                                Только видимые строки
+                                                            </label>
+                                                        </div>
+                                                        <div class="tf_form-check px-3 py-1 fs-sm">
+                                                            <input class="tf_form-check-input" id="whole-row-span-headers" name="export-whole-row-span-headers" type="checkbox" checked="checked">
+                                                            <label class="tf_form-check-label w-100" for="whole-row-span-headers">
+                                                                Группировочные заголовки строк
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-inline-flex">
+                                        <button class="m:d-none t:d-none tf_btn tf_btn-transparent dash-change-mod" title="Перейти в режим конструктора">
+                                            <i class="fa fa-tools" aria-hidden="true"></i> Конструктор
+                                        </button>
+                                        <div class="tf_drop-focus">
+                                            <button class="tf_btn tf_btn-transparent tf_btn-drop" data-pointer-position="after" data-drop-position="bottom left" title="Дополнительные инструменты"></button>
+                                            <!-- <button class="tf_btn tf_btn-transparent tf_btn-drop" data-pointer-position="after" data-drop-position="bottom left" title="Дополнительно...">
+                                                <i class="fas fa-tools fa-fw"></i>
+                                            </button> -->
+                                            <div class="tf_drop-content">
+                                                <div class="bg-positive- rounded p-1 shadow d-flex flex-wrap flex-nowrap g-2" style="background-color: var(--background-color) !important;">
+                                                    <button class="report-save-row tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent" title="Сохранить данные">
+                                                        <i class="fas fa-save fa-fw"></i>
+                                                    </button>
+
+                                                    <div class="my-1 border-left border-secondary"></div>
+
+                                                    <div class="tf_btn-group">
+                                                        <button class="report-undo tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent" title="Отменить последнее действие (undo)">
+                                                            <i class="fas fa-undo-alt fa-fw"></i>
+                                                        </button>
+                                                        <button class="report-redo tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent" title="Восстановить последнее действие (redo)">
+                                                            <i class="fas fa-redo-alt fa-fw"></i>
+                                                        </button>
+                                                    </div>
+                                                    <button class="report-update tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent" title="Обновить форму">
+                                                        <i class="fas fa-sync-alt fa-fw"></i>
+                                                    </button>
+
+                                                    <div class="my-1 border-left border-secondary"></div>
+                                                    
+                                                    <div class="d-inline-flex">
+                                                        <button class="report-filters tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent position-relative d-inline-grid" title="Показать/скрыть фильтры">
+                                                            <i class="far fa-eye fa-fw position-absolute bottom-0 right-0 fs-xs pb-1 pr-1"></i>
+                                                            <i class="fas fa-filter fa-fw m-auto"></i>
+                                                        </button>
+                                                        <button class="report-filters-reset tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent position-relative d-inline-grid" title="Сбросить фильтры">
+                                                            <i class="fas fa-times fa-fw position-absolute bottom-0 right-0 fs-xs pb-1 pr-1"></i>
+                                                            <i class="fas fa-filter fa-fw m-auto"></i>
+                                                        </button>
+                                                    </div>
+
+                                                    <div class="my-1 border-left border-secondary"></div>
+
+                                                    <div class="d-inline-flex">
+                                                        <button data-panel="coloring" class="report-coloring tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent" title="Настроить раскраски">
+                                                            <i class="fas fa-brush fa-fw"></i>
+                                                        </button>
+                                                        <button data-panel="constraints" class="report-constraints tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent" title="Ограничения">
+                                                            <i class="fas fa-minus-circle fa-fw"></i>
+                                                        </button>
+                                                        <button data-panel="calc" class="report-calc tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent" title="Контекстные вычисления">
+                                                            <span class="fs-md fw-700 lh-1">Σ</span>
+                                                        </button>
+                                                    </div>
+
+                                                    <div class="my-1 border-left border-secondary"></div>
+
+                                                    <div class="d-inline-flex">
+                                                        <button class="report-versions tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent" title="Версии">
+                                                            <i class="fas fa-history fa-fw"></i>
+                                                        </button>
+                                                        <button class="report-reset-header-sizes tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent" title="Сброс настройки размеров заголовков и сортировки">
+                                                            <div class="d-inline-grid">
+                                                                <i class="fas fa-exchange-alt fa-fw col-start-1 col-end-2 row-start-1 row-end-2"></i>
+                                                                <i class="fas fa-grip-lines-vertical fa-fw col-start-1 col-end-2 row-start-1 row-end-2"></i>
+                                                            </div>
+                                                        </button>
+                                                        <button class="report-notifications tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent position-relative d-inline-grid" title="Отправка отчета по почте по расписанию">
+                                                            <i class="far fa-clock fa-fw position-absolute top-0 right-0 fs-xs pt-1 pr-1"></i>
+                                                            <i class="fas fa-envelope fa-fw mx-auto mt-auto"></i>
+                                                        </button>
+                                                    </div>
+    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+        
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- вторая строка -->
+                        <div class="tf_fh-inner-secondary m:d-none d-flex flex-wrap l:d:flex-nowrap g-2 d-none">
+                            <button class="report-save-row tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent" title="Сохранить данные">
+                                <i class="fas fa-save fa-fw"></i>
+                            </button>
+                            <div class="my-1 border-left border-secondary"></div>
+                            <div class="tf_btn-group">
+                                <button class="report-undo tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent" title="Отменить последнее действие (undo)">
+                                    <i class="fas fa-undo-alt fa-fw"></i>
+                                </button>
+                                <button class="report-redo tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent" title="Восстановить последнее действие (redo)">
+                                    <i class="fas fa-redo-alt fa-fw"></i>
+                                </button>
+                            </div>
+                            <button class="report-update tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent" title="Обновить форму">
+                                <i class="fas fa-sync-alt fa-fw"></i>
+                            </button>
+                            <div class="ml-auto">
+                                <button data-panel="coloring" class="report-coloring tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent" title="Настроить раскраски">
+                                    <i class="fas fa-brush fa-fw"></i>
+                                </button>
+                                <button data-panel="constraints" class="report-constraints tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent" title="Ограничения">
+                                    <i class="fas fa-minus-circle fa-fw"></i>
+                                </button>
+                                <button data-panel="calc" class="report-calc tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent" title="Контекстные вычисления">
+                                    <span class="fs-md fw-700 lh-1">Σ</span>
+                                </button>
+                            </div>
+                            <button class="report-versions tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent" title="Версии">
+                                <i class="fas fa-history fa-fw"></i>
+                            </button>
+                            <button class="report-notifications tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent position-relative d-inline-grid" title="Отправка отчета по почте по расписанию">
+                                <i class="far fa-clock fa-fw position-absolute top-0 right-0 fs-xs pt-1 pr-1"></i>
+                                <i class="fas fa-envelope fa-fw mx-auto mt-auto"></i>
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="tf_form-body">
+                    <div class="tf_fb-table">
+                        <!-- _ Место таблицы -->
+
+                        <!-- <details class="tf_details">
+                            <summary class="tf_summary">
+                                Импорт / Экспорт данных
+                            </summary>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ex aliquam nulla, illo perferendis necessitatibus quos mollitia rerum quam esse sint impedit sapiente laborum earum, quibusdam repellat numquam dolores. Accusantium.
+                        </details> -->
+
+                    </div>
+                    <div class="tf_fb-footer">
+                        <div class="fs-sm">Строк: 0</div>
+                        <div>...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tf_layout-header">
+            <button class="tf_layout-aside-expander" tabindex="-1"><i class="fas fa-bars"></i></button>
+            <div class="l:d:d-none">
+                <div class="tf_drop-focus">
+                    <button
+                        class="tf_btn tf_btn-drop tf_btn-transparent fw-600"
+                        data-pointer-position="after"
+                        data-drop-position="bottom right"
+                        title="Текущие"
+                    >Формы</button>
+                    <div class="tf_drop-content">
+                        <div class="bg-positive rounded p-1 shadow">
+                            <div class="d-grid">
+                                <button class="tf_btn tf_btn-transparent text-start">
+                                    <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                                    Новая форма
+                                </button>
+                                <!-- <button class="tf_btn tf_btn-transparent text-start">Выполненные</button>
+                                <button class="tf_btn tf_btn-transparent text-start">Архив</button> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-none l:d:d-flex text-nowrap overflow-hidden py-1">
+                <button class="tf_btn tf_btn-transparent bg-transparent fw-600 active" disabled>Формы (роль: аналитик)</button>
+                <!-- <button class="tf_btn tf_btn-transparent bg-transparent fw-600">Выполненные</button>
+                <button class="tf_btn tf_btn-transparent bg-transparent fw-600">Архив</button> -->
+            </div>
+            <div class="pr-2">
+                <button id="eventsPopup" class="tf_btn tf_btn-transparent tf_btn-icon position-relative" title="Показать ленту событий">
+                    <i class="fas fa-bell fa-fw"></i> <!-- если нет событий тогда fa-bell-o -->
+                    <div class="position-absolute top-0 left-0 pl-1 text-primary fs-xxs">1<!--sup>+</sup--></div>
+                </button>
+                <div class="tf_drop-focus">
+                    <button
+                        class="tf_btn tf_btn-drop tf_btn-transparent"
+                        data-pointer-position="after"
+                        data-drop-position="bottom left"
+                        title="Помощь"
+                    >
+                        <i class="fas fa-question-circle"></i>
+                        <span class="d-none l:d:d-unset">Помощь</span>
+                    </button>
+                    <div class="tf_drop-content">
+                        <div class="bg-positive rounded overflow-hidden p-3 shadow">
+                            <div class="d-grid g-2" style="width: 16rem;">
+                                <div class="fs-lg">
+                                    <i class="fas fa-info-circle text-info"></i> Уважаемые пользователи
+                                </div>
+                                <div>
+                                    При возникновении ошибок или вопросов по работе с системой обратитесь в службу технической поддержки
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="tf_btn tf_btn-transparent m:d-none" title="Войти">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <span class="d-none l:d:d-unset">Войти</span>
+                </button>
+                <div class="tf_drop-focus">
+                    <button
+                        class="tf_btn tf_btn-drop tf_btn-transparent"
+                        data-pointer-position="after"
+                        data-drop-position="bottom left"
+                        title="admin"
+                    >
+                        <i class="fa fa-user-circle" aria-hidden="true"></i>
+                        <span class="d-none l:d:d-unset">admin</span>
+                    </button>
+                    <div class="tf_drop-content">
+                        <div class="bg-positive rounded overflow-hidden p-1 shadow">
+                            <div class="p-2 fst-italic text-secondary l:d:d-none">admin</div>
+                            <div class="d-grid">
+                                <button class="lc tf_btn tf_btn-transparent text-start" blured>Личный кабинет</button>
+                                <button class="tf_btn tf_btn-transparent text-start" blured>Настройки</button>
+                                <button class="tf_btn tf_btn-transparent text-start" blured>Сделать стартовой страницей</button>
+                                <button class="tf_btn tf_btn-transparent text-start" blured>Войти в режим ретроспекции</button>
+                                <hr class="my-1 w-100">
+                                <button class="tf_btn tf_btn-transparent text-start d-inline-flex">
+                                    Выход
+                                    <i class="fa fa-sign-out my-auto ml-auto" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!-- 
+            <div class="float-right mr-2">
+                <button onclick="window.print()" class="tf_btn"><i class="fas fa-print"></i></button>
+                <button id="toggle-preview" class="tf_btn">Toggle preview</button>
+            </div> -->
+        </div>
+        <div class="tf_layout-aside">
+            <div class="tf_aside-fader">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="tf_aside-navbar">
+                <div class="tf_navbar-item">
+                    <div class="tf_item-hover"></div>
+                    <div class="tf_item-active"></div>
+                    <a class="tf_item-identicon" href="#"><i class="fas fa-home"></i></a>
+                    <a class="tf_item-title" href="#">Начало</a>
+                    <!-- <a class="tf_item-actioncon" href="#"><i class="fas fa-plus"></i></a> -->
+                </div>
+                <div class="tf_navbar-item">
+                    <div class="tf_item-hover"></div>
+                    <div class="tf_item-active"></div>
+                    <a class="tf_item-identicon" href="#"><i class="fas fa-tasks"></i></a>
+                    <a class="tf_item-title" href="#">Задания сбора</a>
+                    <!-- <a class="tf_item-actioncon" href="#"><i class="fas fa-plus"></i></a> -->
+                </div>
+                <div class="tf_navbar-item tf_navbar-item--active">
+                    <div class="tf_item-hover"></div>
+                    <div class="tf_item-active"></div>
+                    <a class="tf_item-identicon" href="#"><i class="fas fa-chart-pie"></i></a>
+                    <a class="tf_item-title" href="#">Дашборды</a>
+                    <a class="tf_item-actioncon" href="#"><i class="fas fa-plus"></i></a>
+                </div>
+                <div class="tf_navbar-item">
+                    <div class="tf_item-hover"></div>
+                    <div class="tf_item-active"></div>
+                    <a class="tf_item-identicon" href="#"><i class="fas fa-clipboard-list"></i></a>
+                    <a class="tf_item-title" href="#">Формы</a>
+                    <a class="tf_item-actioncon" href="#"><i class="fas fa-plus"></i></a>
+                </div>
+                <div class="tf_navbar-item">
+                    <div class="tf_item-hover"></div>
+                    <div class="tf_item-active"></div>
+                    <a class="tf_item-identicon" href="#"><i class="fas fa-calendar-check"></i></a>
+                    <a class="tf_item-title" href="#">Отчеты</a>
+                    <a class="tf_item-actioncon" href="#"><i class="fas fa-plus"></i></a>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="../js/layout.js"></script>
+    <script src="../js/ui-drops.js"></script>
+    <script>
+        $( ".db-fullscreen" ).on( "click", function() {
+            $(".tf_layout").toggleClass("tf_fullscreen")
+        });
+    </script>
+
+</html>

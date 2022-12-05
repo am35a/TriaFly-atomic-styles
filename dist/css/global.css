@@ -1562,24 +1562,47 @@ h6,
   background-color: var(--error-color-l1);
   color: var(--error-color-d1);
 }
-.tf_details summary {
-  align-content: center;
-  display: flex;
+.tf_details > .tf_summary {
   list-style: none;
   cursor: pointer;
 }
-.tf_details summary::before {
+.tf_details > .tf_summary::before {
   content: "\f054";
   display: inline-block;
   font: normal normal normal 14px/1 "Font Awesome 5 Free";
-  font-size: 50%;
+  font-size: 1em;
   font-weight: 900;
   text-rendering: auto;
   margin: auto 0.5rem auto 0;
   transition: 0.25s;
 }
-.tf_details[open] summary::before {
+.tf_details[open] > .tf_summary::before {
   transform: rotate(90deg);
+}
+.tf_details:not(.tf_details-drop) > .tf_summary {
+  display: flex;
+  align-content: center;
+}
+.tf_details:not(.tf_details-drop) > .tf_summary::before {
+  font-size: 0.75em;
+}
+.tf_details.tf_details-drop > .tf_summary {
+  display: flex;
+  grid-gap: var(--g-1, calc(var(--key-size) * 0.25));
+  align-content: center;
+}
+.tf_details.tf_details-drop > .tf_summary::before {
+  display: inline-grid;
+  justify-items: center;
+  align-items: center;
+  margin: 0;
+  width: 1.25em;
+  font-size: inherit;
+}
+.tf_details.tf_details-drop > .tf_details-body {
+  max-height: 240px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .tf_drop-hover,
 .tf_drop-focus {
