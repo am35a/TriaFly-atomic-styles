@@ -8,30 +8,33 @@
     <div class="rounded-2 overflow-hidden">
         <div class="bg-positive rounded-2 rounded-bottom-0 p-4 text-center">
             <div class="d-inline-flex g-4 flex-wrap">
-                <button class="tf_btn tf_btn-success">success button</button>
-                <button class="tf_btn tf_btn-success"><i class="fas fa-home"></i> icon button</button>
-                <button class="tf_btn tf_btn-success active">active button</button>
-                <button class="tf_btn tf_btn-success" disabled>disabled button</button>
+                <button class="tf_btn tf_btn-success">Success button</button>
+                <button class="tf_btn tf_btn-success"><i class="fas fa-home"></i> Icon button</button>
+                <button class="tf_btn tf_btn-success active">Active button</button>
+                <button class="tf_btn tf_btn-success used">Used button</button>
+                <button class="tf_btn tf_btn-success" disabled>Disabled button</button>
             </div>
         </div>
         <Highlight
             class="my-0"
             language='{xml}'
             code='
-    // success color button
-    <button class="tf_btn tf_btn-success">info button</button>
+    // Success color button
+    <button class="tf_btn tf_btn-success">Success button</button>
         
-    // success color button with icon
+    // Success color button with icon
     <button class="tf_btn tf_btn-success">
-    <i class="fas fa-home"></i>
-    icon button
+        <i class="fas fa-home"></i> Icon button
     </button>
     
     // active button
-    <button class="tf_btn tf_btn-success active">active button</button>
+    <button class="tf_btn tf_btn-success active">Active button</button>
 
-    // success color disabled button
-    <button class="tf_btn tf_btn-success" disabled>disabled button</button>
+    // Success color used button
+    <button class="tf_btn tf_btn-success used">Used button</button>
+
+    // Success color disabled button
+    <button class="tf_btn tf_btn-success" disabled>Disabled button</button>
             '
         />
     </div>

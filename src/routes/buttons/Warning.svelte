@@ -8,29 +8,32 @@
     <div class="rounded-2 overflow-hidden">
         <div class="bg-positive rounded-2 rounded-bottom-0 p-4 text-center">
             <div class="d-inline-flex g-4 flex-wrap">
-                <button class="tf_btn tf_btn-warning">warning button</button>
-                <button class="tf_btn tf_btn-warning"><i class="fas fa-home"></i> icon button</button>
-                <button class="tf_btn tf_btn-warning active">active button</button>
-                <button class="tf_btn tf_btn-warning" disabled>disabled button</button>
+                <button class="tf_btn tf_btn-warning">Warning button</button>
+                <button class="tf_btn tf_btn-warning"><i class="fas fa-home"></i> Icon button</button>
+                <button class="tf_btn tf_btn-warning active">Active button</button>
+                <button class="tf_btn tf_btn-warning used">Used button</button>
+                <button class="tf_btn tf_btn-warning" disabled>Disabled button</button>
             </div>
         </div>
         <Highlight class="my-0"
             language='{xml}'
             code='
-    // warning color button
-    <button class="tf_btn tf_btn-warning">info button</button>
+    // Warning color button
+    <button class="tf_btn tf_btn-warning">Warning button</button>
     
-    // warning color button with icon
+    // Warning color button with icon
     <button class="tf_btn tf_btn-warning">
-        <i class="fas fa-home"></i>
-        icon button
+        <i class="fas fa-home"></i> Icon button
     </button>
 
-    // active button
-    <button class="tf_btn tf_btn-warning active">active button</button>
+    // Warning color active button
+    <button class="tf_btn tf_btn-warning active">Active button</button>
 
-    // warning color disabled button
-    <button class="tf_btn tf_btn-warning" disabled>disabled button</button>
+    // Warning color used button
+    <button class="tf_btn tf_btn-warning used">Used button</button>
+
+    // Warning color disabled button
+    <button class="tf_btn tf_btn-warning" disabled>Disabled button</button>
             '
         />
     </div>

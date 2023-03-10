@@ -18,22 +18,22 @@
             class="my-0"
             language='{xml}'
             code='
-    // icon extra small size button
+    // Icon extra small size button
     <button class="tf_btn tf_btn-primary tf_btn-icon tf_btn-xs">
         <i class="fas fa-cog"></i>
     </button>
 
-    // icon small size button
+    // Icon small size button
     <button class="tf_btn tf_btn-primary tf_btn-icon tf_btn-sm">
         <i class="fas fa-info"></i>
     </button>
 
-    // icon normal size button
+    // Icon normal size button
     <button class="tf_btn tf_btn-primary tf_btn-icon">
         <i class="fas fa-infinity"></i>
     </button>
 
-    // icon large size button
+    // Icon large size button
     <button class="tf_btn tf_btn-primary tf_btn-icon tf_btn-lg">
         <i class="fas fa-brain"></i>
     </button>

@@ -9,30 +9,33 @@
     <div class="rounded-2 overflow-hidden">
         <div class="bg-positive rounded-2 rounded-bottom-0 p-4 text-center">
             <div class="d-inline-flex g-4 flex-wrap">
-                <button class="tf_btn tf_btn-transparent">transparent button</button>
+                <button class="tf_btn tf_btn-transparent">Transparent button</button>
                 <button class="tf_btn tf_btn-transparent"><i class="fas fa-home"></i> icon button</button>
-                <button class="tf_btn tf_btn-transparent active">active button</button>
-                <button class="tf_btn tf_btn-transparent" disabled>disabled button</button>
+                <button class="tf_btn tf_btn-transparent active">Active button</button>
+                <button class="tf_btn tf_btn-transparent used">Used button</button>
+                <button class="tf_btn tf_btn-transparent" disabled>Disabled button</button>
             </div>
         </div>
         <Highlight
             class="my-0"
             language='{xml}'
             code='
-    // transparent button
+    // Transparent color button
     <button class="tf_btn tf_btn-transparent">transparent button</button>
         
-    // transparent button with icon
+    // Transparent color button with icon
     <button class="tf_btn tf_btn-transparent">
-        <i class="fas fa-home"></i>
-        icon button
+        <i class="fas fa-home"></i> Icon button
     </button>
 
-    // active button
+    // Transparent coloractive button
     <button class="tf_btn tf_btn-transparent active">active button</button>
     
-    // transparent disabled button
-    <button class="tf_btn tf_btn-transparent" disabled>disabled button</button>
+    // Transparent color used button
+    <button class="tf_btn tf_btn-transparent used">Used button</button>
+    
+    // Transparent color disabled button
+    <button class="tf_btn tf_btn-transparent" disabled>Disabled button</button>
             '
         />
     </div>

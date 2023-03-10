@@ -20,20 +20,22 @@
             class="my-0"
             language='{xml}'
             code='
-    // default color button
-    <button class="tf_btn">default button</button>
+    // Default color button
+    <button class="tf_btn">Default button</button>
 
-    // default color button with icon
+    // Default color button with icon
     <button class="tf_btn">
-        <i class="fas fa-home"></i>
-        icon button
+        <i class="fas fa-home fa-fw"></i> Icon button
     </button>
 
-    // default color active button
-    <button class="tf_btn active">active button</button>
+    // Default color active button
+    <button class="tf_btn active">Active button</button>
 
-    // default color disabled button
-    <button class="tf_btn" disabled>disabled button</button>
+    // Default color used button
+    <button class="tf_btn used">Used button</button>
+
+    // Default color disabled button
+    <button class="tf_btn" disabled>Disabled button</button>
             '
         />
     </div>
