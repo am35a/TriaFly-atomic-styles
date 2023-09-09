@@ -1,3 +1,11 @@
+form {
+    &[disabled="true"] {
+        color: var(--negative-color-25);
+        // [class*="-primary"] {
+        //     color: var(--primary-color-l2) !important;
+        // }
+    }
+}
 .tf_form-label {
     display: inline-block;
     margin-bottom: calc(var(--key-size) * .5);
@@ -154,35 +162,6 @@
         align-items: center;
         justify-items: start;
         line-height: 1.5;
-        &-input[type="checkbox"],
-        &-input[type="radio"] {
-            margin: unset;
-            width: 1em;
-            height: 1em;
-            border-radius: calc(1em * .125);
-            background-color: transparent;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            border: calc(var(--key-size) * .0625) solid currentColor;
-            cursor: pointer;
-            appearance: none;
-            -webkit-appearance: none;
-            &:disabled,
-            &[readonly] {
-                color: var(--negative-color-25);
-                pointer-events: none;
-                cursor: default;
-            }
-            &:checked {
-                background-color: currentColor;
-                border-color: transparent;
-            }
-            &:focus {
-                outline: 0;
-                box-shadow: 0 0 0 calc(var(--key-size) * .125) currentColor;
-            }
-        }
         &-label {
             user-select: none;
             cursor: pointer;
@@ -194,19 +173,51 @@
         }
     }
 
-    &-check {
-        &-input[type="checkbox"] {
-            &:checked {
-                background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><path d='M0.4,7.7l2.1-2.1l3.9,3.9l7.1-7.1l2.1,2.1l-9.2,9.2L0.4,7.7z'/></svg>");
-            }
+    &-check-input[type="checkbox"],
+    &-radio-input[type="radio"] {
+        margin: unset;
+        width: 1em;
+        height: 1em;
+        border-radius: calc(1em * .125);
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        border: calc(var(--key-size) * .0625) solid currentColor;
+        cursor: pointer;
+        appearance: none;
+        -webkit-appearance: none;
+        &:disabled,
+        &[readonly] {
+            color: var(--negative-color-25);
+            pointer-events: none;
+            cursor: default;
+        }
+        &:checked {
+            background-color: currentColor;
+            border-color: transparent;
+        }
+        &:focus {
+            outline: 0;
+            box-shadow: 0 0 0 calc(var(--key-size) * .125) currentColor;
         }
     }
-    &-radio {
-        &-input[type="radio"] {
-            border-radius: calc(1em * .5);
-            &:checked {
-                background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><circle cx='8' cy='8' r='5'/></svg>");
-            }
+
+    &-check-input[type="checkbox"] {
+        &:indeterminate {
+            background-color: currentColor;
+            border-color: transparent;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><rect x='1' y='6.5' width='14' height='3' /></svg>");
+        }
+        &:checked {
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><path d='M0.4,7.7l2.1-2.1l3.9,3.9l7.1-7.1l2.1,2.1l-9.2,9.2L0.4,7.7z'/></svg>");
+        }
+    }
+
+    &-radio-input[type="radio"] {
+        border-radius: calc(1em * .5);
+        &:checked {
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><circle cx='8' cy='8' r='5'/></svg>");
         }
     }
 }

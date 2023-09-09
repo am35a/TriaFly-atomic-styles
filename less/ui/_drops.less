@@ -88,6 +88,18 @@
                 left: 0%;
             }
         }
+        // ⁃
+        &[data-drop-position^="center"] {
+            &[data-pointer-position="before"]:before,
+            &[data-pointer-position="after"]::after {
+                content: "\2043";
+            }
+            &[data-drop-position$="center"] + .tf_drop-content {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
     }
     .tf_btn-drop {
         * {
@@ -108,7 +120,8 @@
     }
     .tf_drop-content {
         position: absolute;
-        width: max-content;
+        width: var(--drop-content-width, max-content);
+        text-align: initial;
         z-index: 1;
     }
     &:hover > .tf_drop-content {

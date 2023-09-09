@@ -1,0 +1,13 @@
+.tf_resizer {
+    position: absolute;
+    border-left: calc(var(--key-size) * .5) solid transparent;
+    border-bottom: calc(var(--key-size) * .5) solid var(--negative-color-25);
+    height: calc(var(--key-size) * .5);
+    width: calc(var(--key-size) * .5);
+    bottom: 0;
+    right: 0;
+    cursor: nw-resize;
+    &:hover {
+        border-bottom-color: var(--negative-color-50);
+    }
+}

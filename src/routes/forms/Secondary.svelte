@@ -9,8 +9,12 @@
         <form class="bg-positive rounded-2 rounded-bottom-0 p-4">
             <label for="inputTextSecondary" class="tf_form-label text-secondary">Label secondary</label>
             <input id="inputTextSecondary" class="tf_form-control tf_form-control-secondary" type="text" placeholder="Placeholder">
-            <div class="tf_form-text text-secondary">
+            <p class="tf_form-text text-secondary">
                 This line can contains additional information to the input field above.
+            </p>
+            <div class="tf_form-check text-secondary">
+                <input class="tf_form-check-input" id="сheckSecondarySize" type="checkbox">
+                <label class="tf_form-check-label" for="сheckSecondarySize">Checkbox secondary</label>
             </div>
         </form>
         <Highlight
@@ -19,10 +23,13 @@
             code='
     <label for="inputText" class="tf_form-label text-secondary">Label secondary</label>
     <input id="inputText" class="tf_form-control tf_form-control-secondary" type="text" placeholder="Placeholder">
-    <div class="tf_form-text text-secondary">
+    <p class="tf_form-text text-secondary">
         This line can contains additional information to the input field above.
-    </div>
-            '
+    </p>
+    <div class="tf_form-check text-secondary">
+        <input class="tf_form-check-input" id="сheckSecondarySize" type="checkbox">
+        <label class="tf_form-check-label" for="сheckSecondarySize">Checkbox secondary</label>
+    </div>'
         />
     </div>
 </div>

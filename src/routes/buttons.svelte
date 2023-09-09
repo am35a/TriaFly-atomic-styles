@@ -13,23 +13,27 @@
     import ButtonGroup       from "../routes/buttons/Group.svelte"
     import ButtonIcon        from "../routes/buttons/Icon.svelte"
     import ButtonSize        from "../routes/buttons/Size.svelte"
+    import ButtonDropdown    from "../routes/buttons/Dropdown.svelte"
 </script>
 
 
 <PageLayout id="buttons">
     <slot slot="aside">
-        <a href="buttons#default">Default</a>
-        <a href="buttons#inverse">Inverse</a>
-        <a href="buttons#transparent">Transparent</a>
-        <a href="buttons#primary">Primary</a>
-        <a href="buttons#secondary">Secondary</a>
-        <a href="buttons#info">Info</a>
-        <a href="buttons#success">Success</a>
-        <a href="buttons#warning">Warning</a>
-        <a href="buttons#error">Error</a>
+        <a href="buttons#buttons">Ordinary buttons</a>
+            <a href="buttons#default">- Default</a>
+            <a href="buttons#inverse">- Inverse</a>
+            <a href="buttons#transparent">- Transparent</a>
+        <a href="buttons#main-buttons">Color buttons</a>
+            <a href="buttons#primary">- Primary</a>
+            <a href="buttons#secondary">- Secondary</a>
+            <a href="buttons#info">- Info</a>
+            <a href="buttons#success">- Success</a>
+            <a href="buttons#warning">- Warning</a>
+            <a href="buttons#error">- Error</a>
         <a href="buttons#group">Group</a>
         <a href="buttons#size">Size</a>
         <a href="buttons#icon">Icon</a>
+        <a href="buttons#dropdown">Dropdown</a>
     </slot>
     <div class="h1" role="heading" aria-level="1">Buttons</div>
     <ButtonDefault/>
@@ -62,4 +66,5 @@
     <ButtonGroup/>
     <ButtonSize/>
     <ButtonIcon/>
+    <ButtonDropdown/>
 </PageLayout>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SPA layout | песочница</title>
+        <link rel="stylesheet" href="https://ui.triafly.ru/dist/css/normalize.css">
+        <link rel="stylesheet" href="https://ui.triafly.ru/dist/css/global.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://unpkg.com/current-device/umd/current-device.min.js"></script>
+        <style>
+            :root {
+                --aside-navbar-color: var(--positive-color);
+            }
+
+            .tf_sand {
+                display: grid;
+                grid-gap: var(--key-size);
+                height: 100%;
+                margin-bottom: 0 !important;
+                grid-template-rows: max-content auto;
+                grid-template-columns: 1fr;
+            }
+
+
+            /*  */
+
+            .tf_smartwindow {
+                justify-self: baseline;
+                align-self: baseline;
+                background-color: var(--positive-color);
+                position: absolute;
+                
+                box-shadow: 0 calc(var(--key-size) * 0.25) calc(var(--key-size) * 0.5) var(--negative-color-10);
+                border: calc(var(--key-size) * 0.0625) solid var(--negative-color-10);
+            }
+                .tf_smartwindow-header {
+                    display: grid;
+                    grid-template-columns: auto max-content;
+                    grid-gap: var(--g-4, var(--key-size));
+                    margin-bottom: var(--m-2, calc(var(--key-size) * 0.5));
+                    padding: var(--p-1, calc(var(--key-size) * 0.25));
+                    justify-content: space-between;
+                    border-top-left-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
+                    border-top-right-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
+                    background-color: var(--popup-header-background-color, var(--aside-navbar-background-color));
+                    color: var(--popup-header-color, var(--aside-navbar-color));
+                    cursor: move;
+                }
+                    .tf_smartwindow-title {
+                        padding-left: var(--p-1, calc(var(--key-size) * 0.25));
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                    .tf_smartwindow-action {
+                        display: flex;
+                        align-items: center;
+                    }
+        </style>
+    </head>
+    <body class="tf_layout">
+        <div class="tf_layout-main p-4">
+            <div class="tf_sand">
+                <div class="tf_sand-header"></div>
+                <div class="tf_sand-body bg-positive rounded-2 d-grid p-4">
+
+                    <div class="tf_smartwindow" style="left: 30px; top: 40px;">
+                        <div class="tf_smartwindow-header">
+                            <div class="tf_smartwindow-title">
+                                Настройки формы
+                            </div>
+                            <div class="tf_smartwindow-action">
+                                <button class="tf_btn tf_btn-icon tf_btn-xs tf_btn-inverse bg-transparent p-0">
+                                    <i class="fas fa-times fa-fw"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="tf_smartwindow-body">
+
+
+
+
+<!-- настройки начало-->
+
+<div class="d-grid g-2">
+	<div class="tf_form-check d-grid cols-5 g-2">
+		<input class="tf_form-check-input col-span-2 ml-auto" id="clear_empty_rows" type="checkbox">
+		<label class="tf_form-check-label col-span-3" for="clear_empty_rows">Пропускать пустые строки</label>
+	</div>
+	<div class="tf_form-check d-grid cols-5 g-2">
+		<input class="tf_form-check-input col-span-2 ml-auto" id="clear_empty_cols" type="checkbox">
+		<label class="tf_form-check-label col-span-3" for="clear_empty_cols">Пропускать пустые столбцы</label>
+	</div>
+	<div class="tf_form-check d-grid cols-5 g-2">
+		<input class="tf_form-check-input col-span-2 ml-auto" id="force_fixedtablecolumn" type="checkbox">
+		<label class="tf_form-check-label col-span-3" for="force_fixedtablecolumn">Фиксировать заголовки строк</label>
+	</div>
+	<div class="d-grid g-4 border rounded p-2">
+		<div class="tf_form-check d-grid cols-5 g-2">
+			<input class="tf_form-check-input col-span-2 ml-auto" id="cache_views" type="checkbox">
+			<label class="tf_form-check-label col-span-3" for="cache_views">Кешировать форму</label>
+		</div>
+		<div class="d-grid cols-5 g-2 align-items-center">
+			<div class="my-auto text-end col-span-2">Сброс кэша:</div>
+			<select class="tf_form-control tf_form-control-sm col-span-3 w-100" name="cache-update" type="radio">
+				<option id="time_" value="">Не сбрасывать кэш</option>
+				<option id="time_60" value="60">1 минута</option>
+				<option id="time_300" value="300">5 минут</option>
+				<option id="time_900" value="900">15 минут</option>
+				<option id="time_3600" value="3600">1 час</option>
+				<option id="time_86400" value="86400">1 день</option>
+				<option id="time_cron" value="cron">По расписанию</option>
+				<option id="time_cron" value="cron">По расписанию</option>
+			</select>
+		</div>
+		<div class="d-grid cols-5 g-2 align-items-center" name="cache-interval-cron">
+			<div class="my-auto text-end col-span-2">
+				Расписание сброса кэша
+				<span class="show-help text-info">
+					<i class="fas fa-question-circle"></i>
+				</span>    
+				:
+			</div>
+			<input type="text" class="tf_form-control tf_form-control-sm col-span-3" name="cache-interval-cron-input" value="59 2 * * *">
+		</div>
+		<div class="tf_form-check d-grid cols-5 g-2">
+			<input class="tf_form-check-input col-span-2 ml-auto" id="cache_auto" type="checkbox">
+			<label class="tf_form-check-label col-span-3" for="cache_auto">Авторасчет после сброса кеша</label>
+		</div>
+	</div>
+	<div class="tf_form-check d-grid cols-5 g-2">
+		<input class="tf_form-check-input col-span-2 ml-auto" id="no_row_header_wrap" type="checkbox">
+		<label class="tf_form-check-label col-span-3" for="no_row_header_wrap">Без переносов в заголовках строк</label>
+	</div>
+	<div class="tf_form-check d-grid cols-5 g-2">
+		<input class="tf_form-check-input col-span-2 ml-auto" id="hide_leaf_row_headers" type="checkbox">
+		<label class="tf_form-check-label col-span-3" for="hide_leaf_row_headers">Скрывать заголовки строк нижнего уровня</label>
+	</div>
+	<div class="tf_form-check d-grid cols-5 g-2">
+		<input class="tf_form-check-input col-span-2 ml-auto" id="allow_show_hidden" type="checkbox">
+		<label class="tf_form-check-label col-span-3" for="allow_show_hidden">Разрешить просмотр скрытых значений</label>
+	</div>
+	<div class="tf_form-check d-grid cols-5 g-2">
+		<input class="tf_form-check-input col-span-2 ml-auto" id="allow_sort_by_rows" type="checkbox">
+		<label class="tf_form-check-label col-span-3" for="allow_sort_by_rows">Разрешить сортировку столбцов по строкам</label>
+	</div>
+	<div class="tf_form-check d-grid cols-5 g-2">
+		<input class="tf_form-check-input col-span-2 ml-auto" id="are_rowspaned_headers" type="checkbox">
+		<label class="tf_form-check-label col-span-3" for="are_rowspaned_headers">Компактные заголовки строк</label>
+	</div>
+	<div class="tf_form-check d-grid cols-5 g-2">
+		<input class="tf_form-check-input col-span-2 ml-auto" id="are_multiline_text" type="checkbox">
+		<label class="tf_form-check-label col-span-3" for="are_multiline_text">Перенос текста</label>
+	</div>
+	<div class="tf_form-check d-grid cols-5 g-2">
+		<input class="tf_form-check-input col-span-2 ml-auto" id="hide_rows_counter" type="checkbox">
+		<label class="tf_form-check-label col-span-3" for="hide_rows_counter">Скрывать строку состояния</label>
+	</div>
+	<input class="tf_form-control" name="link_template" type="text" placeholder="Ссылка ({value} - значение источника)" value="">
+
+</div>
+
+<!-- настройки конец -->
+
+                        </div>
+
+                        <div class="tf_smartwindow-footer">
+                            <div>
+                                <button class="tf_btn tf_btn-sm tf_btn-transparent cancel-button">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Отменить
+                                </button>
+                            </div>
+                            <div>
+								<button class="tf_btn tf_btn-sm tf_btn-primary db-grid-save">
+									<i class="fas fa-check"></i>
+									Применить
+								</button>
+                            </div>
+                        </div>
+                        <div class="tf_resizer"></div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://ui.triafly.ru/dist/js/ui-drops.js"></script>
+    <script>
+
+    </script>
+</html>

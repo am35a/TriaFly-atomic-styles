@@ -10,8 +10,12 @@
         <form class="bg-positive rounded-2 rounded-bottom-0 p-4">
             <label for="inputTextPrimary" class="tf_form-label text-primary">Label primary</label>
             <input id="inputTextPrimary" class="tf_form-control tf_form-control-primary" type="text" placeholder="Placeholder">
-            <div class="tf_form-text text-primary">
+            <p class="tf_form-text text-primary">
                 This line can contains additional information to the input field above.
+            </p>
+            <div class="tf_form-check text-primary">
+                <input class="tf_form-check-input" id="сheckPrimarySize" type="checkbox">
+                <label class="tf_form-check-label" for="сheckPrimarySize">Checkbox primary</label>
             </div>
         </form>
         <Highlight
@@ -20,10 +24,13 @@
             code='
     <label for="inputText" class="tf_form-label text-primary">Label primary</label>
     <input id="inputText" class="tf_form-control tf_form-control-primary" type="text" placeholder="Placeholder">
-    <div class="tf_form-text text-primary">
+    <p class="tf_form-text text-primary">
         This line can contains additional information to the input field above.
-    </div>
-            '
+    </p>
+    <div class="tf_form-check text-primary">
+        <input class="tf_form-check-input" id="сheckPrimarySize" type="checkbox">
+        <label class="tf_form-check-label" for="сheckPrimarySize">Checkbox primary</label>
+    </div>'
         />
     </div>
 </div>

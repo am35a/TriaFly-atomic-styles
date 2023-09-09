@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SPA layout | песочница</title>
+        <link rel="stylesheet" href="https://ui.triafly.ru/dist/css/normalize.css">
+        <link rel="stylesheet" href="https://ui.triafly.ru/dist/css/global.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://unpkg.com/current-device/umd/current-device.min.js"></script>
+        <style>
+            :root {
+
+            }
+
+            .tf_sand {
+                display: grid;
+                grid-gap: var(--key-size);
+                height: 100%;
+                margin-bottom: 0 !important;
+                grid-template-rows: max-content auto;
+                grid-template-columns: 1fr;
+            }
+
+            .tf_table tbody,
+            .tf_table td,
+            .tf_table tfoot,
+            .tf_table th,
+            .tf_table thead,
+            .tf_table tr {
+                --table-border-color: var(--negative-color-10);
+                border-color: var(--table-border-color);
+                border-style: solid;
+                border-width: 0;
+            }
+            .tf_table {
+                width:100%;
+                margin-bottom: .25rem;
+                vertical-align:top;
+                border-collapse: collapse;
+            }
+            .tf_table > thead > * > * {
+                padding: .5rem;
+                background-color: var(--table-cell-bg-color, --positive-color);
+                border-bottom-width: 1px !important;
+            }
+            .tf_table > tbody > * > * {
+                padding: .5rem;
+                background-color: var(--table-cell-bg-color, --positive-color);
+            }
+            .tf_table > tbody > :not(:last-child) > * {
+                border-bottom-width: 1px !important;
+            }
+            .tf_table > tfoot > * > * {
+                --table-border-color: var(--negative-color-25);
+
+                padding: .5rem;
+                background-color: var(--table-cell-bg-color, --positive-color);
+                border-top-width: 1px !important;
+            }
+
+            .tf_table-striped-rows > tbody > tr:nth-of-type(odd) > * {
+                --table-cell-bg-color: rgba(0, 0, 0, .05);
+            }
+            .tf_table-striped-columns > tbody > tr > :nth-child(even) {
+                --table-cell-bg-color: rgba(0, 0, 0, .05);
+            }
+
+            .tf_table-hover-rows > tbody > tr:hover > * {
+                --table-cell-bg-color: rgba(0, 0, 0, .05);
+            
+            }
+            /* .tf_table-hover-rows:not(.tf_table-hover-columns) > tbody > * > :hover {
+                --table-cell-bg-color: rgba(0, 0, 0, .075);
+            }
+            .tf_table-hover-columns:not(.tf_table-hover-rows) > tbody > * > :hover {
+                --table-cell-bg-color: rgba(0, 0, 0, .05);
+            } */
+            .tf_table-hover-columns {
+                z-index: 1;
+                position: relative;
+                overflow: hidden;
+            }
+            .tf_table-hover-columns > tbody > * > * {
+                position: relative;
+            }
+            .tf_table-hover-columns > tbody > tr > :hover::after {
+                background-color: rgba(0, 0, 0, .05);
+                content: ' ';
+                z-index: -1;
+                height: 10000px;
+                left: 0;
+                position: absolute;
+                top: -5000px;
+                width: 100%;
+            }
+
+        </style>
+    </head>
+    <body class="tf_layout">
+        <div class="tf_layout-main p-4">
+            <div class="tf_sand">
+                <div class="tf_sand-header"></div>
+                <div class="tf_sand-body bg-positive rounded-2 p-4">
+
+                    <div class="p-1 fw-600">table ordinary</div>
+                    <div class="px-2 py-1 mb-4 shadow rounded">
+
+                        <table class="tf_table">
+                            <!-- table header-->
+                            <thead>
+                              <tr>
+                                <th class="text-center">#</th>
+                                <th class="text-center">First col</th>
+                                <th class="text-center">Second coll</th>
+                                <th class="text-center">Last coll</th>
+                              </tr>
+                            </thead>
+    
+                            <!-- table body -->
+                            <tbody>
+                              <tr>
+                                <th class="text-center">1</th>
+                                <td class="text-center">51345</td>
+                                <td class="text-center">Lorem ipsum dolor.</td>
+                                <td class="text-center">Alias perferendis.</td>
+                              </tr>
+                              <tr>
+                                <th class="text-center" rowspan="2">2</th>
+                                <td class="text-center" rowspan="2">98347</td>
+                                <td class="text-center" colspan="2">A sit amet consectetur.</td>
+                                <!-- <td>Aperiam quam dolor.</td> -->
+                              </tr>
+                              <tr>
+                                <!-- <th class="text-center">2</th> -->
+                                <!-- <td class="text-center">98347</td> -->
+                                <td class="text-center">fugiat nisi harum sit.</td>
+                                <td class="text-center">Arerum quibusdam nostrum.</td>
+                              </tr>
+                              <tr>
+                                <th class="text-center">3</th>
+                                <td class="text-center">12098</td>
+                                <td class="text-center">...</td>
+                                <td class="text-center"> Unde numquam rem.</td>
+                              </tr>
+                            </tbody>
+
+                            <!--  -->
+                            <tfoot>
+                                <tr>
+                                    <th class="text-center">=</th>
+                                    <td class="text-center">161790</td>
+                                    <th class="text-center">Yes</th>
+                                    <th class="text-center">No</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                    </div>
+
+                    <div class="p-1 fw-600">table hover rows</div>
+                    <div class="px-2 py-1 mb-4 shadow rounded">
+                        <table class="tf_table tf_table-hover-rows">
+                            <!-- table header-->
+                            <thead>
+                              <tr>
+                                <th class="text-center">#</th>
+                                <th class="text-center">First col</th>
+                                <th class="text-center">Second coll</th>
+                                <th class="text-center">Last coll</th>
+                              </tr>
+                            </thead>
+    
+                            <!-- table body -->
+                            <tbody>
+                              <tr>
+                                <th class="text-center">1</th>
+                                <td class="text-center">51345</td>
+                                <td class="text-center">Lorem ipsum dolor.</td>
+                                <td class="text-center">Alias perferendis.</td>
+                              </tr>
+                              <tr>
+                                <th class="text-center" rowspan="2">2</th>
+                                <td class="text-center" rowspan="2">98347</td>
+                                <td class="text-center" colspan="2">A sit amet consectetur.</td>
+                                <!-- <td>Aperiam quam dolor.</td> -->
+                              </tr>
+                              <tr>
+                                <!-- <th class="text-center">2</th> -->
+                                <!-- <td class="text-center">98347</td> -->
+                                <td class="text-center">fugiat nisi harum sit.</td>
+                                <td class="text-center">Arerum quibusdam nostrum.</td>
+                              </tr>
+                              <tr>
+                                <th class="text-center">3</th>
+                                <td class="text-center">12098</td>
+                                <td class="text-center">...</td>
+                                <td class="text-center"> Unde numquam rem.</td>
+                              </tr>
+                            </tbody>
+
+                            <!--  -->
+                            <tfoot>
+                                <tr>
+                                    <th class="text-center">=</th>
+                                    <td class="text-center">161790</td>
+                                    <th class="text-center">Yes</th>
+                                    <th class="text-center">No</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+
+                    <div class="p-1 fw-600">table hover columns</div>
+                    <div class="px-2 py-1 mb-4 shadow rounded">
+                        <table class="tf_table tf_table-hover-columns">
+                            <!-- table header-->
+                            <thead>
+                              <tr>
+                                <th class="text-center">#</th>
+                                <th class="text-center">First col</th>
+                                <th class="text-center">Second coll</th>
+                                <th class="text-center">Last coll</th>
+                              </tr>
+                            </thead>
+    
+                            <!-- table body -->
+                            <tbody>
+                              <tr>
+                                <th class="text-center">1</th>
+                                <td class="text-center">51345</td>
+                                <td class="text-center">Lorem ipsum dolor.</td>
+                                <td class="text-center">Alias perferendis.</td>
+                              </tr>
+                              <tr>
+                                <th class="text-center" rowspan="2">2</th>
+                                <td class="text-center" rowspan="2">98347</td>
+                                <td class="text-center" colspan="2">A sit amet consectetur.</td>
+                                <!-- <td>Aperiam quam dolor.</td> -->
+                              </tr>
+                              <tr>
+                                <!-- <th class="text-center">2</th> -->
+                                <!-- <td class="text-center">98347</td> -->
+                                <td class="text-center">fugiat nisi harum sit.</td>
+                                <td class="text-center">Arerum quibusdam nostrum.</td>
+                              </tr>
+                              <tr>
+                                <th class="text-center">3</th>
+                                <td class="text-center">12098</td>
+                                <td class="text-center">...</td>
+                                <td class="text-center"> Unde numquam rem.</td>
+                              </tr>
+                            </tbody>
+
+                            <!--  -->
+                            <tfoot>
+                                <tr>
+                                    <th class="text-center">=</th>
+                                    <td class="text-center">161790</td>
+                                    <th class="text-center">Yes</th>
+                                    <th class="text-center">No</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+
+                    <div class="p-1 fw-600">table hover</div>
+                    <div class="px-2 py-1 mb-4 shadow rounded">
+                        <table class="tf_table tf_table-hover-rows tf_table-hover-columns">
+                            <!-- table header-->
+                            <thead>
+                              <tr>
+                                <th class="text-center">#</th>
+                                <th class="text-center">First col</th>
+                                <th class="text-center">Second coll</th>
+                                <th class="text-center">Last coll</th>
+                              </tr>
+                            </thead>
+    
+                            <!-- table body -->
+                            <tbody>
+                              <tr>
+                                <th class="text-center">1</th>
+                                <td class="text-center">51345</td>
+                                <td class="text-center">Lorem ipsum dolor.</td>
+                                <td class="text-center">Alias perferendis.</td>
+                              </tr>
+                              <tr>
+                                <th class="text-center" rowspan="2">2</th>
+                                <td class="text-center" rowspan="2">98347</td>
+                                <td class="text-center" colspan="2">A sit amet consectetur.</td>
+                                <!-- <td>Aperiam quam dolor.</td> -->
+                              </tr>
+                              <tr>
+                                <!-- <th class="text-center">2</th> -->
+                                <!-- <td class="text-center">98347</td> -->
+                                <td class="text-center">fugiat nisi harum sit.</td>
+                                <td class="text-center">Arerum quibusdam nostrum.</td>
+                              </tr>
+                              <tr>
+                                <th class="text-center">3</th>
+                                <td class="text-center">12098</td>
+                                <td class="text-center">...</td>
+                                <td class="text-center"> Unde numquam rem.</td>
+                              </tr>
+                            </tbody>
+
+                            <!--  -->
+                            <tfoot>
+                                <tr>
+                                    <th class="text-center">=</th>
+                                    <td class="text-center">161790</td>
+                                    <th class="text-center">Yes</th>
+                                    <th class="text-center">No</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+
+                    <div class="p-1 fw-600">table striped rows</div>
+                    <div class="px-2 py-1 mb-4 shadow rounded">
+                        <table class="tf_table tf_table-striped-rows">
+                            <!-- table header-->
+                            <thead>
+                              <tr>
+                                <th class="text-center">#</th>
+                                <th class="text-center">First col</th>
+                                <th class="text-center">Second coll</th>
+                                <th class="text-center">Last coll</th>
+                              </tr>
+                            </thead>
+    
+                            <!-- table body -->
+                            <tbody>
+                              <tr>
+                                <th class="text-center">1</th>
+                                <td class="text-center">51345</td>
+                                <td class="text-center">Lorem ipsum dolor.</td>
+                                <td class="text-center">Alias perferendis.</td>
+                              </tr>
+                              <tr>
+                                <th class="text-center" rowspan="2">2</th>
+                                <td class="text-center" rowspan="2">98347</td>
+                                <td class="text-center" colspan="2">A sit amet consectetur.</td>
+                                <!-- <td>Aperiam quam dolor.</td> -->
+                              </tr>
+                              <tr>
+                                <!-- <th class="text-center">2</th> -->
+                                <!-- <td class="text-center">98347</td> -->
+                                <td class="text-center">fugiat nisi harum sit.</td>
+                                <td class="text-center">Arerum quibusdam nostrum.</td>
+                              </tr>
+                              <tr>
+                                <th class="text-center">3</th>
+                                <td class="text-center">12098</td>
+                                <td class="text-center">...</td>
+                                <td class="text-center"> Unde numquam rem.</td>
+                              </tr>
+                            </tbody>
+
+                            <!--  -->
+                            <tfoot>
+                                <tr>
+                                    <th class="text-center">=</th>
+                                    <td class="text-center">161790</td>
+                                    <th class="text-center">Yes</th>
+                                    <th class="text-center">No</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+
+
+                    <div class="p-1 fw-600">table striped columns</div>
+                    <div class="px-2 py-1 mb-4 shadow rounded">
+                        <table class="tf_table tf_table-striped-columns">
+                            <!-- table header-->
+                            <thead>
+                              <tr>
+                                <th class="text-center">#</th>
+                                <th class="text-center">First col</th>
+                                <th class="text-center">Second coll</th>
+                                <th class="text-center">Last coll</th>
+                              </tr>
+                            </thead>
+    
+                            <!-- table body -->
+                            <tbody>
+                              <tr>
+                                <th class="text-center">1</th>
+                                <td class="text-center">51345</td>
+                                <td class="text-center">Lorem ipsum dolor.</td>
+                                <td class="text-center">Alias perferendis.</td>
+                              </tr>
+                              <tr>
+                                <th class="text-center" rowspan="2">2</th>
+                                <td class="text-center" rowspan="2">98347</td>
+                                <td class="text-center" colspan="2">A sit amet consectetur.</td>
+                                <!-- <td>Aperiam quam dolor.</td> -->
+                              </tr>
+                              <tr>
+                                <!-- <th class="text-center">2</th> -->
+                                <!-- <td class="text-center">98347</td> -->
+                                <td class="text-center">fugiat nisi harum sit.</td>
+                                <td class="text-center">Arerum quibusdam nostrum.</td>
+                              </tr>
+                              <tr>
+                                <th class="text-center">3</th>
+                                <td class="text-center">12098</td>
+                                <td class="text-center">...</td>
+                                <td class="text-center"> Unde numquam rem.</td>
+                              </tr>
+                            </tbody>
+
+                            <!--  -->
+                            <tfoot>
+                                <tr>
+                                    <th class="text-center">=</th>
+                                    <td class="text-center">161790</td>
+                                    <th class="text-center">Yes</th>
+                                    <th class="text-center">No</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://ui.triafly.ru/dist/js/ui-drops.js"></script>
+    <script>
+
+    </script>
+</html>

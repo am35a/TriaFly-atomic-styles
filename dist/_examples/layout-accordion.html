@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SPA layout | песочница</title>
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/global.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://unpkg.com/current-device/umd/current-device.min.js"></script>
+        <style>
+            :root {
+
+            }
+            .tf_sand {
+                display: grid;
+                grid-gap: var(--key-size);
+                height: 100%;
+                margin-bottom: 0 !important;
+                grid-template-rows: max-content auto;
+                grid-template-columns: 1fr;
+            }
+        </style>
+    </head>
+    <body class="tf_layout">
+        <div class="tf_layout-main p-4">
+            <div class="tf_sand">
+                <div class="tf_sand-header"></div>
+                <div class="tf_sand-body bg-positive rounded-2 d-grid cols-2 g-5 p-4">
+
+
+                    <div class="d-grid g-5 align-content-start">
+                        <div>
+                            <header>Marker end</header>
+                            <hr>
+                            <details class="tf_details tf_marker-end">
+                                <summary>Section marker end</summary>
+                                <div class="px-3 py-2">Content for section goes here.</div>
+                            </details>
+                        </div>
+                        <div>
+                            <header>Buttons type</header>
+                            <hr>
+                            <details class="tf_details tf_marker-end">
+                                <summary class="tf_btn text-start">Section marker end</summary>
+                                <div class="px-3 py-2">Content for section goes here.</div>
+                            </details>
+                        </div>
+                        <div>
+                            <header>Buttons type with button inside</header>
+                            <hr>
+                            <details class="tf_details tf_marker-end">
+                                <summary class="tf_btn tf_btn-transparent text-start">
+                                    <div class="d-flex g-2">
+                                        <button class="tf_btn px-2 fs-xxs" title="Нажмите для центрирования карты на точке">
+                                            <i class="fas fa-location-arrow fa-lg"></i>
+                                        </button>
+                                        Section marker end
+                                    </div>
+                                </summary>
+                                <div class="px-3 py-2">Content for section goes here.</div>
+                            </details>
+                        </div>
+                        <div>
+                            <header>Dropdown accordion</header>
+                            <hr>
+                            <div class="tf_drop-focus">
+                                <button class="tf_btn tf_btn-transparent tf_btn-drop w-100 text-start" data-pointer-position="after" data-drop-position="bottom right" title="Меню выпадающее"><i class="fas fa-bars fa-fw"></i></button>
+                                <div class="tf_drop-content">
+                                    <div class="tf_accordion d-grid g-1 bg-positive rounded p-1 shadow" tabindex="0">
+
+                                        <details class="tf_details tf_marker-end" open>
+                                            <summary class="tf_btn text-start">
+                                                <div>
+                                                    <i class="fas fa-desktop fa-fw"></i>
+                                                    Устройства (Компьютер)
+                                                </div>
+                                            </summary>
+                                            <div class="d-grid g-1 p-1">
+                                                <button class="tf_btn tf_btn-sm tf_btn-transparent text-start">
+                                                    <i class="fas fa-mobile-alt fa-fw"></i>
+                                                    Мобильный
+                                                </button>
+                                                <button class="tf_btn tf_btn-sm tf_btn-transparent text-start">
+                                                    <i class="fas fa-tablet-alt fa-fw"></i>
+                                                    Планшет (альбом)
+                                                </button>
+                                                <button class="tf_btn tf_btn-sm tf_btn-transparent text-start">
+                                                    <i class="fas fa-tablet-alt fa-fw fa-rotate-270"></i>
+                                                    Планшет (портрет)
+                                                </button>
+                                                <button class="tf_btn tf_btn-sm tf_btn-transparent text-start" disabled="">
+                                                    <i class="fas fa-desktop fa-fw"></i>
+                                                    Компьютер
+                                                </button>
+                                            </div>
+                                        </details>
+
+                                        <details class="tf_details tf_marker-end">
+                                            <summary class="tf_btn text-start">
+                                                <div>
+                                                    <i class="fas fa-upload fa-fw"></i>
+                                                    Экспортировать ...
+                                                </div>
+                                            </summary>
+                                            <div class="p-1">
+                                                <div class="d-grid g-1">
+                                                    <button class="tf_btn tf_btn-sm tf_btn-transparent text-start export-visible">
+                                                        <i class="fas fa-file-image fa-fw" aria-hidden="true"></i>
+                                                        Видимая область / *.png
+                                                    </button>
+                                                    <button class="tf_btn tf_btn-sm tf_btn-transparent text-start export-full">
+                                                        <i class="fas fa-file-image fa-fw" aria-hidden="true"></i>
+                                                        Целиком / *.png
+                                                    </button>
+                                                    <button class="tf_btn tf_btn-sm tf_btn-transparent text-start export-pages">
+                                                        <i class="fas fa-file-pdf fa-fw" aria-hidden="true"></i>
+                                                        Постранично / *.pdf
+                                                    </button>
+                                                    <button class="tf_btn tf_btn-sm tf_btn-transparent text-start export-slides">
+                                                        <i class="fas fa-file-powerpoint fa-fw" aria-hidden="true"></i>
+                                                        Презентация / *.pptx
+                                                    </button>
+                                                </div>
+                                                <hr class="my-1">
+                                                <div class="d-grid g-1">
+                                                    <button class="tf_btn tf_btn-sm tf_btn-transparent text-start print">
+                                                        <i class="fas fa-print fa-fw" aria-hidden="true"></i>
+                                                        Печать
+                                                    </button>
+                                                </div>
+                                                </div>
+                                        </details>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div>
+                        <header>Accordion</header>
+                        <hr>
+                        <div class="tf_accordion d-grid g-2 align-content-start">
+                            <details class="tf_details tf_details-xs">
+                                <summary>Section XS</summary>
+                                <div class="px-3 py-2">
+                                    Content for section 2 goes here.
+                                    <details class="tf_details tf_details-xs tf_independent">
+                                        <summary>Section XS</summary>
+                                        <div class="px-3 py-2">Content for section 2 goes here.</div>
+                                    </details>        
+                                </div>
+                            </details>
+                            <details class="tf_details tf_details-sm">
+                                <summary>Section SM</summary>
+                                <div class="px-3 py-2">Content for section 3 goes here.</div>
+                            </details>
+                            <details class="tf_details" open>
+                                <summary>Section</summary>
+                                <div class="px-3 py-2">Content for section 4 goes here.</div>
+                            </details>
+                            <details class="tf_details tf_details-lg">
+                                <summary>Section LG</summary>
+                                <div class="px-3 py-2">Content for section 4 goes here.</div>
+                            </details>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://ui.triafly.ru/dist/js/ui-drops.js"></script>
+    <script src="https://ui.triafly.ru/dist/js/ui-accordion.js"></script>
+    <!--script>
+        const accordion = document.querySelector('.tf_accordion');
+        const sections = accordion.querySelectorAll('details');
+
+        sections.forEach((section) => {
+            section.addEventListener('click', () => {
+                sections.forEach((s) => {
+                    if (s !== section && s.hasAttribute('open'))
+                        s.removeAttribute('open');
+                });
+            });
+        });
+    </script-->
+    <!-- <script>
+        const accordions = document.querySelectorAll('.tf_accordion');
+        accordions.forEach((accordion) => {
+            const sections = accordion.querySelectorAll('details:not(.tf_independent)');
+            sections.forEach((section) => {
+                section.addEventListener('click', () => {
+                    sections.forEach((s) => {
+                        if (s !== section && s.hasAttribute('open')) {
+                            s.removeAttribute('open');
+                        }
+                    });
+                });
+            });
+        });
+    </script> -->
+</html>

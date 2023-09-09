@@ -1,0 +1,128 @@
+/* компонент окна списка */
+.tf_smartwindow {
+    position: relative;
+    display: inline-grid;
+    border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
+    overflow: hidden;
+    .tf_smartwindow-body {
+        padding: var(--p-2, calc(var(--key-size) * 0.5));
+        border-bottom: var(--border-width, calc(var(--key-size) * 0.0625)) solid var(--border-color, var(--negative-color-10));
+    }
+    .tf_smartwindow-footer {
+        display: flex;
+        grid-gap: var(--g-2, calc(var(--key-size) * 0.5));
+        padding: var(--p-2, calc(var(--key-size) * 0.5));
+        justify-content: space-between;
+        align-items: center;
+    }
+    .tf_smartlist {
+        position: unset;
+    }
+}
+
+/* микрокнопки списка */
+.tf_btn-smartmicro {
+    width: 1em;
+    height: 1em;
+    min-height: 1em;
+    max-width: 1em;
+    padding: unset;
+    border: none;
+    border-radius: var(--rounded-1, calc(var(--key-size) * 0.125));
+    &.tf_btn {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        padding: unset;
+        border: none;
+        font-size: unset;
+    }
+}
+
+/* компонент списка */
+.tf_smartlist {
+    position: relative;
+    display: grid;
+    grid-template-rows: max-content 1fr;
+    .tf_smartlist-header {
+        padding-bottom: var(--p-2, calc(var(--key-size) * 0.5));
+        margin-bottom: var(--m-2, calc(var(--key-size) * 0.5));
+        border-bottom: var(--border-width, calc(var(--key-size) * 0.0625)) solid var(--border-color, currentColor);
+        font-size: small;
+    }
+    .tf_smartlist-body {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr max-content;
+        overflow: auto;
+        .tf_smartlist-items {
+            grid-column: 1/-1;
+            grid-row: 1/-1;
+            font-size: small;
+            overflow: auto;
+            scrollbar-width: none;
+            &::-webkit-scrollbar {
+                display: none
+            }
+            .tf_smartlist-item {
+                display: grid;
+                grid-template: 1fr/1fr;
+                padding-right: var(--p-4, var(--key-size));
+                &:hover {
+                    background-color: var(--negative-color-10);
+                }
+                &:nth-last-child(-n + 3) .tf_smartitem-menu.tf_drop-hover .tf_btn-drop + .tf_drop-content,
+                &:nth-last-child(-n + 3) .tf_smartitem-menu.tf_drop-focus .tf_btn-drop + .tf_drop-content {
+                    bottom: 0%;
+                    top: unset;
+                }
+                .tf_smartitem-menu {
+                    &.tf_drop-hover,
+                    &.tf_drop-focus {
+                        grid-row: 1/-1;
+                        grid-column: 1/-1;
+                        justify-self: end !important;
+                        align-self: center !important;
+                        padding: var(--p-1, calc(var(--key-size) * 0.25));
+                    }
+                    + * {
+                        padding-right: var(--p-6, calc(var(--key-size) * 1.5)) !important;
+                    }
+                }
+                .tf_smartitem {
+                    grid-row: 1/-1;
+                    grid-column: 1/-1;
+                    display: flex;
+                    grid-gap: var(--g-2, calc(var(--key-size) * 0.5));
+                    padding: var(--p-1, calc(var(--key-size) * 0.25));
+                    align-items: center;
+                    overflow: auto;
+                    .tf_smartitem-name {
+                        flex-grow: 1;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        &[contenteditable="true"] {
+                            outline: calc(var(--key-size) * 0.0625) solid var(--negative-color-25);
+                            outline-offset: calc(var(--key-size) * 0.125);
+                            border-radius: var(--rounded-1, calc(var(--key-size) * 0.125));
+                            &:focus {
+                                outline-color: var(--negative-color);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .tf_smartscroll {
+            grid-column: 1/-1;
+            grid-row: 1/-1;
+            justify-self: end;
+            width: 1em;
+            padding-left: 1px;
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+    }
+}

@@ -8,7 +8,7 @@
         <a href="core#breakpoints">Brakepoints</a>
             <a href="core#guard-breakpoints">- Guard breakpoints</a>
             <a href="core#available-breakpoints">- Available breakpoints</a>
-        
+            <a href="core#components">- Components</a>
     </slot>
     <div class="h1" role="heading" aria-level="1">Core</div>
     <div id="devices" class="mb-4">
@@ -98,9 +98,9 @@
                 <div>Custom styles for standard HTML elements. Use to make prettie UI.</div>
                 <div>Utilities allow you to make the layout really flexible. Pay attention to the Breakpoints and it will understanding to you how powerful tools you get.</div>
                 <hr class="col-span-full w-100 my-0">
-                <div><a href="layout.css">layout.css</a></div>
-                <div><a href="utilities.css">utilities.css</a></div>
-                <div><a href="ui.css">ui.css</a></div>
+                <div>Layout into <a href="css/global.css">global.css</a></div>
+                <div>Utilities into <a href="css/global.css">global.css</a></div>
+                <div>UI into <a href="css/global.css">global.css</a></div>
             </div>
         </div>
 

@@ -8,6 +8,7 @@
     <p>For change state of forms use <b>disabled</b> attribute.</p>
     <div class="rounded-2 overflow-hidden">
         <form class="d-grid g-4 bg-positive rounded-2 rounded-bottom-0 p-4">
+            <input class="tf_form-control" type="text" placeholder="placeholder" disabled>
             <input class="tf_form-control tf_form-control-primary" type="text" placeholder="placeholder" disabled>
             <input class="tf_form-control tf_form-control-secondary" type="text" placeholder="placeholder" disabled>
             <input class="tf_form-control tf_form-control-info" type="text" placeholder="placeholder" disabled>
@@ -24,8 +25,7 @@
     <input class="tf_form-control tf_form-control-info" type="text" placeholder="placeholder" disabled>
     <input class="tf_form-control tf_form-control-success" type="text" placeholder="placeholder" disabled>
     <input class="tf_form-control tf_form-control-warning" type="text" placeholder="placeholder" disabled>
-    <input class="tf_form-control tf_form-control-error" type="text" placeholder="placeholder" disabled>
-            '
+    <input class="tf_form-control tf_form-control-error" type="text" placeholder="placeholder" disabled>'
         />
     </div>
 </div>

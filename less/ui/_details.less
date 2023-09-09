@@ -1,54 +1,128 @@
 .tf_details {
-    > .tf_summary {
-        list-style: none;
-        cursor: pointer;
-        &::before {
-            content: "\f054";
-            display: inline-block;
-            font: normal normal normal 14px/1 "Font Awesome 5 Free";
-            font-size: 1em;
-            font-weight: 900;
-            text-rendering: auto;
-            margin: auto .5rem auto 0;
-            transition: .25s;
+    > summary {
+        position: relative;
+        display: grid;
+        grid-gap: calc(var(--key-size) * .5);
+        user-select: none;
+        &:not(.tf_btn) {
+            align-items: center;
+            padding: var(--p-3, calc(var(--key-size) * 0.75)) var(--p-2, calc(var(--key-size) * 0.5));
+            border: calc(var(--key-size) * 0.0625) solid var(--negative-color-10);
+            border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
+            font-weight: 500;
+            cursor: pointer;
         }
     }
-    &[open] {
-        > .tf_summary {
-            &::before  {
-                transform: rotate(90deg);
+    &:not(.tf_marker-end) > summary {
+        grid-template-columns: max-content 1fr;
+    }
+    &.tf_marker-end > summary {
+        grid-template-columns: 1fr max-content;
+    }
+    > summary::marker {
+        content: '';
+    }
+    > summary:not(.tf_btn):hover,
+    &[open] > summary:not(.tf_btn) {
+        border: calc(var(--key-size) * 0.0625) solid var(--negative-color-25);
+    }
+    &:not(.tf_marker-end) > summary::before,
+    &.tf_marker-end > summary::after {
+        font-weight: 900;
+        font-family: "Font Awesome 5 Free";
+        text-align: center;
+        width: 1.25em;
+        cursor: pointer;
+    }
+    &:not([open]):not(.tf_marker-end) > summary::before,
+    &:not([open]).tf_marker-end > summary::after {
+        content: "\f105";
+    }
+    &[open]:not(.tf_marker-end) > summary::before,
+    &.tf_marker-end[open] summary::after {
+        content: "\f107";
+    }
+
+    @btn-names: primary, secondary, info, success, warning, error;
+    each(@btn-names, {
+        &-@{value} > summary {
+            background-color: var(~"--@{value}-color-l2");
+            &:hover,
+            &:focus,
+            &.active {
+                background-color: var(~"--@{value}-color-l1");
             }
         }
+    });
+
+    &-xs > summary {
+        --key-size-xs: calc(var(--key-size) * .75);
+        padding: calc(var(--key-size-xs) * .75) calc(var(--key-size-xs) * .5);
+        font-size: var(--key-size-xs);
+    }
+    &-sm > summary {
+        --key-size-sm: calc(var(--key-size) * .875);
+        padding: calc(var(--key-size-sm) * .75) calc(var(--key-size-sm) * .5);
+        font-size: var(--key-size-sm);
+    }
+    &-lg > summary {
+        --key-size-lg: calc(var(--key-size) * 1.125);
+        padding: calc(var(--key-size-lg) * .75) calc(var(--key-size-lg) * .5);
+        font-size: var(--key-size-lg);
     }
 }
 
-.tf_details:not(.tf_details-drop) {
-    > .tf_summary {
-        display: flex;
-        align-content: center;
-        &::before {
-            font-size: .75em;
-        }
-    }
-}
+// .tf_details {
+//     > .tf_summary {
+//         list-style: none;
+//         cursor: pointer;
+//         &::before {
+//             content: "\f054";
+//             display: inline-block;
+//             font: normal normal normal 14px/1 "Font Awesome 5 Free";
+//             font-size: 1em;
+//             font-weight: 900;
+//             text-rendering: auto;
+//             margin: auto .5rem auto 0;
+//             transition: .25s;
+//         }
+//     }
+//     &[open] {
+//         > .tf_summary {
+//             &::before  {
+//                 transform: rotate(90deg);
+//             }
+//         }
+//     }
+// }
 
-.tf_details.tf_details-drop {
-    > .tf_summary {
-        display: flex;
-        grid-gap: var(--g-1, calc(var(--key-size) * 0.25));
-        align-content: center;
-        &::before {
-            display: inline-grid;
-            justify-items: center;
-            align-items: center;
-            margin: 0;
-            width: 1.25em;
-            font-size: inherit;
-        }
-    }
-    > .tf_details-body {
-        max-height: 240px;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-}
+// .tf_details:not(.tf_details-drop) {
+//     > .tf_summary {
+//         display: flex;
+//         align-content: center;
+//         &::before {
+//             font-size: .75em;
+//         }
+//     }
+// }
+
+// .tf_details.tf_details-drop {
+//     > .tf_summary {
+//         display: flex;
+//         grid-gap: var(--g-1, calc(var(--key-size) * 0.25));
+//         align-content: center;
+//         &::before {
+//             display: inline-grid;
+//             justify-items: center;
+//             align-items: center;
+//             margin: 0;
+//             width: 1.25em;
+//             font-size: inherit;
+//         }
+//     }
+//     > .tf_details-body {
+//         max-height: 240px;
+//         overflow-y: auto;
+//         overflow-x: hidden;
+//     }
+// }

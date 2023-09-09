@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SPA layout | конструктор реестра</title>
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/global.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://unpkg.com/current-device/umd/current-device.min.js"></script>
+        <style>
+            :root {
+                --aside-navbar-background-color: #082f3d;
+                --header-background-color: #dde5f3;
+            }
+
+            .tf_report {
+                display: grid;
+                grid-gap: var(--key-size);
+                height: 100%;
+                margin-bottom: 0 !important;
+                grid-template-rows: max-content auto;
+                grid-template-columns: 1fr;
+            }
+
+            .tf_selector {
+                position: relative;
+                display: inline-grid;
+                border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
+                overflow: hidden;
+            }
+
+            .tf_selector .tf_selector-footer {
+                display: flex;
+                margin-bottom: var(--m-2, calc(var(--key-size) * 0.5));
+                padding-top: var(--p-2, calc(var(--key-size) * 0.5));
+                padding-left: var(--p-2, calc(var(--key-size) * 0.5));
+                padding-right: var(--p-2, calc(var(--key-size) * 0.5));
+                border-top: var(--border-width, calc(var(--key-size) * 0.0625)) solid var(--border-color, var(--negative-color-10));
+                justify-content: space-between;
+            }
+
+            /* .tf_resizeble::after {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                border-left: calc(var(--key-size) * .5) solid transparent;
+                border-bottom: calc(var(--key-size) * .5) solid var(--negative-color-50);
+                content: "";
+                cursor: se-resize;
+            } */
+
+
+
+            .tf_window {
+                position: relative;
+                display: inline-grid;
+                /* grid-gap: var(--g-2, calc(var(--key-size) * 0.5)); */
+                border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
+                overflow: hidden;
+            }
+                .tf_window-header {
+                    display: flex;
+                    padding: var(--p-2, calc(var(--key-size) * 0.5));
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                .tf_window-body {
+                    padding: var(--p-2, calc(var(--key-size) * 0.5));
+                    border-bottom: var(--border-width, calc(var(--key-size) * 0.0625)) solid var(--border-color, var(--negative-color-10));
+                }
+                .tf_window-footer {
+                    display: flex;
+                    margin-bottom: var(--m-2, calc(var(--key-size) * 0.5));
+                    padding-top: var(--p-2, calc(var(--key-size) * 0.5));
+                    padding-left: var(--p-2, calc(var(--key-size) * 0.5));
+                    padding-right: var(--p-2, calc(var(--key-size) * 0.5));
+                    /* border-top: var(--border-width, calc(var(--key-size) * 0.0625)) solid var(--border-color, var(--negative-color-10)); */
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+            /* добавить в less */
+
+            button,
+            [role="button"]:not(disabled) {
+                cursor: pointer;
+            }
+            .w-em { min-width: 1em; }
+            .h-em { min-height: 1em; }
+            .w-em { width: 1em; }
+            .h-em { height: 1em; }
+
+
+            .overflow-auto-:hover {
+                background-color: var(--negative-color-10);
+            }
+            
+        </style>
+    </head>
+    <!-- https://stackoverflow.com/questions/55425419/how-to-do-a-dropdown-menu-on-click#55425502 -->
+    <body class="tf_layout">
+        <div class="tf_layout-main p-4">
+            <div class="tf_report">
+                <div class="tf_report-header"></div>
+                <div class="tf_report-body bg-positive rounded-2 d-grid p-4">
+
+                    <span>
+
+                        <div class="tf_window tf_resizeble shadow" style="width:60%">
+
+                            <div class="tf_window-body">
+                                <div class="d-grid g-2">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            Заголовок
+                                        </div>
+                                        <div>
+                                            <button class="tf_btn tf_btn-xs tf_btn-transparent tf_btn-icon active" title="...">
+                                                <i class="fas fa-search fa-fw"></i>
+                                            </button>
+                                            <button class="tf_btn tf_btn-xs tf_btn-transparent tf_btn-icon" title="...">
+                                                <i class="fas fa-plus fa-fw"></i>
+                                            </button>
+
+                                            <div class="tf_drop-focus">
+                                                <button
+                                                    class="tf_btn tf_btn-xs tf_btn-transparent tf_btn-drop"
+                                                    data-pointer-position="after"
+                                                    data-drop-position="bottom left"
+                                                    title=""
+                                                ><i class="fas fa-eye-slash"></i></button>
+                                                <div class="tf_drop-content">   
+                                                    <div class="d-grid g-1 bg-positive rounded p-1 shadow">
+                                                        <button class="tf_btn tf_btn-xs tf_btn-transparent text-start">
+                                                            <i class="fas fa-eye fa-fw"></i>
+                                                            Видимые
+                                                        </button>
+                                                        <button class="tf_btn tf_btn-xs tf_btn-transparent active text-start">
+                                                            <i class="fas fa-eye-slash fa-fw"></i>
+                                                            Скрытые
+                                                        </button>
+                                                        <button class="tf_btn tf_btn-xs tf_btn-transparent text-start">
+                                                            <i class="fas fa-fire fa-fw"></i>
+                                                            Популярные
+                                                        </button>
+                                                        <button class="tf_btn tf_btn-xs tf_btn-transparent text-start">
+                                                            <i class="fas fa-users fa-fw"></i>
+                                                            Пользовательские
+                                                        </button>
+                                                        <button class="tf_btn tf_btn-xs tf_bt tf_btn-transparent text-start">
+                                                            <i class="fas fa-terminal fa-fw"></i>
+                                                            Системные
+                                                        </button>
+                                                        <hr class="my-0 w-100">
+                                                        <button class="tf_btn tf_btn-xs tf_btn-transparent text-start">
+                                                            <i class="fas fa-list fa-fw"></i>
+                                                            Все
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tf_input-group flex-grow-1">
+                                        <input class="tf_form-control tf_form-control-xs tf_form-control-secondary" type="text" value="" placeholder="Search in list" title="Press ESC to reset search">
+                                        <button class=" tf_btn tf_btn-xs tf_btn-secondary tf_btn-icon" title="Reset search">
+                                            <i class="fas fa-ban fa-fw"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tf_window-body d-none">
+                                <div class="d-grid fs-sm g-2 border-bottom mb-2 pb-2">
+
+                                    <div class="d-flex g-2 align-items-center py-1">
+                                        <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-arrows-alt-v fa-fw"></button>
+                                        <div class="tf_form-check">
+                                            <input class="tf_form-check-input" type="checkbox" indeterminate="true">
+                                        </div>
+                                        <div class="tf_form-check">
+                                            <input class="tf_form-check-input" type="checkbox">
+                                        </div>
+                                        <div class="tf_form-check">
+                                            <input class="tf_form-check-input" type="checkbox">
+                                        </div>
+                                        <div class="flex-grow-1"> <!--lh-1-->
+                                            <!-- <input class="tf_form-control tf_form-control-xs border-0 bg-transparent" value="Суперское название для заголовка" type="text" placeholder="Название реестра"> -->
+                                        </div>
+                                        <!-- <div class="w-em h-em p-0"></div> -->
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-arrows-alt-v fa-fw"></button> -->
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-arrows-alt-v fa-fw"></button> -->
+                                        <!-- <div class="tf_form-check">
+                                            <input class="tf_form-check-input" type="checkbox">
+                                        </div> -->
+                                        <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-level-up-alt fa-rotate-90 fa-fw"></button>
+                                    </div>
+
+                                </div>
+                                <div class="d-grid fs-sm align-content-start" style="min-height: 10rem;">
+
+                                    <div class="d-flex g-2 align-items-center py-1 overflow-auto">
+                                        <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-angle-down fa-fw"></button>
+                                        <div class="tf_form-check">
+                                            <input class="tf_form-check-input" type="checkbox">
+                                        </div>
+                                        <div class="flex-grow-1 text-truncate"> <!--lh-1-->
+                                            Первый уровень выбора шаблона регулярного выбора
+                                        </div>
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-edit fa-fw"></button> -->
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-code-branch fa-fw"></button> -->
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-code-branch fa-fw"></button> -->
+                                        <div class="tf_form-check">
+                                            <input class="tf_form-check-input" type="checkbox">
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex g-2 align-items-center py-1 overflow-auto">
+                                        <div class="w-em h-em p-0"></div>
+                                        <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-angle-down fa-fw"></button>
+                                        <div class="tf_form-check">
+                                            <input class="tf_form-check-input" type="checkbox">
+                                        </div>
+                                        <div class="flex-grow-1 text-truncate"> <!--lh-1-->
+                                            Второй уровень используем шаблон регулярного выбора
+                                        </div>
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-edit fa-fw"></button> -->
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-code-branch fa-fw"></button> -->
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-code-branch fa-fw"></button> -->
+                                        <div class="tf_form-check">
+                                            <input class="tf_form-check-input" type="checkbox">
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex g-2 align-items-center py-1 overflow-auto">
+                                        <div class="w-em h-em p-0"></div>
+                                        <div class="w-em h-em p-0"></div>
+                                        <div class="w-em h-em p-0"></div>
+                                        <div class="tf_form-check">
+                                            <input class="tf_form-check-input" type="checkbox">
+                                        </div>
+                                        <div class="flex-grow-1 text-truncate"> <!--lh-1-->
+                                            Третий уровень используем шаблон регулярного выбора
+                                        </div>
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-edit fa-fw"></button> -->
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-code-branch fa-fw"></button> -->
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-code-branch fa-fw"></button> -->
+                                        <div class="w-em h-em p-0"></div>
+                                    </div>
+                                    <div class="d-flex g-2 align-items-center py-1 overflow-auto">
+                                        <div class="w-em h-em p-0"></div>
+                                        <div class="w-em h-em p-0"></div>
+                                        <div class="w-em h-em p-0"></div>
+                                        <div class="tf_form-check">
+                                            <input class="tf_form-check-input" type="checkbox" checked="true">
+                                        </div>
+                                        <div class="flex-grow-1 text-truncate"> <!--lh-1-->
+                                            Третий уровень используем шаблон регулярного выбора
+                                        </div>
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-edit fa-fw"></button> -->
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-code-branch fa-fw"></button> -->
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-code-branch fa-fw"></button> -->
+                                        <div class="w-em h-em p-0"></div>
+                                    </div>
+
+                                    <div class="d-flex g-2 align-items-center py-1 overflow-auto">
+                                        <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-angle-right fa-fw"></button>
+                                        <div class="tf_form-check">
+                                            <input class="tf_form-check-input" type="checkbox" checked>
+                                        </div>
+                                        <div class="flex-grow-1 text-truncate"> <!--lh-1-->
+                                            Еще Первый уровень выбора шаблона регулярного выбора
+                                        </div>
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-edit fa-fw"></button> -->
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-code-branch fa-fw"></button> -->
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-code-branch fa-fw"></button> -->
+                                        <div class="tf_form-check">
+                                            <input class="tf_form-check-input" type="checkbox">
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+
+                            <div class="tf_window-body">
+                                <div class="d-grid fs-sm g-2 border-bottom mb-2 pb-2">
+
+                                    <div class="d-flex g-2 align-items-center p-1">
+                                        <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-arrows-alt-v fa-fw"></button>
+                                        <div class="tf_form-check">
+                                            <input class="tf_form-check-input" type="checkbox" indeterminate="true">
+                                        </div>
+                                        <div class="tf_form-check">
+                                            <input class="tf_form-check-input" type="checkbox">
+                                        </div>
+                                        <div class="tf_form-check">
+                                            <input class="tf_form-check-input" type="checkbox">
+                                        </div>
+                                        <div class="flex-grow-1"> <!--lh-1-->
+                                            <!-- <input class="tf_form-control tf_form-control-xs border-0 bg-transparent" value="Суперское название для заголовка" type="text" placeholder="Название реестра"> -->
+                                            <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-plus fa-fw ml-auto"></button> -->
+                                        </div>
+                                        <div class="lh-1">
+                                            выбрано 1 из 9 (всего <span class="text-primary" tabindex="1" role="button">1</span> из <span class="text-primary" tabindex="1" role="button">15</span>)
+                                        </div>
+        
+                                        <!-- <div class="w-em h-em p-0"></div> -->
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-arrows-alt-v fa-fw"></button> -->
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-arrows-alt-v fa-fw"></button> -->
+                                        <!-- <div class="tf_form-check">
+                                            <input class="tf_form-check-input" type="checkbox">
+                                        </div> -->
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-level-up-alt fa-rotate-90 fa-fw"></button> -->
+                                    </div>
+
+                                </div>
+                                <div class="d-grid fs-sm align-content-start" style="min-height: 10rem;">
+
+                                    <div class="d-grid" style="grid-template: 1fr / 1fr;">
+                                        <div class="d-flex g-2 align-items-center p-1 rounded overflow-auto- col-span-full row-span-full">
+                                            <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-angle-down fa-fw"></button>
+                                            <div class="tf_form-check">
+                                                <input class="tf_form-check-input" type="checkbox">
+                                            </div>
+                                            <div class="flex-grow-1 text-truncate"> <!--lh-1-->
+                                                Первый уровень выбора шаблона регулярного выбора
+                                            </div>
+                                        </div>
+                                        <div class="tf_drop-focus col-span-full row-span-full">
+                                            <button
+                                                class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-ellipsis-h fa-fw tf_btn-drop"
+                                                data-drop-position="left center"
+                                            ></button>
+                                            <div class="tf_drop-content">   
+                                                <div class="d-grid g-1 bg-positive rounded p-1 shadow">
+                                                    <button class="tf_btn tf_btn-xs tf_btn-transparent text-start">
+                                                        Выделить все уровни
+                                                    </button>
+                                                    <button class="tf_btn tf_btn-xs tf_btn-transparent text-start">
+                                                        Выделить дочерние
+                                                    </button>
+                                                    <hr class="my-0 w-100">
+                                                    <button class="tf_btn tf_btn-xs tf_btn-transparent text-start">
+                                                        Переименовать
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="d-flex g-2 align-items-center p-1 rounded overflow-auto-">
+                                        <div class="w-em h-em p-0"></div>
+                                        <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-angle-down fa-fw"></button>
+                                        <div class="tf_form-check">
+                                            <input class="tf_form-check-input" type="checkbox">
+                                        </div>
+                                        <div class="flex-grow-1 text-truncate"> <!--lh-1-->
+                                            Второй уровень используем шаблон регулярного выбора
+                                        </div>
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-edit fa-fw"></button> -->
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-code-branch fa-fw"></button> -->
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-code-branch fa-fw"></button> -->
+                                        <div class="tf_drop-focus">
+                                            <button
+                                                class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-ellipsis-h fa-fw tf_btn-drop"
+                                                data-drop-position="left center"
+                                            ></button>
+                                            <div class="tf_drop-content">   
+                                                <div class="d-grid g-1 bg-positive rounded p-1 shadow">
+                                                    <button class="tf_btn tf_btn-xs tf_btn-transparent text-start">
+                                                        Выделить все уровни
+                                                    </button>
+                                                    <button class="tf_btn tf_btn-xs tf_btn-transparent text-start">
+                                                        Выделить дочерние
+                                                    </button>
+                                                    <hr class="my-0 w-100">
+                                                    <button class="tf_btn tf_btn-xs tf_btn-transparent text-start">
+                                                        Переименовать
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex g-2 align-items-center p-1 rounded overflow-auto-">
+                                        <div class="w-em h-em p-0"></div>
+                                        <div class="w-em h-em p-0"></div>
+                                        <div class="w-em h-em p-0"></div>
+                                        <div class="tf_form-check">
+                                            <input class="tf_form-check-input" type="checkbox">
+                                        </div>
+                                        <div class="flex-grow-1 text-truncate"> <!--lh-1-->
+                                            Третий уровень используем шаблон регулярного выбора
+                                        </div>
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-edit fa-fw"></button> -->
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-code-branch fa-fw"></button> -->
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-code-branch fa-fw"></button> -->
+                                        <div class="w-em h-em p-0"></div>
+                                    </div>
+                                    <div class="d-flex g-2 align-items-center p-1 rounded overflow-auto-">
+                                        <div class="w-em h-em p-0"></div>
+                                        <div class="w-em h-em p-0"></div>
+                                        <div class="w-em h-em p-0"></div>
+                                        <div class="tf_form-check">
+                                            <input class="tf_form-check-input" type="checkbox" checked="true">
+                                        </div>
+                                        <div class="flex-grow-1 text-truncate"> <!--lh-1-->
+                                            Третий уровень используем шаблон регулярного выбора
+                                        </div>
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-edit fa-fw"></button> -->
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-code-branch fa-fw"></button> -->
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-code-branch fa-fw"></button> -->
+                                        <div class="w-em h-em p-0"></div>
+                                    </div>
+
+                                    <div class="d-flex g-2 align-items-center p-1 rounded overflow-auto-">
+                                        <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-angle-right fa-fw"></button>
+                                        <div class="tf_form-check">
+                                            <input class="tf_form-check-input" type="checkbox" checked>
+                                        </div>
+                                        <div class="flex-grow-1 text-truncate"> <!--lh-1-->
+                                            Еще Первый уровень выбора шаблона регулярного выбора
+                                        </div>
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-edit fa-fw"></button> -->
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-code-branch fa-fw"></button> -->
+                                        <!-- <button class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-code-branch fa-fw"></button> -->
+                                        <div class="tf_drop-focus">
+                                            <button
+                                                class="w-em h-em p-0 border-0 rounded-1 bg-transparent fas fa-ellipsis-h fa-fw tf_btn-drop"
+                                                data-drop-position="left center"
+                                            ></button>
+                                            <div class="tf_drop-content">   
+                                                <div class="d-grid g-1 bg-positive rounded p-1 shadow">
+                                                    <button class="tf_btn tf_btn-xs tf_btn-transparent text-start">
+                                                        Выделить все уровни
+                                                    </button>
+                                                    <button class="tf_btn tf_btn-xs tf_btn-transparent text-start">
+                                                        Выделить дочерние
+                                                    </button>
+                                                    <hr class="my-0 w-100">
+                                                    <button class="tf_btn tf_btn-xs tf_btn-transparent text-start">
+                                                        Переименовать
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+                            <!-- <div class="tf_window-body">
+                                <div class="fs-sm">
+                                    выбрано 1 из 9 (всего <span class="text-primary" tabindex="1" role="button">1</span> из <span class="text-primary" tabindex="1" role="button">15</span>)
+                                </div>
+                            </div> -->
+
+                            <!-- <div class="tf_selector-body">
+                                <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quisquam perspiciatis!</span>
+                            </div>
+                            <div class="tf_selector-body px-2">
+                                <hr class="m-0 mb-1">
+                                <div>
+                                    1 out of 9 selected (всего <span class="text-primary px-1" tabindex="1" role="button">1</span> из <span class="text-primary px-1" tabindex="1" role="button">15</span>)</span>
+                                </div>
+                            </div> -->
+                            <div class="tf_window-footer g-2">
+                                <div>
+                                    <button class="tf_btn tf_btn-sm tf_btn-transparent cancel-button">
+                                        <i class="fas fa-times fa-fw"></i>
+                                        Отменить
+                                    </button>
+                                </div>
+                                <div>
+                                    <button class="tf_btn tf_btn-sm tf_btn-primary confirm-button">
+                                        <i class="fas fa-save fa-fw"></i>
+                                        Сохранить
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </span>
+
+                    <div>
+                        <div>1</div>
+                        <div>2</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="../js/layout.js"></script>
+    <script src="../js/ui-drops.js"></script>
+    <script>
+        const inputs = document.getElementsByTagName("input");
+        for (let i = 0; i < inputs.length; i++) {
+        inputs[i].indeterminate = true;
+        }
+
+
+        // $( "#toggle-preview" ).on( "click", function() {
+        //     $( ".tf_finder" ).toggleClass( "explorer" )
+        // });
+    </script>
+</html>

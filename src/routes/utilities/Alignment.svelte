@@ -4,6 +4,9 @@
     import AlignSelf from './alignment/AlignSelf.svelte';
     import AlignInline from './alignment/AlignInline.svelte';
     import AlignTable from './alignment/AlignTable.svelte';
+    import JustifyItems from './alignment/JustifyItems.svelte';
+    import JustifyContent from './alignment/JustifyContent.svelte';
+    import JustifySelf from './alignment/JustifySelf.svelte';
 </script>
 
 <div id="alignment" class="mb-4">
@@ -27,5 +30,9 @@
         <AlignContent/>
         <AlignItems/>
         <AlignSelf/>
+        <div class="h3" role="heading" aria-level="3">Flex and grid justify</div>
+        <JustifyContent/>
+        <JustifyItems/>
+        <JustifySelf/>
     </div>
 </div>

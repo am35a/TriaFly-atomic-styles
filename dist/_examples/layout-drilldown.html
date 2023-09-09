@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SPA layout | песочница</title>
+        <link rel="stylesheet" href="https://ui.triafly.ru/dist/css/normalize.css">
+        <link rel="stylesheet" href="https://ui.triafly.ru/dist/css/global.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://unpkg.com/current-device/umd/current-device.min.js"></script>
+        <style>
+            :root {
+
+            }
+
+            .tf_sand {
+                display: grid;
+                grid-gap: var(--key-size);
+                height: 100%;
+                margin-bottom: 0 !important;
+                grid-template-rows: max-content auto;
+                grid-template-columns: 1fr;
+            }
+        </style>
+    </head>
+    <body class="tf_layout">
+        <div class="tf_layout-main p-4">
+            <div class="tf_sand">
+                <div class="tf_sand-header"></div>
+                <div class="tf_sand-body bg-positive rounded-2 d-grid p-4">
+
+                    <section class="mb-auto mr-auto shadow shadow-0 rounded p-2 w-min-25 w-50">
+                        <header class="border-bottom border-secondary pb-2 d-flex align-items-center g-1">
+                            <div class="tf_drop-focus">
+                                <button class="tf_btn tf_btn-icon tf_btn-xs tf_btn-transparent tf_btn-drop" data-drop-position="bottom right" title="История переходов">
+                                    <i class="fas fa-ellipsis-h fa-fw"></i>
+                                </button>
+                                <div class="tf_drop-content">
+                                    <div class="bg-positive rounded p-1 shadow" tabindex="0">
+                                        <div class="d-grid g-1">
+                                            <button class="tf_btn tf_btn-sm tf_btn-transparent text-start">
+                                                <i class="fas fa-home fa-fw"></i>
+                                                Название корневого элемента
+                                            </button>
+                                            <button class="tf_btn tf_btn-sm tf_btn-transparent text-start">
+                                                <i class="fas fa-level-up-alt fa-fw fa-rotate-90"></i>
+                                                Название второго уровеня
+                                            </button>
+                                            <button class="tf_btn tf_btn-sm tf_btn-transparent text-start">
+                                                <i class="fas fa-level-up-alt fa-fw fa-rotate-90"></i>
+                                                Название третьего уровеня
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-truncate">
+                                Название текущего уровня
+                            </div>
+                        </header>
+                        <div class="p-2">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci totam ratione voluptas pariatur quod voluptatibus suscipit officia architecto aspernatur hic aut libero, expedita velit, ipsa praesentium officiis, nobis similique reiciendis?
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://ui.triafly.ru/dist/js/ui-drops.js"></script>
+    <script>
+
+    </script>
+</html>

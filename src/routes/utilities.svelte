@@ -24,6 +24,9 @@
                 <a href="utilities#align-content">-- Align content</a>
                 <a href="utilities#align-items">-- Align items</a>
                 <a href="utilities#align-self">-- Align self</a>
+                <a href="utilities#justify-content">-- Justify content</a>
+                <a href="utilities#justify-items">-- Justify items</a>
+                <a href="utilities#justify-self">-- Justify self</a>
         <a href="utilities#bg-color">Background colors</a>
         <a href="utilities#border">Border</a>
             <a href="utilities#add-border">- Add Border</a>

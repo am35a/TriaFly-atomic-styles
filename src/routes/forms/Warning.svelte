@@ -9,8 +9,12 @@
         <form class="bg-positive rounded-2 rounded-bottom-0 p-4">
             <label for="inputTextWarning" class="tf_form-label text-warning">Label warning</label>
             <input id="inputTextWarning" class="tf_form-control tf_form-control-warning" type="text" placeholder="Placeholder">
-            <div class="tf_form-text text-warning">
+            <p class="tf_form-text text-warning">
                 This line can contains additional information to the input field above.
+            </p>
+            <div class="tf_form-check text-warning">
+                <input class="tf_form-check-input" id="сheckWarningSize" type="checkbox">
+                <label class="tf_form-check-label" for="сheckWarningSize">Checkbox warning</label>
             </div>
         </form>
         <Highlight
@@ -19,10 +23,13 @@
             code='
     <label for="inputText" class="tf_form-label text-warning">Label warning</label>
     <input id="inputText" class="tf_form-control tf_form-control-warning" type="text" placeholder="Placeholder">
-    <div class="tf_form-text text-warning">
+    <p class="tf_form-text text-warning">
         This line can contains additional information to the input field above.
-    </div>
-            '
+    </p>
+    <div class="tf_form-check text-warning">
+        <input class="tf_form-check-input" id="сheckWarningSize" type="checkbox">
+        <label class="tf_form-check-label" for="сheckWarningSize">Checkbox warning</label>
+    </div>'
         />
     </div>
 </div>

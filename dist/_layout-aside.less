@@ -1,0 +1,230 @@
+.tf_aside-fader {
+    display: grid;
+    position: absolute;
+    background-color: transparent;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100vh;
+    color: transparent;
+    z-index: -1;
+    transition: background-color 0.25s .25s, width 0s .5s, color 0.25s .25s;
+    > * {
+        position: absolute;
+        top: var(--key-size);
+        right: calc(var(--key-size) * .75);
+        line-height: 1;
+    }
+    .tf_layout-aside.tf_expand & {
+        background-color: var(--negative-color-50);
+        width: 100vw;
+        color: var(--positive-color);
+        transition: background-color 0.25s 0s, width 0s 0s, color 0.25s 0s;
+    }
+}
+
+.tf_fixed:hover {
+    .tf_aside-logo {
+        position: relative;
+        &:after {
+            transition: all ease-in-out .5s;
+        }
+            &:after {
+                content: "\f054";
+                color: white;
+                font-family: 'Font Awesome 5 Free';
+                font-weight: 900;
+                position: absolute;
+                font-size: calc(var(--key-size) * 1.5);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                .tf_fixed-open& {
+                    transform: translate(-50%, -50%) rotate(180deg);
+                }
+            }
+            .tf_logo-container {
+                opacity: 0;
+            }
+    }
+}
+
+.tf_aside-navbar {
+    width: 0;
+    background-color: var(--aside-navbar-background-color, var(--primary-color));
+    overflow: hidden;
+    transition-duration: 0.5s;
+    .tf_layout-aside.tf_expand & {
+        width: var(--layout-aside-navbar-width--expand);
+    }
+    .desktop & {
+        width: var(--desktop-layout-aside-navbar-width);
+    }
+
+
+    // there are ps-container custom scroll classes
+    &.ps-container {
+        padding: 0;
+        position: relative;
+    }
+    .ps-scrollbar-x-rail {
+        display: none !important;
+    }
+
+    .desktop .tf_layout-aside:not(.tf_fixed):hover &,
+    .desktop .tf_layout-aside.tf_fixed-open & {
+        width: var(--desktop-layout-aside-navbar-width--hover);
+        // overflow-y: auto; // hide for .ps-container scroll class
+    }
+    .tf_navbar-item {
+        display: grid;
+        min-width: calc(var(--layout-aside-navbar-item-min-width) - calc(var(--key-size) * .0625));
+        &:not(.tf_navbar-item--active) {
+            border-bottom: calc(var(--key-size) * .0625) solid var(--aside-items-border-color);
+        }
+        > * {
+            display: grid;
+            grid-row: 1/2;
+            grid-column: 1/2;
+            color: var(--aside-navbar-item-color, var(--positive-color));
+            text-decoration: none;
+        }
+        &:not(.tf_navbar-item--active):hover {
+            .tf_item-hover {
+                background-color: var(--positive-color-25);
+            }
+        }
+        &:not(.tf_navbar-item--active) {
+            .tf_item-active {
+                display: none;
+            }
+        }
+        &.tf_navbar-item--active {
+            .tf_item-identicon,
+            .tf_item-title,
+            .tf_item-actioncon {
+                color: #002A38;
+                // pointer-events: none; do not enable this for TriaFly default product
+            }
+        }
+        .tf_item-hover {
+            transition: .25s;
+        }
+        .tf_item-active {
+            background-color: var(--positive-color);
+        }
+        .tf_item-identicon {
+            width: var(--desktop-layout-aside-navbar-width);
+            height: var(--desktop-layout-aside-navbar-width);
+            margin: auto auto auto 0;
+            justify-items: center;
+            align-items: center;
+            font-size: var(--layout-aside-navbar-item-identicon-fs)
+        }
+        .tf_item-actioncon {
+            width: var(--desktop-layout-aside-navbar-width);
+            height: var(--desktop-layout-aside-navbar-width);
+            margin: auto 0 auto auto;
+            justify-items: center;
+            align-items: center;
+            transform: scale(.9);
+            transition: .25s;
+            &:hover {
+                transform: scale(1);
+            }
+            + .tf_item-title {
+                padding-left: var(--desktop-layout-aside-navbar-width);
+                padding-right: var(--desktop-layout-aside-navbar-width);
+            }
+            .mobile &,
+            .tablet & {
+                display: none;
+            }
+        }
+        .tf_item-title {
+            display: grid;
+            align-content: center;
+            width: auto;
+            height: auto;
+            padding-left: var(--desktop-layout-aside-navbar-width);
+            padding-right: var(--key-size);
+            box-sizing: border-box;
+            min-height: var(--desktop-layout-aside-navbar-width);
+            font-size: calc(var(--key-size) * .875);
+            .mobile &,
+            .tablet & {
+                padding-right: calc(var(--key-size) * .25);
+            }
+        }
+    }
+}
+
+.tf_aside-logo {
+   display: none !important;
+
+    width: 100%;
+    background-color: var(--aside-navbar-background-color, var(--primary-color));
+    overflow: hidden;
+
+
+    .desktop .tf_layout-aside[class*=tf_fixed] & {
+        cursor: pointer;
+    }
+
+    .desktop .tf_layout-aside &,
+    .desktop .tf_layout-aside.tf_fixed & {
+        .tf_logo-container {
+            width: calc(var(--key-size) * 3);
+            background-color: transparent;
+            transform: translateX(0);
+            transition: .5s;
+        }
+    }
+
+    .desktop .tf_layout-aside.tf_fixed-open &,
+    .tf_layout-aside &,
+    .tf_layout-aside:hover & {
+        .tf_logo-container {
+            width: calc(var(--key-size) * 22);
+            transform: translateX(calc(var(--key-size) * -6));
+        }
+    }
+
+    .tf_logo-container {
+        display: grid;
+        grid-template-columns: calc(var(--key-size) * 3) calc(var(--key-size) * 16);
+        grid-gap: calc(var(--key-size) * 3);
+        grid-template-rows: calc(var(--key-size) * 4);
+        align-items: center;
+        .tf_logo-small {
+            img {
+                width: 100%;
+                padding: calc(var(--key-size) * .25);
+                height: calc(var(--key-size) * 4);
+                box-sizing: border-box;
+                vertical-align: middle;
+                object-fit: contain;
+                object-position: center;
+            }
+        }
+        .tf_logo-normal {
+            display: flex;
+            align-items: center;
+            img {
+                width: calc(var(--key-size) * 4);
+                height: calc(var(--key-size) * 4);
+                object-fit: contain;
+                object-position: center;
+                padding: calc(var(--key-size) * .25);
+                box-sizing: border-box;
+            }
+            .tf_logo-title {
+                color: var(--positive-color);
+                padding: 0 calc(var(--key-size) * 0.25);
+                max-height: calc(var(--key-size) * 3.5);
+                overflow: hidden;
+                box-sizing: border-box;
+            }
+        }
+    }
+}
