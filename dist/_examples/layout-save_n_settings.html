@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SPA layout | песочница</title>
+        <!-- <link rel="stylesheet" href="https://ui.triafly.ru/dist/css/normalize.css">
+        <link rel="stylesheet" href="https://ui.triafly.ru/dist/css/global.css"> -->
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/global.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://unpkg.com/current-device/umd/current-device.min.js"></script>
+        <style>
+            :root {
+
+            }
+
+            .tf_sand {
+                display: grid;
+                grid-gap: var(--key-size);
+                height: 100%;
+                margin-bottom: 0 !important;
+                grid-template-rows: max-content auto;
+                grid-template-columns: 1fr;
+            }
+        </style>
+    </head>
+    <body class="tf_layout">
+        <div class="tf_layout-main p-4">
+            <div class="tf_sand">
+                <div class="tf_sand-header"></div>
+                <div class="tf_sand-body bg-positive rounded-2 d-grid p-4 align-content-start" style="padding-bottom: 200px !important;">
+
+                    <h4>кнопки на панели</h4>
+                    <div class="d-grid ml-8">
+                        <h5>1</h5>
+                        <p>
+                            - по умолчанию при открытии редактора дашборда
+                        </p>
+                        <p>
+                            - если у дашборда нет имени (его удали в поле ввода, до этого оно было)
+                        </p>
+                        <i>
+                            - title кнопки СОХРАНИТЬ отсутствует
+                            <br>
+                            - кнопка СОХРАНИТЬ реагирует на наведение
+                        </i>
+                        <b>кнопка:</b>
+                        <div class="m-auto">
+
+                            <!-- кнопка сохранения ошибки - начало -->
+                            <div class="tf_drop-hover">
+                                <button
+                                    class="tf_btn tf_btn-transparent tf_btn-drop tf_btn-icon"
+                                    data-drop-position="bottom left"
+                                ><i class="fas fa-save fa-fw text-error"></i></button>
+                                <div class="tf_drop-content" style="--drop-content-width: 16rem;">
+                                    <div class="d-grid bg-positive rounded ml-1 p-1 shadow" tabindex="0">
+                                        <div class="rounded-1 text-positive bg-error p-2">
+                                            <i class="fas fa-exclamation-circle fa-fw"></i> Ошибка сохранения
+                                        </div>
+                                        <div class="p-2">
+                                            Перед сохранением введите название дашборда.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- кнопка сохранения ошибки - конец -->
+                        </div>
+                    </div>
+
+                    <div class="d-grid ml-8">
+                        <h5>2</h5>
+                        <p>
+                            - эталонный вариант кнопки: название есть и настройки дашбоарда не тронуты.
+                        </p>
+                        <i>
+                            - title кнопки СОХРАНИТЬ присутствует
+                            <br>
+                            - кнопка СОХРАНИТЬ реагирует на клик
+                        </i>
+                        <b>кнопки:</b>
+                        <div class="m-auto">
+
+                            <!-- кнопка сохранения нормальная - начало -->
+                            <div class="tf_drop-focus">
+                                <button
+                                    class="tf_btn tf_btn-transparent tf_btn-drop tf_btn-icon"
+                                    data-drop-position="bottom left"
+                                    title="Сохранить дашборд"
+                                ><i class="fas fa-save fa-fw"></i></button>
+                                <div class="tf_drop-content">
+                                    <div class="d-grid bg-positive rounded ml-1 p-1 shadow" tabindex="0">
+                                        ... содержимое тут, как сейчас на стенде
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- кнопка сохранения нормальная - конец -->
+                        </div>
+                    </div>
+
+                    <div class="d-grid ml-8">
+                        <h5>3</h5>
+                        <p>
+                            - настройки дашбоарда изменили (не важно тронуто содержимое или нет).
+                        </p>
+                        <i>
+                            - добавляем синюю точку к кнопке НАСТРОЕК
+                            <br>
+                            - title кнопки НАСТРОЕК присутствует но отличается от стандартного
+                            <br>
+                            - после сохранения дашборда синяя точка пропадает
+                            <br>
+                            - поведение кнопки СОХРАНИТЬ не меняется, она так же эталонна как в 2
+                        </i>
+                        <b>кнопки:</b>
+                        <div class="m-auto">
+
+                            <!-- кнопка сохранения нормальная - начало -->
+                            <div class="tf_drop-focus">
+                                <button
+                                    class="tf_btn tf_btn-transparent tf_btn-drop tf_btn-icon"
+                                    data-drop-position="bottom left"
+                                    title="Сохранить дашборд"
+                                ><i class="fas fa-save fa-fw"></i></button>
+                                <div class="tf_drop-content">
+                                    <div class="d-grid bg-positive rounded ml-1 p-1 shadow" tabindex="0">
+                                        ... содержимое тут, как сейчас на стенде
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- кнопка сохранения нормальная - конец -->
+                            <button
+                                class="tf_btn tf_btn-transparent tf_btn-icon used"
+                                title="Настройки дашборда с изменениями"
+                            ><i class="fas fa-cogs fa-fw"></i></button>
+                        </div>
+                    </div>
+
+
+                    <hr>
+
+
+                    <h4>кнопки в меню</h4>
+                    <div class="d-grid ml-8">
+                        <h5>1</h5>
+                        <p>
+                            - по умолчанию при открытии редактора дашборда
+                        </p>
+                        <p>
+                            - если у дашборда нет имени (его удали в поле ввода, до этого оно было)
+                        </p>
+                        <i>
+                            кнопки СОХРАНИТЬ реагируют на наведение
+                        </i>
+                        <b>кнопки:</b>
+                        <div class="m-auto">
+                            <div class="d-grid g-1">
+                                <!-- кнопки сохранения ошибки - начало -->
+                                <div class="tf_drop-hover">
+                                    <button
+                                        class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-drop w-100 text-start"
+                                        data-drop-position="right bottom"
+                                    ><i class="fas fa-save fa-fw text-error"></i> Сохранить</button>
+                                    <div class="tf_drop-content" style="--drop-content-width: 16rem;">
+                                        <div class="d-grid bg-positive rounded ml-1 p-1 shadow" tabindex="0">
+                                            <div class="rounded-1 text-positive bg-error p-2">
+                                                <i class="fas fa-exclamation-circle fa-fw"></i> Ошибка сохранения
+                                            </div>
+                                            <div class="p-2">
+                                                Перед сохранением введите название дашборда.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tf_drop-hover">
+                                    <button
+                                        class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-drop w-100 text-start"
+                                        data-pointer-position="after"
+                                        data-drop-position="right bottom"
+                                    ><i class="fas fa-save fa-fw text-error"></i> Сохранить как</button>
+                                    <div class="tf_drop-content" style="--drop-content-width: 16rem;">
+                                        <div class="d-grid bg-positive rounded ml-1 p-1 shadow" tabindex="0">
+                                            <div class="rounded-1 text-positive bg-error p-2">
+                                                <i class="fas fa-exclamation-circle fa-fw"></i> Ошибка сохранения
+                                            </div>
+                                            <div class="p-2">
+                                                Перед сохранением введите название дашборда.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- кнопки сохранения ошибки - конец -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-grid ml-8">
+                        <h5>2</h5>
+                        <p>
+                            - эталонный вариант кнопок: название есть и настройки дашбоарда не тронуты.
+                        </p>
+                        <i>
+                            кнопки СОХРАНИТЬ реагируют на клик
+                        </i>
+                        <b>кнопки:</b>
+                        <div class="m-auto">
+
+                            <div class="d-grid g-1">
+                                <!-- кнопки сохранения ошибки - начало -->
+                                <button
+                                    class="tf_btn tf_btn-sm tf_btn-transparent w-100 text-start"
+                                ><i class="fas fa-save fa-fw"></i> Сохранить</button>
+                                <div class="tf_drop-focus">
+                                    <button
+                                        class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-drop w-100 text-start"
+                                        data-pointer-position="after"
+                                        data-drop-position="right bottom"
+                                    ><i class="fas fa-save fa-fw"></i> Сохранить как</button>
+                                    <div class="tf_drop-content" style="--drop-content-width: 16rem;">
+                                        <div class="d-grid bg-positive rounded ml-1 p-1 shadow" tabindex="0">
+                                            ... содержимое тут, как сейчас на стенде
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- кнопки сохранения ошибки - конец -->
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="d-grid ml-8">
+                        <h5>3</h5>
+                        <p>
+                            - настройки дашбоарда изменили (не важно тронуто содержимое или нет).
+                        </p>
+                        <i>
+                            добавляем синюю точку к кнопке НАСТРОЕК
+                            <br>
+                            title кнопки НАСТРОЕК присутствует но отличается от стандартного
+                            <br>
+                            после сохранения дашборда синяя точка пропадает
+                        </i>
+                        <b>кнопки:</b>
+                        <div class="m-auto">
+
+                            <div class="d-grid g-1">
+                                <!-- кнопки сохранения ошибки - начало -->
+                                <button
+                                    class="tf_btn tf_btn-sm tf_btn-transparent w-100 text-start"
+                                ><i class="fas fa-save fa-fw"></i> Сохранить</button>
+                                <div class="tf_drop-focus">
+                                    <button
+                                        class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-drop w-100 text-start"
+                                        data-pointer-position="after"
+                                        data-drop-position="right bottom"
+                                    ><i class="fas fa-save fa-fw"></i> Сохранить как</button>
+                                    <div class="tf_drop-content" style="--drop-content-width: 16rem;">
+                                        <div class="d-grid bg-positive rounded ml-1 p-1 shadow" tabindex="0">
+                                            ... содержимое тут, как сейчас на стенде
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- кнопки сохранения ошибки - конец -->
+                            </div>
+                            <hr>
+                            <button
+                                class="tf_btn tf_btn-transparent tf_btn-icon used"
+                                title="Настройки дашборда с изменениями"
+                            ><i class="fas fa-cogs fa-fw"></i></button>
+
+                            
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </body>
+    <!-- <script src="https://ui.triafly.ru/dist/js/ui-drops.js"></script> -->
+    <script src="../js/ui-drops.js"></script>
+    <script>
+
+    </script>
+</html>

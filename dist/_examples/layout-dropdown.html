@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SPA layout | песочница</title>
+        <link rel="stylesheet" href="https://ui.triafly.ru/dist/css/normalize.css">
+        <link rel="stylesheet" href="../css/global.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://unpkg.com/current-device/umd/current-device.min.js"></script>
+        <style>
+            :root {
+
+            }
+
+            .tf_sand {
+                display: grid;
+                grid-gap: var(--key-size);
+                height: 100%;
+                margin-bottom: 0 !important;
+                grid-template-rows: max-content auto;
+                grid-template-columns: 1fr;
+            }
+
+            .tf_drop-hover > .tf_drop-content {
+                visibility: hidden;
+            }
+
+            /* .tf_drop-hover:hover > .tf_drop-content {
+                visibility: visible;
+            } */
+            
+        </style>
+    </head>
+    <body class="tf_layout">
+        <div class="tf_layout-main p-4">
+            <div class="tf_sand">
+                <div class="tf_sand-header"></div>
+                <div class="tf_sand-body bg-positive rounded-2 d-grid p-4 align-baseline">
+
+                    <div>
+                        <div class="tf_drop-focus">
+                            <button
+                                class="tf_btn tf_btn-drop"
+                                data-pointer-position="after"
+                                data-drop-position="bottom right"
+                            >Click: level 1</button>
+                            <div class="tf_drop-content">
+                                <div class="d-grid g-1 bg-positive rounded p-1 shadow" tabindex="0">
+                                    
+                                    <div class="tf_drop-hover">
+                                        <button
+                                            class="tf_btn tf_btn-drop w-100 text-start"
+                                            data-pointer-position="after"
+                                            data-drop-position="right bottom"
+                                        >Hover: level 2 first button</button>
+                                        <div class="tf_drop-content" style="--drop-content-width: 16rem;">
+                                            <div class="d-grid g-1 bg-positive rounded p-1 shadow" tabindex="0">
+                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem sit, expedita facere accusamus aperiam architecto voluptatibus molestias, eius odit accusantium obcaecati molestiae repellendus. Autem delectus accusantium reprehenderit eius non explicabo?
+                                                Assumenda voluptatum eveniet in magni nesciunt natus provident autem blanditiis labore sequi adipisci temporibus quisquam nam laborum ullam nisi quaerat a praesentium voluptates expedita fugit aperiam, minus sapiente sit. Accusamus.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tf_drop-hover">
+                                        <button
+                                            class="tf_btn tf_btn-drop w-100 text-start"
+                                            data-pointer-position="after"
+                                            data-drop-position="right bottom"
+                                        >Hover: level 2 second button</button>
+                                        <div class="tf_drop-content" style="--drop-content-width: 16rem;">
+                                            <div class="d-grid g-1 bg-positive rounded p-1 shadow" tabindex="0">
+                                                Totam, atque explicabo aliquid porro dolorum impedit doloremque repellat non quas maiores! Nesciunt corporis sint quasi officia soluta odio maiores adipisci perspiciatis ea, molestias fugiat nostrum nulla earum nihil consectetur?
+                                                Vero eaque voluptas impedit iure, harum eos deleniti, ipsa, fugiat similique minima asperiores eveniet quam a? Quas, illum! Tempore iure doloribus voluptas nulla aperiam hic qui veniam incidunt impedit quae.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tf_drop-hover">
+                                        <button
+                                            class="tf_btn tf_btn-drop w-100 text-start"
+                                            data-pointer-position="after"
+                                            data-drop-position="right bottom"
+                                        >Hover: level 2 therd button</button>
+                                        <div class="tf_drop-content" style="--drop-content-width: 16rem;">
+                                            <div class="d-grid g-1 bg-positive rounded p-1 shadow" tabindex="0">
+                                                Quod molestias nesciunt perferendis, maxime illo alias eligendi totam doloremque laboriosam porro repudiandae non accusantium quia vel? Dolor adipisci, excepturi cupiditate amet unde dignissimos atque? Saepe incidunt dicta doloremque obcaecati.
+                                                Voluptas debitis aut iusto blanditiis voluptatum ea, reprehenderit repellendus facilis consequatur perspiciatis accusamus? Voluptates quisquam necessitatibus odio consequatur! Libero illum cum, distinctio quaerat ea maiores molestias praesentium aperiam ut! Suscipit.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+        
+                            <div class="tf_drop-focus mt-4 ml-4">
+                                <button class="tf_btn tf_btn-drop" data-pointer-position="after" data-drop-position="bottom right" title="Дополнительные инструменты"></button>
+                            <div class="tf_drop-content">
+                                <div class="rounded p-1 shadow d-flex flex-wrap flex-nowrap g-2" style="background-color: var(--background-color) !important;">
+                                        <div class="tf_btn-group">
+                                            <button class="report-undo tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent" title="Отменить последнее действие (undo)" disabled="">
+                                                <i class="fas fa-undo-alt fa-fw"></i>
+                                            </button>
+                                            <button class="report-redo tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent" title="Восстановить последнее действие (redo)" disabled="">
+                                                <i class="fas fa-redo-alt fa-fw"></i>
+                                            </button>
+                                        </div>
+                                        <div class="my-1 border-left border-secondary"></div>
+                                        <div class="d-inline-flex empty-hide empty-hide-nbr">
+                                                <button data-panel="coloring" class="report-coloring tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent " title="Customize coloring">
+                                                    <i class="fas fa-brush fa-fw"></i>
+                                                </button>
+                                                <button data-panel="constraints" class="report-constraints tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent " title="Limitations">
+                                                    <i class="fas fa-minus-circle fa-fw"></i>
+                                                </button>
+                                                <button class="report-calc tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent " data-panel="calc" title="Контекстные вычисления">
+                                                    <span class="fs-md fw-700 lh-1">Σ</span>
+                                                </button>
+                                        </div>
+                                        <div class="my-1 border-left border-secondary"></div>
+        <div class="tf_drop-hover">
+                                                <button class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-drop position-relative" data-drop-position="bottom left" title="Bulk delete rows">
+                                                    <i class="fas fa-grip-lines fa-fw"></i>
+                                                    <i class="fas fa-minus-circle fa-fw fs-xs position-absolute bottom-0 right-0 pb-1 pr-1"></i>
+                                                </button>
+                                                <div class="tf_drop-content">
+                                                    <div class="dropdown-delete-rows bg-positive rounded p-1 shadow"><div><div class="d-grid g-1">
+        <button class="tf_btn tf_btn-xs tf_btn-transparent text-start delete-selected">
+            Selected
+        </button>
+        <button class="tf_btn tf_btn-xs tf_btn-transparent text-start delete-unselected">
+            All except selected
+        </button>
+        <button class="tf_btn tf_btn-xs tf_btn-transparent text-start delete-visible">
+            Visible
+        </button>
+        <button class="tf_btn tf_btn-xs tf_btn-transparent text-start delete-all">
+            All
+        </button>
+        </div></div></div>
+                                                </div>
+                                            </div>                                        <div class="tf_drop-hover">
+                                                <button class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-drop position-relative" data-drop-position="bottom left" title="Bulk delete rows">
+                                                    <i class="fas fa-grip-lines fa-fw"></i>
+                                                    <i class="fas fa-minus-circle fa-fw fs-xs position-absolute bottom-0 right-0 pb-1 pr-1"></i>
+                                                </button>
+                                                <div class="tf_drop-content">
+                                                    <div class="dropdown-delete-rows bg-positive rounded p-1 shadow"><div><div class="d-grid g-1">
+        <button class="tf_btn tf_btn-xs tf_btn-transparent text-start delete-selected">
+            Selected
+        </button>
+        <button class="tf_btn tf_btn-xs tf_btn-transparent text-start delete-unselected">
+            All except selected
+        </button>
+        <button class="tf_btn tf_btn-xs tf_btn-transparent text-start delete-visible">
+            Visible
+        </button>
+        <button class="tf_btn tf_btn-xs tf_btn-transparent text-start delete-all">
+            All
+        </button>
+        </div></div></div>
+                                                </div>
+                                            </div>
+                                            <div class="my-1 border-left border-secondary"></div>
+                                    <div class="d-inline-flex">
+                                                <button class="report-versions tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent " title="Версии">
+                                                    <i class="fas fa-history fa-fw"></i>
+                                                </button>
+                                        <button class="report-reset-header-sizes tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent " title="Reset headers sizes and sorting settings">
+                                            <div class="d-inline-grid">
+                                                <i class="fas fa-exchange-alt fa-fw col-start-1 col-end-2 row-start-1 row-end-2"></i>
+                                                <i class="fas fa-grip-lines-vertical fa-fw col-start-1 col-end-2 row-start-1 row-end-2"></i>
+                                            </div>
+                                        </button>
+                                                <button class="report-notifications tf_btn tf_btn-sm tf_btn-icon tf_btn-transparent position-relative d-inline-grid " title="Отправить registry по почте по расписанию">
+                                                    <i class="far fa-clock fa-fw position-absolute top-0 right-0 fs-xs pt-1 pr-1 "></i>
+                                                    <i class="fas fa-envelope fa-fw mx-auto mt-auto"></i>
+                                                </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="../js/ui-drops.js"></script>
+    <script>
+        var dropHoverButtons = document.querySelectorAll(".tf_drop-hover");
+        var dropHoverContents = document.querySelectorAll(".tf_drop-hover > .tf_drop-content");
+
+        var openDropHover = null;
+
+        dropHoverButtons.forEach(function(button, index) {
+            button.addEventListener("mouseenter", function(event) {
+                event.stopPropagation();
+
+                if (openDropHover !== dropHoverContents[index]) {
+                    if (openDropHover) {
+                        openDropHover.style.visibility = "hidden";
+                    }
+                    dropHoverContents[index].style.visibility = "visible";
+                    openDropHover = dropHoverContents[index];
+                }
+            });
+
+            window.addEventListener("click", function(event) {
+                if (!button.contains(event.target)) {
+                    closeDropdown(index);
+                }
+            });
+
+            dropHoverContents[index].addEventListener("click", function(event) {
+                event.stopPropagation();
+            });
+
+            function closeDropdown(i) {
+                dropHoverContents[i].style.visibility = "hidden";
+                openDropHover = null;
+            }
+        });
+    </script>
+</html>

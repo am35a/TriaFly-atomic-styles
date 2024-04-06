@@ -895,6 +895,95 @@ button,
   overflow-x: hidden;
   overflow-y: scroll;
 }
+.tf_table {
+  width: 100%;
+  vertical-align: top;
+  border-collapse: collapse;
+}
+.tf_table tbody {
+  --table-border-color: var(--negative-color-10);
+  border-color: var(--table-border-color);
+  border-style: solid;
+  border-width: 0;
+}
+.tf_table td {
+  --table-border-color: var(--negative-color-10);
+  border-color: var(--table-border-color);
+  border-style: solid;
+  border-width: 0;
+}
+.tf_table tfoot {
+  --table-border-color: var(--negative-color-10);
+  border-color: var(--table-border-color);
+  border-style: solid;
+  border-width: 0;
+}
+.tf_table th {
+  --table-border-color: var(--negative-color-10);
+  border-color: var(--table-border-color);
+  border-style: solid;
+  border-width: 0;
+}
+.tf_table thead {
+  --table-border-color: var(--negative-color-10);
+  border-color: var(--table-border-color);
+  border-style: solid;
+  border-width: 0;
+}
+.tf_table tr {
+  --table-border-color: var(--negative-color-10);
+  border-color: var(--table-border-color);
+  border-style: solid;
+  border-width: 0;
+}
+.tf_table > thead > * > * {
+  padding: var(--p-2, calc(var(--key-size) * 0.5));
+  background-color: var(--table-cell-bg-color, --positive-color);
+  border-bottom-width: 1px !important;
+}
+.tf_table > tbody > * > * {
+  padding: var(--p-2, calc(var(--key-size) * 0.5));
+  background-color: var(--table-cell-bg-color, --positive-color);
+}
+.tf_table > tbody > :not(:last-child) > * {
+  border-bottom-width: 1px !important;
+}
+.tf_table > tfoot > * > * {
+  --table-border-color: var(--negative-color-25);
+  padding: var(--p-2, calc(var(--key-size) * 0.5));
+  background-color: var(--table-cell-bg-color, --positive-color);
+  border-top-width: 1px !important;
+}
+.tf_table-striped-rows > tbody > tr:nth-of-type(odd) > * {
+  --table-cell-bg-color: rgba(0, 0, 0, 0.05);
+}
+.tf_table-striped-cols > tbody > tr > :nth-child(even) {
+  --table-cell-bg-color: rgba(0, 0, 0, 0.05);
+}
+.tf_table-hover-cell > tbody td:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.tf_table-hover-rows > tbody > tr:hover > * {
+  --table-cell-bg-color: rgba(0, 0, 0, 0.05);
+}
+.tf_table-hover-cols {
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+}
+.tf_table-hover-cols > tbody > * > * {
+  position: relative;
+}
+.tf_table-hover-cols > tbody > tr > :hover::after {
+  background-color: rgba(0, 0, 0, 0.05);
+  content: ' ';
+  z-index: -1;
+  height: 10000px;
+  left: 0;
+  position: absolute;
+  top: -5000px;
+  width: 100%;
+}
 @media print {
   .tf_layout {
     height: unset;
@@ -955,9 +1044,11 @@ button,
 .tf_btn.active {
   background-color: var(--negative-color-25);
 }
+.tf_btn.tf_btn-drop.used,
 .tf_btn.used {
   position: relative;
 }
+.tf_btn.tf_btn-drop.used:after,
 .tf_btn.used:after {
   content: '';
   position: absolute;
@@ -967,9 +1058,11 @@ button,
   height: calc(var(--key-size) * 0.5);
   border-radius: var(--key-size);
 }
+.tf_btn.tf_btn-drop.used:not(.tf_btn-transparent):after,
 .tf_btn.used:not(.tf_btn-transparent):after {
   background-color: currentColor;
 }
+.tf_btn.tf_btn-drop.used.tf_btn-transparent:after,
 .tf_btn.used.tf_btn-transparent:after {
   background-color: var(--primary-color);
 }
@@ -996,7 +1089,7 @@ button,
 }
 .tf_btn-transparent {
   background-color: transparent;
-  color: var(--negative-color-75);
+  color: var(--negative-color-85);
 }
 .tf_btn-transparent:hover {
   background-color: var(--negative-color-15);
@@ -1145,11 +1238,13 @@ button,
 .tf_btn-group {
   display: inline-flex;
 }
-.tf_btn-group > .tf_btn:not(:first-child) {
+.tf_btn-group > .tf_btn:not(:first-child),
+.tf_btn-group > [class*="tf_drop"]:not(:first-child) > .tf_btn-drop {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-.tf_btn-group > .tf_btn:not(:last-child) {
+.tf_btn-group > .tf_btn:not(:last-child),
+.tf_btn-group > [class*="tf_drop"]:not(:last-child) > .tf_btn-drop {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
@@ -1158,15 +1253,39 @@ button,
   padding: calc(var(--key-size-xs) * 0.25) calc(var(--key-size-xs) * 0.625);
   font-size: var(--key-size-xs);
 }
+.tf_btn-xs.tf_btn-drop.used:after,
+.tf_btn-xs.used:after {
+  top: calc(var(--key-size-xs) * 0.0625);
+  right: calc(var(--key-size-xs) * 0.0625);
+  width: calc(var(--key-size-xs) * 0.5);
+  height: calc(var(--key-size-xs) * 0.5);
+  border-radius: var(--key-size-xs);
+}
 .tf_btn-sm {
   --key-size-sm: calc(var(--key-size) * 0.875);
   padding: calc(var(--key-size-sm) * 0.25) calc(var(--key-size-sm) * 0.625);
   font-size: var(--key-size-sm);
 }
+.tf_btn-sm.tf_btn-drop.used:after,
+.tf_btn-sm.used:after {
+  top: calc(var(--key-size-sm) * 0.0625);
+  right: calc(var(--key-size-sm) * 0.0625);
+  width: calc(var(--key-size-sm) * 0.5);
+  height: calc(var(--key-size-sm) * 0.5);
+  border-radius: var(--key-size-sm);
+}
 .tf_btn-lg {
   --key-size-lg: calc(var(--key-size) * 1.125);
   padding: calc(var(--key-size-lg) * 0.25) calc(var(--key-size-lg) * 0.625);
   font-size: var(--key-size-lg);
+}
+.tf_btn-lg.tf_btn-drop.used:after,
+.tf_btn-lg.used:after {
+  top: calc(var(--key-size-lg) * 0.0625);
+  right: calc(var(--key-size-lg) * 0.0625);
+  width: calc(var(--key-size-lg) * 0.5);
+  height: calc(var(--key-size-lg) * 0.5);
+  border-radius: var(--key-size-lg);
 }
 .tf_btn-icon {
   min-width: calc(calc(calc(var(--key-size) * 1.5) + 0.125rem) + calc(var(--key-size) * 0.25 * 2));
@@ -1912,6 +2031,18 @@ h6,
 .tf_drop-focus .tf_btn-drop[data-drop-position^="bottom"][data-drop-position$="right"] + .tf_drop-content {
   left: 0%;
 }
+.tf_drop-hover .tf_btn-drop[data-drop-position^="center"][data-pointer-position="before"]:before,
+.tf_drop-focus .tf_btn-drop[data-drop-position^="center"][data-pointer-position="before"]:before,
+.tf_drop-hover .tf_btn-drop[data-drop-position^="center"][data-pointer-position="after"]::after,
+.tf_drop-focus .tf_btn-drop[data-drop-position^="center"][data-pointer-position="after"]::after {
+  content: "\2043";
+}
+.tf_drop-hover .tf_btn-drop[data-drop-position^="center"][data-drop-position$="center"] + .tf_drop-content,
+.tf_drop-focus .tf_btn-drop[data-drop-position^="center"][data-drop-position$="center"] + .tf_drop-content {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .tf_drop-hover .tf_btn-drop *,
 .tf_drop-focus .tf_btn-drop * {
   pointer-events: none;
@@ -1921,8 +2052,13 @@ h6,
 .tf_drop-hover .tf_btn-drop::after,
 .tf_drop-focus .tf_btn-drop::after {
   display: inline-grid;
-  width: 0;
   justify-content: center;
+}
+.tf_drop-hover .tf_btn-drop:not(.used)::before,
+.tf_drop-focus .tf_btn-drop:not(.used)::before,
+.tf_drop-hover .tf_btn-drop:not(.used)::after,
+.tf_drop-focus .tf_btn-drop:not(.used)::after {
+  width: 0;
 }
 .tf_drop-hover .tf_btn-drop:not(:empty)::before,
 .tf_drop-focus .tf_btn-drop:not(:empty)::before {
@@ -1935,18 +2071,89 @@ h6,
 .tf_drop-hover .tf_drop-content,
 .tf_drop-focus .tf_drop-content {
   position: absolute;
-  width: max-content;
-  z-index: 1;
+  width: var(--drop-content-width, max-content);
+  text-align: initial;
 }
-.tf_drop-hover:hover > .tf_drop-content,
-.tf_drop-focus:hover > .tf_drop-content {
-  z-index: 1010;
+.tf_drop-hover > .tf_drop-content {
+  visibility: hidden;
 }
-.tf_drop-hover:not(:hover) .tf_drop-content {
-  display: none;
+.tf_drop-hover:hover > .tf_drop-content {
+  visibility: visible;
 }
 .tf_drop-focus > .tf_btn-drop:not(.open) + .tf_drop-content {
-  display: none;
+  visibility: hidden;
+}
+.bg-color-primary-d2 {
+  background-color: var(--primary-color-d2) !important;
+}
+.bg-color-primary-d1 {
+  background-color: var(--primary-color-d1) !important;
+}
+.bg-color-primary-l1 {
+  background-color: var(--primary-color-l1) !important;
+}
+.bg-color-primary-l2 {
+  background-color: var(--primary-color-l2) !important;
+}
+.bg-color-secondary-d2 {
+  background-color: var(--secondary-color-d2) !important;
+}
+.bg-color-secondary-d1 {
+  background-color: var(--secondary-color-d1) !important;
+}
+.bg-color-secondary-l1 {
+  background-color: var(--secondary-color-l1) !important;
+}
+.bg-color-secondary-l2 {
+  background-color: var(--secondary-color-l2) !important;
+}
+.bg-color-info-d2 {
+  background-color: var(--info-color-d2) !important;
+}
+.bg-color-info-d1 {
+  background-color: var(--info-color-d1) !important;
+}
+.bg-color-info-l1 {
+  background-color: var(--info-color-l1) !important;
+}
+.bg-color-info-l2 {
+  background-color: var(--info-color-l2) !important;
+}
+.bg-color-success-d2 {
+  background-color: var(--success-color-d2) !important;
+}
+.bg-color-success-d1 {
+  background-color: var(--success-color-d1) !important;
+}
+.bg-color-success-l1 {
+  background-color: var(--success-color-l1) !important;
+}
+.bg-color-success-l2 {
+  background-color: var(--success-color-l2) !important;
+}
+.bg-color-warning-d2 {
+  background-color: var(--warning-color-d2) !important;
+}
+.bg-color-warning-d1 {
+  background-color: var(--warning-color-d1) !important;
+}
+.bg-color-warning-l1 {
+  background-color: var(--warning-color-l1) !important;
+}
+.bg-color-warning-l2 {
+  background-color: var(--warning-color-l2) !important;
+}
+.bg-color-error-d2 {
+  background-color: var(--error-color-d2) !important;
+}
+.bg-color-error-d1 {
+  background-color: var(--error-color-d1) !important;
+}
+.bg-color-error-l1 {
+  background-color: var(--error-color-l1) !important;
+}
+.bg-color-error-l2 {
+  background-color: var(--error-color-l2) !important;
 }
 .border {
   border: var(--border-width, calc(var(--key-size) * 0.0625)) solid var(--border-color, currentColor) !important;
@@ -3689,36 +3896,6 @@ h6,
 .mobile .m\:justify-self-stretch {
   justify-self: stretch !important;
 }
-.mobile .m\:bg-positive {
-  background-color: var(--positive-color) !important;
-}
-.mobile .m\:bg-negative {
-  background-color: var(--negative-color) !important;
-}
-.mobile .m\:bg-background {
-  background-color: var(--background-color) !important;
-}
-.mobile .m\:bg-primary {
-  background-color: var(--primary-color) !important;
-}
-.mobile .m\:bg-secondary {
-  background-color: var(--secondary-color) !important;
-}
-.mobile .m\:bg-info {
-  background-color: var(--info-color) !important;
-}
-.mobile .m\:bg-success {
-  background-color: var(--success-color) !important;
-}
-.mobile .m\:bg-warning {
-  background-color: var(--warning-color) !important;
-}
-.mobile .m\:bg-error {
-  background-color: var(--error-color) !important;
-}
-.mobile .m\:bg-transparent {
-  background-color: transparent !important;
-}
 .mobile .m\:rounded {
   border-radius: var(--rounded-2, calc(var(--key-size) * 0.25)) !important;
 }
@@ -5051,36 +5228,6 @@ h6,
 .tablet .t\:justify-self-stretch {
   justify-self: stretch !important;
 }
-.tablet .t\:bg-positive {
-  background-color: var(--positive-color) !important;
-}
-.tablet .t\:bg-negative {
-  background-color: var(--negative-color) !important;
-}
-.tablet .t\:bg-background {
-  background-color: var(--background-color) !important;
-}
-.tablet .t\:bg-primary {
-  background-color: var(--primary-color) !important;
-}
-.tablet .t\:bg-secondary {
-  background-color: var(--secondary-color) !important;
-}
-.tablet .t\:bg-info {
-  background-color: var(--info-color) !important;
-}
-.tablet .t\:bg-success {
-  background-color: var(--success-color) !important;
-}
-.tablet .t\:bg-warning {
-  background-color: var(--warning-color) !important;
-}
-.tablet .t\:bg-error {
-  background-color: var(--error-color) !important;
-}
-.tablet .t\:bg-transparent {
-  background-color: transparent !important;
-}
 .tablet .t\:rounded {
   border-radius: var(--rounded-2, calc(var(--key-size) * 0.25)) !important;
 }
@@ -6412,36 +6559,6 @@ h6,
 }
 .desktop .d\:justify-self-stretch {
   justify-self: stretch !important;
-}
-.desktop .d\:bg-positive {
-  background-color: var(--positive-color) !important;
-}
-.desktop .d\:bg-negative {
-  background-color: var(--negative-color) !important;
-}
-.desktop .d\:bg-background {
-  background-color: var(--background-color) !important;
-}
-.desktop .d\:bg-primary {
-  background-color: var(--primary-color) !important;
-}
-.desktop .d\:bg-secondary {
-  background-color: var(--secondary-color) !important;
-}
-.desktop .d\:bg-info {
-  background-color: var(--info-color) !important;
-}
-.desktop .d\:bg-success {
-  background-color: var(--success-color) !important;
-}
-.desktop .d\:bg-warning {
-  background-color: var(--warning-color) !important;
-}
-.desktop .d\:bg-error {
-  background-color: var(--error-color) !important;
-}
-.desktop .d\:bg-transparent {
-  background-color: transparent !important;
 }
 .desktop .d\:rounded {
   border-radius: var(--rounded-2, calc(var(--key-size) * 0.25)) !important;
@@ -7776,36 +7893,6 @@ h6,
   .l\:justify-self-stretch {
     justify-self: stretch !important;
   }
-  .l\:bg-positive {
-    background-color: var(--positive-color) !important;
-  }
-  .l\:bg-negative {
-    background-color: var(--negative-color) !important;
-  }
-  .l\:bg-background {
-    background-color: var(--background-color) !important;
-  }
-  .l\:bg-primary {
-    background-color: var(--primary-color) !important;
-  }
-  .l\:bg-secondary {
-    background-color: var(--secondary-color) !important;
-  }
-  .l\:bg-info {
-    background-color: var(--info-color) !important;
-  }
-  .l\:bg-success {
-    background-color: var(--success-color) !important;
-  }
-  .l\:bg-warning {
-    background-color: var(--warning-color) !important;
-  }
-  .l\:bg-error {
-    background-color: var(--error-color) !important;
-  }
-  .l\:bg-transparent {
-    background-color: transparent !important;
-  }
   .l\:rounded {
     border-radius: var(--rounded-2, calc(var(--key-size) * 0.25)) !important;
   }
@@ -9137,36 +9224,6 @@ h6,
   }
   .mobile .l\:m\:justify-self-stretch {
     justify-self: stretch !important;
-  }
-  .mobile .l\:m\:bg-positive {
-    background-color: var(--positive-color) !important;
-  }
-  .mobile .l\:m\:bg-negative {
-    background-color: var(--negative-color) !important;
-  }
-  .mobile .l\:m\:bg-background {
-    background-color: var(--background-color) !important;
-  }
-  .mobile .l\:m\:bg-primary {
-    background-color: var(--primary-color) !important;
-  }
-  .mobile .l\:m\:bg-secondary {
-    background-color: var(--secondary-color) !important;
-  }
-  .mobile .l\:m\:bg-info {
-    background-color: var(--info-color) !important;
-  }
-  .mobile .l\:m\:bg-success {
-    background-color: var(--success-color) !important;
-  }
-  .mobile .l\:m\:bg-warning {
-    background-color: var(--warning-color) !important;
-  }
-  .mobile .l\:m\:bg-error {
-    background-color: var(--error-color) !important;
-  }
-  .mobile .l\:m\:bg-transparent {
-    background-color: transparent !important;
   }
   .mobile .l\:m\:rounded {
     border-radius: var(--rounded-2, calc(var(--key-size) * 0.25)) !important;
@@ -10500,36 +10557,6 @@ h6,
   .tablet .l\:t\:justify-self-stretch {
     justify-self: stretch !important;
   }
-  .tablet .l\:t\:bg-positive {
-    background-color: var(--positive-color) !important;
-  }
-  .tablet .l\:t\:bg-negative {
-    background-color: var(--negative-color) !important;
-  }
-  .tablet .l\:t\:bg-background {
-    background-color: var(--background-color) !important;
-  }
-  .tablet .l\:t\:bg-primary {
-    background-color: var(--primary-color) !important;
-  }
-  .tablet .l\:t\:bg-secondary {
-    background-color: var(--secondary-color) !important;
-  }
-  .tablet .l\:t\:bg-info {
-    background-color: var(--info-color) !important;
-  }
-  .tablet .l\:t\:bg-success {
-    background-color: var(--success-color) !important;
-  }
-  .tablet .l\:t\:bg-warning {
-    background-color: var(--warning-color) !important;
-  }
-  .tablet .l\:t\:bg-error {
-    background-color: var(--error-color) !important;
-  }
-  .tablet .l\:t\:bg-transparent {
-    background-color: transparent !important;
-  }
   .tablet .l\:t\:rounded {
     border-radius: var(--rounded-2, calc(var(--key-size) * 0.25)) !important;
   }
@@ -11861,36 +11888,6 @@ h6,
   }
   .desktop .l\:d\:justify-self-stretch {
     justify-self: stretch !important;
-  }
-  .desktop .l\:d\:bg-positive {
-    background-color: var(--positive-color) !important;
-  }
-  .desktop .l\:d\:bg-negative {
-    background-color: var(--negative-color) !important;
-  }
-  .desktop .l\:d\:bg-background {
-    background-color: var(--background-color) !important;
-  }
-  .desktop .l\:d\:bg-primary {
-    background-color: var(--primary-color) !important;
-  }
-  .desktop .l\:d\:bg-secondary {
-    background-color: var(--secondary-color) !important;
-  }
-  .desktop .l\:d\:bg-info {
-    background-color: var(--info-color) !important;
-  }
-  .desktop .l\:d\:bg-success {
-    background-color: var(--success-color) !important;
-  }
-  .desktop .l\:d\:bg-warning {
-    background-color: var(--warning-color) !important;
-  }
-  .desktop .l\:d\:bg-error {
-    background-color: var(--error-color) !important;
-  }
-  .desktop .l\:d\:bg-transparent {
-    background-color: transparent !important;
   }
   .desktop .l\:d\:rounded {
     border-radius: var(--rounded-2, calc(var(--key-size) * 0.25)) !important;
@@ -13226,36 +13223,6 @@ h6,
   .p\:justify-self-stretch {
     justify-self: stretch !important;
   }
-  .p\:bg-positive {
-    background-color: var(--positive-color) !important;
-  }
-  .p\:bg-negative {
-    background-color: var(--negative-color) !important;
-  }
-  .p\:bg-background {
-    background-color: var(--background-color) !important;
-  }
-  .p\:bg-primary {
-    background-color: var(--primary-color) !important;
-  }
-  .p\:bg-secondary {
-    background-color: var(--secondary-color) !important;
-  }
-  .p\:bg-info {
-    background-color: var(--info-color) !important;
-  }
-  .p\:bg-success {
-    background-color: var(--success-color) !important;
-  }
-  .p\:bg-warning {
-    background-color: var(--warning-color) !important;
-  }
-  .p\:bg-error {
-    background-color: var(--error-color) !important;
-  }
-  .p\:bg-transparent {
-    background-color: transparent !important;
-  }
   .p\:rounded {
     border-radius: var(--rounded-2, calc(var(--key-size) * 0.25)) !important;
   }
@@ -14587,36 +14554,6 @@ h6,
   }
   .mobile .p\:m\:justify-self-stretch {
     justify-self: stretch !important;
-  }
-  .mobile .p\:m\:bg-positive {
-    background-color: var(--positive-color) !important;
-  }
-  .mobile .p\:m\:bg-negative {
-    background-color: var(--negative-color) !important;
-  }
-  .mobile .p\:m\:bg-background {
-    background-color: var(--background-color) !important;
-  }
-  .mobile .p\:m\:bg-primary {
-    background-color: var(--primary-color) !important;
-  }
-  .mobile .p\:m\:bg-secondary {
-    background-color: var(--secondary-color) !important;
-  }
-  .mobile .p\:m\:bg-info {
-    background-color: var(--info-color) !important;
-  }
-  .mobile .p\:m\:bg-success {
-    background-color: var(--success-color) !important;
-  }
-  .mobile .p\:m\:bg-warning {
-    background-color: var(--warning-color) !important;
-  }
-  .mobile .p\:m\:bg-error {
-    background-color: var(--error-color) !important;
-  }
-  .mobile .p\:m\:bg-transparent {
-    background-color: transparent !important;
   }
   .mobile .p\:m\:rounded {
     border-radius: var(--rounded-2, calc(var(--key-size) * 0.25)) !important;
@@ -15950,36 +15887,6 @@ h6,
   .tablet .p\:t\:justify-self-stretch {
     justify-self: stretch !important;
   }
-  .tablet .p\:t\:bg-positive {
-    background-color: var(--positive-color) !important;
-  }
-  .tablet .p\:t\:bg-negative {
-    background-color: var(--negative-color) !important;
-  }
-  .tablet .p\:t\:bg-background {
-    background-color: var(--background-color) !important;
-  }
-  .tablet .p\:t\:bg-primary {
-    background-color: var(--primary-color) !important;
-  }
-  .tablet .p\:t\:bg-secondary {
-    background-color: var(--secondary-color) !important;
-  }
-  .tablet .p\:t\:bg-info {
-    background-color: var(--info-color) !important;
-  }
-  .tablet .p\:t\:bg-success {
-    background-color: var(--success-color) !important;
-  }
-  .tablet .p\:t\:bg-warning {
-    background-color: var(--warning-color) !important;
-  }
-  .tablet .p\:t\:bg-error {
-    background-color: var(--error-color) !important;
-  }
-  .tablet .p\:t\:bg-transparent {
-    background-color: transparent !important;
-  }
   .tablet .p\:t\:rounded {
     border-radius: var(--rounded-2, calc(var(--key-size) * 0.25)) !important;
   }
@@ -17311,36 +17218,6 @@ h6,
   }
   .desktop .p\:d\:justify-self-stretch {
     justify-self: stretch !important;
-  }
-  .desktop .p\:d\:bg-positive {
-    background-color: var(--positive-color) !important;
-  }
-  .desktop .p\:d\:bg-negative {
-    background-color: var(--negative-color) !important;
-  }
-  .desktop .p\:d\:bg-background {
-    background-color: var(--background-color) !important;
-  }
-  .desktop .p\:d\:bg-primary {
-    background-color: var(--primary-color) !important;
-  }
-  .desktop .p\:d\:bg-secondary {
-    background-color: var(--secondary-color) !important;
-  }
-  .desktop .p\:d\:bg-info {
-    background-color: var(--info-color) !important;
-  }
-  .desktop .p\:d\:bg-success {
-    background-color: var(--success-color) !important;
-  }
-  .desktop .p\:d\:bg-warning {
-    background-color: var(--warning-color) !important;
-  }
-  .desktop .p\:d\:bg-error {
-    background-color: var(--error-color) !important;
-  }
-  .desktop .p\:d\:bg-transparent {
-    background-color: transparent !important;
   }
   .desktop .p\:d\:rounded {
     border-radius: var(--rounded-2, calc(var(--key-size) * 0.25)) !important;

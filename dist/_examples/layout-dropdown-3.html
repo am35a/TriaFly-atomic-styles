@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Dropdown Buttons</title>
+    <style>
+        /* Hide the dropdown content by default */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        /* Style the dropdown button */
+        .dropdown-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Position the dropdown content above the button */
+        .dropdown-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Show the dropdown content when the button is hovered */
+        .dropdown-container:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Style the dropdown items */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change the background color of dropdown items on hover */
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="dropdown-container">
+        <button class="dropdown-button">Dropdown Button 1</button>
+        <div class="dropdown-content">
+            <!-- Dropdown content for Button 1 goes here -->
+            <a href="#">Item 1</a>
+            <a href="#">Item 2</a>
+            <a href="#">Item 3</a>
+        </div>
+    </div>
+    <div class="dropdown-container">
+        <button class="dropdown-button">Dropdown Button 2</button>
+        <div class="dropdown-content">
+            <!-- Dropdown content for Button 2 goes here -->
+            <a href="#">Item A</a>
+            <a href="#">Item B</a>
+            <a href="#">Item C</a>
+        </div>
+    </div>
+    <!-- Add more dropdown containers as needed -->
+    <script>
+        // Get all the buttons and dropdown contents by class name
+        var buttons = document.querySelectorAll(".dropdown-button");
+        var dropdownContents = document.querySelectorAll(".dropdown-content");
+
+        // Initialize a variable to keep track of the currently open dropdown
+        var openDropdown = null;
+
+        // Add an event listener for each button
+        buttons.forEach(function(button, index) {
+            // Handle mouseenter event to open the dropdown
+            button.addEventListener("mouseenter", function(event) {
+                event.stopPropagation(); // Prevent the window click event from closing this dropdown
+
+                // Toggle the dropdown associated with this button
+                if (openDropdown !== dropdownContents[index]) {
+                    // Close the previously open dropdown (if any)
+                    if (openDropdown) {
+                        openDropdown.style.display = "none";
+                    }
+                    // Open the current dropdown
+                    dropdownContents[index].style.display = "block";
+                    openDropdown = dropdownContents[index];
+                }
+            });
+
+            // Close the dropdowns when clicking outside any of the buttons
+            window.addEventListener("click", function(event) {
+                if (!button.contains(event.target)) {
+                    closeDropdown(index); // Close the dropdown associated with this button
+                }
+            });
+
+            // Prevent the dropdowns from closing when clicking inside them
+            dropdownContents[index].addEventListener("click", function(event) {
+                event.stopPropagation();
+            });
+
+            // Function to close the dropdown associated with the button
+            function closeDropdown(i) {
+                dropdownContents[i].style.display = "none";
+                openDropdown = null;
+            }
+        });
+
+
+    </script>
+</body>
+</html>

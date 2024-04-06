@@ -33,7 +33,7 @@
 each(@device-types, .(@device-type-value, @device-type-key) {
     .@{device-type-key} {
         .alignment({}, ~"@{device-type-value}\:");
-        .background({}, ~"@{device-type-value}\:");
+        // .background({}, ~"@{device-type-value}\:");
         .border({}, ~"@{device-type-value}\:");
         .display({}, ~"@{device-type-value}\:");
         .flex({}, ~"@{device-type-value}\:");
@@ -51,7 +51,7 @@ each(@device-types, .(@device-type-value, @device-type-key) {
 each(@device-orientations, .(@device-orientation-value, @device-orientation-key) {
     @media (orientation: @device-orientation-key) {
         .alignment(~"@{device-orientation-value}\:", {});
-        .background(~"@{device-orientation-value}\:", {});
+        // .background(~"@{device-orientation-value}\:", {});
         .border(~"@{device-orientation-value}\:", {});
         .display(~"@{device-orientation-value}\:", {});
         .flex(~"@{device-orientation-value}\:", {});
@@ -65,7 +65,7 @@ each(@device-orientations, .(@device-orientation-value, @device-orientation-key)
         each(@device-types, .(@device-type-value, @device-type-key) {
             .@{device-type-key} {
                 .alignment(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
-                .background(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
+                // .background(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
                 .border(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
                 .display(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");
                 .flex(~"@{device-orientation-value}\:", ~"@{device-type-value}\:");

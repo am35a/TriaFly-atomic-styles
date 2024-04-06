@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple DropHover Buttons</title>
+    <link rel="stylesheet" href="https://ui.triafly.ru/dist/css/normalize.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <style>
+        .tf_drop-hover > .tf_drop-content {
+            visibility: hidden;
+        }
+
+        .tf_drop-hover:hover > .tf_drop-content {
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <div class="tf_drop-hover">
+        <button class="tf_btn tf_btn-drop">DropHover Button 1</button>
+        <div class="tf_drop-content" style="--drop-content-width: 24rem">
+            <div class="d-grid g-1 bg-positive rounded p-1 shadow" tabindex="0">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis quaerat, dolor ex quis dolore ipsum a, laboriosam aut accusamus natus repellendus minus, temporibus eaque cum totam sint quia officia culpa.
+            </div>
+        </div>
+    </div>
+    <div class="tf_drop-hover">
+        <button class="tf_btn tf_btn-drop">DropHover Button 2</button>
+        <div class="tf_drop-content" style="--drop-content-width: 24rem">
+            <div class="d-grid g-1 bg-positive rounded p-1 shadow" tabindex="0">
+                Hic itaque impedit facilis nulla, officia necessitatibus quae soluta cum consectetur omnis explicabo magnam excepturi vero, ut quas aliquam assumenda reiciendis iure, adipisci illum? Expedita animi temporibus eius nulla ea.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var dropHoverButtons = document.querySelectorAll(".tf_drop-hover");
+        var dropHoverContents = document.querySelectorAll(".tf_drop-hover > .tf_drop-content");
+
+        var openDropHover = null;
+
+        dropHoverButtons.forEach(function(button, index) {
+            button.addEventListener("mouseenter", function(event) {
+                event.stopPropagation();
+
+                if (openDropHover !== dropHoverContents[index]) {
+                    if (openDropHover) {
+                        openDropHover.style.visibility = "hidden";
+                    }
+                    dropHoverContents[index].style.visibility = "visible";
+                    openDropHover = dropHoverContents[index];
+                }
+            });
+
+            window.addEventListener("click", function(event) {
+                if (!button.contains(event.target)) {
+                    closeDropdown(index);
+                }
+            });
+
+            dropHoverContents[index].addEventListener("click", function(event) {
+                event.stopPropagation();
+            });
+
+            function closeDropdown(i) {
+                dropHoverContents[i].style.visibility = "hidden";
+                openDropHover = null;
+            }
+        });
+    </script>
+</body>
+</html>

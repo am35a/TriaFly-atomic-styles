@@ -12,3 +12,20 @@
     }
     
 }
+
+.bg-color {
+    each(@xtra-color-names, {
+        &-@{value}-d2 when not (@value = transparent) {
+            background-color: var(~"--@{value}-color-d2") !important;
+        }
+        &-@{value}-d1 when not (@value = transparent) {
+            background-color: var(~"--@{value}-color-d1") !important;
+        }
+        &-@{value}-l1 when not (@value = transparent) {
+            background-color: var(~"--@{value}-color-l1") !important;
+        }
+        &-@{value}-l2 when not (@value = transparent) {
+            background-color: var(~"--@{value}-color-l2") !important;
+        }
+    });
+}

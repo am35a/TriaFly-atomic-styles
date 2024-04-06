@@ -108,8 +108,11 @@
         &::before,
         &::after {
             display: inline-grid;
-            width: 0;
             justify-content: center;
+        }
+        &:not(.used)::before,
+        &:not(.used)::after {
+            width: 0;
         }
         &:not(:empty)::before {
             margin-right: calc(var(--key-size) * .5);
@@ -122,30 +125,18 @@
         position: absolute;
         width: var(--drop-content-width, max-content);
         text-align: initial;
-        z-index: 1;
-    }
-    &:hover > .tf_drop-content {
-        z-index: 1010;
     }
 }
-// .tf_drop-hover:not(:hover, :focus-within) {
-//     .tf_drop-content {
-//         display: none;
-//     }
-// }
-// .tf_drop-focus:not(:focus-within) {
-//     .tf_drop-content {
-//         display: none;
-//     }
-// }
-
-.tf_drop-hover:not(:hover) {
-    .tf_drop-content {
-        display: none;
+.tf_drop-hover {
+    > .tf_drop-content {
+        visibility: hidden;
+    }
+    &:hover > .tf_drop-content {
+        visibility: visible;
     }
 }
 .tf_drop-focus {
     > .tf_btn-drop:not(.open) + .tf_drop-content {
-        display: none;
+        visibility: hidden;
     }
 }

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SPA layout</title>
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/global.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://unpkg.com/current-device/umd/current-device.min.js"></script>
+        <style>
+            .tf_aside-item {
+                white-space: nowrap;
+            }
+        </style>
+    </head>
+    <body class="tf_layout">
+        <div class="tf_layout-main p-4">
+            <!-- ... -->
+        </div>
+        <div class="tf_layout-header">
+            <button class="tf_layout-aside-expander" tabindex="-1"><i class="fa fa-bars"></i></button>
+            Альтернативное меню
+            <div class="px-2">
+                ...
+            </div>
+        </div>
+        <div class="tf_layout-aside">
+            <div class="tf_aside-fader">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="tf_aside-navbar">
+                <div class="tf_aside-items">
+                    <div class="tf_aside-item">
+                        <button class="tf_btn tf_btn-icon tf_btn-info text-positive">
+                            <i class="fas fa-home"></i>
+                        </button>
+                        <button class="tf_btn tf_btn-info text-positive">transparent button</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

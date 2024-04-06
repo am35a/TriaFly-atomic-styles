@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SPA layout | адаптеры</title>
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/global.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://unpkg.com/current-device/umd/current-device.min.js"></script>
+        <style>
+            :root {
+                --aside-navbar-background-color: #082f3d;
+                --header-background-color: #dde5f3;
+            }
+
+            .tf_cursor-grab {
+                cursor: grab !important;
+            }
+
+            .tf_report,
+            .tf_dashb-oard,
+            .tf_adapter {
+                display: grid;
+                height: 100%;
+                margin-bottom: 0 !important;
+                grid-template-rows: max-content auto;
+                grid-template-columns: 1fr;
+            }
+
+            .tf_adapter-body {
+                display: grid;
+                grid-template-columns: auto 1fr;
+                grid-template-rows: 1fr;
+                grid-gap: var(--g-2, calc(var(--key-size) * 0.5));
+                overflow: hidden;
+            }
+
+            .tf_adapter-body .tf_adapter-source {
+                display: grid;
+                width: var(--width, 16rem);
+                align-content: start;
+                background-color: var(--positive-color);
+                border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
+                overflow: hidden;
+            }
+
+            .tf_adapter-body .tf_adapter-preview {
+                display: grid;
+                grid-gap: var(--g-2, calc(var(--key-size) * 0.5));
+            }
+
+            .tf_adapter-body .tf_adapter-preview .tf_adapter-links,
+            .tf_adapter-body .tf_adapter-preview .tf_adapter-relation,
+            .tf_adapter-body .tf_adapter-error {
+                background-color: var(--positive-color);
+                border-radius: var(--rounded-2, calc(var(--key-size) * 0.25));
+            }
+            .tf_adapter-body .tf_adapter-error {
+                grid-column: 1/-1;
+                display: grid;
+                grid-template-rows: max-content;
+                grid-gap: var(--g-2, calc(var(--key-size) * 0.5));
+                max-height: 10rem;
+                padding: var(--p-2, calc(var(--key-size) * 0.5));
+                overflow-x: hidden;
+                overflow-y: auto;
+            }
+
+        </style>
+    </head>
+    <body class="tf_layout" tabindex="-1">
+        <div class="tf_layout-main p-2">
+            <div class="tf_adapter">
+                <div class="tf_adapter-top-panel">
+                    <div class="tf_adapter-header d-grid pb-2 g-2">
+
+                        <div class="tf_fh-inner-primary d-flex flex-wrap g-2">
+                            <div class="d-flex flex-grow-1 g-1">
+
+                                <div class="tf_drop-focus">
+                                    <button class="tf_btn tf_btn-transparent tf_btn-drop" data-pointer-position="after" data-drop-position="bottom right">
+                                        <i class="fas fa-database fa-fw"></i>
+                                    </button>
+                                    <div class="tf_drop-content">
+                                        <div class="d-grid g-1 bg-positive rounded p-1 shadow">
+                                            <button class="tf_btn tf_btn-sm tf_btn-transparent text-start home">
+                                                <i class="fas fa-plus-square fa-fw"></i> Создать
+                                            </button>
+                                            <div class="tf_drop-hover">
+                                                <button class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-drop w-100 text-start db-list-toggle" data-pointer-position="after" data-drop-position="right bottom">
+                                                    <i class="fas fa-folder-open fa-fw"></i> Загрузить
+                                                </button>
+                                                <div class="tf_drop-content">
+                                                    <div class="bg-positive rounded ml-1 p-1 shadow" tabindex="0">
+                                                        ...
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr class="my-0 w-100">
+                                            <div class="save-button d-inline-grid">
+                                                <div class="d-grid g-1">
+                                                    <div class="tf_drop-hover">
+                                                        <button class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-drop w-100 text-start" data-drop-position="right bottom" title="Сохранить">
+                                                            <i class="fas fa-save fa-fw"></i> Сохранить
+                                                        </button>
+                                                    </div>
+                                                    <div class="tf_drop-hover">
+                                                        <button class="tf_btn tf_btn-sm tf_btn-transparent tf_btn-drop w-100 text-start" data-pointer-position="after" data-drop-position="right bottom">
+                                                            <i class="fas fa-save fa-fw"></i> Сохранить как
+                                                        </button>
+                                                        <div class="tf_drop-content">
+                                                            <div class="bg-positive rounded ml-1 p-1 shadow" tabindex="0">
+                                                                ...
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr class="my-0 w-100">
+                                            <button class="tf_btn tf_btn-sm tf_btn-transparent text-start dash-delete">
+                                                <i class="fas fa-trash fa-fw"></i> Удалить
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tf_input-group flex-grow-1 position-relative my-auto">
+                                    <input id="inputTextDefault" class="tf_form-control bg-transparent fw-600" value="Название коннектора" type="text" placeholder="Название коннектора">
+                                </div>
+
+                            </div>
+
+
+                            <div class="ml-auto">
+                                <div class="d-grid grid-flow-col g-2">
+                                    <div class="save-changes">
+                                        <div class="d-grid g-1">
+                                            <div class="tf_drop-hover">
+                                                <button class="tf_btn tf_btn-transparent tf_btn-drop tf_btn-icon" data-drop-position="bottom center" title="Сохранить дашборд">
+                                                    <i class="fas fa-save fa-fw"></i>
+                                                </button>
+                                                <div class="tf_drop-content" style="--drop-content-width: 16rem; visibility: hidden;">
+                                                    <div class="d-grid bg-positive rounded ml-1 p-1 shadow" tabindex="0">
+                                                        <div class="rounded-1 text-positive bg-info p-2">
+                                                            <i class="fas fa-exclamation-circle fa-fw"></i> Сохранение невозможно
+                                                        </div>
+                                                        <div class="p-2">
+                                                            Перед сохранением введите название коннектора
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="my-1 border-left border-secondary"></div>
+                                    <button class="tf_btn tf_btn-transparent tf_btn-icon db-grid-settings" title="Настройки коннектора">
+                                        <i class="fas fa-cogs fa-rotate-180 fa-fw"></i>
+                                    </button>
+                                    <button class="tf_btn tf_btn-icon tf_btn-transparent db-styles" title="Периодическая загрузка">
+                                        <i class="fas fa-clock fa-fw"></i>
+                                    </button>
+                                    <button class="tf_btn tf_btn-transparent dash-change-mod" title="Режим просмотра загруженых таблиц">
+                                        <i class="fas fa-eye fa-fw"></i> Просмотр
+                                    </button>
+                                    <button class="tf_btn tf_btn-transparent" title="Перейти в режим анализа">
+                                        <i class="fas fa-pencil-ruler fa-fw"></i> Анализ
+                                    </button>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="tf_adapter-body">
+                    <div class="tf_adapter-source">
+                        <div class="d-grid g-2 p-2">
+                            <div class="d-flex g-1">
+                                <button class="tf_btn tf_btn-sm tf_btn-primary flex-grow-1 load-date">
+                                    <i class="fas fa-download fa-fw"></i> Загрузить данные
+                                </button>
+                                <div class="tf_drop-focus">
+                                    <!-- <button class="tf_btn tf_btn-sm tf_btn-primary tf_btn-drop" data-pointer-position="after" data-drop-position="bottom right"> -->
+                                    <button class="tf_btn tf_btn-sm tf_btn-icon tf_btn-primary tf_btn-drop" data-drop-position="bottom left">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <div class="tf_drop-content">
+                                        <div class="bg-positive rounded p-1 shadow">
+                                            <button class="tf_btn tf_btn-sm tf_btn-transparent text-start report-export">
+                                                <i class="fas fa--download fa-fw"></i> Только выбранную таблицу
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tf_btn-group">
+                                <div class="tf_drop-focus flex-grow-1">
+                                    <button class="tf_btn tf_btn-xs tf_btn-drop w-100" data-drop-position="bottom right">
+                                        <i class="fas fa-border-all"></i> Выбрать таблицы
+                                    </button>
+                                    <div class="tf_drop-content">
+                                        <div class="bg-positive rounded p-1 shadow">
+                                            ...
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="tf_btn tf_btn-xs tf_btn-icon" title="Добавить запрос">
+                                    <i class="fas fa-fw fa-plus"></i>
+                                </button>                                
+                                <button class="tf_btn tf_btn-xs tf_btn-icon add-tables-join" title="Задать правила соединения">
+                                    <i class="fas fa-fw fa-project-diagram fa-flip-vertical"></i>
+                                </button>                                
+                            </div>
+                        </div>
+
+                        <div class="w-100 border-bottom"></div>
+
+                        <div class="p-2 overflow-y-auto d-grid g-1">
+                            <div class="rounded-1 d-flex g-1 align-items-center bg-color-warning-l2 border border-warning tf_cursor-grab">
+                                <div class="flex-grow-1 pl-1 fs-sm">
+                                    CSV
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <div class="mr-2 fs-xs fw-700">
+                                        25
+                                    </div>
+                                    <button class="tf_btn tf_btn-xs tf_btn-icon tf_btn-transparent db-styles" title="Настройки">
+                                        <i class="fas fa-cog fa-fw"></i>
+                                    </button>
+                                    <button class="tf_btn tf_btn-xs tf_btn-icon tf_btn-transparent db-styles" title="Удалить">
+                                        <i class="fas fa-trash fa-fw"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="rounded-1 d-flex g-1 align-items-center bg-color-error-l2 border border-error tf_cursor-grab">
+                                <div class="flex-grow-1 pl-1 fs-sm">
+                                    CSV
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <div class="mr-2 fs-xs fw-700">
+                                        3
+                                    </div>
+                                    <button class="tf_btn tf_btn-xs tf_btn-icon tf_btn-transparent db-styles" title="Настройки">
+                                        <i class="fas fa-cog fa-fw"></i>
+                                    </button>
+                                    <button class="tf_btn tf_btn-xs tf_btn-icon tf_btn-transparent db-styles" title="Удалит">
+                                        <i class="fas fa-trash fa-fw"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tf_adapter-preview">
+                        <div class="tf_adapter-links d-none">
+                            _ Место связей
+                        </div>
+                        <div class="tf_adapter-relation">
+                            _ Место таблицы
+                        </div>
+                    </div>
+                    <div class="tf_adapter-error d-none">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1 text-error fw-600">
+                                <i class="fas fa-fw fa-exclamation-triangle"></i>
+                                Ошибки
+                            </div>
+                            <button class="tf_btn tf_btn-xs tf_btn-icon tf_btn-transparent extcont" title="Свернуть">
+                                <i class="fas fa-chevron-down fa-fw"></i>
+                            </button>
+                            <button class="tf_btn tf_btn-xs tf_btn-icon tf_btn-transparent extcont d-none" title="Развернуть">
+                                <i class="fas fa-chevron-up fa-fw"></i>
+                            </button>
+                        </div>
+                        <div class="overflow-x-hidden overflow-y-auto">
+                            <ul class="error_list mt-0 fs-sm">
+                                <li>
+                                    <b>test_virtual_big_table</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>test_periods</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>podrazdelenia</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>plan</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>payments</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>partners</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>organizations</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>order_lines</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>okruga</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>nomenklatura</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>native_periods_test</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>fsd91_01</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>factddscumsum</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>factdds</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>fact</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>clients</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>businessregions</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>Y009_old</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>Y009</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>U130_old</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>U130</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>Table</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>K1009</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>Sheet</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>K1008</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>K1007</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>K1003</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>K1001</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>GA01_old</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>GA01</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>G400</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>G400_old</b>
+                                    <ul>
+                                            <li>
+                                                    <div>[HY000] Error while executing the query (1) (SQLColumns)</div>
+                                            </li>
+                                    </ul>
+                                </li>
+                            </ul>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tf_layout-header">
+            <button class="tf_layout-aside-expander" tabindex="-1"><i class="fas fa-bars"></i></button>
+            <div class="d-none l:d:d-flex text-nowrap overflow-hidden py-1">
+                Коннекторы (редактирование)
+            </div>
+        </div>
+        <div class="tf_layout-aside">
+            <div class="tf_aside-fader">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="tf_aside-navbar">
+                <div class="tf_navbar-item tf_navbar-item--active">
+                    <div class="tf_item-hover"></div>
+                    <div class="tf_item-active"></div>
+                    <a class="tf_item-identicon" href="#"><i class="fas fa-database"></i></a>
+                    <a class="tf_item-title" href="#">Коннекторы</a>
+                    <a class="tf_item-actioncon" href="#"><i class="fas fa-plus"></i></a>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="../js/layout.js"></script>
+    <script src="../js/ui-drops.js"></script>
+    <script>
+        $( ".add-tables-join" ).on( "click", function() {
+            $(".tf_adapter-links").toggleClass("d-none")
+            $(".add-tables-join").toggleClass("active")
+        });
+        $( ".load-date" ).on( "click", function() {
+            $(".tf_adapter-error").toggleClass("d-none")
+        });
+        $( ".extcont" ).on( "click", function() {
+            $(".overflow-x-hidden.overflow-y-auto").toggleClass("d-none")
+            $(".extcont").toggleClass("d-none")
+        });
+    </script>
+
+</html>

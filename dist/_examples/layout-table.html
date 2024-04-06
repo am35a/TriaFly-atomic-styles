@@ -16,6 +16,7 @@
 
             }
 
+            /*
             .tf_sand {
                 display: grid;
                 grid-gap: var(--key-size);
@@ -65,29 +66,34 @@
             .tf_table-striped-rows > tbody > tr:nth-of-type(odd) > * {
                 --table-cell-bg-color: rgba(0, 0, 0, .05);
             }
-            .tf_table-striped-columns > tbody > tr > :nth-child(even) {
+            .tf_table-striped-cols > tbody > tr > :nth-child(even) {
                 --table-cell-bg-color: rgba(0, 0, 0, .05);
+            }
+
+            .tf_table-hover-cell > tbody td:hover {
+                background-color: rgba(0, 0, 0, .05);
             }
 
             .tf_table-hover-rows > tbody > tr:hover > * {
                 --table-cell-bg-color: rgba(0, 0, 0, .05);
             
             }
-            /* .tf_table-hover-rows:not(.tf_table-hover-columns) > tbody > * > :hover {
+            /* .tf_table-hover-rows:not(.tf_table-hover-cols) > tbody > * > :hover {
                 --table-cell-bg-color: rgba(0, 0, 0, .075);
             }
-            .tf_table-hover-columns:not(.tf_table-hover-rows) > tbody > * > :hover {
+            .tf_table-hover-cols:not(.tf_table-hover-rows) > tbody > * > :hover {
                 --table-cell-bg-color: rgba(0, 0, 0, .05);
             } */
-            .tf_table-hover-columns {
+            /*
+            .tf_table-hover-cols {
                 z-index: 1;
                 position: relative;
                 overflow: hidden;
             }
-            .tf_table-hover-columns > tbody > * > * {
+            .tf_table-hover-cols > tbody > * > * {
                 position: relative;
             }
-            .tf_table-hover-columns > tbody > tr > :hover::after {
+            .tf_table-hover-cols > tbody > tr > :hover::after {
                 background-color: rgba(0, 0, 0, .05);
                 content: ' ';
                 z-index: -1;
@@ -97,7 +103,7 @@
                 top: -5000px;
                 width: 100%;
             }
-
+            */
         </style>
     </head>
     <body class="tf_layout">
@@ -110,6 +116,61 @@
                     <div class="px-2 py-1 mb-4 shadow rounded">
 
                         <table class="tf_table">
+                            <!-- table header-->
+                            <thead>
+                              <tr>
+                                <th class="text-center">#</th>
+                                <th class="text-center">First col</th>
+                                <th class="text-center">Second coll</th>
+                                <th class="text-center">Last coll</th>
+                              </tr>
+                            </thead>
+    
+                            <!-- table body -->
+                            <tbody>
+                              <tr>
+                                <th class="text-center">1</th>
+                                <td class="text-center">51345</td>
+                                <td class="text-center">Lorem ipsum dolor.</td>
+                                <td class="text-center">Alias perferendis.</td>
+                              </tr>
+                              <tr>
+                                <th class="text-center" rowspan="2">2</th>
+                                <td class="text-center" rowspan="2">98347</td>
+                                <td class="text-center" colspan="2">A sit amet consectetur.</td>
+                                <!-- <td>Aperiam quam dolor.</td> -->
+                              </tr>
+                              <tr>
+                                <!-- <th class="text-center">2</th> -->
+                                <!-- <td class="text-center">98347</td> -->
+                                <td class="text-center">fugiat nisi harum sit.</td>
+                                <td class="text-center">Arerum quibusdam nostrum.</td>
+                              </tr>
+                              <tr>
+                                <th class="text-center">3</th>
+                                <td class="text-center">12098</td>
+                                <td class="text-center">...</td>
+                                <td class="text-center"> Unde numquam rem.</td>
+                              </tr>
+                            </tbody>
+
+                            <!--  -->
+                            <tfoot>
+                                <tr>
+                                    <th class="text-center">=</th>
+                                    <td class="text-center">161790</td>
+                                    <th class="text-center">Yes</th>
+                                    <th class="text-center">No</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                    </div>
+
+                    <div class="p-1 fw-600">table hover cell</div>
+                    <div class="px-2 py-1 mb-4 shadow rounded">
+
+                        <table class="tf_table tf_table-hover-cell">
                             <!-- table header-->
                             <thead>
                               <tr>
@@ -216,7 +277,7 @@
 
                     <div class="p-1 fw-600">table hover columns</div>
                     <div class="px-2 py-1 mb-4 shadow rounded">
-                        <table class="tf_table tf_table-hover-columns">
+                        <table class="tf_table tf_table-hover-cols">
                             <!-- table header-->
                             <thead>
                               <tr>
@@ -269,7 +330,7 @@
 
                     <div class="p-1 fw-600">table hover</div>
                     <div class="px-2 py-1 mb-4 shadow rounded">
-                        <table class="tf_table tf_table-hover-rows tf_table-hover-columns">
+                        <table class="tf_table tf_table-hover-rows tf_table-hover-cols">
                             <!-- table header-->
                             <thead>
                               <tr>
@@ -376,7 +437,7 @@
 
                     <div class="p-1 fw-600">table striped columns</div>
                     <div class="px-2 py-1 mb-4 shadow rounded">
-                        <table class="tf_table tf_table-striped-columns">
+                        <table class="tf_table tf_table-striped-cols">
                             <!-- table header-->
                             <thead>
                               <tr>
